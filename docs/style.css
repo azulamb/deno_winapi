@@ -1,0 +1,111 @@
+:root {
+	--header: rgba(127, 127, 255, 0.6);
+	--exists: rgba(127, 127, 255, 0.3);
+	--odd: rgba(0, 0, 0, 0.05);
+	--even: rgba(0, 0, 0, 0.1);
+}
+
+html {
+	min-height: 100%;
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 1rem 1rem 3rem;
+	position: relative;
+	box-sizing: border-box;
+}
+
+h1 {
+	margin: 0;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+dl {
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto;
+	grid-template-rows: auto auto;
+	gap: 0.2rem;
+}
+
+dt {
+	text-align: right;
+}
+
+dt::after {
+	content: ':';
+}
+
+dd {
+	margin: 0;
+}
+
+dd.rate::after {
+	content: '%';
+}
+
+#option {
+	display: flex;
+	justify-content: right;
+}
+
+thead {
+	background-color: var(--header);
+}
+
+tbody:nth-child(odd) {
+	background: var(--odd);
+}
+
+tbody:nth-child(even) {
+	background: var(--even);
+}
+
+tbody > tr:first-child > td:first-child {
+	vertical-align: top;
+}
+
+tbody.exists > tr:first-child > td:first-child {
+	background-color: var(--exists);
+}
+
+tbody > tr > td:last-child > a::before {
+	content: 'URL';
+}
+
+td.exists {
+	background-color: var(--exists);
+}
+
+label {
+	user-select: none;
+}
+
+body.implemented tbody:not(.exists) {
+	display: none;
+}
+
+footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 3rem;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+footer a {
+	text-decoration: none;
+}

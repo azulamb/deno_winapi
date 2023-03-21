@@ -1,0 +1,28 @@
+{
+	"tasks": {
+		"report": "deno run --allow-run --allow-read --allow-write --allow-ffi --unstable tools/report.ts",
+		"build": "deno compile --allow-ffi --unstable --output sample/sample.exe sample/sample.ts",
+		"sample": "deno run --allow-ffi --unstable sample/sample.ts"
+	},
+	"lint": {
+		"files": {
+			"include": ["./sample", "./src", "./tools", "mod.ts"]
+		},
+		"rules": {
+			"tags": ["recommended"],
+			"include": [],
+			"exclude": ["require-await"]
+		}
+	},
+	"fmt": {
+		"files": {
+			"include": ["./sample", "./src", "./tools", "mod.ts"]
+		},
+		"options": {
+			"useTabs": true,
+			"indentWidth": 4,
+			"lineWidth": 160,
+			"singleQuote": true
+		}
+	}
+}
