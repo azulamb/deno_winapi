@@ -2,6 +2,10 @@
 
 `winapi` is WindowsAPI wrapper.
 
+API list.
+
+https://azulamb.github.io/deno_winapi/
+
 ## Exec
 
 Need option: `--allow-ffi` `--unstable`
@@ -11,7 +15,7 @@ Example: `deno run --allow-ffi --unstable ./sample/sample.ts`
 ## Sample.
 
 * Create window.
-  * [./sample/sample.ts](sample.ts)
+  * [sample.ts](./sample/sample.ts)
 
 ## tools
 
