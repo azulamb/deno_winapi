@@ -4,6 +4,7 @@ export const winTypes: { [key in WIN_TYPES]: SafeNativeTypeMap[key] } = {
 	ATOM: 'u16',
 	BOOL: 'i32',
 	DWORD: 'i32',
+	ENUMRESTYPEPROCW: 'pointer',
 	HBRUSH: 'pointer',
 	HCURSOR: 'pointer',
 	HICON: 'pointer',
@@ -12,11 +13,14 @@ export const winTypes: { [key in WIN_TYPES]: SafeNativeTypeMap[key] } = {
 	HMENU: 'pointer',
 	HWND: 'pointer',
 	int: 'i32',
+	LANGID: 'u16',
 	LONG: 'i64',
+	LONG_PTR: 'pointer',
 	LPARAM: 'pointer',
 	LPCWSTR: 'pointer',
 	LPMSG: 'pointer',
 	LPVOID: 'pointer',
+	LPWSTR: 'pointer',
 	LRESULT: 'pointer',
 	UINT: 'u32',
 	WNDCLASSEXW: 'pointer',
@@ -94,65 +98,64 @@ export const constant = {
 	CW_USEDEFAULT: -2147483648, // CW_USEDEFAULT = 0x80000000
 };
 
-export class Converter {
+function Pointer<T>(pointer: Deno.PointerValue): T {
+	return <T> Converter.pointer(pointer);
+}
+
+export const Converter = {
 	// FFI to JS
-	static pointer(pointer: Deno.PointerValue): LPVOID {
-		return BigInt(pointer);
-	}
+	pointer: (pointer: Deno.PointerValue): LPVOID => {
+		return pointer;
+	},
 
 	// Windows types to JS
-	static ATOM(value: number) {
+	ATOM: (value: number): number => {
 		// TODO: convert u16
 		return value;
-	}
+	},
 
-	static BOOL(value: number) {
+	BOOL: (value: number): boolean => {
 		return value !== 0;
-	}
+	},
 
-	static DWORD(value: number) {
+	DWORD: (value: number): number => {
 		// TODO: convert i32
 		return value;
-	}
+	},
 
-	static HMODULE(pointer: Deno.PointerValue): HMODULE {
-		return this.pointer(pointer);
-	}
+	HMODULE: Pointer<HMODULE>,
 
-	static HWND(pointer: Deno.PointerValue): HWND {
-		return this.pointer(pointer);
-	}
+	HWND: Pointer<HWND>,
 
-	static int(value: number) {
+	int: (value: number): number => {
 		// TODO: convert i32
 		return value;
-	}
+	},
 
-	static LPARAM(pointer: Deno.PointerValue): LPARAM {
-		return this.pointer(pointer);
-	}
+	LANGID: (value: number): number => {
+		// TODO: convert u16
+		return value;
+	},
 
-	static LPMSG(pointer: Deno.PointerValue): LPMSG {
-		return this.pointer(pointer);
-	}
+	LONG_PTR: Pointer<LONG_PTR>,
 
-	static LRESULT(pointer: Deno.PointerValue): LRESULT {
-		return this.pointer(pointer);
-	}
+	LPARAM: Pointer<LPARAM>,
 
-	static LPWNDCLASSEXW(pointer: Deno.PointerValue): LPWNDCLASSEXW {
-		return this.pointer(pointer);
-	}
+	LPMSG: Pointer<LPMSG>,
 
-	static UINT(value: number) {
+	LPWSTR: Pointer<LPWSTR>,
+
+	LRESULT: Pointer<LRESULT>,
+
+	LPWNDCLASSEXW: Pointer<LPWNDCLASSEXW>,
+
+	UINT: (value: number) => {
 		// TODO: convert u32
 		return value;
-	}
+	},
 
-	static WPARAM(pointer: Deno.PointerValue): WPARAM {
-		return this.pointer(pointer);
-	}
-}
+	WPARAM: Pointer<WPARAM>,
+};
 
 // lib.deno.unstable.d.ts
 export interface ForeignFunction<T extends SafeNativeType | 'void', A extends readonly SafeNativeType[]> extends Deno.ForeignFunction {

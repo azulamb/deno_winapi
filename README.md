@@ -6,6 +6,11 @@ API list.
 
 https://azulamb.github.io/deno_winapi/
 
+## Develop
+
+* Deno
+  * `1.31.3`
+
 ## Exec
 
 Need option: `--allow-ffi` `--unstable`

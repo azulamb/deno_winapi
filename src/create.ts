@@ -1,5 +1,6 @@
 import { Message } from './structs/message.ts';
 import { WindowClassEx } from './structs/window_class_ex.ts';
+import { macro } from './libs/macro.ts';
 
 export const Create = {
 	stringPointer: (value: string): LPCWSTR => {
@@ -8,7 +9,19 @@ export const Create = {
 				return c.charCodeAt(0);
 			}),
 		);
-		return BigInt(Deno.UnsafePointer.of(buffer));
+		return Deno.UnsafePointer.of(buffer);
+	},
+
+	rawPointer: (pointer: Deno.PointerValue): bigint => {
+		return BigInt(Deno.UnsafePointer.value(pointer));
+	},
+
+	pointer: (rawPointer: bigint): Deno.PointerValue => {
+		return Deno.UnsafePointer.create(rawPointer);
+	},
+
+	makeLangId: (primary: WORD = 0, sub: WORD = 0): LANGID => {
+		return macro.MAKELANGID(primary, sub);
 	},
 
 	windowClassEx: () => {

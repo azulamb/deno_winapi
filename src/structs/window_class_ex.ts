@@ -5,16 +5,16 @@ import { Converter, winTypeSizes } from '../win_types.ts';
 type WindowClassExProps = {
 	cbSize: number;
 	style: number;
-	lpfnWndProc: Deno.PointerValue;
+	lpfnWndProc: WNDPROC;
 	cbClsExtra: number;
 	cbWndExtra: number;
-	hInstance: Deno.PointerValue;
-	hIcon: Deno.PointerValue;
-	hCursor: Deno.PointerValue;
-	hbrBackground: Deno.PointerValue;
-	lpszMenuName: Deno.PointerValue;
-	lpszClassName: Deno.PointerValue;
-	hIconSm: Deno.PointerValue;
+	hInstance: HINSTANCE;
+	hIcon: HICON;
+	hCursor: HCURSOR;
+	hbrBackground: HBRUSH;
+	lpszMenuName:LPCWSTR;
+	lpszClassName: LPCWSTR;
+	hIconSm: HICON;
 };
 
 /**
@@ -104,11 +104,11 @@ export class WindowClassEx implements WindowsStruct<LPWNDCLASSEXW>, WindowClassE
 		this.dataView.setUint32(this.offset.style, value, this.endian);
 	}
 
-	get lpfnWndProc() {
-		return this.dataView.getBigUint64(this.offset.lpfnWndProc, this.endian);
+	get lpfnWndProc(): WNDPROC {
+		return Create.pointer(this.dataView.getBigUint64(this.offset.lpfnWndProc, this.endian));
 	}
 	set lpfnWndProc(value) {
-		this.dataView.setBigUint64(this.offset.lpfnWndProc, value, this.endian);
+		this.dataView.setBigUint64(this.offset.lpfnWndProc, Create.rawPointer(value), this.endian);
 	}
 	public setWindowProcedure(
 		func: (
@@ -129,7 +129,7 @@ export class WindowClassEx implements WindowsStruct<LPWNDCLASSEXW>, WindowClassE
 				return <LRESULT> func(Converter.HWND(hWnd), Msg, Converter.WPARAM(wParam), Converter.LPARAM(lParam));
 			},
 		);
-		this.lpfnWndProc = BigInt(callback.pointer);
+		this.lpfnWndProc = callback.pointer;
 		return this;
 	}
 
@@ -148,59 +148,57 @@ export class WindowClassEx implements WindowsStruct<LPWNDCLASSEXW>, WindowClassE
 	}
 
 	get hInstance() {
-		return this.dataView.getBigUint64(this.offset.hInstance, this.endian);
+		return Create.pointer(this.dataView.getBigUint64(this.offset.hInstance, this.endian));
 	}
 	set hInstance(value) {
-		this.dataView.setBigUint64(this.offset.hInstance, value, this.endian);
+		this.dataView.setBigUint64(this.offset.hInstance, Create.rawPointer(value), this.endian);
 	}
 
 	get hIcon() {
-		return this.dataView.getBigUint64(this.offset.hIcon, this.endian);
+		return Create.pointer(this.dataView.getBigUint64(this.offset.hIcon, this.endian));
 	}
 	set hIcon(value) {
-		this.dataView.setBigUint64(this.offset.hIcon, value, this.endian);
+		this.dataView.setBigUint64(this.offset.hIcon, Create.rawPointer(value), this.endian);
 	}
 
 	get hCursor() {
-		return this.dataView.getBigUint64(this.offset.hCursor, this.endian);
+		return Create.pointer(this.dataView.getBigUint64(this.offset.hCursor, this.endian));
 	}
 	set hCursor(value) {
-		this.dataView.setBigUint64(this.offset.hCursor, value, this.endian);
+		this.dataView.setBigUint64(this.offset.hCursor, Create.rawPointer(value), this.endian);
 	}
 
 	get hbrBackground() {
-		return this.dataView.getBigUint64(this.offset.hbrBackground, this.endian);
+		return Create.pointer(this.dataView.getBigUint64(this.offset.hbrBackground, this.endian));
 	}
 	set hbrBackground(value) {
-		this.dataView.setBigUint64(this.offset.hbrBackground, value, this.endian);
+		this.dataView.setBigUint64(this.offset.hbrBackground, Create.rawPointer(value), this.endian);
 	}
 
 	get lpszMenuName() {
-		return this.dataView.getBigUint64(this.offset.lpszMenuName, this.endian);
+		return Create.pointer(this.dataView.getBigUint64(this.offset.lpszMenuName, this.endian));
 	}
 	set lpszMenuName(value) {
-		this.dataView.setBigUint64(this.offset.lpszMenuName, BigInt(value), this.endian);
+		this.dataView.setBigUint64(this.offset.lpszMenuName, Create.rawPointer(value), this.endian);
 	}
 	public setMenuName(name: string) {
-		const stringPtr = Create.stringPointer(name);
-		this.lpszMenuName = BigInt(stringPtr);
+		this.lpszMenuName = Create.stringPointer(name);
 	}
 
 	get lpszClassName() {
-		return this.dataView.getBigUint64(this.offset.lpszClassName, this.endian);
+		return Create.pointer(this.dataView.getBigUint64(this.offset.lpszClassName, this.endian));
 	}
 	set lpszClassName(value) {
-		this.dataView.setBigUint64(this.offset.lpszClassName, BigInt(value), this.endian);
+		this.dataView.setBigUint64(this.offset.lpszClassName, Create.rawPointer(value), this.endian);
 	}
 	public setClassName(name: string) {
-		const stringPtr = Create.stringPointer(name);
-		this.lpszClassName = BigInt(stringPtr);
+		this.lpszClassName = Create.stringPointer(name);
 	}
 
 	get hIconSm() {
-		return this.dataView.getBigUint64(this.offset.hIconSm, this.endian);
+		return Create.pointer(this.dataView.getBigUint64(this.offset.hIconSm, this.endian));
 	}
 	set hIconSm(value) {
-		this.dataView.setBigUint64(this.offset.hIconSm, value, this.endian);
+		this.dataView.setBigUint64(this.offset.hIconSm, Create.rawPointer(value), this.endian);
 	}
 }
