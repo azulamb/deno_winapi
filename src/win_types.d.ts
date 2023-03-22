@@ -3,6 +3,7 @@ type WIN_TYPES =
 	| 'ATOM'
 	| 'BOOL'
 	| 'DWORD'
+	| 'ENUMRESTYPEPROCW'
 	| 'HBRUSH'
 	| 'HCURSOR'
 	| 'HICON'
@@ -11,11 +12,14 @@ type WIN_TYPES =
 	| 'HMODULE'
 	| 'HWND'
 	| 'int'
+	| 'LANGID'
 	| 'LONG'
+	| 'LONG_PTR'
 	| 'LPARAM'
 	| 'LPCWSTR'
 	| 'LPMSG'
 	| 'LPVOID'
+	| 'LPWSTR'
 	| 'LRESULT'
 	| 'UINT'
 	| 'WNDCLASSEXW'
@@ -23,20 +27,30 @@ type WIN_TYPES =
 	| 'WPARAM';
 
 type ATOM = number;
+type BOOL = number;
 type DWORD = number;
+type ENUMRESTYPEPROCW = LPVOID;
 type int = number;
+type HBRUSH = LPVOID;
+type HCURSOR = LPVOID;
+type HICON = LPVOID;
 type HINSTANCE = LPVOID;
 type HMENU = LPVOID;
 type HMODULE = LPVOID;
 type HWND = LPVOID;
+type LANGID = number;
+type LONG_PTR = LPVOID;
 type LPARAM = LPVOID;
 type LPCWSTR = LPVOID;
 type LPMSG = LPVOID;
-type LPVOID = bigint;
-type LPWNDCLASSEXW = bigint;
+type LPVOID = Deno.PointerValue;
+type LPWNDCLASSEXW = LPVOID;
+type LPWSTR = LPVOID;
 type LRESULT = LPVOID;
 type UINT = number;
+type WNDPROC = LPVOID;
 type WPARAM = LPVOID;
+type WORD = number;
 
 type SafeNativeType = Exclude<Deno.NativeType, { readonly struct: readonly Deno.NativeType[] }>;
 
@@ -45,6 +59,7 @@ interface SafeNativeTypeMap {
 	ATOM: 'u16';
 	BOOL: 'i32';
 	DWORD: 'i32';
+	ENUMRESTYPEPROCW: 'pointer';
 	HBRUSH: 'pointer';
 	HCURSOR: 'pointer';
 	HICON: 'pointer';
@@ -53,11 +68,14 @@ interface SafeNativeTypeMap {
 	HMENU: 'pointer';
 	HWND: 'pointer';
 	int: 'i32';
+	LANGID: 'u16';
 	LONG: 'i64';
+	LONG_PTR: 'pointer';
 	LPARAM: 'pointer';
 	LPCWSTR: 'pointer';
 	LPMSG: 'pointer';
 	LPVOID: 'pointer';
+	LPWSTR: 'pointer';
 	LRESULT: 'pointer';
 	UINT: 'u32';
 	WNDCLASSEXW: 'pointer';
