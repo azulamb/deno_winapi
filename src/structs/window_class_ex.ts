@@ -1,18 +1,19 @@
+import {} from '../win_types.d.ts'
 import { Create } from '../create.ts';
 import { callbackFunctions } from '../libs/user.ts';
-import { Converter, winTypeSizes } from '../win_types.ts';
+import { Converter, winTypeSizes, winTypes, ForeignFunction } from '../win_types.ts';
 
 type WindowClassExProps = {
-	cbSize: number;
-	style: number;
+	cbSize: UINT;
+	style: UINT;
 	lpfnWndProc: WNDPROC;
-	cbClsExtra: number;
-	cbWndExtra: number;
+	cbClsExtra: int;
+	cbWndExtra: int;
 	hInstance: HINSTANCE;
 	hIcon: HICON;
 	hCursor: HCURSOR;
 	hbrBackground: HBRUSH;
-	lpszMenuName:LPCWSTR;
+	lpszMenuName: LPCWSTR;
 	lpszClassName: LPCWSTR;
 	hIconSm: HICON;
 };
@@ -53,6 +54,7 @@ export class WindowClassEx implements WindowsStruct<LPWNDCLASSEXW>, WindowClassE
 	protected dataView: DataView;
 	protected dataPointer: LPWNDCLASSEXW;
 	public endian?: boolean;
+	protected callback?: Deno.UnsafeCallback<ForeignFunction<'pointer', ['pointer', 'u32', 'pointer', 'pointer']>>;
 
 	constructor() {
 		const types: (keyof WindowClassExProps)[] = [
@@ -108,28 +110,38 @@ export class WindowClassEx implements WindowsStruct<LPWNDCLASSEXW>, WindowClassE
 		return Create.pointer(this.dataView.getBigUint64(this.offset.lpfnWndProc, this.endian));
 	}
 	set lpfnWndProc(value) {
+		if(!value) {
+			this.closeWindowProcedure();
+		}
 		this.dataView.setBigUint64(this.offset.lpfnWndProc, Create.rawPointer(value), this.endian);
 	}
 	public setWindowProcedure(
 		func: (
 			hWnd: HWND,
-			Msg: number,
+			Msg: UINT,
 			wParam: WPARAM,
 			lParam: LPARAM,
 		) => LRESULT,
 	) {
-		const callback = new Deno.UnsafeCallback(
+		this.closeWindowProcedure();
+		this.callback = new Deno.UnsafeCallback(
 			callbackFunctions.DefWindowProcW,
 			(
-				hWnd: Deno.PointerValue,
-				Msg: number,
-				wParam: Deno.PointerValue,
-				lParam: Deno.PointerValue,
+				hWnd: HWND,
+				Msg: UINT,
+				wParam: WPARAM,
+				lParam: LPARAM,
 			) => {
 				return <LRESULT> func(Converter.HWND(hWnd), Msg, Converter.WPARAM(wParam), Converter.LPARAM(lParam));
 			},
 		);
-		this.lpfnWndProc = callback.pointer;
+		this.lpfnWndProc = this.callback.pointer;
+		return this;
+	}
+	public closeWindowProcedure() {
+		if(this.callback) {
+			this.callback.close();
+		}
 		return this;
 	}
 

@@ -1,3 +1,4 @@
+import { Create } from "../create.ts";
 import { Converter, winTypeSizes } from '../win_types.ts';
 
 interface TagPointProps {
@@ -68,10 +69,10 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
 	}
 
 	get hwnd() {
-		return this.dataView.getBigUint64(this.offset.hwnd, this.endian);
+		return Create.pointer(this.dataView.getBigUint64(this.offset.hwnd, this.endian));
 	}
 	set hwnd(value) {
-		this.dataView.setBigUint64(this.offset.hwnd, value, this.endian);
+		this.dataView.setBigUint64(this.offset.hwnd, Create.rawPointer(value), this.endian);
 	}
 
 	get message() {
@@ -82,17 +83,17 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
 	}
 
 	get wParam() {
-		return this.dataView.getBigUint64(this.offset.wParam, this.endian);
+		return Create.pointer(this.dataView.getBigUint64(this.offset.wParam, this.endian));
 	}
 	set wParam(value) {
-		this.dataView.setBigUint64(this.offset.wParam, value, this.endian);
+		this.dataView.setBigUint64(this.offset.wParam, Create.rawPointer(value), this.endian);
 	}
 
 	get lParam() {
-		return this.dataView.getBigUint64(this.offset.lParam, this.endian);
+		return Create.pointer(this.dataView.getBigUint64(this.offset.lParam, this.endian));
 	}
 	set lParam(value) {
-		this.dataView.setBigUint64(this.offset.lParam, value, this.endian);
+		this.dataView.setBigUint64(this.offset.lParam, Create.rawPointer(value), this.endian);
 	}
 
 	get time() {

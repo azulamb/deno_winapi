@@ -2,11 +2,12 @@
 	"tasks": {
 		"report": "deno run --allow-run --allow-read --allow-write --allow-ffi --unstable tools/report.ts",
 		"build": "deno compile --allow-ffi --unstable --output sample/sample.exe sample/sample.ts",
-		"sample": "deno run --allow-ffi --unstable sample/sample.ts"
+		"sample": "deno run --allow-ffi --unstable sample/sample.ts",
+		"tests": "deno test --allow-ffi --unstable tests/"
 	},
 	"lint": {
 		"files": {
-			"include": ["./sample", "./src", "./tools", "mod.ts"]
+			"include": ["./sample", "./src", "./tests", "./tools", "mod.ts"]
 		},
 		"rules": {
 			"tags": ["recommended"],
@@ -16,7 +17,7 @@
 	},
 	"fmt": {
 		"files": {
-			"include": ["./sample", "./src", "./tools", "mod.ts"]
+			"include": ["./sample", "./src", "./tests", "./tools", "mod.ts"]
 		},
 		"options": {
 			"useTabs": true,

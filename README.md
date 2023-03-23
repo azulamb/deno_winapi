@@ -10,6 +10,8 @@ https://azulamb.github.io/deno_winapi/
 
 * Deno
   * `1.31.3`
+* Command
+  * `deno task tests`
 
 ## Exec
 
@@ -17,12 +19,12 @@ Need option: `--allow-ffi` `--unstable`
 
 Example: `deno run --allow-ffi --unstable ./sample/sample.ts`
 
-## Sample.
+## Sample
 
 * Create window.
   * [sample.ts](./sample/sample.ts)
 
-## tools
+## Tools
 
 * `deno task report`
   * Generate `docs/*.json` and `docs/*.html`
