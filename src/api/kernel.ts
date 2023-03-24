@@ -1,5 +1,5 @@
-import { kernel } from '../libs/kernel.ts';
-import { Converter, winTypes } from '../win_types.ts';
+import { kernel, callbackFunctions } from '../libs/kernel.ts';
+import { Converter } from '../win_types.ts';
 
 export class Kernel {
 	public libs = kernel;
@@ -24,18 +24,11 @@ export class Kernel {
 		if (typeof lpEnumFunc === 'function') {
 			const func = lpEnumFunc;
 			const callback = new Deno.UnsafeCallback(
-				{
-					parameters: [
-						winTypes.HMODULE, // [in, optional] HMODULE hModule
-						winTypes.LPWSTR, // LPWSTR lpType,
-						winTypes.LONG_PTR, // [in] LONG_PTR lParam
-					],
-					result: winTypes.BOOL,
-				},
+				callbackFunctions.EnumResTypeProW,
 				(
-					hModule: Deno.PointerValue,
-					lpType: Deno.PointerValue,
-					lParam: Deno.PointerValue,
+					hModule: HMODULE,
+					lpType: LPWSTR,
+					lParam: LONG_PTR,
 				) => {
 					return func(Converter.HMODULE(hModule), Converter.LPWSTR(lpType), Converter.LONG_PTR(lParam));
 				},

@@ -1,7 +1,6 @@
-import {} from '../win_types.d.ts'
 import { Create } from '../create.ts';
 import { callbackFunctions } from '../libs/user.ts';
-import { Converter, winTypeSizes, winTypes, ForeignFunction } from '../win_types.ts';
+import { Converter, ForeignFunction, winTypeSizes } from '../win_types.ts';
 
 type WindowClassExProps = {
 	cbSize: UINT;
@@ -110,8 +109,10 @@ export class WindowClassEx implements WindowsStruct<LPWNDCLASSEXW>, WindowClassE
 		return Create.pointer(this.dataView.getBigUint64(this.offset.lpfnWndProc, this.endian));
 	}
 	set lpfnWndProc(value) {
-		if(!value) {
-			this.closeWindowProcedure();
+		if (!value) {
+			if (this.callback) {
+				this.callback.close();
+			}
 		}
 		this.dataView.setBigUint64(this.offset.lpfnWndProc, Create.rawPointer(value), this.endian);
 	}
@@ -139,9 +140,7 @@ export class WindowClassEx implements WindowsStruct<LPWNDCLASSEXW>, WindowClassE
 		return this;
 	}
 	public closeWindowProcedure() {
-		if(this.callback) {
-			this.callback.close();
-		}
+		this.lpfnWndProc = null;
 		return this;
 	}
 

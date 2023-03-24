@@ -1,4 +1,21 @@
-import { winTypes } from '../win_types.ts';
+import { ForeignFunction, winTypes } from '../win_types.ts';
+
+export const callbackFunctions: {
+	EnumResTypeProW: ForeignFunction<
+		SafeNativeTypeMap['BOOL'],
+		[SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']]
+	>;
+} = {
+	EnumResTypeProW: {
+		parameters: [
+			winTypes.HMODULE, // [in, optional] HMODULE hModule
+			winTypes.LPWSTR, // LPWSTR lpType,
+			winTypes.LONG_PTR, // [in] LONG_PTR lParam
+		],
+		result: winTypes.BOOL,
+		nonblocking: false,
+	},
+};
 
 export const kernel = Deno.dlopen(
 	'kernel32.dll',

@@ -9,7 +9,7 @@ https://azulamb.github.io/deno_winapi/
 ## Develop
 
 * Deno
-  * `1.31.3`
+  * `1.32.1`
 * Command
   * `deno task tests`
 

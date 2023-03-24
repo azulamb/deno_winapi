@@ -1,4 +1,4 @@
-import { Create } from "../create.ts";
+import { Create } from '../create.ts';
 import { Converter, winTypeSizes } from '../win_types.ts';
 
 interface TagPointProps {

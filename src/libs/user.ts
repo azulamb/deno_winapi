@@ -1,7 +1,10 @@
 import { ForeignFunction, winTypes } from '../win_types.ts';
 
 export const callbackFunctions: {
-	DefWindowProcW: ForeignFunction<SafeNativeTypeMap['LRESULT'], ['pointer', 'u32', 'pointer', 'pointer']>;
+	DefWindowProcW: ForeignFunction<
+		SafeNativeTypeMap['LRESULT'],
+		[SafeNativeTypeMap['HWND'], SafeNativeTypeMap['UINT'], SafeNativeTypeMap['WPARAM'], SafeNativeTypeMap['LPARAM']]
+	>;
 } = {
 	DefWindowProcW: {
 		parameters: [

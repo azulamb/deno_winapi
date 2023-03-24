@@ -1,3 +1,5 @@
+import {} from './win_types.d.ts';
+
 // https://deno.land/manual/runtime/ffi_api#supported-types
 export const winTypes: { [key in WIN_TYPES]: SafeNativeTypeMap[key] } = {
 	_POINTER: 'pointer',
