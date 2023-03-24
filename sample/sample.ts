@@ -44,7 +44,6 @@ const windowHandle = winApi.user.CreateWindowEx(
 if (!windowHandle) {
 	throw new Error(`Failure CreateWindowEx. [GetLastError=${winApi.kernel.GetLastError()}]`);
 }
-console.log(windowHandle);
 
 if (!winApi.kernel.FreeConsole()) {
 	Deno.exit(0);

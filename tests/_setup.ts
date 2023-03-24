@@ -5,12 +5,13 @@ function RandomNumber(min: number, max: number) {
 		min: min,
 		mas: max,
 		random: () => {
-			return Math.floor( Math.random() * (max - min) ) + min;
+			return Math.floor(Math.random() * (max - min)) + min;
 		},
 	};
 }
 
 export const values = {
+	i32: RandomNumber(-2147483648, 0x7fffffff),
 	u32: RandomNumber(0, 0xffffffff),
 	pointer: {
 		create: (rawPointer?: bigint) => {
