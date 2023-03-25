@@ -1,5 +1,5 @@
 import { Create } from '../create.ts';
-import { Converter, winTypeSizes } from '../win_types.ts';
+import { Converter, WinTypes } from '../win_types.ts';
 
 interface MessageProps {
 	hwnd: HWND;
@@ -22,13 +22,13 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
 		lPrivate: 0,
 	};
 	protected size: { [key in keyof MessageProps]: number } = {
-		hwnd: winTypeSizes.HWND,
-		message: winTypeSizes.UINT,
-		wParam: winTypeSizes.WPARAM,
-		lParam: winTypeSizes.LPARAM,
-		time: winTypeSizes.DWORD,
-		pt: winTypeSizes.LONG * 2, // POINT TagPointProps
-		lPrivate: winTypeSizes.DWORD,
+		hwnd: WinTypes.HWND.size,
+		message: WinTypes.UINT.size,
+		wParam: WinTypes.WPARAM.size,
+		lParam: WinTypes.LPARAM.size,
+		time: WinTypes.DWORD.size,
+		pt: WinTypes.LONG.size * 2, // POINT TagPointProps
+		lPrivate: WinTypes.DWORD.size,
 	};
 	public data: Uint8Array;
 	protected dataView: DataView;
@@ -100,12 +100,12 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
 
 	get pt() {
 		const x = this.dataView.getBigInt64(this.offset.pt, this.endian);
-		const y = this.dataView.getBigInt64(this.offset.pt + winTypeSizes.LONG, this.endian);
+		const y = this.dataView.getBigInt64(this.offset.pt + WinTypes.LONG.size, this.endian);
 		return { x: x, y: y };
 	}
 	set pt(value) {
 		this.dataView.setBigInt64(this.offset.pt, value.x, this.endian);
-		this.dataView.setBigInt64(this.offset.pt + winTypeSizes.LONG, value.y, this.endian);
+		this.dataView.setBigInt64(this.offset.pt + WinTypes.LONG.size, value.y, this.endian);
 	}
 
 	get lPrivate() {

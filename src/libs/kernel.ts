@@ -1,4 +1,4 @@
-import { winTypes } from '../win_types.ts';
+import { WinTypes } from '../win_types.ts';
 
 export const callbackFunctions: {
 	EnumResNameProcW: ForeignFunction<
@@ -12,21 +12,21 @@ export const callbackFunctions: {
 } = {
 	EnumResNameProcW: {
 		parameters: [
-			winTypes.HMODULE, // [in, optional] HMODULE hModule
-			winTypes.LPWSTR, // LPWSTR lpType
-			winTypes.LPWSTR, // LPWSTR lpName
-			winTypes.LONG_PTR, // [in] LONG_PTR lParam
+			WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
+			WinTypes.LPWSTR.ffi, // LPWSTR lpType
+			WinTypes.LPWSTR.ffi, // LPWSTR lpName
+			WinTypes.LONG_PTR.ffi, // [in] LONG_PTR lParam
 		],
-		result: winTypes.BOOL,
+		result: WinTypes.BOOL.ffi,
 		nonblocking: false,
 	},
 	EnumResTypeProcW: {
 		parameters: [
-			winTypes.HMODULE, // [in, optional] HMODULE hModule
-			winTypes.LPWSTR, // LPWSTR lpType
-			winTypes.LONG_PTR, // [in] LONG_PTR lParam
+			WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
+			WinTypes.LPWSTR.ffi, // LPWSTR lpType
+			WinTypes.LONG_PTR.ffi, // [in] LONG_PTR lParam
 		],
-		result: winTypes.BOOL,
+		result: WinTypes.BOOL.ffi,
 		nonblocking: false,
 	},
 };
@@ -36,38 +36,38 @@ export const kernel = Deno.dlopen(
 	{
 		EnumResourceNamesExW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/libloaderapi/nf-libloaderapi-enumresourcenamesexw
 			parameters: [
-				winTypes.HMODULE, // [in, optional] HMODULE hModule
-				winTypes.LPCWSTR, // LPCWSTR lpType
-				winTypes.ENUMRESNAMEPROCW, // [in]  ENUMRESNAMEPROCW lpEnumFunc
-				winTypes.LONG_PTR, //[in] LONG_PTR lParam
-				winTypes.DWORD, // [in] DWORD dwFlags
-				winTypes.LANGID, // [in] LANGID LangId
+				WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
+				WinTypes.LPCWSTR.ffi, // LPCWSTR lpType
+				WinTypes.ENUMRESNAMEPROCW.ffi, // [in]  ENUMRESNAMEPROCW lpEnumFunc
+				WinTypes.LONG_PTR.ffi, //[in] LONG_PTR lParam
+				WinTypes.DWORD.ffi, // [in] DWORD dwFlags
+				WinTypes.LANGID.ffi, // [in] LANGID LangId
 			],
-			result: winTypes.BOOL,
+			result: WinTypes.BOOL.ffi,
 		},
 		EnumResourceTypesExW: { // https://learn.microsoft.com/ja-jp/windows-hardware/drivers/kernel/the-new-data-types
 			parameters: [
-				winTypes.HMODULE, // [in, optional] HMODULE hModule
-				winTypes.ENUMRESTYPEPROCW, // [in] ENUMRESTYPEPROCW lpEnumFunc
-				winTypes.LONG_PTR, //[in] LONG_PTR lParam
-				winTypes.DWORD, // [in] DWORD dwFlags
-				winTypes.LANGID, // [in] LANGID LangId
+				WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
+				WinTypes.ENUMRESTYPEPROCW.ffi, // [in] ENUMRESTYPEPROCW lpEnumFunc
+				WinTypes.LONG_PTR.ffi, //[in] LONG_PTR lParam
+				WinTypes.DWORD.ffi, // [in] DWORD dwFlags
+				WinTypes.LANGID.ffi, // [in] LANGID LangId
 			],
-			result: winTypes.BOOL,
+			result: WinTypes.BOOL.ffi,
 		},
 		FreeConsole: { // https://learn.microsoft.com/ja-jp/windows/console/freeconsole
 			parameters: [],
-			result: winTypes.BOOL,
+			result: WinTypes.BOOL.ffi,
 		},
 		GetLastError: { // https://learn.microsoft.com/ja-jp/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror
 			parameters: [],
-			result: winTypes.DWORD,
+			result: WinTypes.DWORD.ffi,
 		},
 		GetModuleHandleW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulehandlew
 			parameters: [
-				winTypes.LPCWSTR, // [in, optional] LPCWSTR lpModuleName
+				WinTypes.LPCWSTR.ffi, // [in, optional] LPCWSTR lpModuleName
 			],
-			result: winTypes.HMODULE,
+			result: WinTypes.HMODULE.ffi,
 		},
 	},
 );

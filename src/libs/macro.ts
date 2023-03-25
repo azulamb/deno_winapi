@@ -1,9 +1,10 @@
 import { Converter } from '../win_types.ts';
+import { Create } from '../create.ts';
 
 export const macro = {
 	IS_INTRESOURCE: (value: Deno.PointerValue | bigint) => {
 		if (typeof value !== 'bigint') {
-			value = BigInt(Deno.UnsafePointer.value(value));
+			value = Create.rawPointer(value);
 		}
 		return (value >> 16n) === 0n;
 	},

@@ -1,36 +1,5 @@
 import {} from './win_types.d.ts';
 
-// https://deno.land/manual/runtime/ffi_api#supported-types
-export const winTypes: { [key in WIN_TYPES]: SafeNativeTypeMap[key] } = {
-	_POINTER: 'pointer',
-	ATOM: 'u16',
-	BOOL: 'i32',
-	DWORD: 'i32',
-	ENUMRESNAMEPROCW: 'pointer',
-	ENUMRESTYPEPROCW: 'pointer',
-	HBRUSH: 'pointer',
-	HCURSOR: 'pointer',
-	HICON: 'pointer',
-	HINSTANCE: 'pointer',
-	HMODULE: 'pointer',
-	HMENU: 'pointer',
-	HWND: 'pointer',
-	int: 'i32',
-	LANGID: 'u16',
-	LONG: 'i64',
-	LONG_PTR: 'pointer',
-	LPARAM: 'pointer',
-	LPCWSTR: 'pointer',
-	LPMSG: 'pointer',
-	LPVOID: 'pointer',
-	LPWSTR: 'pointer',
-	LRESULT: 'pointer',
-	UINT: 'u32',
-	WNDCLASSEXW: 'pointer',
-	WNDPROC: 'pointer',
-	WPARAM: 'pointer',
-};
-
 const POINTER = 8;
 const ffiTypeSizes: { [key in SafeNativeType]: number } = {
 	bool: 1, // ?
@@ -51,80 +20,41 @@ const ffiTypeSizes: { [key in SafeNativeType]: number } = {
 	pointer: POINTER,
 };
 
+// https://deno.land/manual/runtime/ffi_api#supported-types
+export const WinTypes: { [key in WIN_TYPES]: { ffi: SafeNativeTypeMap[key]; size: number } } = {
+	ATOM: { ffi: 'u16', size: 0 },
+	BOOL: { ffi: 'i32', size: 0 },
+	DWORD: { ffi: 'i32', size: 0 },
+	ENUMRESNAMEPROCW: { ffi: 'pointer', size: 0 },
+	ENUMRESTYPEPROCW: { ffi: 'pointer', size: 0 },
+	HBRUSH: { ffi: 'pointer', size: 0 },
+	HCURSOR: { ffi: 'pointer', size: 0 },
+	HICON: { ffi: 'pointer', size: 0 },
+	HINSTANCE: { ffi: 'pointer', size: 0 },
+	HMODULE: { ffi: 'pointer', size: 0 },
+	HMENU: { ffi: 'pointer', size: 0 },
+	HWND: { ffi: 'pointer', size: 0 },
+	int: { ffi: 'i32', size: 0 },
+	LANGID: { ffi: 'u16', size: 0 },
+	LONG: { ffi: 'i64', size: 0 },
+	LONG_PTR: { ffi: 'pointer', size: 0 },
+	LPARAM: { ffi: 'pointer', size: 0 },
+	LPCWSTR: { ffi: 'pointer', size: 0 },
+	LPMSG: { ffi: 'pointer', size: 0 },
+	LPVOID: { ffi: 'pointer', size: 0 },
+	LPWSTR: { ffi: 'pointer', size: 0 },
+	LRESULT: { ffi: 'pointer', size: 0 },
+	UINT: { ffi: 'u32', size: 0 },
+	WNDCLASSEXW: { ffi: 'pointer', size: 0 },
+	WNDPROC: { ffi: 'pointer', size: 0 },
+	WPARAM: { ffi: 'pointer', size: 0 },
+};
+
 // Size of types.
-// deno-lint-ignore no-explicit-any
-export const winTypeSizes: { [key in WIN_TYPES]: number } = <any> {};
-Object.keys(winTypes).forEach((k) => {
+Object.keys(WinTypes).forEach((k) => {
 	const key = <WIN_TYPES> k;
-	winTypeSizes[key] = ffiTypeSizes[winTypes[key]];
+	WinTypes[key].size = ffiTypeSizes[WinTypes[key].ffi];
 });
-
-// https://learn.microsoft.com/ja-jp/windows/win32/winmsg/window-notifications
-export const winMassage: { [key in WindowMessageName]: number } = {
-	WM_NULL: 0x0000,
-	WM_CREATE: 0x0001,
-	WM_DESTROY: 0x0002,
-	WM_MOVE: 0x0003,
-	WM_SIZE: 0x0005,
-	WM_ENABLE: 0x000A,
-	WM_CLOSE: 0x0010,
-	WM_QUIT: 0x0012,
-	WM_QUERYOPEN: 0x0013,
-	WM_SHOWWINDOW: 0x0018,
-	WM_ACTIVATEAPP: 0x001C,
-	WM_CANCELMODE: 0x001F,
-	WM_CHILDACTIVATE: 0x0022,
-	WM_GETMINMAXINFO: 0x0024,
-	WM_QUERYDRAGICON: 0x0037,
-	WM_COMPACTING: 0x0041,
-	WM_WINDOWPOSCHANGING: 0x0046,
-	WM_WINDOWPOSCHANGED: 0x0047,
-	WM_INPUTLANGCHANGEREQUEST: 0x0050,
-	WM_INPUTLANGCHANGE: 0x0051,
-	WM_USERCHANGED: 0x0054,
-	WM_STYLECHANGING: 0x007C,
-	WM_STYLECHANGED: 0x007D,
-	WM_GETICON: 0x007F,
-	WM_NCCREATE: 0x0081,
-	WM_NCDESTROY: 0x0082,
-	WM_NCCALCSIZE: 0x0083,
-	WM_NCACTIVATE: 0x0086,
-	WM_SIZING: 0x0214,
-	WM_MOVING: 0x0216,
-	WM_ENTERSIZEMOVE: 0x0231,
-	WM_EXITSIZEMOVE: 0x0232,
-	WM_DPICHANGED: 0x02E0,
-	WM_THEMECHANGED: 0x031A,
-};
-
-// https://learn.microsoft.com/ja-jp/windows/win32/menurc/resource-types
-export const winResourceType: { [key in WindowsResourceType]: number } = {
-	RT_CURSOR: 1,
-	RT_BITMAP: 2,
-	RT_ICON: 3,
-	RT_MENU: 4,
-	RT_DIALOG: 5,
-	RT_STRING: 6,
-	RT_FONTDIR: 7,
-	RT_FONT: 8,
-	RT_ACCELERATOR: 9,
-	RT_RCDATA: 10,
-	RT_MESSAGETABLE: 11,
-	RT_GROUP_CURSOR: 12, // RT_CURSOR + 11
-	RT_GROUP_ICON: 14, // RT_ICON + 11
-	RT_VERSION: 16,
-	RT_DLGINCLUDE: 17,
-	RT_PLUGPLAY: 19,
-	RT_VXD: 20,
-	RT_ANICURSOR: 21,
-	RT_ANIICON: 22,
-	RT_HTML: 23,
-	RT_MANIFEST: 24,
-};
-
-export const constant = {
-	CW_USEDEFAULT: -2147483648, // CW_USEDEFAULT = 0x80000000
-};
 
 function Pointer<T>(pointer: Deno.PointerValue): T {
 	return <T> Converter.pointer(pointer);

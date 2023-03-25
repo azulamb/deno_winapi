@@ -1,4 +1,4 @@
-import { winTypes } from '../win_types.ts';
+import { WinTypes } from '../win_types.ts';
 
 export const callbackFunctions: {
 	DefWindowProcW: ForeignFunction<
@@ -8,12 +8,12 @@ export const callbackFunctions: {
 } = {
 	DefWindowProcW: {
 		parameters: [
-			winTypes.HWND, // [in] HWND hWnd
-			winTypes.UINT, // [in] UINT Msg
-			winTypes.WPARAM, // [in] WPARAM wParam
-			winTypes.LPARAM, // [in] LPARAM lParam
+			WinTypes.HWND.ffi, // [in] HWND hWnd
+			WinTypes.UINT.ffi, // [in] UINT Msg
+			WinTypes.WPARAM.ffi, // [in] WPARAM wParam
+			WinTypes.LPARAM.ffi, // [in] LPARAM lParam
 		],
-		result: winTypes.LRESULT,
+		result: WinTypes.LRESULT.ffi,
 		nonblocking: false,
 	},
 };
@@ -23,74 +23,74 @@ export const user = Deno.dlopen(
 	{
 		CreateWindowExW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-createwindowexw
 			parameters: [
-				winTypes.DWORD, // [in] DWORD dwExStyle
-				winTypes.LPCWSTR, // [in, optional] LPCWSTR lpClassName
-				winTypes.LPCWSTR, // [in, optional] LPCWSTR lpWindowName
-				winTypes.DWORD, // [in] DWORD dwStyle
-				winTypes.int, // [in] int X
-				winTypes.int, // [in] int Y
-				winTypes.int, // [in] int nWidth
-				winTypes.int, // [in] int nHeight
-				winTypes.HWND, // [in, optional] HWND hWndParent
-				winTypes.HMENU, // [in, optional] HMENU hMenu
-				winTypes.HINSTANCE, // [in, optional] HINSTANCE hInstance
-				winTypes.LPVOID, // [in, optional] LPVOID lpParam
+				WinTypes.DWORD.ffi, // [in] DWORD dwExStyle
+				WinTypes.LPCWSTR.ffi, // [in, optional] LPCWSTR lpClassName
+				WinTypes.LPCWSTR.ffi, // [in, optional] LPCWSTR lpWindowName
+				WinTypes.DWORD.ffi, // [in] DWORD dwStyle
+				WinTypes.int.ffi, // [in] int X
+				WinTypes.int.ffi, // [in] int Y
+				WinTypes.int.ffi, // [in] int nWidth
+				WinTypes.int.ffi, // [in] int nHeight
+				WinTypes.HWND.ffi, // [in, optional] HWND hWndParent
+				WinTypes.HMENU.ffi, // [in, optional] HMENU hMenu
+				WinTypes.HINSTANCE.ffi, // [in, optional] HINSTANCE hInstance
+				WinTypes.LPARAM.ffi, // [in, optional] LPVOID lpParam
 			],
-			result: winTypes.HWND,
+			result: WinTypes.HWND.ffi,
 		},
 		DefWindowProcW: callbackFunctions.DefWindowProcW, // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-defwindowprocw
 		DispatchMessageW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-dispatchmessagew
 			parameters: [
-				winTypes._POINTER, //[in] const MSG *lpMsg
+				WinTypes.LPMSG.ffi, //[in] const MSG *lpMsg
 			],
-			result: winTypes.LRESULT,
+			result: WinTypes.LRESULT.ffi,
 		},
 		GetMessageW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-getmessagew
 			parameters: [
-				winTypes.LPMSG, // [out] LPMSG lpMsg
-				winTypes.HWND, // [in, optional] HWND hWnd
-				winTypes.UINT, // [in] UINT wMsgFilterMin
-				winTypes.UINT, // [in] UINT wMsgFilterMax
+				WinTypes.LPMSG.ffi, // [out] LPMSG lpMsg
+				WinTypes.HWND.ffi, // [in, optional] HWND hWnd
+				WinTypes.UINT.ffi, // [in] UINT wMsgFilterMin
+				WinTypes.UINT.ffi, // [in] UINT wMsgFilterMax
 			],
-			result: winTypes.BOOL,
+			result: WinTypes.BOOL.ffi,
 		},
 		LoadIconW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-loadiconw
 			parameters: [
-				winTypes.HINSTANCE, // [in, optional] HINSTANCE hInstance
-				winTypes.LPCWSTR, // [in] LPCWSTR lpIconName
+				WinTypes.HINSTANCE.ffi, // [in, optional] HINSTANCE hInstance
+				WinTypes.LPCWSTR.ffi, // [in] LPCWSTR lpIconName
 			],
-			result: winTypes.HICON,
+			result: WinTypes.HICON.ffi,
 		},
 		PostQuitMessage: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-postquitmessage
 			parameters: [
-				winTypes.int, // [in] int nExitCode
+				WinTypes.int.ffi, // [in] int nExitCode
 			],
 			result: 'void',
 		},
 		RegisterClassExW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-registerclassexw
 			parameters: [
-				winTypes.WNDCLASSEXW, // [in] const WNDCLASSEXW *unnamedParam1
+				WinTypes.WNDCLASSEXW.ffi, // [in] const WNDCLASSEXW *unnamedParam1
 			],
-			result: winTypes.ATOM,
+			result: WinTypes.ATOM.ffi,
 		},
 		ShowWindow: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-showwindow
 			parameters: [
-				winTypes.HWND, // [in] HWND hWnd
-				winTypes.int, // [in] int nCmdShow
+				WinTypes.HWND.ffi, // [in] HWND hWnd
+				WinTypes.int.ffi, // [in] int nCmdShow
 			],
-			result: winTypes.BOOL,
+			result: WinTypes.BOOL.ffi,
 		},
 		TranslateMessage: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-translatemessage
 			parameters: [
-				winTypes._POINTER, // [in] const MSG *lpMsg
+				WinTypes.LPVOID.ffi, // [in] const MSG *lpMsg
 			],
-			result: winTypes.BOOL,
+			result: WinTypes.BOOL.ffi,
 		},
 		UpdateWindow: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-updatewindow
 			parameters: [
-				winTypes.HWND, // [in] HWND hWnd
+				WinTypes.HWND.ffi, // [in] HWND hWnd
 			],
-			result: winTypes.BOOL,
+			result: WinTypes.BOOL.ffi,
 		},
 	},
 );
