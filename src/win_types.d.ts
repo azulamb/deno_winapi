@@ -11,7 +11,6 @@ interface WithCallback<T, S extends Deno.UnsafeCallbackDefinition> {
 }
 
 type WIN_TYPES =
-	| '_POINTER'
 	| 'ATOM'
 	| 'BOOL'
 	| 'DWORD'
@@ -62,6 +61,7 @@ type LPVOID = Deno.PointerValue;
 type LPWNDCLASSEXW = LPVOID;
 type LPWSTR = LPVOID;
 type LRESULT = LPVOID;
+type MSG = LPVOID;
 type POINT = {
 	readonly x: LONG;
 	readonly y: LONG;

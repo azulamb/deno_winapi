@@ -9,10 +9,10 @@ windowClassEx.style = winApi.create.classStyle({
 windowClassEx.setClassName('AppWindow');
 windowClassEx.setWindowProcedure((hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => {
 	switch (Msg) {
-		case winApi.messageType.WM_CREATE:
+		case winApi.windowMassage.WM_CREATE:
 			console.log('Create');
 			break;
-		case winApi.messageType.WM_DESTROY:
+		case winApi.windowMassage.WM_DESTROY:
 			console.log('Destroy');
 			winApi.user.PostQuitMessage(0);
 			break;

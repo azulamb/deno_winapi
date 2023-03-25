@@ -1,6 +1,6 @@
 import { Create } from '../create.ts';
 import { callbackFunctions } from '../libs/user.ts';
-import { Converter, winTypeSizes } from '../win_types.ts';
+import { Converter, WinTypes } from '../win_types.ts';
 
 type WindowClassExProps = {
 	cbSize: UINT;
@@ -36,18 +36,18 @@ export class WindowClassEx implements WindowsStruct<LPWNDCLASSEXW>, WindowClassE
 		hIconSm: 0,
 	};
 	protected size: { [key in keyof WindowClassExProps]: number } = {
-		cbSize: winTypeSizes.UINT,
-		style: winTypeSizes.UINT,
-		lpfnWndProc: winTypeSizes.WNDPROC,
-		cbClsExtra: winTypeSizes.int,
-		cbWndExtra: winTypeSizes.int,
-		hInstance: winTypeSizes.HINSTANCE,
-		hIcon: winTypeSizes.HICON,
-		hCursor: winTypeSizes.HCURSOR,
-		hbrBackground: winTypeSizes.HBRUSH,
-		lpszMenuName: winTypeSizes.LPCWSTR,
-		lpszClassName: winTypeSizes.LPCWSTR,
-		hIconSm: winTypeSizes.HICON,
+		cbSize: WinTypes.UINT.size,
+		style: WinTypes.UINT.size,
+		lpfnWndProc: WinTypes.WNDPROC.size,
+		cbClsExtra: WinTypes.int.size,
+		cbWndExtra: WinTypes.int.size,
+		hInstance: WinTypes.HINSTANCE.size,
+		hIcon: WinTypes.HICON.size,
+		hCursor: WinTypes.HCURSOR.size,
+		hbrBackground: WinTypes.HBRUSH.size,
+		lpszMenuName: WinTypes.LPCWSTR.size,
+		lpszClassName: WinTypes.LPCWSTR.size,
+		hIconSm: WinTypes.HICON.size,
 	};
 	public data: Uint8Array;
 	protected dataView: DataView;

@@ -22,6 +22,7 @@ function GetHasResourceTypes(hModule: HMODULE) {
 
 		timer();
 
+		// deno-lint-ignore no-unused-vars
 		const result = winApi.kernel.EnumResourceTypesEx(hModule, (hModule: HMODULE, lpType: LPWSTR, lParam: LONG_PTR) => {
 			resourceTypes.push(lpType);
 			timer();
@@ -55,6 +56,7 @@ function GetResourceList(hModule: HMODULE, resourceType: number | LPCWSTR) {
 			resourceType = Deno.UnsafePointer.create(resourceType);
 		}
 
+		// deno-lint-ignore no-unused-vars
 		const result = winApi.kernel.EnumResourceNamesEx(hModule, resourceType, (hModule: HMODULE, lpType: LPWSTR, lpName: LPWSTR, lParam: LONG_PTR) => {
 			resourceTypes.push(lpName);
 			timer();
