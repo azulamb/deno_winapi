@@ -1,8 +1,21 @@
+// lib.deno.unstable.d.ts
+interface ForeignFunction<T extends SafeNativeType | 'void', A extends readonly SafeNativeType[]> extends Deno.ForeignFunction {
+	parameters: A;
+	result: T;
+	nonblocking: false;
+}
+
+interface WithCallback<T, S extends Deno.UnsafeCallbackDefinition> {
+	result: T;
+	callback?: Deno.UnsafeCallback<S>;
+}
+
 type WIN_TYPES =
 	| '_POINTER'
 	| 'ATOM'
 	| 'BOOL'
 	| 'DWORD'
+	| 'ENUMRESNAMEPROCW'
 	| 'ENUMRESTYPEPROCW'
 	| 'HBRUSH'
 	| 'HCURSOR'
@@ -29,6 +42,7 @@ type WIN_TYPES =
 type ATOM = number;
 type BOOL = number;
 type DWORD = number;
+type ENUMRESNAMEPROCW = LPVOID;
 type ENUMRESTYPEPROCW = LPVOID;
 type int = number;
 type HBRUSH = LPVOID;
@@ -39,6 +53,7 @@ type HMENU = LPVOID;
 type HMODULE = LPVOID;
 type HWND = LPVOID;
 type LANGID = number;
+type LONG = bigint;
 type LONG_PTR = LPVOID;
 type LPARAM = LPVOID;
 type LPCWSTR = LPVOID;
@@ -47,6 +62,10 @@ type LPVOID = Deno.PointerValue;
 type LPWNDCLASSEXW = LPVOID;
 type LPWSTR = LPVOID;
 type LRESULT = LPVOID;
+type POINT = {
+	readonly x: LONG;
+	readonly y: LONG;
+};
 type UINT = number;
 type WNDPROC = LPVOID;
 type WPARAM = LPVOID;
@@ -59,6 +78,7 @@ interface SafeNativeTypeMap {
 	ATOM: 'u16';
 	BOOL: 'i32';
 	DWORD: 'i32';
+	ENUMRESNAMEPROCW: 'pointer';
 	ENUMRESTYPEPROCW: 'pointer';
 	HBRUSH: 'pointer';
 	HCURSOR: 'pointer';
@@ -124,3 +144,26 @@ type WindowMessageName =
 	| 'WM_USERCHANGED'
 	| 'WM_WINDOWPOSCHANGED'
 	| 'WM_WINDOWPOSCHANGING';
+
+type WindowsResourceType =
+	| 'RT_CURSOR'
+	| 'RT_BITMAP'
+	| 'RT_ICON'
+	| 'RT_MENU'
+	| 'RT_DIALOG'
+	| 'RT_STRING'
+	| 'RT_FONTDIR'
+	| 'RT_FONT'
+	| 'RT_ACCELERATOR'
+	| 'RT_RCDATA'
+	| 'RT_MESSAGETABLE'
+	| 'RT_GROUP_CURSOR'
+	| 'RT_GROUP_ICON'
+	| 'RT_VERSION'
+	| 'RT_DLGINCLUDE'
+	| 'RT_PLUGPLAY'
+	| 'RT_VXD'
+	| 'RT_ANICURSOR'
+	| 'RT_ANIICON'
+	| 'RT_HTML'
+	| 'RT_MANIFEST';

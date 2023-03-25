@@ -67,6 +67,10 @@ export class User {
 		return 0 < result;
 	}
 
+	public LoadIcon(hInstance: HINSTANCE, lpIconName: LPCWSTR) {
+		return this.libs.symbols.LoadIconW(hInstance, lpIconName);
+	}
+
 	public PostQuitMessage(nExitCode: int) {
 		return this.libs.symbols.PostQuitMessage(
 			Converter.int(nExitCode),

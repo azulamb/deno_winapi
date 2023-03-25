@@ -1180,15 +1180,17 @@
 			"name": "EnumResourceNames",
 			"baseA": false,
 			"exA": false,
-			"exW": false,
-			"baseW": false
+			"exW": true,
+			"baseW": false,
+			"url": "https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-enumresourcenames"
 		},
 		{
 			"name": "EnumResourceTypes",
 			"baseA": false,
 			"exA": false,
-			"exW": false,
-			"baseW": false
+			"exW": true,
+			"baseW": false,
+			"url": "https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-enumresourcetypes"
 		},
 		{
 			"name": "EnumSystemCodePages",
@@ -5436,54 +5438,6 @@
 			"base": false
 		},
 		{
-			"name": "__C_specific_handler",
-			"base": false
-		},
-		{
-			"name": "__chkstk",
-			"base": false
-		},
-		{
-			"name": "__misaligned_access",
-			"base": false
-		},
-		{
-			"name": "_hread",
-			"base": false
-		},
-		{
-			"name": "_hwrite",
-			"base": false
-		},
-		{
-			"name": "_lclose",
-			"base": false
-		},
-		{
-			"name": "_lcreat",
-			"base": false
-		},
-		{
-			"name": "_llseek",
-			"base": false
-		},
-		{
-			"name": "_local_unwind",
-			"base": false
-		},
-		{
-			"name": "_lopen",
-			"base": false
-		},
-		{
-			"name": "_lread",
-			"base": false
-		},
-		{
-			"name": "_lwrite",
-			"base": false
-		},
-		{
 			"name": "lstrcat",
 			"base": false,
 			"baseA": false,
@@ -5575,11 +5529,11 @@
 	"aggregate": {
 		"all": {
 			"total": 1671,
-			"implemented": 3
+			"implemented": 5
 		},
 		"noDuplication": {
-			"total": 1299,
-			"implemented": 3
+			"total": 1287,
+			"implemented": 5
 		}
 	}
 }

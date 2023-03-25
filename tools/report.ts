@@ -64,6 +64,9 @@ function Parse(data: string, libs: Deno.DynamicLibrary<any>) {
 		const exists = typeof libs.symbols[<'CreateWindowExW'> name] !== 'undefined';
 		const info = ParseFunctionName(name);
 		const key = info.name;
+		if (key.match(/^_/)) {
+			continue;
+		}
 		if (!funcs[key]) {
 			funcs[key] = {
 				name: info.name,
@@ -126,6 +129,7 @@ async function Report(target: string, libs: Deno.DynamicLibrary<any>, template: 
 	} catch (_error) {}
 	Deno.writeTextFile(`docs/${target}.json`, JSON.stringify(result, null, '\t'));
 
+	console.log(target);
 	console.log(
 		`all: ${result.aggregate.all.implemented} / ${result.aggregate.all.total} ... ${100 * result.aggregate.all.implemented / result.aggregate.all.total}%`,
 	);
