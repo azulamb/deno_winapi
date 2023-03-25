@@ -2058,7 +2058,8 @@
 		{
 			"name": "LoadIcon",
 			"baseA": false,
-			"baseW": false
+			"baseW": true,
+			"url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-loadicon"
 		},
 		{
 			"name": "LoadImage",
@@ -3448,10 +3449,6 @@
 			"base": false
 		},
 		{
-			"name": "_UserTestTokenForInteractive",
-			"base": false
-		},
-		{
 			"name": "gSharedInfo",
 			"base": false
 		},
@@ -3481,11 +3478,11 @@
 	"aggregate": {
 		"all": {
 			"total": 1014,
-			"implemented": 9
+			"implemented": 10
 		},
 		"noDuplication": {
-			"total": 818,
-			"implemented": 9
+			"total": 817,
+			"implemented": 10
 		}
 	}
 }

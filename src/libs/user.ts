@@ -1,4 +1,4 @@
-import { ForeignFunction, winTypes } from '../win_types.ts';
+import { winTypes } from '../win_types.ts';
 
 export const callbackFunctions: {
 	DefWindowProcW: ForeignFunction<
@@ -23,17 +23,17 @@ export const user = Deno.dlopen(
 	{
 		CreateWindowExW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-createwindowexw
 			parameters: [
-				winTypes.DWORD, // [in] DWORD dwExStyle,
-				winTypes.LPCWSTR, // [in, optional] LPCWSTR lpClassName,
-				winTypes.LPCWSTR, // [in, optional] LPCWSTR lpWindowName,
-				winTypes.DWORD, // [in] DWORD dwStyle,
-				winTypes.int, // [in] int X,
-				winTypes.int, // [in] int Y,
-				winTypes.int, // [in] int nWidth,
-				winTypes.int, // [in] int nHeight,
-				winTypes.HWND, // [in, optional] HWND hWndParent,
-				winTypes.HMENU, // [in, optional] HMENU hMenu,
-				winTypes.HINSTANCE, // [in, optional] HINSTANCE hInstance,
+				winTypes.DWORD, // [in] DWORD dwExStyle
+				winTypes.LPCWSTR, // [in, optional] LPCWSTR lpClassName
+				winTypes.LPCWSTR, // [in, optional] LPCWSTR lpWindowName
+				winTypes.DWORD, // [in] DWORD dwStyle
+				winTypes.int, // [in] int X
+				winTypes.int, // [in] int Y
+				winTypes.int, // [in] int nWidth
+				winTypes.int, // [in] int nHeight
+				winTypes.HWND, // [in, optional] HWND hWndParent
+				winTypes.HMENU, // [in, optional] HMENU hMenu
+				winTypes.HINSTANCE, // [in, optional] HINSTANCE hInstance
 				winTypes.LPVOID, // [in, optional] LPVOID lpParam
 			],
 			result: winTypes.HWND,
@@ -47,12 +47,19 @@ export const user = Deno.dlopen(
 		},
 		GetMessageW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-getmessagew
 			parameters: [
-				winTypes.LPMSG, // [out] LPMSG lpMsg,
-				winTypes.HWND, // [in, optional] HWND hWnd,
-				winTypes.UINT, // [in] UINT wMsgFilterMin,
+				winTypes.LPMSG, // [out] LPMSG lpMsg
+				winTypes.HWND, // [in, optional] HWND hWnd
+				winTypes.UINT, // [in] UINT wMsgFilterMin
 				winTypes.UINT, // [in] UINT wMsgFilterMax
 			],
 			result: winTypes.BOOL,
+		},
+		LoadIconW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-loadiconw
+			parameters: [
+				winTypes.HINSTANCE, // [in, optional] HINSTANCE hInstance
+				winTypes.LPCWSTR, // [in] LPCWSTR lpIconName
+			],
+			result: winTypes.HICON,
 		},
 		PostQuitMessage: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-postquitmessage
 			parameters: [

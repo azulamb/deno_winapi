@@ -19,6 +19,9 @@ windowClassEx.setWindowProcedure((hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam:
 	}
 	return winApi.user.DefWindowProc(hWnd, Msg, wParam, lParam);
 });
+// Set deno icon.
+windowClassEx.hIcon = winApi.user.LoadIcon(winApi.kernel.GetModuleHandle(), winApi.macro.MAKEINTRESOURCE(1n));
+windowClassEx.hIconSm = winApi.user.LoadIcon(winApi.kernel.GetModuleHandle(), winApi.macro.MAKEINTRESOURCE(1n));
 
 // Register WindowClassEx
 const result = winApi.user.RegisterClassEx(windowClassEx.pointer);

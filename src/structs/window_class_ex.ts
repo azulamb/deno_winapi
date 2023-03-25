@@ -1,6 +1,6 @@
 import { Create } from '../create.ts';
 import { callbackFunctions } from '../libs/user.ts';
-import { Converter, ForeignFunction, winTypeSizes } from '../win_types.ts';
+import { Converter, winTypeSizes } from '../win_types.ts';
 
 type WindowClassExProps = {
 	cbSize: UINT;

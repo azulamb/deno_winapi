@@ -6,6 +6,7 @@ export const winTypes: { [key in WIN_TYPES]: SafeNativeTypeMap[key] } = {
 	ATOM: 'u16',
 	BOOL: 'i32',
 	DWORD: 'i32',
+	ENUMRESNAMEPROCW: 'pointer',
 	ENUMRESTYPEPROCW: 'pointer',
 	HBRUSH: 'pointer',
 	HCURSOR: 'pointer',
@@ -37,11 +38,11 @@ const ffiTypeSizes: { [key in SafeNativeType]: number } = {
 	u8: 1,
 	i16: 2,
 	u16: 2,
+	f32: 4,
 	i32: 4,
 	u32: 4,
-	f32: 4,
-	i64: 8,
 	f64: 8,
+	i64: 8,
 	u64: 8,
 	isize: 8,
 	usize: 8,
@@ -96,6 +97,31 @@ export const winMassage: { [key in WindowMessageName]: number } = {
 	WM_THEMECHANGED: 0x031A,
 };
 
+// https://learn.microsoft.com/ja-jp/windows/win32/menurc/resource-types
+export const winResourceType: { [key in WindowsResourceType]: number } = {
+	RT_CURSOR: 1,
+	RT_BITMAP: 2,
+	RT_ICON: 3,
+	RT_MENU: 4,
+	RT_DIALOG: 5,
+	RT_STRING: 6,
+	RT_FONTDIR: 7,
+	RT_FONT: 8,
+	RT_ACCELERATOR: 9,
+	RT_RCDATA: 10,
+	RT_MESSAGETABLE: 11,
+	RT_GROUP_CURSOR: 12, // RT_CURSOR + 11
+	RT_GROUP_ICON: 14, // RT_ICON + 11
+	RT_VERSION: 16,
+	RT_DLGINCLUDE: 17,
+	RT_PLUGPLAY: 19,
+	RT_VXD: 20,
+	RT_ANICURSOR: 21,
+	RT_ANIICON: 22,
+	RT_HTML: 23,
+	RT_MANIFEST: 24,
+};
+
 export const constant = {
 	CW_USEDEFAULT: -2147483648, // CW_USEDEFAULT = 0x80000000
 };
@@ -106,8 +132,8 @@ function Pointer<T>(pointer: Deno.PointerValue): T {
 
 export const Converter = {
 	// FFI to JS
-	pointer: (pointer: Deno.PointerValue): LPVOID => {
-		return pointer;
+	pointer: <T extends LPVOID>(pointer: Deno.PointerValue): T => {
+		return <T> pointer;
 	},
 
 	// Windows types to JS
@@ -158,10 +184,3 @@ export const Converter = {
 
 	WPARAM: Pointer<WPARAM>,
 };
-
-// lib.deno.unstable.d.ts
-export interface ForeignFunction<T extends SafeNativeType | 'void', A extends readonly SafeNativeType[]> extends Deno.ForeignFunction {
-	parameters: A;
-	result: T;
-	nonblocking: false;
-}

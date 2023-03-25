@@ -1,19 +1,14 @@
 import { Create } from '../create.ts';
 import { Converter, winTypeSizes } from '../win_types.ts';
 
-interface TagPointProps {
-	readonly x: bigint;
-	readonly y: bigint;
-}
-
 interface MessageProps {
-	hwnd: Deno.PointerValue; //HWND
-	message: number; //UINT
-	wParam: Deno.PointerValue; //WPARAM
-	lParam: Deno.PointerValue; //LPARAM
-	time: number; // DWORD
-	pt: TagPointProps; // POINT TagPointProps
-	lPrivate: number; // DWORD
+	hwnd: HWND;
+	message: UINT;
+	wParam: WPARAM;
+	lParam: LPARAM;
+	time: DWORD;
+	pt: POINT;
+	lPrivate: DWORD;
 }
 
 export class Message implements WindowsStruct<LPMSG>, MessageProps {

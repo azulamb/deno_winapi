@@ -1,15 +1,29 @@
-import { ForeignFunction, winTypes } from '../win_types.ts';
+import { winTypes } from '../win_types.ts';
 
 export const callbackFunctions: {
-	EnumResTypeProW: ForeignFunction<
+	EnumResNameProcW: ForeignFunction<
+		SafeNativeTypeMap['BOOL'],
+		[SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']]
+	>;
+	EnumResTypeProcW: ForeignFunction<
 		SafeNativeTypeMap['BOOL'],
 		[SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']]
 	>;
 } = {
-	EnumResTypeProW: {
+	EnumResNameProcW: {
 		parameters: [
 			winTypes.HMODULE, // [in, optional] HMODULE hModule
-			winTypes.LPWSTR, // LPWSTR lpType,
+			winTypes.LPWSTR, // LPWSTR lpType
+			winTypes.LPWSTR, // LPWSTR lpName
+			winTypes.LONG_PTR, // [in] LONG_PTR lParam
+		],
+		result: winTypes.BOOL,
+		nonblocking: false,
+	},
+	EnumResTypeProcW: {
+		parameters: [
+			winTypes.HMODULE, // [in, optional] HMODULE hModule
+			winTypes.LPWSTR, // LPWSTR lpType
 			winTypes.LONG_PTR, // [in] LONG_PTR lParam
 		],
 		result: winTypes.BOOL,
@@ -20,12 +34,23 @@ export const callbackFunctions: {
 export const kernel = Deno.dlopen(
 	'kernel32.dll',
 	{
+		EnumResourceNamesExW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/libloaderapi/nf-libloaderapi-enumresourcenamesexw
+			parameters: [
+				winTypes.HMODULE, // [in, optional] HMODULE hModule
+				winTypes.LPCWSTR, // LPCWSTR lpType
+				winTypes.ENUMRESNAMEPROCW, // [in]  ENUMRESNAMEPROCW lpEnumFunc
+				winTypes.LONG_PTR, //[in] LONG_PTR lParam
+				winTypes.DWORD, // [in] DWORD dwFlags
+				winTypes.LANGID, // [in] LANGID LangId
+			],
+			result: winTypes.BOOL,
+		},
 		EnumResourceTypesExW: { // https://learn.microsoft.com/ja-jp/windows-hardware/drivers/kernel/the-new-data-types
 			parameters: [
-				winTypes.HMODULE, // [in, optional] HMODULE hModule,
-				winTypes.ENUMRESTYPEPROCW, // [in] ENUMRESTYPEPROCW lpEnumFunc,
-				winTypes.LONG_PTR, //[in] LONG_PTR lParam,
-				winTypes.DWORD, // [in] DWORD dwFlags,
+				winTypes.HMODULE, // [in, optional] HMODULE hModule
+				winTypes.ENUMRESTYPEPROCW, // [in] ENUMRESTYPEPROCW lpEnumFunc
+				winTypes.LONG_PTR, //[in] LONG_PTR lParam
+				winTypes.DWORD, // [in] DWORD dwFlags
 				winTypes.LANGID, // [in] LANGID LangId
 			],
 			result: winTypes.BOOL,
