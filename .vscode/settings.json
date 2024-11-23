@@ -1,7 +1,7 @@
 {
   "deno.enable": true,
   "deno.enablePaths": [
-	"src",
+    "src",
     "tools",
     "tests"
   ],
@@ -61,6 +61,7 @@
     "HMODULE",
     "hread",
     "HREDRAW",
+    "HRESULT",
     "HSCROLL",
     "HWND",
     "hwrite",

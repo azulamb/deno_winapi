@@ -1,4 +1,5 @@
-import {} from './win_types.d.ts';
+/// <reference path="./win_types.d.ts" />
+import type {} from './win_types.d.ts';
 
 const POINTER = 8;
 const ffiTypeSizes: { [key in SafeNativeType]: number } = {
@@ -33,6 +34,7 @@ export const WinTypes: { [key in WIN_TYPES]: { ffi: SafeNativeTypeMap[key]; size
   HINSTANCE: { ffi: 'pointer', size: 0 },
   HMODULE: { ffi: 'pointer', size: 0 },
   HMENU: { ffi: 'pointer', size: 0 },
+  HRESULT: { ffi: 'i32', size: 0 },
   HWND: { ffi: 'pointer', size: 0 },
   int: { ffi: 'i32', size: 0 },
   LANGID: { ffi: 'u16', size: 0 },
@@ -82,6 +84,11 @@ export const Converter = {
   },
 
   HMODULE: Pointer<HMODULE>,
+
+  HRESULT: (value: number): number => {
+    // TODO: convert i32
+    return value;
+  },
 
   HWND: Pointer<HWND>,
 

@@ -1,4 +1,3 @@
-import {} from './src/win_types.d.ts';
 import { WinTypes } from './src/win_types.ts';
 import * as constant from './src/libs/constant.ts';
 import { Create } from './src/create.ts';

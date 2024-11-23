@@ -22,6 +22,7 @@ type WIN_TYPES =
   | 'HINSTANCE'
   | 'HMENU'
   | 'HMODULE'
+  | 'HRESULT'
   | 'HWND'
   | 'int'
   | 'LANGID'
@@ -50,6 +51,7 @@ type HICON = LPVOID;
 type HINSTANCE = LPVOID;
 type HMENU = LPVOID;
 type HMODULE = LPVOID;
+type HRESULT = number;
 type HWND = LPVOID;
 type LANGID = number;
 type LONG = bigint;
@@ -86,6 +88,7 @@ interface SafeNativeTypeMap {
   HINSTANCE: 'pointer';
   HMODULE: 'pointer';
   HMENU: 'pointer';
+  HRESULT: 'i32';
   HWND: 'pointer';
   int: 'i32';
   LANGID: 'u16';
