@@ -1,29 +1,18 @@
 {
-	"tasks": {
-		"report": "deno run --allow-run --allow-read --allow-write --allow-ffi --unstable tools/report.ts",
-		"build": "deno compile --allow-ffi --unstable --output sample/sample.exe sample/sample.ts",
-		"sample": "deno run --allow-ffi --unstable sample/sample.ts",
-		"tests": "deno test --allow-ffi --unstable tests/"
-	},
-	"lint": {
-		"files": {
-			"include": ["./sample", "./src", "./tests", "./tools", "mod.ts"]
-		},
-		"rules": {
-			"tags": ["recommended"],
-			"include": [],
-			"exclude": ["require-await"]
-		}
-	},
-	"fmt": {
-		"files": {
-			"include": ["./sample", "./src", "./tests", "./tools", "mod.ts"]
-		},
-		"options": {
-			"useTabs": true,
-			"indentWidth": 4,
-			"lineWidth": 160,
-			"singleQuote": true
-		}
-	}
+  "tasks": {
+    "report": "deno run --allow-run --allow-read --allow-write --allow-ffi tools/report.ts",
+    "build": "deno compile --allow-ffi --unstable --output sample/sample.exe sample/sample.ts",
+    "sample": "deno run --allow-ffi --unstable sample/sample.ts",
+    "tests": "deno test --allow-ffi --unstable tests/"
+  },
+  "lint": {
+    "include": ["./"]
+  },
+  "fmt": {
+    "include": ["./"],
+    "useTabs": false,
+    "indentWidth": 2,
+    "lineWidth": 160,
+    "singleQuote": true
+  }
 }

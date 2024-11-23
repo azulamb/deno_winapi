@@ -8,10 +8,10 @@ https://azulamb.github.io/deno_winapi/
 
 ## Develop
 
-* Deno
-  * `1.32.1`
-* Command
-  * `deno task tests`
+- Deno
+  - `1.32.1`
+- Command
+  - `deno task tests`
 
 ## Exec
 
@@ -21,11 +21,11 @@ Example: `deno run --allow-ffi --unstable ./sample/sample.ts`
 
 ## Sample
 
-* Create window.
-  * [sample.ts](./sample/sample.ts)
+- Create window.
+  - [sample.ts](./sample/sample.ts)
 
 ## Tools
 
-* `deno task report`
-  * Generate `docs/*.json` and `docs/*.html`
-  * Update the information of the implemented API.
+- `deno task report`
+  - Generate `docs/*.json` and `docs/*.html`
+  - Update the information of the implemented API.
