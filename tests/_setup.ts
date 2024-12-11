@@ -1,4 +1,4 @@
-export * from 'https://deno.land/std@0.181.0/testing/asserts.ts';
+export * from 'jsr:@std/assert';
 
 function RandomNumber(min: number, max: number) {
   return {
@@ -24,11 +24,11 @@ export const values = {
   u32: RandomNumber(0, 0x7fffffff /*TODO: 0xffffffff*/),
   i64: RandomBigInt(-9223372036854775808n, 9223372036854775807n),
   pointer: {
-    create: (rawPointer?: bigint) => {
+    create: <T>(rawPointer?: bigint) => {
       if (rawPointer === undefined) {
         rawPointer = BigInt(Math.floor(0xffffffff - 1) + 1);
       }
-      return Deno.UnsafePointer.create(rawPointer);
+      return Deno.UnsafePointer.create<T>(rawPointer);
     },
     value: (pointer: Deno.PointerValue) => {
       return BigInt(Deno.UnsafePointer.value(pointer));

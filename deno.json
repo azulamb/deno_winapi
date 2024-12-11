@@ -1,9 +1,10 @@
 {
+  "lock": false,
   "tasks": {
     "report": "deno run --allow-run --allow-read --allow-write --allow-ffi tools/report.ts",
     "build": "deno compile --allow-ffi --unstable --output sample/sample.exe sample/sample.ts",
     "sample": "deno run --allow-ffi --unstable sample/sample.ts",
-    "tests": "deno test --allow-ffi --unstable tests/"
+    "tests": "deno test --allow-ffi tests/"
   },
   "lint": {
     "include": ["./"]

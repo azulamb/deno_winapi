@@ -106,7 +106,7 @@ export class WindowClassEx implements WindowsStruct<LPWNDCLASSEXW>, WindowClassE
   }
 
   get lpfnWndProc(): WNDPROC {
-    return Create.pointer(this.dataView.getBigUint64(this.offset.lpfnWndProc, this.endian));
+    return Create.pointer<DENO_WNDPROC_CALLBACK>(this.dataView.getBigUint64(this.offset.lpfnWndProc, this.endian));
   }
   set lpfnWndProc(value) {
     if (!value) {

@@ -31,7 +31,7 @@ function GetHasResourceTypes(hModule: HMODULE) {
   });
 }
 
-function GetResourceList(hModule: HMODULE, resourceType: number | LPCWSTR) {
+function GetResourceList(hModule: HMODULE, resourceType: bigint | LPCWSTR) {
   return new Promise<LPWSTR[]>((resolve) => {
     const resourceTypes: LPWSTR[] = [];
     const timer = (() => {
@@ -52,7 +52,7 @@ function GetResourceList(hModule: HMODULE, resourceType: number | LPCWSTR) {
 
     timer();
 
-    if (typeof resourceType === 'number') {
+    if (typeof resourceType === 'bigint') {
       resourceType = Deno.UnsafePointer.create(resourceType);
     }
 

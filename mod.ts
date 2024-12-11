@@ -15,3 +15,8 @@ export const winApi = {
   resourceType: constant.ResourceType,
   macro: macro,
 };
+
+// structs
+
+export { Message } from './src/structs/message.ts';
+export { WindowClassEx } from './src/structs/window_class_ex.ts';

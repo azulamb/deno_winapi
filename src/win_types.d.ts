@@ -69,7 +69,8 @@ type POINT = {
   readonly y: LONG;
 };
 type UINT = number;
-type WNDPROC = LPVOID;
+type DENO_WNDPROC_CALLBACK = NoInfer<Omit<ForeignFunction<'pointer', ['pointer', 'u32', 'pointer', 'pointer']>, 'nonblocking'>>;
+type WNDPROC = Deno.PointerValue<DENO_WNDPROC_CALLBACK>;
 type WPARAM = LPVOID;
 type WORD = number;
 
