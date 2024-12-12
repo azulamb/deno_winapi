@@ -52,8 +52,8 @@ export class WindowClassEx implements WindowsStruct<LPWNDCLASSEXW>, WindowClassE
   public data: Uint8Array;
   protected dataView: DataView;
   protected dataPointer: LPWNDCLASSEXW;
-  public endian?: boolean;
-  protected callback?: Deno.UnsafeCallback<ForeignFunction<'pointer', ['pointer', 'u32', 'pointer', 'pointer']>>;
+  public endian: boolean;
+  protected callback?: Deno.UnsafeCallback<Deno.UnsafeCallbackDefinition<['pointer', 'u32', 'pointer', 'pointer'], 'pointer'>>;
 
   constructor() {
     const types: (keyof WindowClassExProps)[] = [
@@ -106,7 +106,7 @@ export class WindowClassEx implements WindowsStruct<LPWNDCLASSEXW>, WindowClassE
   }
 
   get lpfnWndProc(): WNDPROC {
-    return Create.pointer<DENO_WNDPROC_CALLBACK>(this.dataView.getBigUint64(this.offset.lpfnWndProc, this.endian));
+    return Create.pointer<DENO_CALLBACK_WNDPROC>(this.dataView.getBigUint64(this.offset.lpfnWndProc, this.endian));
   }
   set lpfnWndProc(value) {
     if (!value) {
@@ -133,7 +133,7 @@ export class WindowClassEx implements WindowsStruct<LPWNDCLASSEXW>, WindowClassE
         wParam: WPARAM,
         lParam: LPARAM,
       ) => {
-        return <LRESULT> func(Converter.HWND(hWnd), Msg, Converter.WPARAM(wParam), Converter.LPARAM(lParam));
+        return func(Converter.HWND(hWnd), Msg, Converter.WPARAM(wParam), Converter.LPARAM(lParam));
       },
     );
     this.lpfnWndProc = this.callback.pointer;

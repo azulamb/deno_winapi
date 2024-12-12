@@ -25,9 +25,9 @@ export class Kernel {
   ) {
     const result: WithCallback<
       boolean,
-      ForeignFunction<
-        SafeNativeTypeMap['BOOL'],
-        [SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']]
+      Deno.UnsafeCallbackDefinition<
+        [SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']],
+        SafeNativeTypeMap['BOOL']
       >
     > = {
       result: false,
@@ -83,9 +83,9 @@ export class Kernel {
   ) {
     const result: WithCallback<
       boolean,
-      ForeignFunction<
-        SafeNativeTypeMap['BOOL'],
-        [SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']]
+      Deno.UnsafeCallbackDefinition<
+        [SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']],
+        SafeNativeTypeMap['BOOL']
       >
     > = {
       result: false,

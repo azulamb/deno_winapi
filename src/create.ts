@@ -16,7 +16,7 @@ export const Create = {
     return BigInt(Deno.UnsafePointer.value(pointer));
   },
 
-  pointer: <T>(rawPointer: bigint): Deno.PointerValue<T> => {
+  pointer: <T>(rawPointer: bigint) => {
     return Deno.UnsafePointer.create<T>(rawPointer);
   },
 

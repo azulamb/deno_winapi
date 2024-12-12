@@ -1,6 +1,6 @@
 # deno_winapi
 
-`winapi` is WindowsAPI wrapper.
+`deno_winapi` is WindowsAPI wrapper.
 
 API list.
 
@@ -9,7 +9,7 @@ https://azulamb.github.io/deno_winapi/
 ## Develop
 
 - Deno
-  - `1.32.1`
+  - `2.1.1`
 - Command
   - `deno task tests`
 
@@ -17,12 +17,14 @@ https://azulamb.github.io/deno_winapi/
 
 Need option: `--allow-ffi` `--unstable`
 
-Example: `deno run --allow-ffi --unstable ./sample/sample.ts`
+Example: `deno run --allow-ffi ./sample/sample.ts`
 
 ## Sample
 
 - Create window.
   - [sample.ts](./sample/sample.ts)
+- Build sample.
+  - `deno task build`
 
 ## Tools
 

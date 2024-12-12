@@ -1,9 +1,9 @@
 import { WinTypes } from '../win_types.ts';
 
 export const callbackFunctions: {
-  DefWindowProcW: ForeignFunction<
-    SafeNativeTypeMap['LRESULT'],
-    [SafeNativeTypeMap['HWND'], SafeNativeTypeMap['UINT'], SafeNativeTypeMap['WPARAM'], SafeNativeTypeMap['LPARAM']]
+  DefWindowProcW: Deno.UnsafeCallbackDefinition<
+    [SafeNativeTypeMap['HWND'], SafeNativeTypeMap['UINT'], SafeNativeTypeMap['WPARAM'], SafeNativeTypeMap['LPARAM']],
+    SafeNativeTypeMap['LRESULT']
   >;
 } = {
   DefWindowProcW: {
@@ -14,7 +14,6 @@ export const callbackFunctions: {
       WinTypes.LPARAM.ffi, // [in] LPARAM lParam
     ],
     result: WinTypes.LRESULT.ffi,
-    nonblocking: false,
   },
 };
 

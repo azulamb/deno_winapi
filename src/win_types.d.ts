@@ -1,10 +1,3 @@
-// lib.deno.unstable.d.ts
-interface ForeignFunction<T extends SafeNativeType | 'void', A extends readonly SafeNativeType[]> extends Deno.ForeignFunction {
-  parameters: A;
-  result: T;
-  nonblocking: false;
-}
-
 interface WithCallback<T, S extends Deno.UnsafeCallbackDefinition> {
   result: T;
   callback?: Deno.UnsafeCallback<S>;
@@ -69,8 +62,8 @@ type POINT = {
   readonly y: LONG;
 };
 type UINT = number;
-type DENO_WNDPROC_CALLBACK = NoInfer<Omit<ForeignFunction<'pointer', ['pointer', 'u32', 'pointer', 'pointer']>, 'nonblocking'>>;
-type WNDPROC = Deno.PointerValue<DENO_WNDPROC_CALLBACK>;
+type DENO_CALLBACK_WNDPROC = Deno.UnsafeCallbackDefinition<['pointer', 'u32', 'pointer', 'pointer'], 'pointer'>;
+type WNDPROC = Deno.PointerValue<DENO_CALLBACK_WNDPROC>;
 type WPARAM = LPVOID;
 type WORD = number;
 

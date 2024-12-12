@@ -1,13 +1,13 @@
 import { WinTypes } from '../win_types.ts';
 
 export const callbackFunctions: {
-  EnumResNameProcW: ForeignFunction<
-    SafeNativeTypeMap['BOOL'],
-    [SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']]
+  EnumResNameProcW: Deno.UnsafeCallbackDefinition<
+    [SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']],
+    SafeNativeTypeMap['BOOL']
   >;
-  EnumResTypeProcW: ForeignFunction<
-    SafeNativeTypeMap['BOOL'],
-    [SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']]
+  EnumResTypeProcW: Deno.UnsafeCallbackDefinition<
+    [SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']],
+    SafeNativeTypeMap['BOOL']
   >;
 } = {
   EnumResNameProcW: {
@@ -18,7 +18,6 @@ export const callbackFunctions: {
       WinTypes.LONG_PTR.ffi, // [in] LONG_PTR lParam
     ],
     result: WinTypes.BOOL.ffi,
-    nonblocking: false,
   },
   EnumResTypeProcW: {
     parameters: [
@@ -27,7 +26,6 @@ export const callbackFunctions: {
       WinTypes.LONG_PTR.ffi, // [in] LONG_PTR lParam
     ],
     result: WinTypes.BOOL.ffi,
-    nonblocking: false,
   },
 };
 

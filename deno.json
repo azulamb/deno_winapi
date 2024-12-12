@@ -2,8 +2,8 @@
   "lock": false,
   "tasks": {
     "report": "deno run --allow-run --allow-read --allow-write --allow-ffi tools/report.ts",
-    "build": "deno compile --allow-ffi --unstable --output sample/sample.exe sample/sample.ts",
-    "sample": "deno run --allow-ffi --unstable sample/sample.ts",
+    "build": "deno compile --allow-ffi --icon sample/icon.ico --output sample/sample.exe sample/sample.ts",
+    "sample": "deno run --allow-ffi sample/sample.ts",
     "tests": "deno test --allow-ffi tests/"
   },
   "lint": {
@@ -14,6 +14,7 @@
     "useTabs": false,
     "indentWidth": 2,
     "lineWidth": 160,
+    "semiColons": true,
     "singleQuote": true
   }
 }
