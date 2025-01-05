@@ -44,6 +44,13 @@ export const user = Deno.dlopen(
       ],
       result: WinTypes.LRESULT.ffi,
     },
+    GetClientRect: {
+      parameters: [
+        WinTypes.HWND.ffi, // [in] HWND hWnd
+        WinTypes.LPRECT.ffi, // [out] LPRECT lpRect
+      ],
+      result: WinTypes.BOOL.ffi,
+    },
     GetMessageW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-getmessagew
       parameters: [
         WinTypes.LPMSG.ffi, // [out] LPMSG lpMsg
@@ -68,7 +75,7 @@ export const user = Deno.dlopen(
     },
     RegisterClassExW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-registerclassexw
       parameters: [
-        WinTypes.WNDCLASSEXW.ffi, // [in] const WNDCLASSEXW *unnamedParam1
+        WinTypes.LPWNDCLASSEXW.ffi, // [in] const WNDCLASSEXW *unnamedParam1
       ],
       result: WinTypes.ATOM.ffi,
     },

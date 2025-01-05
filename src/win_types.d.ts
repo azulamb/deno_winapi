@@ -24,9 +24,12 @@ type WIN_TYPES =
   | 'LPARAM'
   | 'LPCWSTR'
   | 'LPMSG'
+  | 'LPRECT'
   | 'LPVOID'
+  | 'LPWNDCLASSEXW'
   | 'LPWSTR'
   | 'LRESULT'
+  | 'RECT'
   | 'UINT'
   | 'WNDCLASSEXW'
   | 'WNDPROC'
@@ -52,6 +55,7 @@ type LONG_PTR = LPVOID;
 type LPARAM = LPVOID;
 type LPCWSTR = LPVOID;
 type LPMSG = LPVOID;
+type LPRECT = LPVOID;
 type LPVOID = Deno.PointerValue;
 type LPWNDCLASSEXW = LPVOID;
 type LPWSTR = LPVOID;
@@ -60,6 +64,12 @@ type MSG = LPVOID;
 type POINT = {
   readonly x: LONG;
   readonly y: LONG;
+};
+type RECT = {
+  readonly left: LONG;
+  readonly top: LONG;
+  readonly right: LONG;
+  readonly bottom: LONG;
 };
 type UINT = number;
 type DENO_CALLBACK_WNDPROC = Deno.UnsafeCallbackDefinition<['pointer', 'u32', 'pointer', 'pointer'], 'pointer'>;
@@ -91,11 +101,14 @@ interface SafeNativeTypeMap {
   LPARAM: 'pointer';
   LPCWSTR: 'pointer';
   LPMSG: 'pointer';
+  LPRECT: 'pointer';
   LPVOID: 'pointer';
+  LPWNDCLASSEXW: 'pointer';
   LPWSTR: 'pointer';
   LRESULT: 'pointer';
+  RECT: 'buffer';
   UINT: 'u32';
-  WNDCLASSEXW: 'pointer';
+  WNDCLASSEXW: 'buffer';
   WNDPROC: 'pointer';
   WPARAM: 'pointer';
 }

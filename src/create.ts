@@ -1,6 +1,7 @@
 import { Message } from './structs/message.ts';
 import { WindowClassEx } from './structs/window_class_ex.ts';
 import { macro } from './libs/macro.ts';
+import { RECT } from './structs/rect.ts';
 
 export const Create = {
   stringPointer: (value: string): LPCWSTR => {
@@ -30,6 +31,10 @@ export const Create = {
 
   message: () => {
     return new Message();
+  },
+
+  rect: (left?: number, top?: number, right?: number, bottom?: number) => {
+    return new RECT(left, top, right, bottom);
   },
 
   // https://learn.microsoft.com/ja-jp/windows/win32/winmsg/window-class-styles

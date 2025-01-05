@@ -1,4 +1,5 @@
 /// <reference path="./win_types.d.ts" />
+import { RECT } from './structs/rect.ts';
 import type {} from './win_types.d.ts';
 
 const POINTER = 8;
@@ -43,11 +44,14 @@ export const WinTypes: { [key in WIN_TYPES]: { ffi: SafeNativeTypeMap[key]; size
   LPARAM: { ffi: 'pointer', size: 0 },
   LPCWSTR: { ffi: 'pointer', size: 0 },
   LPMSG: { ffi: 'pointer', size: 0 },
+  LPRECT: { ffi: 'pointer', size: 0 },
   LPVOID: { ffi: 'pointer', size: 0 },
+  LPWNDCLASSEXW: { ffi: 'pointer', size: 0 },
   LPWSTR: { ffi: 'pointer', size: 0 },
   LRESULT: { ffi: 'pointer', size: 0 },
+  RECT: { ffi: 'buffer', size: 0 },
   UINT: { ffi: 'u32', size: 0 },
-  WNDCLASSEXW: { ffi: 'pointer', size: 0 },
+  WNDCLASSEXW: { ffi: 'buffer', size: 0 },
   WNDPROC: { ffi: 'pointer', size: 0 },
   WPARAM: { ffi: 'pointer', size: 0 },
 };
@@ -108,11 +112,17 @@ export const Converter = {
 
   LPMSG: Pointer<LPMSG>,
 
+  LPRECT: Pointer<LPRECT>,
+
   LPWSTR: Pointer<LPWSTR>,
 
   LRESULT: Pointer<LRESULT>,
 
   LPWNDCLASSEXW: Pointer<LPWNDCLASSEXW>,
+
+  RECT: (left?: number, top?: number, right?: number, bottom?: number) => {
+    return new RECT(left, top, right, bottom);
+  },
 
   UINT: (value: number) => {
     // TODO: convert u32

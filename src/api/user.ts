@@ -52,6 +52,10 @@ export class User {
     return Converter.LRESULT(this.libs.symbols.DispatchMessageW(lpMsg));
   }
 
+  public GetClientRect(hWnd: HWND, lpRect: LPRECT) {
+    return this.libs.symbols.GetClientRect(hWnd, lpRect);
+  }
+
   public GetMessage(
     lpMsg: LPMSG,
     hWnd: HWND,
