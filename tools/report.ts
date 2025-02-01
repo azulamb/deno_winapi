@@ -108,9 +108,9 @@ function Parse(data: string, libs: Deno.DynamicLibrary<any>) {
   };
 }
 
-// deno-lint-ignore no-explicit-any
 async function Report(
   target: string,
+  // deno-lint-ignore no-explicit-any
   libs: Deno.DynamicLibrary<any>,
   template: string,
 ) {
@@ -138,12 +138,18 @@ async function Report(
 
   console.log(target);
   console.log(
-    `all: ${result.aggregate.all.implemented} / ${result.aggregate.all.total} ... ${
+    `all          : ${
+      result.aggregate.all.implemented.toString().padStart(4, ' ')
+    } / ${result.aggregate.all.total.toString().padStart(4, ' ')} ... ${
       100 * result.aggregate.all.implemented / result.aggregate.all.total
     }%`,
   );
   console.log(
-    `noDuplication: ${result.aggregate.noDuplication.implemented} / ${result.aggregate.noDuplication.total} ... ${
+    `noDuplication: ${
+      result.aggregate.noDuplication.implemented.toString().padStart(4, ' ')
+    } / ${
+      result.aggregate.noDuplication.total.toString().padStart(4, ' ')
+    } ... ${
       100 * result.aggregate.noDuplication.implemented /
       result.aggregate.noDuplication.total
     }%`,
