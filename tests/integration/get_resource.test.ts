@@ -23,11 +23,14 @@ function GetHasResourceTypes(hModule: HMODULE) {
     timer();
 
     // deno-lint-ignore no-unused-vars
-    const result = winApi.kernel.EnumResourceTypesEx(hModule, (hModule: HMODULE, lpType: LPWSTR, lParam: LONG_PTR) => {
-      resourceTypes.push(lpType);
-      timer();
-      return 1;
-    });
+    const result = winApi.kernel.EnumResourceTypesEx(
+      hModule,
+      (hModule: HMODULE, lpType: LPWSTR, lParam: LONG_PTR) => {
+        resourceTypes.push(lpType);
+        timer();
+        return 1;
+      },
+    );
   });
 }
 
@@ -57,11 +60,15 @@ function GetResourceList(hModule: HMODULE, resourceType: bigint | LPCWSTR) {
     }
 
     // deno-lint-ignore no-unused-vars
-    const result = winApi.kernel.EnumResourceNamesEx(hModule, resourceType, (hModule: HMODULE, lpType: LPWSTR, lpName: LPWSTR, lParam: LONG_PTR) => {
-      resourceTypes.push(lpName);
-      timer();
-      return 1;
-    });
+    const result = winApi.kernel.EnumResourceNamesEx(
+      hModule,
+      resourceType,
+      (hModule: HMODULE, lpType: LPWSTR, lpName: LPWSTR, lParam: LONG_PTR) => {
+        resourceTypes.push(lpName);
+        timer();
+        return 1;
+      },
+    );
   });
 }
 

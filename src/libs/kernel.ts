@@ -2,11 +2,20 @@ import { WinTypes } from '../win_types.ts';
 
 export const callbackFunctions: {
   EnumResNameProcW: Deno.UnsafeCallbackDefinition<
-    [SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']],
+    [
+      SafeNativeTypeMap['HMODULE'],
+      SafeNativeTypeMap['LPWSTR'],
+      SafeNativeTypeMap['LPWSTR'],
+      SafeNativeTypeMap['LONG_PTR'],
+    ],
     SafeNativeTypeMap['BOOL']
   >;
   EnumResTypeProcW: Deno.UnsafeCallbackDefinition<
-    [SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']],
+    [
+      SafeNativeTypeMap['HMODULE'],
+      SafeNativeTypeMap['LPWSTR'],
+      SafeNativeTypeMap['LONG_PTR'],
+    ],
     SafeNativeTypeMap['BOOL']
   >;
 } = {

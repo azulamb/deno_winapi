@@ -5,6 +5,8 @@ import { Kernel } from './src/api/kernel.ts';
 import { User } from './src/api/user.ts';
 import { macro } from './src/libs/macro.ts';
 
+export { VERSION } from './src/version.ts';
+
 export const winApi = {
   create: Create,
   kernel: new Kernel(),

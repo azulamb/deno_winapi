@@ -7,26 +7,36 @@ windowClassEx.style = winApi.create.classStyle({
   CS_HREDRAW: true,
 });
 windowClassEx.setClassName('AppWindow');
-windowClassEx.setWindowProcedure((hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => {
-  switch (Msg) {
-    case winApi.windowMassage.WM_CREATE:
-      console.log('Create');
-      break;
-    case winApi.windowMassage.WM_DESTROY:
-      console.log('Destroy');
-      winApi.user.PostQuitMessage(0);
-      break;
-  }
-  return winApi.user.DefWindowProc(hWnd, Msg, wParam, lParam);
-});
+windowClassEx.setWindowProcedure(
+  (hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => {
+    switch (Msg) {
+      case winApi.windowMassage.WM_CREATE:
+        console.log('Create');
+        break;
+      case winApi.windowMassage.WM_DESTROY:
+        console.log('Destroy');
+        winApi.user.PostQuitMessage(0);
+        break;
+    }
+    return winApi.user.DefWindowProc(hWnd, Msg, wParam, lParam);
+  },
+);
 // Set deno icon.
-windowClassEx.hIcon = winApi.user.LoadIcon(winApi.kernel.GetModuleHandle(), winApi.macro.MAKEINTRESOURCE(1n));
-windowClassEx.hIconSm = winApi.user.LoadIcon(winApi.kernel.GetModuleHandle(), winApi.macro.MAKEINTRESOURCE(1n));
+windowClassEx.hIcon = winApi.user.LoadIcon(
+  winApi.kernel.GetModuleHandle(),
+  winApi.macro.MAKEINTRESOURCE(1n),
+);
+windowClassEx.hIconSm = winApi.user.LoadIcon(
+  winApi.kernel.GetModuleHandle(),
+  winApi.macro.MAKEINTRESOURCE(1n),
+);
 
 // Register WindowClassEx
 const result = winApi.user.RegisterClassEx(windowClassEx.pointer);
 if (!result) {
-  throw new Error(`Failure RegisterClassEx. [GetLastError=${winApi.kernel.GetLastError()}]`);
+  throw new Error(
+    `Failure RegisterClassEx. [GetLastError=${winApi.kernel.GetLastError()}]`,
+  );
 }
 
 // CreateWindowEx
@@ -45,7 +55,9 @@ const windowHandle = winApi.user.CreateWindowEx(
 );
 
 if (!windowHandle) {
-  throw new Error(`Failure CreateWindowEx. [GetLastError=${winApi.kernel.GetLastError()}]`);
+  throw new Error(
+    `Failure CreateWindowEx. [GetLastError=${winApi.kernel.GetLastError()}]`,
+  );
 }
 
 if (!winApi.kernel.FreeConsole()) {

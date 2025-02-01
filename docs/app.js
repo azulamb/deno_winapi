@@ -133,7 +133,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
           key: 'implemented_rate',
-          value: (100 * data.aggregate.all.implemented / data.aggregate.all.total).toFixed(2),
+          value:
+            (100 * data.aggregate.all.implemented / data.aggregate.all.total)
+              .toFixed(2),
         },
       ],
     },
@@ -150,14 +152,16 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
           key: 'implemented_rate',
-          value: (100 * data.aggregate.noDuplication.implemented / data.aggregate.noDuplication.total).toFixed(2),
+          value: (100 * data.aggregate.noDuplication.implemented /
+            data.aggregate.noDuplication.total).toFixed(2),
         },
       ],
     },
   ];
   for (const item of report) {
     for (const value of item.values) {
-      document.getElementById(`${item.base}_${value.key}`).textContent = `${value.value}`;
+      document.getElementById(`${item.base}_${value.key}`).textContent =
+        `${value.value}`;
     }
   }
   document.querySelector(`a[href="./${target}.html"]`).removeAttribute('href');

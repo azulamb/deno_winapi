@@ -1,6 +1,7 @@
 {
   "lock": false,
   "tasks": {
+    "check": "deno run --allow-run tools/check.ts",
     "report": "deno run --allow-run --allow-read --allow-write --allow-ffi tools/report.ts",
     "build": "deno compile --allow-ffi --icon sample/icon.ico --output sample/sample.exe sample/sample.ts",
     "sample": "deno run --allow-ffi sample/sample.ts",
@@ -11,10 +12,6 @@
   },
   "fmt": {
     "include": ["./"],
-    "useTabs": false,
-    "indentWidth": 2,
-    "lineWidth": 160,
-    "semiColons": true,
     "singleQuote": true
   }
 }

@@ -64,10 +64,16 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
   }
 
   get hwnd() {
-    return Create.pointer(this.dataView.getBigUint64(this.offset.hwnd, this.endian));
+    return Create.pointer(
+      this.dataView.getBigUint64(this.offset.hwnd, this.endian),
+    );
   }
   set hwnd(value) {
-    this.dataView.setBigUint64(this.offset.hwnd, Create.rawPointer(value), this.endian);
+    this.dataView.setBigUint64(
+      this.offset.hwnd,
+      Create.rawPointer(value),
+      this.endian,
+    );
   }
 
   get message() {
@@ -78,17 +84,29 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
   }
 
   get wParam() {
-    return Create.pointer(this.dataView.getBigUint64(this.offset.wParam, this.endian));
+    return Create.pointer(
+      this.dataView.getBigUint64(this.offset.wParam, this.endian),
+    );
   }
   set wParam(value) {
-    this.dataView.setBigUint64(this.offset.wParam, Create.rawPointer(value), this.endian);
+    this.dataView.setBigUint64(
+      this.offset.wParam,
+      Create.rawPointer(value),
+      this.endian,
+    );
   }
 
   get lParam() {
-    return Create.pointer(this.dataView.getBigUint64(this.offset.lParam, this.endian));
+    return Create.pointer(
+      this.dataView.getBigUint64(this.offset.lParam, this.endian),
+    );
   }
   set lParam(value) {
-    this.dataView.setBigUint64(this.offset.lParam, Create.rawPointer(value), this.endian);
+    this.dataView.setBigUint64(
+      this.offset.lParam,
+      Create.rawPointer(value),
+      this.endian,
+    );
   }
 
   get time() {
@@ -100,12 +118,19 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
 
   get pt() {
     const x = this.dataView.getBigInt64(this.offset.pt, this.endian);
-    const y = this.dataView.getBigInt64(this.offset.pt + WinTypes.LONG.size, this.endian);
+    const y = this.dataView.getBigInt64(
+      this.offset.pt + WinTypes.LONG.size,
+      this.endian,
+    );
     return { x: x, y: y };
   }
   set pt(value) {
     this.dataView.setBigInt64(this.offset.pt, value.x, this.endian);
-    this.dataView.setBigInt64(this.offset.pt + WinTypes.LONG.size, value.y, this.endian);
+    this.dataView.setBigInt64(
+      this.offset.pt + WinTypes.LONG.size,
+      value.y,
+      this.endian,
+    );
   }
 
   get lPrivate() {

@@ -37,6 +37,10 @@ Deno.test(
     test.assertEquals(message.time, time, 'Invalid "Message.time".');
     test.assertEquals(message.pt.x, x, 'Invalid "Message.pt.x".');
     test.assertEquals(message.pt.y, y, 'Invalid "Message.pt.y".');
-    test.assertEquals(message.lPrivate, lPrivate, 'Invalid "Message.lPrivate".');
+    test.assertEquals(
+      message.lPrivate,
+      lPrivate,
+      'Invalid "Message.lPrivate".',
+    );
   },
 );

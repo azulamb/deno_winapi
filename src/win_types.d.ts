@@ -72,12 +72,18 @@ type RECT = {
   readonly bottom: LONG;
 };
 type UINT = number;
-type DENO_CALLBACK_WNDPROC = Deno.UnsafeCallbackDefinition<['pointer', 'u32', 'pointer', 'pointer'], 'pointer'>;
+type DENO_CALLBACK_WNDPROC = Deno.UnsafeCallbackDefinition<
+  ['pointer', 'u32', 'pointer', 'pointer'],
+  'pointer'
+>;
 type WNDPROC = Deno.PointerValue<DENO_CALLBACK_WNDPROC>;
 type WPARAM = LPVOID;
 type WORD = number;
 
-type SafeNativeType = Exclude<Deno.NativeType, { readonly struct: readonly Deno.NativeType[] }>;
+type SafeNativeType = Exclude<
+  Deno.NativeType,
+  { readonly struct: readonly Deno.NativeType[] }
+>;
 
 interface SafeNativeTypeMap {
   _POINTER: 'pointer';

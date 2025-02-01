@@ -2,7 +2,12 @@ import { WinTypes } from '../win_types.ts';
 
 export const callbackFunctions: {
   DefWindowProcW: Deno.UnsafeCallbackDefinition<
-    [SafeNativeTypeMap['HWND'], SafeNativeTypeMap['UINT'], SafeNativeTypeMap['WPARAM'], SafeNativeTypeMap['LPARAM']],
+    [
+      SafeNativeTypeMap['HWND'],
+      SafeNativeTypeMap['UINT'],
+      SafeNativeTypeMap['WPARAM'],
+      SafeNativeTypeMap['LPARAM'],
+    ],
     SafeNativeTypeMap['LRESULT']
   >;
 } = {

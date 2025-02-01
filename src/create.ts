@@ -190,7 +190,8 @@ export const Create = {
       style |= 0x00000000;
     }
     if (option.WS_OVERLAPPEDWINDOW) {
-      style |= 0x00000000 | 0x00C00000 | 0x00080000 | 0x00040000 | 0x00020000 | 0x00010000;
+      style |= 0x00000000 | 0x00C00000 | 0x00080000 | 0x00040000 | 0x00020000 |
+        0x00010000;
     }
     if (option.WS_POPUP) {
       style |= 0x80000000;
@@ -214,7 +215,8 @@ export const Create = {
       style |= 0x00000000;
     }
     if (option.WS_TILEDWINDOW) {
-      style |= 0x00000000 | 0x00C00000 | 0x00080000 | 0x00040000 | 0x00020000 | 0x00010000;
+      style |= 0x00000000 | 0x00C00000 | 0x00080000 | 0x00040000 | 0x00020000 |
+        0x00010000;
     }
     if (option.WS_VISIBLE) {
       style |= 0x10000000;

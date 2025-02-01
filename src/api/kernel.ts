@@ -26,7 +26,12 @@ export class Kernel {
     const result: WithCallback<
       boolean,
       Deno.UnsafeCallbackDefinition<
-        [SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']],
+        [
+          SafeNativeTypeMap['HMODULE'],
+          SafeNativeTypeMap['LPWSTR'],
+          SafeNativeTypeMap['LPWSTR'],
+          SafeNativeTypeMap['LONG_PTR'],
+        ],
         SafeNativeTypeMap['BOOL']
       >
     > = {
@@ -43,7 +48,12 @@ export class Kernel {
           lpName: LPWSTR,
           lParam: LONG_PTR,
         ) => {
-          return func(Converter.HMODULE(hModule), Converter.LPWSTR(lpType), Converter.LPWSTR(lpName), Converter.LONG_PTR(lParam));
+          return func(
+            Converter.HMODULE(hModule),
+            Converter.LPWSTR(lpType),
+            Converter.LPWSTR(lpName),
+            Converter.LONG_PTR(lParam),
+          );
         },
       );
       lpEnumFunc = result.callback.pointer;
@@ -60,7 +70,14 @@ export class Kernel {
       dwFlagsNum |= 8;
     }
 
-    result.result = !!kernel.symbols.EnumResourceNamesExW(hModule, lpType, lpEnumFunc, lParam, dwFlagsNum, LangId);
+    result.result = !!kernel.symbols.EnumResourceNamesExW(
+      hModule,
+      lpType,
+      lpEnumFunc,
+      lParam,
+      dwFlagsNum,
+      LangId,
+    );
     return result;
   }
 
@@ -84,7 +101,11 @@ export class Kernel {
     const result: WithCallback<
       boolean,
       Deno.UnsafeCallbackDefinition<
-        [SafeNativeTypeMap['HMODULE'], SafeNativeTypeMap['LPWSTR'], SafeNativeTypeMap['LONG_PTR']],
+        [
+          SafeNativeTypeMap['HMODULE'],
+          SafeNativeTypeMap['LPWSTR'],
+          SafeNativeTypeMap['LONG_PTR'],
+        ],
         SafeNativeTypeMap['BOOL']
       >
     > = {
@@ -100,7 +121,11 @@ export class Kernel {
           lpType: LPWSTR,
           lParam: LONG_PTR,
         ) => {
-          return func(Converter.HMODULE(hModule), Converter.LPWSTR(lpType), Converter.LONG_PTR(lParam));
+          return func(
+            Converter.HMODULE(hModule),
+            Converter.LPWSTR(lpType),
+            Converter.LONG_PTR(lParam),
+          );
         },
       );
       lpEnumFunc = result.callback.pointer;
@@ -117,7 +142,13 @@ export class Kernel {
       dwFlagsNum |= 8;
     }
 
-    result.result = !!kernel.symbols.EnumResourceTypesExW(hModule, lpEnumFunc, lParam, dwFlagsNum, LangId);
+    result.result = !!kernel.symbols.EnumResourceTypesExW(
+      hModule,
+      lpEnumFunc,
+      lParam,
+      dwFlagsNum,
+      LangId,
+    );
 
     return result;
   }

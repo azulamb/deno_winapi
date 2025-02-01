@@ -996,7 +996,7 @@
     },
     {
       "name": "GetClientRect",
-      "base": false
+      "base": true
     },
     {
       "name": "GetClipCursor",
@@ -3478,11 +3478,11 @@
   "aggregate": {
     "all": {
       "total": 1014,
-      "implemented": 10
+      "implemented": 11
     },
     "noDuplication": {
       "total": 817,
-      "implemented": 10
+      "implemented": 11
     }
   }
 }

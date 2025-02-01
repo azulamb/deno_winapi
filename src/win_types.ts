@@ -23,7 +23,9 @@ const ffiTypeSizes: { [key in SafeNativeType]: number } = {
 };
 
 // https://deno.land/manual/runtime/ffi_api#supported-types
-export const WinTypes: { [key in WIN_TYPES]: { ffi: SafeNativeTypeMap[key]; size: number } } = {
+export const WinTypes: {
+  [key in WIN_TYPES]: { ffi: SafeNativeTypeMap[key]; size: number };
+} = {
   ATOM: { ffi: 'u16', size: 0 },
   BOOL: { ffi: 'i32', size: 0 },
   DWORD: { ffi: 'i32', size: 0 },

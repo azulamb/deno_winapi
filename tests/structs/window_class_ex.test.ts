@@ -58,18 +58,66 @@ Deno.test(
     windowClassEx.hIconSm = hIconSm;
 
     // Test values.
-    test.assertEquals(windowClassEx.cbSize, 80, 'Invalid "WindowClassEx.cbSize".');
-    test.assertEquals(windowClassEx.style, style, 'Invalid "WindowClassEx.style".');
-    test.assertEquals(test.values.pointer.value(windowClassEx.lpfnWndProc), test.values.pointer.value(lpfnWndProc), 'Invalid "WindowClassEx.lpfnWndProc".');
-    test.assertEquals(windowClassEx.cbClsExtra, cbClsExtra, 'Invalid "WindowClassEx.cbClsExtra".');
-    test.assertEquals(windowClassEx.cbWndExtra, cbWndExtra, 'Invalid "WindowClassEx.cbWndExtra".');
-    test.assertEquals(windowClassEx.hInstance, hInstance, 'Invalid "WindowClassEx.hInstance".');
-    test.assertEquals(windowClassEx.hIcon, hIcon, 'Invalid "WindowClassEx.hIcon".');
-    test.assertEquals(windowClassEx.hCursor, hInstance, 'Invalid "WindowClassEx.hCursor".');
-    test.assertEquals(windowClassEx.hbrBackground, hbrBackground, 'Invalid "WindowClassEx.hbrBackground".');
-    test.assertEquals(GetUTF16String(windowClassEx.lpszMenuName), lpszMenuName, 'Invalid "WindowClassEx.lpszMenuName".');
-    test.assertEquals(GetUTF16String(windowClassEx.lpszClassName), lpszClassName, 'Invalid "WindowClassEx.lpszClassName".');
-    test.assertEquals(windowClassEx.hIconSm, hIconSm, 'Invalid "WindowClassEx.hIconSm".');
+    test.assertEquals(
+      windowClassEx.cbSize,
+      80,
+      'Invalid "WindowClassEx.cbSize".',
+    );
+    test.assertEquals(
+      windowClassEx.style,
+      style,
+      'Invalid "WindowClassEx.style".',
+    );
+    test.assertEquals(
+      test.values.pointer.value(windowClassEx.lpfnWndProc),
+      test.values.pointer.value(lpfnWndProc),
+      'Invalid "WindowClassEx.lpfnWndProc".',
+    );
+    test.assertEquals(
+      windowClassEx.cbClsExtra,
+      cbClsExtra,
+      'Invalid "WindowClassEx.cbClsExtra".',
+    );
+    test.assertEquals(
+      windowClassEx.cbWndExtra,
+      cbWndExtra,
+      'Invalid "WindowClassEx.cbWndExtra".',
+    );
+    test.assertEquals(
+      windowClassEx.hInstance,
+      hInstance,
+      'Invalid "WindowClassEx.hInstance".',
+    );
+    test.assertEquals(
+      windowClassEx.hIcon,
+      hIcon,
+      'Invalid "WindowClassEx.hIcon".',
+    );
+    test.assertEquals(
+      windowClassEx.hCursor,
+      hInstance,
+      'Invalid "WindowClassEx.hCursor".',
+    );
+    test.assertEquals(
+      windowClassEx.hbrBackground,
+      hbrBackground,
+      'Invalid "WindowClassEx.hbrBackground".',
+    );
+    test.assertEquals(
+      GetUTF16String(windowClassEx.lpszMenuName),
+      lpszMenuName,
+      'Invalid "WindowClassEx.lpszMenuName".',
+    );
+    test.assertEquals(
+      GetUTF16String(windowClassEx.lpszClassName),
+      lpszClassName,
+      'Invalid "WindowClassEx.lpszClassName".',
+    );
+    test.assertEquals(
+      windowClassEx.hIconSm,
+      hIconSm,
+      'Invalid "WindowClassEx.hIconSm".',
+    );
   },
 );
 
@@ -84,14 +132,16 @@ Deno.test(
     const lParam: LPARAM = test.values.pointer.create();
     const result: LRESULT = test.values.pointer.create();
 
-    windowClassEx.setWindowProcedure((arg0: HWND, arg1: UINT, arg2: WPARAM, arg3: LPARAM) => {
-      test.assertEquals(arg0, hWnd);
-      test.assertEquals(arg1, Msg);
-      test.assertEquals(arg2, wParam);
-      test.assertEquals(arg3, lParam);
+    windowClassEx.setWindowProcedure(
+      (arg0: HWND, arg1: UINT, arg2: WPARAM, arg3: LPARAM) => {
+        test.assertEquals(arg0, hWnd);
+        test.assertEquals(arg1, Msg);
+        test.assertEquals(arg2, wParam);
+        test.assertEquals(arg3, lParam);
 
-      return result;
-    });
+        return result;
+      },
+    );
 
     const pointer = windowClassEx.lpfnWndProc;
     if (pointer) {
@@ -100,7 +150,10 @@ Deno.test(
         callbackFunctions.DefWindowProcW,
       ).call(hWnd, Msg, wParam, lParam);
 
-      test.assertEquals(Deno.UnsafePointer.value(actual), Deno.UnsafePointer.value(result));
+      test.assertEquals(
+        Deno.UnsafePointer.value(actual),
+        Deno.UnsafePointer.value(result),
+      );
 
       windowClassEx.closeWindowProcedure();
     } else {

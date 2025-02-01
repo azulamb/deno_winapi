@@ -82,7 +82,9 @@ export class User {
   }
 
   public RegisterClassEx(windowClassExPointer: LPWNDCLASSEXW) {
-    return Converter.ATOM(this.libs.symbols.RegisterClassExW(windowClassExPointer));
+    return Converter.ATOM(
+      this.libs.symbols.RegisterClassExW(windowClassExPointer),
+    );
   }
 
   public ShowWindow(

@@ -61,7 +61,8 @@ function Parse(data: string, libs: Deno.DynamicLibrary<any>) {
     [keys: string]: FuncInfo;
   } = {};
   for (const name of funcNames) {
-    const exists = typeof libs.symbols[<'CreateWindowExW'> name] !== 'undefined';
+    const exists =
+      typeof libs.symbols[<'CreateWindowExW'> name] !== 'undefined';
     const info = ParseFunctionName(name);
     const key = info.name;
     if (key.match(/^_/)) {
@@ -108,11 +109,17 @@ function Parse(data: string, libs: Deno.DynamicLibrary<any>) {
 }
 
 // deno-lint-ignore no-explicit-any
-async function Report(target: string, libs: Deno.DynamicLibrary<any>, template: string) {
+async function Report(
+  target: string,
+  libs: Deno.DynamicLibrary<any>,
+  template: string,
+) {
   const result = Parse(await Deno.readTextFile(`report/${target}.txt`), libs);
 
   try {
-    const funcs = <FuncInfo[]> JSON.parse(await Deno.readTextFile(`docs/${target}.json`)).list;
+    const funcs = <FuncInfo[]> JSON.parse(
+      await Deno.readTextFile(`docs/${target}.json`),
+    ).list;
     const urls: { [keys: string]: string } = {};
     for (const func of funcs) {
       if (func.url) {
@@ -127,15 +134,18 @@ async function Report(target: string, libs: Deno.DynamicLibrary<any>, template: 
     }
     // deno-lint-ignore no-empty
   } catch (_error) {}
-  Deno.writeTextFile(`docs/${target}.json`, JSON.stringify(result, null, '\t'));
+  Deno.writeTextFile(`docs/${target}.json`, JSON.stringify(result, null, '  '));
 
   console.log(target);
   console.log(
-    `all: ${result.aggregate.all.implemented} / ${result.aggregate.all.total} ... ${100 * result.aggregate.all.implemented / result.aggregate.all.total}%`,
+    `all: ${result.aggregate.all.implemented} / ${result.aggregate.all.total} ... ${
+      100 * result.aggregate.all.implemented / result.aggregate.all.total
+    }%`,
   );
   console.log(
     `noDuplication: ${result.aggregate.noDuplication.implemented} / ${result.aggregate.noDuplication.total} ... ${
-      100 * result.aggregate.noDuplication.implemented / result.aggregate.noDuplication.total
+      100 * result.aggregate.noDuplication.implemented /
+      result.aggregate.noDuplication.total
     }%`,
   );
 
@@ -143,7 +153,12 @@ async function Report(target: string, libs: Deno.DynamicLibrary<any>, template: 
     `docs/${target}.html`,
     template.replace(/<title>(.+)<\/title>/, `<title>${target} - $1</title>`)
       .replace(/<h1><\/h1>/, `<h1>${target}</h1>`)
-      .replace(/<script><\/script>/, `<script id="data" data-target="${target}">const data = ${JSON.stringify(result)};</script>`),
+      .replace(
+        /<script><\/script>/,
+        `<script id="data" data-target="${target}">const data = ${
+          JSON.stringify(result)
+        };</script>`,
+      ),
   );
 }
 
