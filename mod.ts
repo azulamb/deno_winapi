@@ -4,8 +4,8 @@ import { Create } from './src/create.ts';
 import { Kernel } from './src/api/kernel.ts';
 import { User } from './src/api/user.ts';
 import { macro } from './src/libs/macro.ts';
-
-export { VERSION } from './src/version.ts';
+import data from './deno.json' with { type: 'json' };
+export const VERSION = data.version;
 
 export const winApi = {
   create: Create,

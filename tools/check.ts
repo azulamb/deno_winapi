@@ -1,4 +1,5 @@
-import { VERSION } from '../src/version.ts';
+import data from '../deno.json' with { type: 'json' };
+export const VERSION = data.version;
 
 async function Exec(command: string[]) {
   const { stdout, stderr } = await new Deno.Command(

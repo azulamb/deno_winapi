@@ -175,6 +175,7 @@
     "wcslen",
     "wcsrchr",
     "Werp",
+    "winapi",
     "WINDOWEDGE",
     "WINDOWPOSCHANGED",
     "WINDOWPOSCHANGING",

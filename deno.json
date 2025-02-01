@@ -1,4 +1,8 @@
 {
+  "name": "@azulamb/winapi",
+  "version": "0.1.1",
+  "license": "MIT",
+  "exports": "./mod.ts",
   "lock": false,
   "tasks": {
     "check": "deno run --allow-run tools/check.ts",
