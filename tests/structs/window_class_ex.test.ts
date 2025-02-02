@@ -9,7 +9,7 @@ import type {
   UINT,
   WNDPROC,
   WPARAM,
-} from '../../src/win_types.d.ts';
+} from '../../mod.ts';
 
 function GetUTF16String(pointer: Deno.PointerValue) {
   if (!pointer) {

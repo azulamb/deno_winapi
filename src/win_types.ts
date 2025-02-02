@@ -14,7 +14,7 @@ import type {
   SafeNativeTypeMap,
   WIN_TYPES,
   WPARAM,
-} from './win_types.d.ts';
+} from './types.ts';
 
 const POINTER = 8;
 const ffiTypeSizes: { [key in SafeNativeType]: number } = {

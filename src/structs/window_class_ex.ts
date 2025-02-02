@@ -17,7 +17,7 @@ import type {
   WindowsStruct,
   WNDPROC,
   WPARAM,
-} from '../win_types.d.ts';
+} from '../types.ts';
 
 type WindowClassExProps = {
   cbSize: UINT;

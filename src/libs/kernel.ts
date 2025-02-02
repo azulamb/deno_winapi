@@ -1,5 +1,5 @@
 import { WinTypes } from '../win_types.ts';
-import type { CALLBACK_FUNCTIONS, KERNEL_FUNKS } from './kernel.d.ts';
+import type { CALLBACK_FUNCTIONS, KERNEL_FUNKS } from './kernel_types.ts';
 
 export const callbackFunctions: CALLBACK_FUNCTIONS = {
   EnumResNameProcW: {

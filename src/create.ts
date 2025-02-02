@@ -2,7 +2,7 @@ import { Message } from './structs/message.ts';
 import { WindowClassEx } from './structs/window_class_ex.ts';
 import { macro } from './libs/macro.ts';
 import { RECT } from './structs/rect.ts';
-import type { DWORD, LANGID, LPCWSTR, UINT, WORD } from './win_types.d.ts';
+import type { DWORD, LANGID, LPCWSTR, UINT, WORD } from './types.ts';
 
 type ClassStyleOption = {
   CS_BYTEALIGNCLIENT?: boolean;

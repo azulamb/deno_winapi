@@ -1,5 +1,5 @@
 import { WinTypes } from '../win_types.ts';
-import type { CALLBACK_FUNCTIONS, USER_FUNKS } from './user.d.ts';
+import type { CALLBACK_FUNCTIONS, USER_FUNKS } from './user_types.ts';
 
 export const callbackFunctions: CALLBACK_FUNCTIONS = {
   DefWindowProcW: {

@@ -1,4 +1,4 @@
-import type { LPRECT } from '../win_types.d.ts';
+import type { LPRECT } from '../types.ts';
 import { Converter } from '../win_types.ts';
 
 /**

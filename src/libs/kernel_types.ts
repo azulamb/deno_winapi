@@ -1,4 +1,4 @@
-import type { SafeNativeTypeMap } from '../win_types.d.ts';
+import type { SafeNativeTypeMap } from '../types.ts';
 
 // TODO: Generate
 export type CALLBACK_FUNCTIONS = {

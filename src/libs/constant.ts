@@ -1,4 +1,4 @@
-import type { WindowMessageName, WindowsResourceType } from '../win_types.d.ts';
+import type { WindowMessageName, WindowsResourceType } from '../types.ts';
 
 // https://learn.microsoft.com/ja-jp/windows/win32/winmsg/window-notifications
 export type WINDOW_MESSAGE_VALUES = { [key in WindowMessageName]: number };

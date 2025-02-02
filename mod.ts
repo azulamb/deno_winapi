@@ -12,7 +12,7 @@ import {
 } from './src/libs/constant.ts';
 export const VERSION = data.version;
 
-export type * from './src/win_types.d.ts';
+export type * from './src/types.ts';
 
 export const winApi: {
   create: CreateWindowsTypes;

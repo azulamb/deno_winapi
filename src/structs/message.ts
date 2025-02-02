@@ -9,7 +9,7 @@ import type {
   UINT,
   WindowsStruct,
   WPARAM,
-} from '../win_types.d.ts';
+} from '../types.ts';
 
 interface MessageProps {
   hwnd: HWND;

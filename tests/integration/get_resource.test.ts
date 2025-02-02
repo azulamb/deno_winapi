@@ -1,6 +1,6 @@
 import * as test from '../_setup.ts';
 import { winApi } from '../../mod.ts';
-import { HMODULE, LONG_PTR, LPCWSTR, LPWSTR } from '../../src/win_types.d.ts';
+import type { HMODULE, LONG_PTR, LPCWSTR, LPWSTR } from '../../mod.ts';
 
 function GetHasResourceTypes(hModule: HMODULE) {
   return new Promise<LPWSTR[]>((resolve) => {

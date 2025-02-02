@@ -12,7 +12,7 @@ import type {
   LPWSTR,
   SafeNativeTypeMap,
   WithCallback,
-} from '../win_types.d.ts';
+} from '../types.ts';
 
 export class Kernel {
   public libs = kernel;

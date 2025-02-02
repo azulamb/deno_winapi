@@ -16,7 +16,7 @@ import type {
   LRESULT,
   UINT,
   WPARAM,
-} from '../win_types.d.ts';
+} from '../types.ts';
 
 export class User {
   public libs = user;

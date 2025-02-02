@@ -1,13 +1,6 @@
 import * as test from '../_setup.ts';
 import { Message } from '../../src/structs/message.ts';
-import type {
-  DWORD,
-  HWND,
-  LONG,
-  LPARAM,
-  UINT,
-  WPARAM,
-} from '../../src/win_types.d.ts';
+import type { DWORD, HWND, LONG, LPARAM, UINT, WPARAM } from '../../mod.ts';
 
 Deno.test(
   'Create Message',
