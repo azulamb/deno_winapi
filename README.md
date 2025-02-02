@@ -2,9 +2,12 @@
 
 `deno_winapi` is WindowsAPI wrapper.
 
-API list.
-
-https://azulamb.github.io/deno_winapi/
+- GitHub
+  - https://github.com/azulamb/deno_winapi
+- API list.
+  - https://azulamb.github.io/deno_winapi/
+- JSR
+  - https://jsr.io/@azulamb/winapi
 
 ## Develop
 
