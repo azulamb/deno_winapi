@@ -1,6 +1,23 @@
 import { Create } from '../create.ts';
 import { callbackFunctions } from '../libs/user.ts';
 import { Converter, WinTypes } from '../win_types.ts';
+import type {
+  DENO_CALLBACK_WNDPROC,
+  HBRUSH,
+  HCURSOR,
+  HICON,
+  HINSTANCE,
+  HWND,
+  int,
+  LPARAM,
+  LPCWSTR,
+  LPWNDCLASSEXW,
+  LRESULT,
+  UINT,
+  WindowsStruct,
+  WNDPROC,
+  WPARAM,
+} from '../win_types.d.ts';
 
 type WindowClassExProps = {
   cbSize: UINT;
@@ -99,17 +116,17 @@ export class WindowClassEx
     return this.dataPointer;
   }
 
-  get cbSize() {
+  get cbSize(): number {
     return this.dataView.getUint32(this.offset.cbSize, this.endian);
   }
   set cbSize(value: number) {
     this.dataView.setUint32(this.offset.cbSize, value, this.endian);
   }
 
-  get style() {
+  get style(): number {
     return this.dataView.getUint32(this.offset.style, this.endian);
   }
-  set style(value) {
+  set style(value: number) {
     this.dataView.setUint32(this.offset.style, value, this.endian);
   }
 
@@ -118,7 +135,7 @@ export class WindowClassEx
       this.dataView.getBigUint64(this.offset.lpfnWndProc, this.endian),
     );
   }
-  set lpfnWndProc(value) {
+  set lpfnWndProc(value: WNDPROC) {
     if (!value) {
       if (this.callback) {
         this.callback.close();
@@ -137,7 +154,7 @@ export class WindowClassEx
       wParam: WPARAM,
       lParam: LPARAM,
     ) => LRESULT,
-  ) {
+  ): this {
     this.closeWindowProcedure();
     this.callback = new Deno.UnsafeCallback(
       callbackFunctions.DefWindowProcW,
@@ -158,31 +175,31 @@ export class WindowClassEx
     this.lpfnWndProc = this.callback.pointer;
     return this;
   }
-  public closeWindowProcedure() {
+  public closeWindowProcedure(): this {
     this.lpfnWndProc = null;
     return this;
   }
 
-  get cbClsExtra() {
+  get cbClsExtra(): number {
     return this.dataView.getInt32(this.offset.cbClsExtra, this.endian);
   }
-  set cbClsExtra(value) {
+  set cbClsExtra(value: number) {
     this.dataView.setInt32(this.offset.cbClsExtra, value, this.endian);
   }
 
-  get cbWndExtra() {
+  get cbWndExtra(): number {
     return this.dataView.getInt32(this.offset.cbWndExtra, this.endian);
   }
-  set cbWndExtra(value) {
+  set cbWndExtra(value: number) {
     this.dataView.setInt32(this.offset.cbWndExtra, value, this.endian);
   }
 
-  get hInstance() {
+  get hInstance(): Deno.PointerValue<unknown> {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.hInstance, this.endian),
     );
   }
-  set hInstance(value) {
+  set hInstance(value: Deno.PointerValue<unknown>) {
     this.dataView.setBigUint64(
       this.offset.hInstance,
       Create.rawPointer(value),
@@ -190,12 +207,12 @@ export class WindowClassEx
     );
   }
 
-  get hIcon() {
+  get hIcon(): Deno.PointerValue<unknown> {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.hIcon, this.endian),
     );
   }
-  set hIcon(value) {
+  set hIcon(value: Deno.PointerValue<unknown>) {
     this.dataView.setBigUint64(
       this.offset.hIcon,
       Create.rawPointer(value),
@@ -203,12 +220,12 @@ export class WindowClassEx
     );
   }
 
-  get hCursor() {
+  get hCursor(): Deno.PointerValue<unknown> {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.hCursor, this.endian),
     );
   }
-  set hCursor(value) {
+  set hCursor(value: Deno.PointerValue<unknown>) {
     this.dataView.setBigUint64(
       this.offset.hCursor,
       Create.rawPointer(value),
@@ -216,12 +233,12 @@ export class WindowClassEx
     );
   }
 
-  get hbrBackground() {
+  get hbrBackground(): Deno.PointerValue<unknown> {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.hbrBackground, this.endian),
     );
   }
-  set hbrBackground(value) {
+  set hbrBackground(value: Deno.PointerValue<unknown>) {
     this.dataView.setBigUint64(
       this.offset.hbrBackground,
       Create.rawPointer(value),
@@ -229,12 +246,12 @@ export class WindowClassEx
     );
   }
 
-  get lpszMenuName() {
+  get lpszMenuName(): Deno.PointerValue<unknown> {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.lpszMenuName, this.endian),
     );
   }
-  set lpszMenuName(value) {
+  set lpszMenuName(value: Deno.PointerValue<unknown>) {
     this.dataView.setBigUint64(
       this.offset.lpszMenuName,
       Create.rawPointer(value),
@@ -245,12 +262,12 @@ export class WindowClassEx
     this.lpszMenuName = Create.stringPointer(name);
   }
 
-  get lpszClassName() {
+  get lpszClassName(): Deno.PointerValue<unknown> {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.lpszClassName, this.endian),
     );
   }
-  set lpszClassName(value) {
+  set lpszClassName(value: Deno.PointerValue<unknown>) {
     this.dataView.setBigUint64(
       this.offset.lpszClassName,
       Create.rawPointer(value),
@@ -261,12 +278,12 @@ export class WindowClassEx
     this.lpszClassName = Create.stringPointer(name);
   }
 
-  get hIconSm() {
+  get hIconSm(): Deno.PointerValue<unknown> {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.hIconSm, this.endian),
     );
   }
-  set hIconSm(value) {
+  set hIconSm(value: Deno.PointerValue<unknown>) {
     this.dataView.setBigUint64(
       this.offset.hIconSm,
       Create.rawPointer(value),

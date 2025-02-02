@@ -1,5 +1,15 @@
 import { Create } from '../create.ts';
 import { Converter, WinTypes } from '../win_types.ts';
+import type {
+  DWORD,
+  HWND,
+  LPARAM,
+  LPMSG,
+  POINT,
+  UINT,
+  WindowsStruct,
+  WPARAM,
+} from '../win_types.d.ts';
 
 interface MessageProps {
   hwnd: HWND;
@@ -63,12 +73,12 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
     return this.dataPointer;
   }
 
-  get hwnd() {
+  get hwnd(): Deno.PointerValue<unknown> {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.hwnd, this.endian),
     );
   }
-  set hwnd(value) {
+  set hwnd(value: Deno.PointerValue<unknown>) {
     this.dataView.setBigUint64(
       this.offset.hwnd,
       Create.rawPointer(value),
@@ -76,19 +86,19 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
     );
   }
 
-  get message() {
+  get message(): number {
     return this.dataView.getInt32(this.offset.message, this.endian);
   }
-  set message(value) {
+  set message(value: number) {
     this.dataView.setInt32(this.offset.message, value, this.endian);
   }
 
-  get wParam() {
+  get wParam(): Deno.PointerValue<unknown> {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.wParam, this.endian),
     );
   }
-  set wParam(value) {
+  set wParam(value: Deno.PointerValue<unknown>) {
     this.dataView.setBigUint64(
       this.offset.wParam,
       Create.rawPointer(value),
@@ -96,12 +106,12 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
     );
   }
 
-  get lParam() {
+  get lParam(): Deno.PointerValue<unknown> {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.lParam, this.endian),
     );
   }
-  set lParam(value) {
+  set lParam(value: Deno.PointerValue<unknown>) {
     this.dataView.setBigUint64(
       this.offset.lParam,
       Create.rawPointer(value),
@@ -109,14 +119,14 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
     );
   }
 
-  get time() {
+  get time(): number {
     return this.dataView.getInt32(this.offset.time, this.endian);
   }
-  set time(value) {
+  set time(value: number) {
     this.dataView.setInt32(this.offset.time, value, this.endian);
   }
 
-  get pt() {
+  get pt(): { x: bigint; y: bigint } {
     const x = this.dataView.getBigInt64(this.offset.pt, this.endian);
     const y = this.dataView.getBigInt64(
       this.offset.pt + WinTypes.LONG.size,
@@ -124,7 +134,7 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
     );
     return { x: x, y: y };
   }
-  set pt(value) {
+  set pt(value: { x: bigint; y: bigint }) {
     this.dataView.setBigInt64(this.offset.pt, value.x, this.endian);
     this.dataView.setBigInt64(
       this.offset.pt + WinTypes.LONG.size,
@@ -133,10 +143,10 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
     );
   }
 
-  get lPrivate() {
+  get lPrivate(): number {
     return this.dataView.getInt32(this.offset.lPrivate, this.endian);
   }
-  set lPrivate(value) {
+  set lPrivate(value: number) {
     this.dataView.setInt32(this.offset.lPrivate, value, this.endian);
   }
 }

@@ -1,9 +1,9 @@
-interface WithCallback<T, S extends Deno.UnsafeCallbackDefinition> {
+export interface WithCallback<T, S extends Deno.UnsafeCallbackDefinition> {
   result: T;
   callback?: Deno.UnsafeCallback<S>;
 }
 
-type WIN_TYPES =
+export type WIN_TYPES =
   | 'ATOM'
   | 'BOOL'
   | 'DWORD'
@@ -35,57 +35,57 @@ type WIN_TYPES =
   | 'WNDPROC'
   | 'WPARAM';
 
-type ATOM = number;
-type BOOL = number;
-type DWORD = number;
-type ENUMRESNAMEPROCW = LPVOID;
-type ENUMRESTYPEPROCW = LPVOID;
-type int = number;
-type HBRUSH = LPVOID;
-type HCURSOR = LPVOID;
-type HICON = LPVOID;
-type HINSTANCE = LPVOID;
-type HMENU = LPVOID;
-type HMODULE = LPVOID;
-type HRESULT = number;
-type HWND = LPVOID;
-type LANGID = number;
-type LONG = bigint;
-type LONG_PTR = LPVOID;
-type LPARAM = LPVOID;
-type LPCWSTR = LPVOID;
-type LPMSG = LPVOID;
-type LPRECT = LPVOID;
-type LPVOID = Deno.PointerValue;
-type LPWNDCLASSEXW = LPVOID;
-type LPWSTR = LPVOID;
-type LRESULT = LPVOID;
-type MSG = LPVOID;
-type POINT = {
+export type ATOM = number;
+export type BOOL = number;
+export type DWORD = number;
+export type ENUMRESNAMEPROCW = LPVOID;
+export type ENUMRESTYPEPROCW = LPVOID;
+export type int = number;
+export type HBRUSH = LPVOID;
+export type HCURSOR = LPVOID;
+export type HICON = LPVOID;
+export type HINSTANCE = LPVOID;
+export type HMENU = LPVOID;
+export type HMODULE = LPVOID;
+export type HRESULT = number;
+export type HWND = LPVOID;
+export type LANGID = number;
+export type LONG = bigint;
+export type LONG_PTR = LPVOID;
+export type LPARAM = LPVOID;
+export type LPCWSTR = LPVOID;
+export type LPMSG = LPVOID;
+export type LPRECT = LPVOID;
+export type LPVOID = Deno.PointerValue;
+export type LPWNDCLASSEXW = LPVOID;
+export type LPWSTR = LPVOID;
+export type LRESULT = LPVOID;
+export type MSG = LPVOID;
+export type POINT = {
   readonly x: LONG;
   readonly y: LONG;
 };
-type RECT = {
+export type RECT = {
   readonly left: LONG;
   readonly top: LONG;
   readonly right: LONG;
   readonly bottom: LONG;
 };
-type UINT = number;
-type DENO_CALLBACK_WNDPROC = Deno.UnsafeCallbackDefinition<
+export type UINT = number;
+export type DENO_CALLBACK_WNDPROC = Deno.UnsafeCallbackDefinition<
   ['pointer', 'u32', 'pointer', 'pointer'],
   'pointer'
 >;
-type WNDPROC = Deno.PointerValue<DENO_CALLBACK_WNDPROC>;
-type WPARAM = LPVOID;
-type WORD = number;
+export type WNDPROC = Deno.PointerValue<DENO_CALLBACK_WNDPROC>;
+export type WPARAM = LPVOID;
+export type WORD = number;
 
-type SafeNativeType = Exclude<
+export type SafeNativeType = Exclude<
   Deno.NativeType,
   { readonly struct: readonly Deno.NativeType[] }
 >;
 
-interface SafeNativeTypeMap {
+export type SafeNativeTypeMap = {
   _POINTER: 'pointer';
   ATOM: 'u16';
   BOOL: 'i32';
@@ -114,18 +114,19 @@ interface SafeNativeTypeMap {
   LRESULT: 'pointer';
   RECT: 'buffer';
   UINT: 'u32';
+  void: 'void';
   WNDCLASSEXW: 'buffer';
   WNDPROC: 'pointer';
   WPARAM: 'pointer';
-}
+};
 
-interface WindowsStruct<T extends LPVOID> {
+export interface WindowsStruct<T extends LPVOID> {
   data: Uint8Array;
   endian?: boolean;
   readonly pointer: T;
 }
 
-type WindowMessageName =
+export type WindowMessageName =
   | 'WM_ACTIVATEAPP'
   | 'WM_CANCELMODE'
   | 'WM_CHILDACTIVATE'
@@ -161,7 +162,7 @@ type WindowMessageName =
   | 'WM_WINDOWPOSCHANGED'
   | 'WM_WINDOWPOSCHANGING';
 
-type WindowsResourceType =
+export type WindowsResourceType =
   | 'RT_CURSOR'
   | 'RT_BITMAP'
   | 'RT_ICON'

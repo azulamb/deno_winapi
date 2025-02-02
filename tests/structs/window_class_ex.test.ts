@@ -1,6 +1,15 @@
 import * as test from '../_setup.ts';
 import { WindowClassEx } from '../../src/structs/window_class_ex.ts';
 import { callbackFunctions } from '../../src/libs/user.ts';
+import type {
+  HWND,
+  int,
+  LPARAM,
+  LRESULT,
+  UINT,
+  WNDPROC,
+  WPARAM,
+} from '../../src/win_types.d.ts';
 
 function GetUTF16String(pointer: Deno.PointerValue) {
   if (!pointer) {

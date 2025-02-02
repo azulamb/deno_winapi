@@ -1,6 +1,20 @@
-/// <reference path="./win_types.d.ts" />
 import { RECT } from './structs/rect.ts';
-import type {} from './win_types.d.ts';
+import type {
+  HMODULE,
+  HWND,
+  LONG_PTR,
+  LPARAM,
+  LPMSG,
+  LPRECT,
+  LPVOID,
+  LPWNDCLASSEXW,
+  LPWSTR,
+  LRESULT,
+  SafeNativeType,
+  SafeNativeTypeMap,
+  WIN_TYPES,
+  WPARAM,
+} from './win_types.d.ts';
 
 const POINTER = 8;
 const ffiTypeSizes: { [key in SafeNativeType]: number } = {
@@ -22,10 +36,12 @@ const ffiTypeSizes: { [key in SafeNativeType]: number } = {
   pointer: POINTER,
 };
 
-// https://deno.land/manual/runtime/ffi_api#supported-types
-export const WinTypes: {
+export type WIN_TYPES_INFO = {
   [key in WIN_TYPES]: { ffi: SafeNativeTypeMap[key]; size: number };
-} = {
+};
+
+// https://deno.land/manual/runtime/ffi_api#supported-types
+export const WinTypes: WIN_TYPES_INFO = {
   ATOM: { ffi: 'u16', size: 0 },
   BOOL: { ffi: 'i32', size: 0 },
   DWORD: { ffi: 'i32', size: 0 },

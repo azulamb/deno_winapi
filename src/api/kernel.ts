@@ -1,5 +1,18 @@
 import { callbackFunctions, kernel } from '../libs/kernel.ts';
 import { Converter } from '../win_types.ts';
+import type {
+  BOOL,
+  DWORD,
+  ENUMRESNAMEPROCW,
+  ENUMRESTYPEPROCW,
+  HMODULE,
+  LANGID,
+  LONG_PTR,
+  LPCWSTR,
+  LPWSTR,
+  SafeNativeTypeMap,
+  WithCallback,
+} from '../win_types.d.ts';
 
 export class Kernel {
   public libs = kernel;
@@ -22,7 +35,18 @@ export class Kernel {
       RESOURCE_ENUM_VALIDATE?: boolean;
     } = {},
     LangId: LANGID = 0,
-  ) {
+  ): WithCallback<
+    boolean,
+    Deno.UnsafeCallbackDefinition<
+      [
+        SafeNativeTypeMap['HMODULE'],
+        SafeNativeTypeMap['LPWSTR'],
+        SafeNativeTypeMap['LPWSTR'],
+        SafeNativeTypeMap['LONG_PTR'],
+      ],
+      SafeNativeTypeMap['BOOL']
+    >
+  > {
     const result: WithCallback<
       boolean,
       Deno.UnsafeCallbackDefinition<
@@ -97,7 +121,17 @@ export class Kernel {
       RESOURCE_ENUM_VALIDATE?: boolean;
     } = {},
     LangId: LANGID = 0,
-  ) {
+  ): WithCallback<
+    boolean,
+    Deno.UnsafeCallbackDefinition<
+      [
+        SafeNativeTypeMap['HMODULE'],
+        SafeNativeTypeMap['LPWSTR'],
+        SafeNativeTypeMap['LONG_PTR'],
+      ],
+      SafeNativeTypeMap['BOOL']
+    >
+  > {
     const result: WithCallback<
       boolean,
       Deno.UnsafeCallbackDefinition<
@@ -161,7 +195,7 @@ export class Kernel {
     return Converter.HMODULE(this.libs.symbols.GetModuleHandleW(lpModuleName));
   }
 
-  public FreeConsole() {
+  public FreeConsole(): boolean {
     return Converter.BOOL(this.libs.symbols.FreeConsole());
   }
 }

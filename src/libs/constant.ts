@@ -1,5 +1,8 @@
+import type { WindowMessageName, WindowsResourceType } from '../win_types.d.ts';
+
 // https://learn.microsoft.com/ja-jp/windows/win32/winmsg/window-notifications
-export const WindowMassage: { [key in WindowMessageName]: number } = {
+export type WINDOW_MESSAGE_VALUES = { [key in WindowMessageName]: number };
+export const WindowMassage: WINDOW_MESSAGE_VALUES = {
   WM_NULL: 0x0000,
   WM_CREATE: 0x0001,
   WM_DESTROY: 0x0002,
@@ -37,7 +40,8 @@ export const WindowMassage: { [key in WindowMessageName]: number } = {
 };
 
 // https://learn.microsoft.com/ja-jp/windows/win32/menurc/resource-types
-export const ResourceType: { [key in WindowsResourceType]: number } = {
+export type RESOURCE_TYPE_VALUES = { [key in WindowsResourceType]: number };
+export const ResourceType: RESOURCE_TYPE_VALUES = {
   RT_CURSOR: 1,
   RT_BITMAP: 2,
   RT_ICON: 3,
@@ -61,6 +65,7 @@ export const ResourceType: { [key in WindowsResourceType]: number } = {
   RT_MANIFEST: 24,
 };
 
+export type CONSTANT_VALUES = { CW_USEDEFAULT: number };
 export const Constant = {
   CW_USEDEFAULT: -2147483648, // CW_USEDEFAULT = 0x80000000
 };

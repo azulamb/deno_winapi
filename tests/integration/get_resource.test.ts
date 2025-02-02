@@ -1,5 +1,6 @@
 import * as test from '../_setup.ts';
 import { winApi } from '../../mod.ts';
+import { HMODULE, LONG_PTR, LPCWSTR, LPWSTR } from '../../src/win_types.d.ts';
 
 function GetHasResourceTypes(hModule: HMODULE) {
   return new Promise<LPWSTR[]>((resolve) => {
@@ -22,10 +23,9 @@ function GetHasResourceTypes(hModule: HMODULE) {
 
     timer();
 
-    // deno-lint-ignore no-unused-vars
     const result = winApi.kernel.EnumResourceTypesEx(
       hModule,
-      (hModule: HMODULE, lpType: LPWSTR, lParam: LONG_PTR) => {
+      (_hModule: HMODULE, lpType: LPWSTR, _lParam: LONG_PTR) => {
         resourceTypes.push(lpType);
         timer();
         return 1;
@@ -59,11 +59,15 @@ function GetResourceList(hModule: HMODULE, resourceType: bigint | LPCWSTR) {
       resourceType = Deno.UnsafePointer.create(resourceType);
     }
 
-    // deno-lint-ignore no-unused-vars
     const result = winApi.kernel.EnumResourceNamesEx(
       hModule,
       resourceType,
-      (hModule: HMODULE, lpType: LPWSTR, lpName: LPWSTR, lParam: LONG_PTR) => {
+      (
+        _hModule: HMODULE,
+        _lpType: LPWSTR,
+        lpName: LPWSTR,
+        _lParam: LONG_PTR,
+      ) => {
         resourceTypes.push(lpName);
         timer();
         return 1;

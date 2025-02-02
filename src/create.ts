@@ -2,9 +2,115 @@ import { Message } from './structs/message.ts';
 import { WindowClassEx } from './structs/window_class_ex.ts';
 import { macro } from './libs/macro.ts';
 import { RECT } from './structs/rect.ts';
+import type { DWORD, LANGID, LPCWSTR, UINT, WORD } from './win_types.d.ts';
 
-export const Create = {
-  stringPointer: (value: string): LPCWSTR => {
+type ClassStyleOption = {
+  CS_BYTEALIGNCLIENT?: boolean;
+  CS_BYTEALIGNWINDOW?: boolean;
+  CS_CLASSDC?: boolean;
+  CS_DBLCLKS?: boolean;
+  CS_DROPSHADOW?: boolean;
+  CS_GLOBALCLASS?: boolean;
+  CS_HREDRAW?: boolean;
+  CS_NOCLOSE?: boolean;
+  CS_OWNDC?: boolean;
+  CS_PARENTDC?: boolean;
+  CS_SAVEBITS?: boolean;
+  CS_VREDRAW?: boolean;
+};
+
+type WindowStyleOption = {
+  WS_BORDER?: boolean;
+  WS_CAPTION?: boolean;
+  WS_CHILD?: boolean;
+  WS_CHILDWINDOW?: boolean;
+  WS_CLIPCHILDREN?: boolean;
+  WS_CLIPSIBLINGS?: boolean;
+  WS_DISABLED?: boolean;
+  WS_DLGFRAME?: boolean;
+  Ws_group?: boolean;
+  WS_HSCROLL?: boolean;
+  WS_ICONIC?: boolean;
+  WS_MAXIMIZE?: boolean;
+  WS_MAXIMIZEBOX?: boolean;
+  WS_MINIMIZE?: boolean;
+  WS_MINIMIZEBOX?: boolean;
+  WS_OVERLAPPED?: boolean;
+  WS_OVERLAPPEDWINDOW?: boolean;
+  WS_POPUP?: boolean;
+  WS_POPUPWINDOW?: boolean;
+  WS_SIZEBOX?: boolean;
+  WS_SYSMENU?: boolean;
+  WS_TABSTOP?: boolean;
+  WS_THICKFRAME?: boolean;
+  WS_TILED?: boolean;
+  WS_TILEDWINDOW?: boolean;
+  WS_VISIBLE?: boolean;
+  WS_VSCROLL?: boolean;
+};
+
+type WindowStyleExOption = {
+  WS_EX_ACCEPTFILES?: boolean;
+  WS_EX_APPWINDOW?: boolean;
+  WS_EX_CLIENTEDGE?: boolean;
+  WS_EX_COMPOSITED?: boolean;
+  WS_EX_CONTEXTHELP?: boolean;
+  WS_EX_CONTROLPARENT?: boolean;
+  WS_EX_DLGMODALFRAME?: boolean;
+  WS_EX_LAYERED?: boolean;
+  WS_EX_LAYOUTRTL?: boolean;
+  WS_EX_LEFT?: boolean;
+  WS_EX_LEFTSCROLLBAR?: boolean;
+  WS_EX_LTRREADING?: boolean;
+  WS_EX_MDICHILD?: boolean;
+  WS_EX_NOACTIVATE?: boolean;
+  WS_EX_NOINHERITLAYOUT?: boolean;
+  WS_EX_NOPARENTNOTIFY?: boolean;
+  WS_EX_NOREDIRECTIONBITMAP?: boolean;
+  WS_EX_OVERLAPPEDWINDOW?: boolean;
+  WS_EX_PALETTEWINDOW?: boolean;
+  WS_EX_RIGHT?: boolean;
+  WS_EX_RIGHTSCROLLBAR?: boolean;
+  WS_EX_RTLREADING?: boolean;
+  WS_EX_STATICEDGE?: boolean;
+  WS_EX_TOOLWINDOW?: boolean;
+  WS_EX_TOPMOST?: boolean;
+  WS_EX_TRANSPARENT?: boolean;
+  WS_EX_WINDOWEDGE?: boolean;
+};
+
+type ShowCommandType =
+  | 'SW_HIDE'
+  | 'SW_SHOWNORMAL'
+  | 'SW_NORMAL'
+  | 'SW_SHOWMINIMIZED'
+  | 'SW_SHOWMAXIMIZED'
+  | 'SW_MAXIMIZE'
+  | 'SW_SHOWNOACTIVATE'
+  | 'SW_SHOW'
+  | 'SW_MINIMIZE'
+  | 'SW_SHOWMINNOACTIVE'
+  | 'SW_SHOWNA'
+  | 'SW_RESTORE'
+  | 'SW_SHOWDEFAULT'
+  | 'SW_FORCEMINIMIZE';
+
+export type CreateWindowsTypes = {
+  stringPointer: (value: string) => LPCWSTR;
+  rawPointer: (pointer: Deno.PointerValue) => bigint;
+  pointer: <T>(rawPointer: bigint) => Deno.PointerValue<T>;
+  makeLangId: (primary?: WORD, sub?: WORD) => LANGID;
+  windowClassEx: () => WindowClassEx;
+  message: () => Message;
+  rect: (left?: number, top?: number, right?: number, bottom?: number) => RECT;
+  classStyle: (option: ClassStyleOption) => UINT;
+  windowStyle: (option: WindowStyleOption) => DWORD;
+  windowStyleEx: (option: WindowStyleExOption) => DWORD;
+  showCommand: (option: ShowCommandType) => UINT;
+};
+
+export const Create: CreateWindowsTypes = {
+  stringPointer: (value) => {
     const buffer = new Uint16Array(
       <number[]> [].map.call(value + '\0', (c: string) => {
         return c.charCodeAt(0);
@@ -13,7 +119,7 @@ export const Create = {
     return Deno.UnsafePointer.of(buffer);
   },
 
-  rawPointer: (pointer: Deno.PointerValue): bigint => {
+  rawPointer: (pointer) => {
     return BigInt(Deno.UnsafePointer.value(pointer));
   },
 
@@ -21,7 +127,7 @@ export const Create = {
     return Deno.UnsafePointer.create<T>(rawPointer);
   },
 
-  makeLangId: (primary: WORD = 0, sub: WORD = 0): LANGID => {
+  makeLangId: (primary: WORD = 0, sub: WORD = 0) => {
     return macro.MAKELANGID(primary, sub);
   },
 
@@ -38,22 +144,7 @@ export const Create = {
   },
 
   // https://learn.microsoft.com/ja-jp/windows/win32/winmsg/window-class-styles
-  classStyle: (
-    option: {
-      CS_BYTEALIGNCLIENT?: boolean;
-      CS_BYTEALIGNWINDOW?: boolean;
-      CS_CLASSDC?: boolean;
-      CS_DBLCLKS?: boolean;
-      CS_DROPSHADOW?: boolean;
-      CS_GLOBALCLASS?: boolean;
-      CS_HREDRAW?: boolean;
-      CS_NOCLOSE?: boolean;
-      CS_OWNDC?: boolean;
-      CS_PARENTDC?: boolean;
-      CS_SAVEBITS?: boolean;
-      CS_VREDRAW?: boolean;
-    },
-  ): UINT => {
+  classStyle: (option) => {
     let style = 0;
 
     if (option.CS_BYTEALIGNCLIENT) {
@@ -108,37 +199,7 @@ export const Create = {
   },
 
   // https://learn.microsoft.com/ja-jp/windows/win32/winmsg/window-styles
-  windowStyle: (
-    option: {
-      WS_BORDER?: boolean;
-      WS_CAPTION?: boolean;
-      WS_CHILD?: boolean;
-      WS_CHILDWINDOW?: boolean;
-      WS_CLIPCHILDREN?: boolean;
-      WS_CLIPSIBLINGS?: boolean;
-      WS_DISABLED?: boolean;
-      WS_DLGFRAME?: boolean;
-      Ws_group?: boolean;
-      WS_HSCROLL?: boolean;
-      WS_ICONIC?: boolean;
-      WS_MAXIMIZE?: boolean;
-      WS_MAXIMIZEBOX?: boolean;
-      WS_MINIMIZE?: boolean;
-      WS_MINIMIZEBOX?: boolean;
-      WS_OVERLAPPED?: boolean;
-      WS_OVERLAPPEDWINDOW?: boolean;
-      WS_POPUP?: boolean;
-      WS_POPUPWINDOW?: boolean;
-      WS_SIZEBOX?: boolean;
-      WS_SYSMENU?: boolean;
-      WS_TABSTOP?: boolean;
-      WS_THICKFRAME?: boolean;
-      WS_TILED?: boolean;
-      WS_TILEDWINDOW?: boolean;
-      WS_VISIBLE?: boolean;
-      WS_VSCROLL?: boolean;
-    },
-  ): DWORD => {
+  windowStyle: (option) => {
     let style = 0;
 
     if (option.WS_BORDER) {
@@ -229,37 +290,7 @@ export const Create = {
   },
 
   // https://learn.microsoft.com/ja-jp/windows/win32/winmsg/extended-window-styles
-  windowStyleEx: (
-    option: {
-      WS_EX_ACCEPTFILES?: boolean;
-      WS_EX_APPWINDOW?: boolean;
-      WS_EX_CLIENTEDGE?: boolean;
-      WS_EX_COMPOSITED?: boolean;
-      WS_EX_CONTEXTHELP?: boolean;
-      WS_EX_CONTROLPARENT?: boolean;
-      WS_EX_DLGMODALFRAME?: boolean;
-      WS_EX_LAYERED?: boolean;
-      WS_EX_LAYOUTRTL?: boolean;
-      WS_EX_LEFT?: boolean;
-      WS_EX_LEFTSCROLLBAR?: boolean;
-      WS_EX_LTRREADING?: boolean;
-      WS_EX_MDICHILD?: boolean;
-      WS_EX_NOACTIVATE?: boolean;
-      WS_EX_NOINHERITLAYOUT?: boolean;
-      WS_EX_NOPARENTNOTIFY?: boolean;
-      WS_EX_NOREDIRECTIONBITMAP?: boolean;
-      WS_EX_OVERLAPPEDWINDOW?: boolean;
-      WS_EX_PALETTEWINDOW?: boolean;
-      WS_EX_RIGHT?: boolean;
-      WS_EX_RIGHTSCROLLBAR?: boolean;
-      WS_EX_RTLREADING?: boolean;
-      WS_EX_STATICEDGE?: boolean;
-      WS_EX_TOOLWINDOW?: boolean;
-      WS_EX_TOPMOST?: boolean;
-      WS_EX_TRANSPARENT?: boolean;
-      WS_EX_WINDOWEDGE?: boolean;
-    },
-  ): DWORD => {
+  windowStyleEx: (option) => {
     let style = 0;
 
     if (option.WS_EX_ACCEPTFILES) {
@@ -374,23 +405,7 @@ export const Create = {
   },
 
   // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-showwindow
-  showCommand: (
-    option:
-      | 'SW_HIDE'
-      | 'SW_SHOWNORMAL'
-      | 'SW_NORMAL'
-      | 'SW_SHOWMINIMIZED'
-      | 'SW_SHOWMAXIMIZED'
-      | 'SW_MAXIMIZE'
-      | 'SW_SHOWNOACTIVATE'
-      | 'SW_SHOW'
-      | 'SW_MINIMIZE'
-      | 'SW_SHOWMINNOACTIVE'
-      | 'SW_SHOWNA'
-      | 'SW_RESTORE'
-      | 'SW_SHOWDEFAULT'
-      | 'SW_FORCEMINIMIZE',
-  ): int => {
+  showCommand: (option) => {
     switch (option) {
       case 'SW_HIDE':
         return 0;

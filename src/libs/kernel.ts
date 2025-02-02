@@ -1,24 +1,7 @@
 import { WinTypes } from '../win_types.ts';
+import type { CALLBACK_FUNCTIONS, KERNEL_FUNKS } from './kernel.d.ts';
 
-export const callbackFunctions: {
-  EnumResNameProcW: Deno.UnsafeCallbackDefinition<
-    [
-      SafeNativeTypeMap['HMODULE'],
-      SafeNativeTypeMap['LPWSTR'],
-      SafeNativeTypeMap['LPWSTR'],
-      SafeNativeTypeMap['LONG_PTR'],
-    ],
-    SafeNativeTypeMap['BOOL']
-  >;
-  EnumResTypeProcW: Deno.UnsafeCallbackDefinition<
-    [
-      SafeNativeTypeMap['HMODULE'],
-      SafeNativeTypeMap['LPWSTR'],
-      SafeNativeTypeMap['LONG_PTR'],
-    ],
-    SafeNativeTypeMap['BOOL']
-  >;
-} = {
+export const callbackFunctions: CALLBACK_FUNCTIONS = {
   EnumResNameProcW: {
     parameters: [
       WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
@@ -38,7 +21,7 @@ export const callbackFunctions: {
   },
 };
 
-export const kernel = Deno.dlopen(
+export const kernel: Deno.DynamicLibrary<KERNEL_FUNKS> = Deno.dlopen(
   'C:\\Windows\\System32\\kernel32.dll',
   {
     EnumResourceNamesExW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/libloaderapi/nf-libloaderapi-enumresourcenamesexw

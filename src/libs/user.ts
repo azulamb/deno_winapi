@@ -1,16 +1,7 @@
 import { WinTypes } from '../win_types.ts';
+import type { CALLBACK_FUNCTIONS, USER_FUNKS } from './user.d.ts';
 
-export const callbackFunctions: {
-  DefWindowProcW: Deno.UnsafeCallbackDefinition<
-    [
-      SafeNativeTypeMap['HWND'],
-      SafeNativeTypeMap['UINT'],
-      SafeNativeTypeMap['WPARAM'],
-      SafeNativeTypeMap['LPARAM'],
-    ],
-    SafeNativeTypeMap['LRESULT']
-  >;
-} = {
+export const callbackFunctions: CALLBACK_FUNCTIONS = {
   DefWindowProcW: {
     parameters: [
       WinTypes.HWND.ffi, // [in] HWND hWnd
@@ -22,7 +13,7 @@ export const callbackFunctions: {
   },
 };
 
-export const user = Deno.dlopen(
+export const user: Deno.DynamicLibrary<USER_FUNKS> = Deno.dlopen(
   'C:\\Windows\\System32\\user32.dll',
   {
     CreateWindowExW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-createwindowexw
@@ -42,7 +33,15 @@ export const user = Deno.dlopen(
       ],
       result: WinTypes.HWND.ffi,
     },
-    DefWindowProcW: callbackFunctions.DefWindowProcW, // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-defwindowprocw
+    DefWindowProcW: {
+      parameters: [
+        WinTypes.HWND.ffi, // [in] HWND hWnd
+        WinTypes.UINT.ffi, // [in] UINT Msg
+        WinTypes.WPARAM.ffi, // [in] WPARAM wParam
+        WinTypes.LPARAM.ffi, // [in] LPARAM lParam
+      ],
+      result: WinTypes.LRESULT.ffi,
+    }, // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-defwindowprocw
     DispatchMessageW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-dispatchmessagew
       parameters: [
         WinTypes.LPMSG.ffi, //[in] const MSG *lpMsg
