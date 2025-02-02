@@ -1,4 +1,4 @@
-import { winApi } from '../mod.ts';
+import { HWND, LPARAM, UINT, winApi, WPARAM } from '../mod.ts';
 
 // Create WindowClassEx
 const windowClassEx = winApi.create.windowClassEx();
