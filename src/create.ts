@@ -1,7 +1,7 @@
 import { Message } from './structs/message.ts';
 import { WindowClassEx } from './structs/window_class_ex.ts';
 import { macro } from './libs/macro.ts';
-import { RECT } from './structs/rect.ts';
+import { Rect } from './structs/rect.ts';
 import type { DWORD, LANGID, LPCWSTR, UINT, WORD } from './types.ts';
 
 type ClassStyleOption = {
@@ -102,7 +102,7 @@ export type CreateWindowsTypes = {
   makeLangId: (primary?: WORD, sub?: WORD) => LANGID;
   windowClassEx: () => WindowClassEx;
   message: () => Message;
-  rect: (left?: number, top?: number, right?: number, bottom?: number) => RECT;
+  rect: (left?: number, top?: number, right?: number, bottom?: number) => Rect;
   classStyle: (option: ClassStyleOption) => UINT;
   windowStyle: (option: WindowStyleOption) => DWORD;
   windowStyleEx: (option: WindowStyleExOption) => DWORD;
@@ -140,7 +140,7 @@ export const Create: CreateWindowsTypes = {
   },
 
   rect: (left?: number, top?: number, right?: number, bottom?: number) => {
-    return new RECT(left, top, right, bottom);
+    return new Rect(left, top, right, bottom);
   },
 
   // https://learn.microsoft.com/ja-jp/windows/win32/winmsg/window-class-styles

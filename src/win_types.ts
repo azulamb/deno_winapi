@@ -1,4 +1,4 @@
-import { RECT } from './structs/rect.ts';
+import { Rect } from './structs/rect.ts';
 import type {
   HMODULE,
   HWND,
@@ -139,7 +139,7 @@ export const Converter = {
   LPWNDCLASSEXW: Pointer<LPWNDCLASSEXW>,
 
   RECT: (left?: number, top?: number, right?: number, bottom?: number) => {
-    return new RECT(left, top, right, bottom);
+    return new Rect(left, top, right, bottom);
   },
 
   UINT: (value: number) => {

@@ -38,3 +38,4 @@ export const winApi: {
 
 export { Message } from './src/structs/message.ts';
 export { WindowClassEx } from './src/structs/window_class_ex.ts';
+export { Rect } from './src/structs/rect.ts';
