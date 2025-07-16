@@ -155,6 +155,8 @@
             'name': 'CreateIconFromResource',
             'base': false,
             'ex': true,
+            'url':
+              'https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-createiconfromresourceex',
           },
           { 'name': 'CreateIconIndirect', 'base': false },
           { 'name': 'CreateMDIWindow', 'baseA': false, 'baseW': false },
@@ -998,7 +1000,13 @@
           },
           { 'name': 'SendIMEMessage', 'exA': false, 'exW': false },
           { 'name': 'SendInput', 'base': false },
-          { 'name': 'SendMessage', 'baseA': false, 'baseW': false },
+          {
+            'name': 'SendMessage',
+            'baseA': false,
+            'baseW': true,
+            'url':
+              'https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendmessage',
+          },
           {
             'name': 'SendMessageCallback',
             'baseA': false,
@@ -1285,8 +1293,8 @@
           { 'name': 'wvsprintf', 'baseA': false, 'baseW': false },
         ],
         'aggregate': {
-          'all': { 'total': 1014, 'implemented': 12 },
-          'noDuplication': { 'total': 817, 'implemented': 12 },
+          'all': { 'total': 1014, 'implemented': 13 },
+          'noDuplication': { 'total': 817, 'implemented': 13 },
         },
       };
     </script>

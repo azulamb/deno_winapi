@@ -95,6 +95,15 @@ export const user: Deno.DynamicLibrary<USER_FUNKS> = Deno.dlopen(
       ],
       result: WinTypes.ATOM.ffi,
     },
+    SendMessageW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-sendmessage
+      parameters: [
+        WinTypes.HWND.ffi, // [in] HWND hWnd,
+        WinTypes.UINT.ffi, // [in] UINT Msg,
+        WinTypes.WPARAM.ffi, // [in] WPARAM wParam,
+        WinTypes.LPARAM.ffi, // [in] LPARAM lParam
+      ],
+      result: WinTypes.LRESULT.ffi,
+    },
     ShowWindow: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-showwindow
       parameters: [
         WinTypes.HWND.ffi, // [in] HWND hWnd

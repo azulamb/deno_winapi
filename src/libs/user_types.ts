@@ -93,6 +93,15 @@ export type USER_FUNKS = {
     ];
     readonly result: SafeNativeTypeMap['ATOM'];
   };
+  readonly SendMessageW: {
+    readonly parameters: [
+      SafeNativeTypeMap['HWND'],
+      SafeNativeTypeMap['UINT'],
+      SafeNativeTypeMap['WPARAM'],
+      SafeNativeTypeMap['LPARAM'],
+    ];
+    readonly result: SafeNativeTypeMap['LRESULT'];
+  };
   readonly ShowWindow: {
     readonly parameters: [
       SafeNativeTypeMap['HWND'],

@@ -339,7 +339,8 @@
     {
       "name": "CreateIconFromResource",
       "base": false,
-      "ex": true
+      "ex": true,
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-createiconfromresourceex"
     },
     {
       "name": "CreateIconIndirect",
@@ -2687,7 +2688,8 @@
     {
       "name": "SendMessage",
       "baseA": false,
-      "baseW": false
+      "baseW": true,
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendmessage"
     },
     {
       "name": "SendMessageCallback",
@@ -3478,11 +3480,11 @@
   "aggregate": {
     "all": {
       "total": 1014,
-      "implemented": 12
+      "implemented": 13
     },
     "noDuplication": {
       "total": 817,
-      "implemented": 12
+      "implemented": 13
     }
   }
 }

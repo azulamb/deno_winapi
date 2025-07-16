@@ -1,7 +1,6 @@
 import { user } from '../libs/user.ts';
 import { Converter } from '../win_types.ts';
 import type {
-  BOOL,
   DWORD,
   HICON,
   HINSTANCE,
@@ -152,6 +151,20 @@ export class User {
     return Converter.ATOM(
       this.libs.symbols.RegisterClassExW(windowClassExPointer),
     );
+  }
+
+  public SendMessage(
+    hWnd: HWND,
+    Msg: UINT,
+    wParam: WPARAM | null,
+    lParam: LPARAM | null,
+  ): LRESULT {
+    return Converter.LRESULT(this.libs.symbols.SendMessageW(
+      hWnd,
+      Msg,
+      wParam,
+      lParam,
+    ));
   }
 
   public ShowWindow(
