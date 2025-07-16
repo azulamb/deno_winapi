@@ -16,6 +16,18 @@ export const callbackFunctions: CALLBACK_FUNCTIONS = {
 export const user: Deno.DynamicLibrary<USER_FUNKS> = Deno.dlopen(
   'C:\\Windows\\System32\\user32.dll',
   {
+    CreateIconFromResourceEx: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-createiconfromresourceex
+      parameters: [
+        WinTypes.PBYTE.ffi, // [in] PBYTE presbits
+        WinTypes.DWORD.ffi, // [in] DWORD dwResSize,
+        WinTypes.BOOL.ffi, // [in] BOOL fIcon,
+        WinTypes.DWORD.ffi, // [in] DWORD dwVer,
+        WinTypes.int.ffi, // [in] int cxDesired,
+        WinTypes.int.ffi, // [in] int cyDesired,
+        WinTypes.UINT.ffi, // [in] UINT Flags
+      ],
+      result: WinTypes.HICON.ffi, // [out] HICON
+    },
     CreateWindowExW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-createwindowexw
       parameters: [
         WinTypes.DWORD.ffi, // [in] DWORD dwExStyle

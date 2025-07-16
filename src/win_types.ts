@@ -10,6 +10,7 @@ import type {
   LPWNDCLASSEXW,
   LPWSTR,
   LRESULT,
+  PBYTE,
   SafeNativeType,
   SafeNativeTypeMap,
   WIN_TYPES,
@@ -67,6 +68,7 @@ export const WinTypes: WIN_TYPES_INFO = {
   LPWNDCLASSEXW: { ffi: 'pointer', size: 0 },
   LPWSTR: { ffi: 'pointer', size: 0 },
   LRESULT: { ffi: 'pointer', size: 0 },
+  PBYTE: { ffi: 'pointer', size: 0 },
   RECT: { ffi: 'buffer', size: 0 },
   UINT: { ffi: 'u32', size: 0 },
   WNDCLASSEXW: { ffi: 'buffer', size: 0 },
@@ -137,6 +139,8 @@ export const Converter = {
   LRESULT: Pointer<LRESULT>,
 
   LPWNDCLASSEXW: Pointer<LPWNDCLASSEXW>,
+
+  PBYTE: Pointer<PBYTE>,
 
   RECT: (left?: number, top?: number, right?: number, bottom?: number) => {
     return new Rect(left, top, right, bottom);

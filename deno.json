@@ -1,6 +1,6 @@
 {
   "name": "@azulamb/winapi",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "license": "MIT",
   "exports": "./mod.ts",
   "lock": false,
@@ -16,6 +16,7 @@
   },
   "fmt": {
     "include": ["./"],
+    "exclude": ["./docs/favicon.svg"],
     "singleQuote": true
   }
 }

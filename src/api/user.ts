@@ -1,6 +1,7 @@
 import { user } from '../libs/user.ts';
 import { Converter } from '../win_types.ts';
 import type {
+  BOOL,
   DWORD,
   HICON,
   HINSTANCE,
@@ -14,12 +15,61 @@ import type {
   LPVOID,
   LPWNDCLASSEXW,
   LRESULT,
+  PBYTE,
   UINT,
   WPARAM,
 } from '../types.ts';
 
 export class User {
   public libs = user;
+
+  public CreateIconFromResourceEx(
+    presbits: PBYTE,
+    dwResSize: DWORD,
+    fIcon: boolean,
+    dwVer: DWORD = 0,
+    cxDesired: int = 0,
+    cyDesired: int = 0,
+    Flags: {
+      LR_DEFAULTCOLOR: true;
+      LR_MONOCHROME?: false;
+      LR_DEFAULTSIZE?: boolean;
+      LR_SHARED?: boolean;
+    } | {
+      LR_DEFAULTCOLOR?: false;
+      LR_MONOCHROME: true;
+      LR_DEFAULTSIZE?: boolean;
+      LR_SHARED?: boolean;
+    } | {
+      LR_DEFAULTCOLOR?: false;
+      LR_MONOCHROME?: false;
+      LR_DEFAULTSIZE?: boolean;
+      LR_SHARED?: boolean;
+    },
+  ): HICON {
+    if (dwVer < 0x00020000 || 0x00030000 < dwVer) {
+      dwVer = 0x00030000;
+    }
+    let FlagsNum = 0;
+    if (Flags.LR_MONOCHROME) {
+      FlagsNum |= 1;
+    }
+    if (Flags.LR_DEFAULTSIZE) {
+      FlagsNum |= 64;
+    }
+    if (Flags.LR_SHARED) {
+      FlagsNum |= 32768;
+    }
+    return this.libs.symbols.CreateIconFromResourceEx(
+      Converter.PBYTE(presbits),
+      Converter.DWORD(dwResSize),
+      fIcon ? 1 : 0,
+      Converter.DWORD(dwVer),
+      Converter.int(cxDesired),
+      Converter.int(cyDesired),
+      Converter.UINT(FlagsNum),
+    );
+  }
 
   public CreateWindowEx(
     dwExStyle: DWORD,

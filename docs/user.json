@@ -339,7 +339,7 @@
     {
       "name": "CreateIconFromResource",
       "base": false,
-      "ex": false
+      "ex": true
     },
     {
       "name": "CreateIconIndirect",
@@ -3478,11 +3478,11 @@
   "aggregate": {
     "all": {
       "total": 1014,
-      "implemented": 11
+      "implemented": 12
     },
     "noDuplication": {
       "total": 817,
-      "implemented": 11
+      "implemented": 12
     }
   }
 }

@@ -14,6 +14,18 @@ export type CALLBACK_FUNCTIONS = {
 };
 
 export type USER_FUNKS = {
+  readonly CreateIconFromResourceEx: {
+    readonly parameters: [
+      SafeNativeTypeMap['PBYTE'],
+      SafeNativeTypeMap['DWORD'],
+      SafeNativeTypeMap['BOOL'],
+      SafeNativeTypeMap['DWORD'],
+      SafeNativeTypeMap['int'],
+      SafeNativeTypeMap['int'],
+      SafeNativeTypeMap['UINT'],
+    ];
+    readonly result: SafeNativeTypeMap['HICON'];
+  };
   readonly CreateWindowExW: {
     readonly parameters: [
       SafeNativeTypeMap['DWORD'],

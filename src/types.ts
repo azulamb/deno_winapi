@@ -29,6 +29,7 @@ export type WIN_TYPES =
   | 'LPWNDCLASSEXW'
   | 'LPWSTR'
   | 'LRESULT'
+  | 'PBYTE'
   | 'RECT'
   | 'UINT'
   | 'WNDCLASSEXW'
@@ -61,6 +62,7 @@ export type LPWNDCLASSEXW = LPVOID;
 export type LPWSTR = LPVOID;
 export type LRESULT = LPVOID;
 export type MSG = LPVOID;
+export type PBYTE = Deno.PointerValue<Uint8Array>;
 export type POINT = {
   readonly x: LONG;
   readonly y: LONG;
@@ -112,6 +114,7 @@ export type SafeNativeTypeMap = {
   LPWNDCLASSEXW: 'pointer';
   LPWSTR: 'pointer';
   LRESULT: 'pointer';
+  PBYTE: 'pointer';
   RECT: 'buffer';
   UINT: 'u32';
   void: 'void';
