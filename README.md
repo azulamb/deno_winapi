@@ -12,7 +12,7 @@
 ## Develop
 
 - Deno
-  - `2.1.9`
+  - `2.4.2`
 - Command
   - `deno task tests`
 

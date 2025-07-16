@@ -102,7 +102,7 @@ for (const check of list) {
   Start(check.name);
   const p = check.command
     ? Exec(check.command).then(check.after)
-    : check.after({ stdout: '', stderr: '' });
+    : check.after({ code: 0, stdout: '', stderr: '' });
   await p.then((msg) => {
     Complete(`OK ... ${check.name}${msg ? ': ' + msg : ''}`);
   }).catch((error) => {

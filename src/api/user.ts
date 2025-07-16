@@ -45,7 +45,7 @@ export class User {
       LR_MONOCHROME?: false;
       LR_DEFAULTSIZE?: boolean;
       LR_SHARED?: boolean;
-    },
+    } = {},
   ): HICON {
     if (dwVer < 0x00020000 || 0x00030000 < dwVer) {
       dwVer = 0x00030000;
