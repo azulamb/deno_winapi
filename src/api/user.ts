@@ -59,7 +59,7 @@ export class User {
     if (Flags.LR_SHARED) {
       FlagsNum |= 32768;
     }
-    return this.libs.symbols.CreateIconFromResourceEx(
+    return Converter.HICON(this.libs.symbols.CreateIconFromResourceEx(
       Converter.PBYTE(presbits),
       Converter.DWORD(dwResSize),
       fIcon ? 1 : 0,
@@ -67,7 +67,7 @@ export class User {
       Converter.int(cxDesired),
       Converter.int(cyDesired),
       Converter.UINT(FlagsNum),
-    );
+    ));
   }
 
   public CreateWindowEx(

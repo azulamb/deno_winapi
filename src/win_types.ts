@@ -1,5 +1,6 @@
 import { Rect } from './structs/rect.ts';
 import type {
+  HICON,
   HMODULE,
   HWND,
   LONG_PTR,
@@ -113,6 +114,8 @@ export const Converter = {
     // TODO: convert i32
     return value;
   },
+
+  HICON: Pointer<HICON>,
 
   HWND: Pointer<HWND>,
 
