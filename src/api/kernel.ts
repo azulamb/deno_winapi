@@ -18,13 +18,14 @@ import type {
   WithCallback,
   WORD,
 } from '../types.ts';
+import { Create } from '../create.ts';
 
 export class Kernel {
   public libs = kernel;
 
   public EnumResourceNamesEx(
     hModule: HMODULE | null,
-    lpType: LPCWSTR,
+    lpType: string | LPCWSTR,
     lpEnumFunc:
       | ENUMRESNAMEPROCW
       | ((
@@ -97,6 +98,10 @@ export class Kernel {
     }
     if (dwFlags.RESOURCE_ENUM_VALIDATE) {
       dwFlagsNum |= 8;
+    }
+
+    if (typeof lpType === 'string') {
+      lpType = Create.stringPointer(lpType);
     }
 
     result.result = !!kernel.symbols.EnumResourceNamesExW(
@@ -194,10 +199,18 @@ export class Kernel {
 
   public FindResourceEx(
     hModule: HMODULE | null,
-    lpType: LPCWSTR,
-    lpName: LPCWSTR,
+    lpType: string | LPCWSTR,
+    lpName: string | LPCWSTR,
     wLanguage: WORD = 0,
   ): HRSRC {
+    if (typeof lpType === 'string') {
+      lpType = Create.stringPointer(lpType);
+    }
+
+    if (typeof lpName === 'string') {
+      lpName = Create.stringPointer(lpName);
+    }
+
     return Converter.HRSRC(this.libs.symbols.FindResourceExW(
       hModule,
       lpType,
@@ -214,7 +227,10 @@ export class Kernel {
     return Converter.DWORD(this.libs.symbols.GetLastError());
   }
 
-  public GetModuleHandle(lpModuleName: LPCWSTR | null = null): HMODULE {
+  public GetModuleHandle(lpModuleName: string | LPCWSTR | null = null): HMODULE {
+    if (typeof lpModuleName === 'string') {
+      lpModuleName = Create.stringPointer(lpModuleName);
+    }
     return Converter.HMODULE(this.libs.symbols.GetModuleHandleW(lpModuleName));
   }
 

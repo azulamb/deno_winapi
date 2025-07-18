@@ -192,12 +192,12 @@ export class WindowClassEx
     this.dataView.setInt32(this.offset.cbWndExtra, value, this.endian);
   }
 
-  get hInstance(): Deno.PointerValue<unknown> {
+  get hInstance(): HINSTANCE {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.hInstance, this.endian),
     );
   }
-  set hInstance(value: Deno.PointerValue<unknown>) {
+  set hInstance(value: HINSTANCE) {
     this.dataView.setBigUint64(
       this.offset.hInstance,
       Create.rawPointer(value),
@@ -205,12 +205,12 @@ export class WindowClassEx
     );
   }
 
-  get hIcon(): Deno.PointerValue<unknown> {
+  get hIcon(): HICON {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.hIcon, this.endian),
     );
   }
-  set hIcon(value: Deno.PointerValue<unknown>) {
+  set hIcon(value: HICON) {
     this.dataView.setBigUint64(
       this.offset.hIcon,
       Create.rawPointer(value),
@@ -218,12 +218,25 @@ export class WindowClassEx
     );
   }
 
-  get hCursor(): Deno.PointerValue<unknown> {
+  get hIconSm(): HICON {
+    return Create.pointer(
+      this.dataView.getBigUint64(this.offset.hIconSm, this.endian),
+    );
+  }
+  set hIconSm(value: HICON) {
+    this.dataView.setBigUint64(
+      this.offset.hIconSm,
+      Create.rawPointer(value),
+      this.endian,
+    );
+  }
+
+  get hCursor(): HCURSOR {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.hCursor, this.endian),
     );
   }
-  set hCursor(value: Deno.PointerValue<unknown>) {
+  set hCursor(value: HCURSOR) {
     this.dataView.setBigUint64(
       this.offset.hCursor,
       Create.rawPointer(value),
@@ -244,12 +257,12 @@ export class WindowClassEx
     );
   }
 
-  get lpszMenuName(): Deno.PointerValue<unknown> {
+  get lpszMenuName(): LPCWSTR {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.lpszMenuName, this.endian),
     );
   }
-  set lpszMenuName(value: Deno.PointerValue<unknown>) {
+  set lpszMenuName(value: LPCWSTR) {
     this.dataView.setBigUint64(
       this.offset.lpszMenuName,
       Create.rawPointer(value),
@@ -260,12 +273,12 @@ export class WindowClassEx
     this.lpszMenuName = Create.stringPointer(name);
   }
 
-  get lpszClassName(): Deno.PointerValue<unknown> {
+  get lpszClassName(): LPCWSTR {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.lpszClassName, this.endian),
     );
   }
-  set lpszClassName(value: Deno.PointerValue<unknown>) {
+  set lpszClassName(value: LPCWSTR) {
     this.dataView.setBigUint64(
       this.offset.lpszClassName,
       Create.rawPointer(value),
@@ -274,18 +287,5 @@ export class WindowClassEx
   }
   public setClassName(name: string) {
     this.lpszClassName = Create.stringPointer(name);
-  }
-
-  get hIconSm(): Deno.PointerValue<unknown> {
-    return Create.pointer(
-      this.dataView.getBigUint64(this.offset.hIconSm, this.endian),
-    );
-  }
-  set hIconSm(value: Deno.PointerValue<unknown>) {
-    this.dataView.setBigUint64(
-      this.offset.hIconSm,
-      Create.rawPointer(value),
-      this.endian,
-    );
   }
 }

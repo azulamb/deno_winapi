@@ -73,12 +73,12 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
     return this.dataPointer;
   }
 
-  get hwnd(): Deno.PointerValue<unknown> {
+  get hwnd(): HWND {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.hwnd, this.endian),
     );
   }
-  set hwnd(value: Deno.PointerValue<unknown>) {
+  set hwnd(value: HWND) {
     this.dataView.setBigUint64(
       this.offset.hwnd,
       Create.rawPointer(value),
@@ -93,12 +93,12 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
     this.dataView.setInt32(this.offset.message, value, this.endian);
   }
 
-  get wParam(): Deno.PointerValue<unknown> {
+  get wParam(): WPARAM {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.wParam, this.endian),
     );
   }
-  set wParam(value: Deno.PointerValue<unknown>) {
+  set wParam(value: WPARAM) {
     this.dataView.setBigUint64(
       this.offset.wParam,
       Create.rawPointer(value),
@@ -106,12 +106,12 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
     );
   }
 
-  get lParam(): Deno.PointerValue<unknown> {
+  get lParam(): LPARAM {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.lParam, this.endian),
     );
   }
-  set lParam(value: Deno.PointerValue<unknown>) {
+  set lParam(value: LPARAM) {
     this.dataView.setBigUint64(
       this.offset.lParam,
       Create.rawPointer(value),

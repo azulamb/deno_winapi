@@ -18,6 +18,7 @@ import type {
   UINT,
   WPARAM,
 } from '../types.ts';
+import { Create } from '../create.ts';
 
 export class User {
   public libs = user;
@@ -137,14 +138,17 @@ export class User {
     return 0 < result;
   }
 
-  public LoadIcon(hInstance: HINSTANCE, lpIconName: LPCWSTR): HICON {
+  public LoadIcon(hInstance: HINSTANCE, lpIconName: string | LPCWSTR): HICON {
+    if (typeof lpIconName === 'string') {
+      lpIconName = Create.stringPointer(lpIconName);
+    }
     return this.libs.symbols.LoadIconW(hInstance, lpIconName);
   }
 
-  public MessageBoxExW(
+  public MessageBoxEx(
     hWnd: HWND | null,
-    lpText: LPCWSTR | null,
-    lpCaption: LPCWSTR | null,
+    lpText: string | LPCWSTR | null,
+    lpCaption: string | LPCWSTR | null,
     uType: {
       MB_OK?: boolean;
       MB_OKCANCEL?: boolean;
@@ -182,6 +186,15 @@ export class User {
     if (uType.MB_HELP) {
       uTypeNum |= 16384;
     }
+
+    if (typeof lpText === 'string') {
+      lpText = Create.stringPointer(lpText);
+    }
+
+    if (typeof lpCaption === 'string') {
+      lpCaption = Create.stringPointer(lpCaption);
+    }
+
     return this.libs.symbols.MessageBoxExW(
       hWnd,
       lpText,
