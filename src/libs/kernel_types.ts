@@ -43,6 +43,15 @@ export type KERNEL_FUNKS = {
     ];
     result: SafeNativeTypeMap['BOOL'];
   };
+  FindResourceExW: {
+    parameters: [
+      SafeNativeTypeMap['HMODULE'],
+      SafeNativeTypeMap['LPCWSTR'],
+      SafeNativeTypeMap['LPCWSTR'],
+      SafeNativeTypeMap['WORD'],
+    ];
+    result: SafeNativeTypeMap['HRSRC'];
+  };
   FreeConsole: {
     parameters: [];
     result: SafeNativeTypeMap['BOOL'];
@@ -56,5 +65,25 @@ export type KERNEL_FUNKS = {
       SafeNativeTypeMap['LPCWSTR'],
     ];
     result: SafeNativeTypeMap['HMODULE'];
+  };
+  LoadResource: {
+    parameters: [
+      SafeNativeTypeMap['HMODULE'],
+      SafeNativeTypeMap['HRSRC'],
+    ];
+    result: SafeNativeTypeMap['HGLOBAL'];
+  };
+  LockResource: {
+    parameters: [
+      SafeNativeTypeMap['HGLOBAL'],
+    ];
+    result: SafeNativeTypeMap['LPVOID'];
+  };
+  SizeofResource: {
+    parameters: [
+      SafeNativeTypeMap['HMODULE'],
+      SafeNativeTypeMap['HRSRC'],
+    ];
+    result: SafeNativeTypeMap['DWORD'];
   };
 };

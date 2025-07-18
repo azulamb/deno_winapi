@@ -11,11 +11,13 @@ export type WIN_TYPES =
   | 'ENUMRESTYPEPROCW'
   | 'HBRUSH'
   | 'HCURSOR'
+  | 'HGLOBAL'
   | 'HICON'
   | 'HINSTANCE'
   | 'HMENU'
   | 'HMODULE'
   | 'HRESULT'
+  | 'HRSRC'
   | 'HWND'
   | 'int'
   | 'LANGID'
@@ -34,6 +36,7 @@ export type WIN_TYPES =
   | 'UINT'
   | 'WNDCLASSEXW'
   | 'WNDPROC'
+  | 'WORD'
   | 'WPARAM';
 
 export type ATOM = number;
@@ -44,11 +47,13 @@ export type ENUMRESTYPEPROCW = LPVOID;
 export type int = number;
 export type HBRUSH = LPVOID;
 export type HCURSOR = LPVOID;
+export type HGLOBAL = LPVOID;
 export type HICON = LPVOID;
 export type HINSTANCE = LPVOID;
 export type HMENU = LPVOID;
 export type HMODULE = LPVOID;
 export type HRESULT = number;
+export type HRSRC = LPVOID;
 export type HWND = LPVOID;
 export type LANGID = number;
 export type LONG = bigint;
@@ -96,11 +101,13 @@ export type SafeNativeTypeMap = {
   ENUMRESTYPEPROCW: 'pointer';
   HBRUSH: 'pointer';
   HCURSOR: 'pointer';
+  HGLOBAL: 'pointer';
   HICON: 'pointer';
   HINSTANCE: 'pointer';
   HMODULE: 'pointer';
   HMENU: 'pointer';
   HRESULT: 'i32';
+  HRSRC: 'pointer';
   HWND: 'pointer';
   int: 'i32';
   LANGID: 'u16';
@@ -120,6 +127,7 @@ export type SafeNativeTypeMap = {
   void: 'void';
   WNDCLASSEXW: 'buffer';
   WNDPROC: 'pointer';
+  WORD: 'u16';
   WPARAM: 'pointer';
 };
 

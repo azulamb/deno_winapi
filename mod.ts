@@ -1,15 +1,15 @@
 import { WIN_TYPES_INFO, WinTypes } from './src/win_types.ts';
-import * as constant from './src/libs/constant.ts';
+import * as constant from './src/support/constant.ts';
 import { Create, CreateWindowsTypes } from './src/create.ts';
 import { Kernel } from './src/api/kernel.ts';
 import { User } from './src/api/user.ts';
-import { macro, WINDOWS_MACRO } from './src/libs/macro.ts';
+import { macro, WINDOWS_MACRO } from './src/support/macro.ts';
 import data from './deno.json' with { type: 'json' };
 import {
   CONSTANT_VALUES,
   RESOURCE_TYPE_VALUES,
   WINDOW_MESSAGE_VALUES,
-} from './src/libs/constant.ts';
+} from './src/support/constant.ts';
 export const VERSION = data.version;
 
 export type * from './src/types.ts';

@@ -1413,8 +1413,9 @@
       "name": "FindResource",
       "baseA": false,
       "exA": false,
-      "exW": false,
-      "baseW": false
+      "exW": true,
+      "baseW": false,
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-findresourceexw"
     },
     {
       "name": "FindStringOrdinal",
@@ -3283,7 +3284,8 @@
     },
     {
       "name": "LoadResource",
-      "base": false
+      "base": true,
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadresource"
     },
     {
       "name": "LoadStringBase",
@@ -3357,7 +3359,8 @@
     },
     {
       "name": "LockResource",
-      "base": false
+      "base": true,
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-lockresource"
     },
     {
       "name": "MapUserPhysicalPages",
@@ -4850,7 +4853,8 @@
     },
     {
       "name": "SizeofResource",
-      "base": false
+      "base": true,
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-sizeofresource"
     },
     {
       "name": "Sleep",
@@ -5529,11 +5533,11 @@
   "aggregate": {
     "all": {
       "total": 1671,
-      "implemented": 5
+      "implemented": 9
     },
     "noDuplication": {
       "total": 1287,
-      "implemented": 5
+      "implemented": 9
     }
   }
 }

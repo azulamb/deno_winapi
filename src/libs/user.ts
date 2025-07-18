@@ -1,17 +1,5 @@
 import { WinTypes } from '../win_types.ts';
-import type { CALLBACK_FUNCTIONS, USER_FUNKS } from './user_types.ts';
-
-export const callbackFunctions: CALLBACK_FUNCTIONS = {
-  DefWindowProcW: {
-    parameters: [
-      WinTypes.HWND.ffi, // [in] HWND hWnd
-      WinTypes.UINT.ffi, // [in] UINT Msg
-      WinTypes.WPARAM.ffi, // [in] WPARAM wParam
-      WinTypes.LPARAM.ffi, // [in] LPARAM lParam
-    ],
-    result: WinTypes.LRESULT.ffi,
-  },
-};
+import type { USER_FUNKS } from './user_types.ts';
 
 export const user: Deno.DynamicLibrary<USER_FUNKS> = Deno.dlopen(
   'C:\\Windows\\System32\\user32.dll',
@@ -82,6 +70,16 @@ export const user: Deno.DynamicLibrary<USER_FUNKS> = Deno.dlopen(
         WinTypes.LPCWSTR.ffi, // [in] LPCWSTR lpIconName
       ],
       result: WinTypes.HICON.ffi,
+    },
+    MessageBoxExW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-messageboxexw
+      parameters: [
+        WinTypes.HWND.ffi, // [in, optional] HWND hWnd
+        WinTypes.LPCWSTR.ffi, // [in] LPCWSTR lpText
+        WinTypes.LPCWSTR.ffi, // [in, optional] LPCWSTR lpCaption
+        WinTypes.UINT.ffi, // [in] UINT uType
+        WinTypes.DWORD.ffi, // [in] DWORD dwLanguageId
+      ],
+      result: WinTypes.int.ffi,
     },
     PostQuitMessage: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-postquitmessage
       parameters: [

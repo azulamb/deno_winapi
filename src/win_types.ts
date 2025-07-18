@@ -1,7 +1,9 @@
 import { Rect } from './structs/rect.ts';
 import type {
+  HGLOBAL,
   HICON,
   HMODULE,
+  HRSRC,
   HWND,
   LONG_PTR,
   LPARAM,
@@ -51,11 +53,13 @@ export const WinTypes: WIN_TYPES_INFO = {
   ENUMRESTYPEPROCW: { ffi: 'pointer', size: 0 },
   HBRUSH: { ffi: 'pointer', size: 0 },
   HCURSOR: { ffi: 'pointer', size: 0 },
+  HGLOBAL: { ffi: 'pointer', size: 0 },
   HICON: { ffi: 'pointer', size: 0 },
   HINSTANCE: { ffi: 'pointer', size: 0 },
   HMODULE: { ffi: 'pointer', size: 0 },
   HMENU: { ffi: 'pointer', size: 0 },
   HRESULT: { ffi: 'i32', size: 0 },
+  HRSRC: { ffi: 'pointer', size: 0 },
   HWND: { ffi: 'pointer', size: 0 },
   int: { ffi: 'i32', size: 0 },
   LANGID: { ffi: 'u16', size: 0 },
@@ -74,6 +78,7 @@ export const WinTypes: WIN_TYPES_INFO = {
   UINT: { ffi: 'u32', size: 0 },
   WNDCLASSEXW: { ffi: 'buffer', size: 0 },
   WNDPROC: { ffi: 'pointer', size: 0 },
+  WORD: { ffi: 'u16', size: 0 },
   WPARAM: { ffi: 'pointer', size: 0 },
 };
 
@@ -108,12 +113,16 @@ export const Converter = {
     return value;
   },
 
+  HGLOBAL: Pointer<HGLOBAL>,
+
   HMODULE: Pointer<HMODULE>,
 
   HRESULT: (value: number): number => {
     // TODO: convert i32
     return value;
   },
+
+  HRSRC: Pointer<HRSRC>,
 
   HICON: Pointer<HICON>,
 
@@ -142,6 +151,8 @@ export const Converter = {
   LRESULT: Pointer<LRESULT>,
 
   LPWNDCLASSEXW: Pointer<LPWNDCLASSEXW>,
+
+  LPVOID: Pointer<LPVOID>,
 
   PBYTE: Pointer<PBYTE>,
 

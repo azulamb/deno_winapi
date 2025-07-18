@@ -1,17 +1,22 @@
-import { callbackFunctions, kernel } from '../libs/kernel.ts';
+import { kernel } from '../libs/kernel.ts';
+import { callbackFunctions } from '../libs/kernel_callback.ts';
 import { Converter } from '../win_types.ts';
 import type {
   BOOL,
   DWORD,
   ENUMRESNAMEPROCW,
   ENUMRESTYPEPROCW,
+  HGLOBAL,
   HMODULE,
+  HRSRC,
   LANGID,
   LONG_PTR,
   LPCWSTR,
+  LPVOID,
   LPWSTR,
   SafeNativeTypeMap,
   WithCallback,
+  WORD,
 } from '../types.ts';
 
 export class Kernel {
@@ -187,6 +192,24 @@ export class Kernel {
     return result;
   }
 
+  public FindResourceEx(
+    hModule: HMODULE | null,
+    lpType: LPCWSTR,
+    lpName: LPCWSTR,
+    wLanguage: WORD = 0,
+  ): HRSRC {
+    return Converter.HRSRC(this.libs.symbols.FindResourceExW(
+      hModule,
+      lpType,
+      lpName,
+      wLanguage,
+    ));
+  }
+
+  public FreeConsole(): boolean {
+    return Converter.BOOL(this.libs.symbols.FreeConsole());
+  }
+
   public GetLastError(): DWORD {
     return Converter.DWORD(this.libs.symbols.GetLastError());
   }
@@ -195,7 +218,15 @@ export class Kernel {
     return Converter.HMODULE(this.libs.symbols.GetModuleHandleW(lpModuleName));
   }
 
-  public FreeConsole(): boolean {
-    return Converter.BOOL(this.libs.symbols.FreeConsole());
+  public LoadResource(hModule: HMODULE = null, hResInfo: HRSRC): HGLOBAL {
+    return Converter.HGLOBAL(this.libs.symbols.LoadResource(hModule, hResInfo));
+  }
+
+  public LockResource(hResData: HGLOBAL): LPVOID {
+    return Converter.LPVOID(this.libs.symbols.LockResource(hResData));
+  }
+
+  public SizeofResource(hModule: HMODULE = null, hResInfo: HRSRC): DWORD {
+    return Converter.DWORD(this.libs.symbols.SizeofResource(hModule, hResInfo));
   }
 }

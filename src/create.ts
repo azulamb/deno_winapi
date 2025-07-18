@@ -1,6 +1,6 @@
 import { Message } from './structs/message.ts';
 import { WindowClassEx } from './structs/window_class_ex.ts';
-import { macro } from './libs/macro.ts';
+import { macro } from './support/macro.ts';
 import { Rect } from './structs/rect.ts';
 import type { DWORD, LANGID, LPCWSTR, UINT, WORD } from './types.ts';
 

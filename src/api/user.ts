@@ -25,7 +25,7 @@ export class User {
   public CreateIconFromResourceEx(
     presbits: PBYTE,
     dwResSize: DWORD,
-    fIcon: boolean,
+    fIcon: boolean = true,
     dwVer: DWORD = 0,
     cxDesired: int = 0,
     cyDesired: int = 0,
@@ -139,6 +139,56 @@ export class User {
 
   public LoadIcon(hInstance: HINSTANCE, lpIconName: LPCWSTR): HICON {
     return this.libs.symbols.LoadIconW(hInstance, lpIconName);
+  }
+
+  public MessageBoxExW(
+    hWnd: HWND | null,
+    lpText: LPCWSTR | null,
+    lpCaption: LPCWSTR | null,
+    uType: {
+      MB_OK?: boolean;
+      MB_OKCANCEL?: boolean;
+      MB_ABORTRETRYIGNORE?: boolean;
+      MB_YESNOCANCEL?: boolean;
+      MB_YESNO?: boolean;
+      MB_RETRYCANCEL?: boolean;
+      MB_CANCELTRYCONTINUE?: boolean;
+      MB_HELP?: boolean;
+    } = {},
+    dwLanguageId: DWORD = 0,
+  ): int {
+    let uTypeNum = 0;
+    if (uType.MB_OK) {
+      uTypeNum |= 0;
+    }
+    if (uType.MB_OKCANCEL) {
+      uTypeNum |= 1;
+    }
+    if (uType.MB_ABORTRETRYIGNORE) {
+      uTypeNum |= 2;
+    }
+    if (uType.MB_YESNOCANCEL) {
+      uTypeNum |= 3;
+    }
+    if (uType.MB_YESNO) {
+      uTypeNum |= 4;
+    }
+    if (uType.MB_RETRYCANCEL) {
+      uTypeNum |= 5;
+    }
+    if (uType.MB_CANCELTRYCONTINUE) {
+      uTypeNum |= 6;
+    }
+    if (uType.MB_HELP) {
+      uTypeNum |= 16384;
+    }
+    return this.libs.symbols.MessageBoxExW(
+      hWnd,
+      lpText,
+      lpCaption,
+      uTypeNum,
+      dwLanguageId,
+    );
   }
 
   public PostQuitMessage(nExitCode: int): void {

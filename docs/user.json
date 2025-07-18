@@ -2193,8 +2193,9 @@
       "name": "MessageBox",
       "baseA": false,
       "exA": false,
-      "exW": false,
-      "baseW": false
+      "exW": true,
+      "baseW": false,
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messageboxexw"
     },
     {
       "name": "MessageBoxIndirect",
@@ -3480,11 +3481,11 @@
   "aggregate": {
     "all": {
       "total": 1014,
-      "implemented": 13
+      "implemented": 14
     },
     "noDuplication": {
       "total": 817,
-      "implemented": 13
+      "implemented": 14
     }
   }
 }

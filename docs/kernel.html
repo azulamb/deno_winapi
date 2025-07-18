@@ -679,8 +679,10 @@
             'name': 'FindResource',
             'baseA': false,
             'exA': false,
-            'exW': false,
+            'exW': true,
             'baseW': false,
+            'url':
+              'https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-findresourceexw',
           },
           { 'name': 'FindStringOrdinal', 'base': false },
           { 'name': 'FindVolumeClose', 'base': false },
@@ -1512,7 +1514,12 @@
           },
           { 'name': 'LoadModule', 'base': false },
           { 'name': 'LoadPackagedLibrary', 'base': false },
-          { 'name': 'LoadResource', 'base': false },
+          {
+            'name': 'LoadResource',
+            'base': true,
+            'url':
+              'https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadresource',
+          },
           { 'name': 'LoadStringBase', 'exW': false, 'baseW': false },
           { 'name': 'LocalAlloc', 'base': false },
           { 'name': 'LocalCompact', 'base': false },
@@ -1530,7 +1537,12 @@
           { 'name': 'LocaleNameToLCID', 'base': false },
           { 'name': 'LocateXStateFeature', 'base': false },
           { 'name': 'LockFile', 'base': false, 'ex': false },
-          { 'name': 'LockResource', 'base': false },
+          {
+            'name': 'LockResource',
+            'base': true,
+            'url':
+              'https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-lockresource',
+          },
           { 'name': 'MapUserPhysicalPages', 'base': false },
           { 'name': 'MapUserPhysicalPagesScatter', 'base': false },
           { 'name': 'MapViewOfFile', 'base': false, 'ex': false },
@@ -2058,7 +2070,12 @@
           { 'name': 'SetupComm', 'base': false },
           { 'name': 'ShowConsoleCursor', 'base': false },
           { 'name': 'SignalObjectAndWait', 'base': false },
-          { 'name': 'SizeofResource', 'base': false },
+          {
+            'name': 'SizeofResource',
+            'base': true,
+            'url':
+              'https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-sizeofresource',
+          },
           { 'name': 'Sleep', 'base': false, 'ex': false },
           { 'name': 'SleepConditionVariableCS', 'base': false },
           { 'name': 'SleepConditionVariableSR', 'baseW': false },
@@ -2326,8 +2343,8 @@
           { 'name': 'uaw_wcsrchr', 'base': false },
         ],
         'aggregate': {
-          'all': { 'total': 1671, 'implemented': 5 },
-          'noDuplication': { 'total': 1287, 'implemented': 5 },
+          'all': { 'total': 1671, 'implemented': 9 },
+          'noDuplication': { 'total': 1287, 'implemented': 9 },
         },
       };
     </script>

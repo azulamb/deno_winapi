@@ -1,5 +1,6 @@
 import { Create } from '../create.ts';
-import { callbackFunctions } from '../libs/user.ts';
+import { callbackFunctions } from '../libs/user_callback.ts';
+import type { CALLBACK_FUNCTIONS } from '../libs/user_types.ts';
 import { Converter, WinTypes } from '../win_types.ts';
 import type {
   DENO_CALLBACK_WNDPROC,
@@ -72,10 +73,7 @@ export class WindowClassEx
   protected dataPointer: LPWNDCLASSEXW;
   public endian: boolean;
   protected callback?: Deno.UnsafeCallback<
-    Deno.UnsafeCallbackDefinition<
-      ['pointer', 'u32', 'pointer', 'pointer'],
-      'pointer'
-    >
+    CALLBACK_FUNCTIONS['DefWindowProcW']
   >;
 
   constructor() {

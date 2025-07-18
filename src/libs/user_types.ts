@@ -81,6 +81,16 @@ export type USER_FUNKS = {
     ];
     readonly result: SafeNativeTypeMap['HICON'];
   };
+  readonly MessageBoxExW: {
+    readonly parameters: [
+      SafeNativeTypeMap['HWND'],
+      SafeNativeTypeMap['LPCWSTR'],
+      SafeNativeTypeMap['LPCWSTR'],
+      SafeNativeTypeMap['UINT'],
+      SafeNativeTypeMap['DWORD'],
+    ];
+    readonly result: SafeNativeTypeMap['int'];
+  };
   readonly PostQuitMessage: {
     readonly parameters: [
       SafeNativeTypeMap['int'],

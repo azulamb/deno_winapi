@@ -1,6 +1,6 @@
 import * as test from '../_setup.ts';
 import { WindowClassEx } from '../../src/structs/window_class_ex.ts';
-import { callbackFunctions } from '../../src/libs/user.ts';
+import { callbackFunctions } from '../../src/libs/user_callback.ts';
 import type {
   HWND,
   int,
