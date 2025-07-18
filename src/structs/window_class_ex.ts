@@ -1,4 +1,4 @@
-import { Create } from '../create.ts';
+import { Create } from '../support/create.ts';
 import { callbackFunctions } from '../libs/user_callback.ts';
 import type { CALLBACK_FUNCTIONS } from '../libs/user_types.ts';
 import { Converter, WinTypes } from '../win_types.ts';
@@ -244,12 +244,12 @@ export class WindowClassEx
     );
   }
 
-  get hbrBackground(): Deno.PointerValue<unknown> {
+  get hbrBackground(): HBRUSH {
     return Create.pointer(
       this.dataView.getBigUint64(this.offset.hbrBackground, this.endian),
     );
   }
-  set hbrBackground(value: Deno.PointerValue<unknown>) {
+  set hbrBackground(value: HBRUSH) {
     this.dataView.setBigUint64(
       this.offset.hbrBackground,
       Create.rawPointer(value),

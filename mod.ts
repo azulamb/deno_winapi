@@ -1,6 +1,6 @@
 import { WIN_TYPES_INFO, WinTypes } from './src/win_types.ts';
 import * as constant from './src/support/constant.ts';
-import { Create, CreateWindowsTypes } from './src/create.ts';
+import { Create, CreateWindowsTypes } from './src/support/create.ts';
 import { Kernel } from './src/api/kernel.ts';
 import { User } from './src/api/user.ts';
 import { macro, WINDOWS_MACRO } from './src/support/macro.ts';

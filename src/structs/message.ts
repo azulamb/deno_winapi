@@ -1,4 +1,4 @@
-import { Create } from '../create.ts';
+import { Create } from '../support/create.ts';
 import { Converter, WinTypes } from '../win_types.ts';
 import type {
   DWORD,

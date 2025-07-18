@@ -1,5 +1,5 @@
 import { Converter } from '../win_types.ts';
-import { Create } from '../create.ts';
+import { Create } from './create.ts';
 import type { LANGID, WORD } from '../types.ts';
 
 export type WINDOWS_MACRO = {

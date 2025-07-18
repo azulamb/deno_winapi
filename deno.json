@@ -16,7 +16,7 @@
   },
   "fmt": {
     "include": ["./"],
-    "exclude": ["./docs/favicon.svg"],
+    "exclude": ["./docs/favicon.svg", "./docs/*.html"],
     "singleQuote": true
   }
 }

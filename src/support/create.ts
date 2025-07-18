@@ -1,8 +1,8 @@
-import { Message } from './structs/message.ts';
-import { WindowClassEx } from './structs/window_class_ex.ts';
-import { macro } from './support/macro.ts';
-import { Rect } from './structs/rect.ts';
-import type { DWORD, LANGID, LPCWSTR, UINT, WORD } from './types.ts';
+import { Message } from '../structs/message.ts';
+import { WindowClassEx } from '../structs/window_class_ex.ts';
+import { macro } from './macro.ts';
+import { Rect } from '../structs/rect.ts';
+import type { DWORD, LANGID, LPCWSTR, UINT, WORD } from '../types.ts';
 
 type ClassStyleOption = {
   CS_BYTEALIGNCLIENT?: boolean;
@@ -97,6 +97,7 @@ type ShowCommandType =
 
 export type CreateWindowsTypes = {
   stringPointer: (value: string) => LPCWSTR;
+  typePointerValue: (type: number | bigint | string | LPCWSTR) => LPCWSTR;
   rawPointer: (pointer: Deno.PointerValue) => bigint;
   pointer: <T>(rawPointer: bigint) => Deno.PointerValue<T>;
   makeLangId: (primary?: WORD, sub?: WORD) => LANGID;
@@ -117,6 +118,19 @@ export const Create: CreateWindowsTypes = {
       }),
     );
     return Deno.UnsafePointer.of(buffer);
+  },
+
+  typePointerValue: (type) => {
+    if (typeof type === 'string') {
+      return Create.stringPointer(type);
+    }
+    if (typeof type === 'bigint') {
+      return Deno.UnsafePointer.create(type);
+    }
+    if (typeof type === 'number') {
+      return Deno.UnsafePointer.create(BigInt(type));
+    }
+    return type;
   },
 
   rawPointer: (pointer) => {

@@ -18,7 +18,7 @@ import type {
   WithCallback,
   WORD,
 } from '../types.ts';
-import { Create } from '../create.ts';
+import { Create } from '../support/create.ts';
 
 export class Kernel {
   public libs = kernel;
@@ -199,21 +199,17 @@ export class Kernel {
 
   public FindResourceEx(
     hModule: HMODULE | null,
-    lpType: string | LPCWSTR,
+    lpType: number | bigint | string | LPCWSTR,
     lpName: string | LPCWSTR,
     wLanguage: WORD = 0,
   ): HRSRC {
-    if (typeof lpType === 'string') {
-      lpType = Create.stringPointer(lpType);
-    }
-
     if (typeof lpName === 'string') {
       lpName = Create.stringPointer(lpName);
     }
 
     return Converter.HRSRC(this.libs.symbols.FindResourceExW(
       hModule,
-      lpType,
+      Create.typePointerValue(lpType),
       lpName,
       wLanguage,
     ));
@@ -227,7 +223,9 @@ export class Kernel {
     return Converter.DWORD(this.libs.symbols.GetLastError());
   }
 
-  public GetModuleHandle(lpModuleName: string | LPCWSTR | null = null): HMODULE {
+  public GetModuleHandle(
+    lpModuleName: string | LPCWSTR | null = null,
+  ): HMODULE {
     if (typeof lpModuleName === 'string') {
       lpModuleName = Create.stringPointer(lpModuleName);
     }

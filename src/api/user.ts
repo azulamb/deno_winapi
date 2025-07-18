@@ -18,7 +18,7 @@ import type {
   UINT,
   WPARAM,
 } from '../types.ts';
-import { Create } from '../create.ts';
+import { Create } from '../support/create.ts';
 
 export class User {
   public libs = user;

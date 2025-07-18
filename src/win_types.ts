@@ -1,4 +1,5 @@
 import { Rect } from './structs/rect.ts';
+import { Create } from './support/create.ts';
 import type {
   HGLOBAL,
   HICON,
@@ -7,6 +8,7 @@ import type {
   HWND,
   LONG_PTR,
   LPARAM,
+  LPCWSTR,
   LPMSG,
   LPRECT,
   LPVOID,
