@@ -70,3 +70,7 @@ export type CONSTANT_VALUES = { CW_USEDEFAULT: number };
 export const Constant = {
   CW_USEDEFAULT: -2147483648, // CW_USEDEFAULT = 0x80000000
 };
+
+export const Max = {
+  MAX_PATH: 260,
+};

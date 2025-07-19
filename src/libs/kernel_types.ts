@@ -60,6 +60,14 @@ export type KERNEL_FUNKS = {
     parameters: [];
     result: SafeNativeTypeMap['DWORD'];
   };
+  GetModuleFileNameW: {
+    parameters: [
+      SafeNativeTypeMap['HMODULE'],
+      SafeNativeTypeMap['LPWSTR'],
+      SafeNativeTypeMap['DWORD'],
+    ];
+    result: SafeNativeTypeMap['DWORD'];
+  };
   GetModuleHandleW: {
     parameters: [
       SafeNativeTypeMap['LPCWSTR'],

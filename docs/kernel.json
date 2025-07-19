@@ -2110,7 +2110,8 @@
     {
       "name": "GetModuleFileName",
       "baseA": false,
-      "baseW": false
+      "baseW": true,
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulefilenamew"
     },
     {
       "name": "GetModuleHandle",
@@ -5533,11 +5534,11 @@
   "aggregate": {
     "all": {
       "total": 1671,
-      "implemented": 9
+      "implemented": 10
     },
     "noDuplication": {
       "total": 1287,
-      "implemented": 9
+      "implemented": 10
     }
   }
 }

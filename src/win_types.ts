@@ -1,5 +1,4 @@
 import { Rect } from './structs/rect.ts';
-import { Create } from './support/create.ts';
 import type {
   HGLOBAL,
   HICON,

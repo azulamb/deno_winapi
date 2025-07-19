@@ -19,6 +19,7 @@ import type {
   WORD,
 } from '../types.ts';
 import { Create } from '../support/create.ts';
+import { Max } from '../support/constant.ts';
 
 export class Kernel {
   public libs = kernel;
@@ -221,6 +222,36 @@ export class Kernel {
 
   public GetLastError(): DWORD {
     return Converter.DWORD(this.libs.symbols.GetLastError());
+  }
+
+  public GetModuleFileName(
+    hModule: HMODULE = null,
+    nSize: number = 0,
+  ): string {
+    if (nSize <= 0) {
+      nSize = Max.MAX_PATH;
+    }
+    const buffer = new Uint16Array(nSize);
+    const lpFilename = Deno.UnsafePointer.of(buffer);
+
+    nSize = Converter.DWORD(
+      this.libs.symbols.GetModuleFileNameW(hModule, lpFilename, nSize),
+    );
+
+    if (nSize <= 0) {
+      throw new Error(
+        `GetModuleFileNameW failed: ${this.libs.symbols.GetLastError()}`,
+      );
+    }
+
+    if (nSize < Max.MAX_PATH) {
+      return String.fromCharCode.apply(
+        null,
+        Array.from(buffer.subarray(0, nSize)),
+      );
+    }
+
+    return this.GetModuleFileName(hModule, nSize + 1);
   }
 
   public GetModuleHandle(

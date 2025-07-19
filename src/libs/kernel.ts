@@ -42,6 +42,14 @@ export const kernel: Deno.DynamicLibrary<KERNEL_FUNKS> = Deno.dlopen(
       parameters: [],
       result: WinTypes.DWORD.ffi,
     },
+    GetModuleFileNameW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulefilenamew
+      parameters: [
+        WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
+        WinTypes.LPWSTR.ffi, // [out] LPWSTR lpFilename
+        WinTypes.DWORD.ffi, // [in] DWORD nSize
+      ],
+      result: WinTypes.DWORD.ffi, // [out] DWORD
+    },
     GetModuleHandleW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulehandlew
       parameters: [
         WinTypes.LPCWSTR.ffi, // [in, optional] LPCWSTR lpModuleName
