@@ -1,6 +1,9 @@
 import { WinTypes } from '../win_types.ts';
 import type { KERNEL_FUNKS } from './kernel_types.ts';
 
+/**
+ * Kernel class provides methods to interact with the Windows kernel32.dll.
+ */
 export const kernel: Deno.DynamicLibrary<KERNEL_FUNKS> = Deno.dlopen(
   'C:\\Windows\\System32\\kernel32.dll',
   {

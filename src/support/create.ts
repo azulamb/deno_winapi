@@ -95,6 +95,7 @@ type ShowCommandType =
   | 'SW_SHOWDEFAULT'
   | 'SW_FORCEMINIMIZE';
 
+/** Create Windows types. */
 export type CreateWindowsTypes = {
   stringPointer: (value: string) => LPCWSTR;
   typePointerValue: (type: number | bigint | string | LPCWSTR) => LPCWSTR;
@@ -110,6 +111,7 @@ export type CreateWindowsTypes = {
   showCommand: (option: ShowCommandType) => UINT;
 };
 
+/** Create Windows types. */
 export const Create: CreateWindowsTypes = {
   stringPointer: (value) => {
     const buffer = new Uint16Array(

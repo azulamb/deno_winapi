@@ -1,6 +1,9 @@
 import { WinTypes } from '../win_types.ts';
 import type { USER_FUNKS } from './user_types.ts';
 
+/**
+ * User class provides methods to interact with the Windows user32.dll.
+ */
 export const user: Deno.DynamicLibrary<USER_FUNKS> = Deno.dlopen(
   'C:\\Windows\\System32\\user32.dll',
   {

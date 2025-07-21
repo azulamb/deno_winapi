@@ -21,6 +21,9 @@ interface MessageProps {
   lPrivate: DWORD;
 }
 
+/**
+ * Message class represents a Windows message structure.
+ */
 export class Message implements WindowsStruct<LPMSG>, MessageProps {
   protected offset: { [key in keyof MessageProps]: number } = {
     hwnd: 0,

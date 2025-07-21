@@ -21,6 +21,9 @@ import type {
 import { Create } from '../support/create.ts';
 import { Max } from '../support/constant.ts';
 
+/**
+ * Kernel class provides methods to interact with the Windows kernel32.dll.
+ */
 export class Kernel {
   public libs = kernel;
 

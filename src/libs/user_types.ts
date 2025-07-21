@@ -1,6 +1,10 @@
 import type { SafeNativeTypeMap } from '../types.ts';
 
 // TODO: Generate
+
+/**
+ * Callback functions for user32.dll
+ */
 export type CALLBACK_FUNCTIONS = {
   DefWindowProcW: Deno.UnsafeCallbackDefinition<
     [
@@ -13,6 +17,9 @@ export type CALLBACK_FUNCTIONS = {
   >;
 };
 
+/**
+ * User function signatures.
+ */
 export type USER_FUNKS = {
   readonly CreateIconFromResourceEx: {
     readonly parameters: [

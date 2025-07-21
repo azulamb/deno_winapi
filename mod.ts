@@ -1,3 +1,8 @@
+/**
+ * Windows API module
+ * @module winApi
+ */
+
 import { WIN_TYPES_INFO, WinTypes } from './src/win_types.ts';
 import * as constant from './src/support/constant.ts';
 import { Create, CreateWindowsTypes } from './src/support/create.ts';
@@ -10,17 +15,20 @@ import {
   RESOURCE_TYPE_VALUES,
   WINDOW_MESSAGE_VALUES,
 } from './src/support/constant.ts';
+/** Current version of the Windows API module */
 export const VERSION = data.version;
 
+/** Windows API types */
 export type * from './src/types.ts';
 
+/** Windows API constants */
 export const winApi: {
   create: CreateWindowsTypes;
   kernel: Kernel;
   user: User;
   winTypes: WIN_TYPES_INFO;
   constant: CONSTANT_VALUES;
-  windowMassage: WINDOW_MESSAGE_VALUES;
+  windowMessage: WINDOW_MESSAGE_VALUES;
   resourceType: RESOURCE_TYPE_VALUES;
   macro: WINDOWS_MACRO;
 } = {
@@ -29,13 +37,16 @@ export const winApi: {
   user: new User(),
   winTypes: WinTypes,
   constant: constant.Constant,
-  windowMassage: constant.WindowMassage,
+  windowMessage: constant.WindowMessage,
   resourceType: constant.ResourceType,
   macro: macro,
 };
 
 // structs
 
+/** Windows API Message structure */
 export { Message } from './src/structs/message.ts';
+/** Windows API WindowClassEx structure */
 export { WindowClassEx } from './src/structs/window_class_ex.ts';
+/** Windows API RECT structure */
 export { Rect } from './src/structs/rect.ts';

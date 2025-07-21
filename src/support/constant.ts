@@ -1,8 +1,13 @@
 import type { WindowMessageName, WindowsResourceType } from '../types.ts';
 
-// https://learn.microsoft.com/ja-jp/windows/win32/winmsg/window-notifications
+/**
+ * Window message values.
+ * https://learn.microsoft.com/ja-jp/windows/win32/winmsg/window-notifications
+ */
 export type WINDOW_MESSAGE_VALUES = { [key in WindowMessageName]: number };
-export const WindowMassage: WINDOW_MESSAGE_VALUES = {
+
+/** Window message constants. */
+export const WindowMessage: WINDOW_MESSAGE_VALUES = {
   WM_NULL: 0x0000,
   WM_CREATE: 0x0001,
   WM_DESTROY: 0x0002,
@@ -40,8 +45,13 @@ export const WindowMassage: WINDOW_MESSAGE_VALUES = {
   WM_THEMECHANGED: 0x031A,
 };
 
-// https://learn.microsoft.com/ja-jp/windows/win32/menurc/resource-types
+/**
+ * Windows resource types.
+ * https://learn.microsoft.com/ja-jp/windows/win32/menurc/resource-types
+ */
 export type RESOURCE_TYPE_VALUES = { [key in WindowsResourceType]: number };
+
+/** Windows resource types. */
 export const ResourceType: RESOURCE_TYPE_VALUES = {
   RT_CURSOR: 1,
   RT_BITMAP: 2,
@@ -66,11 +76,15 @@ export const ResourceType: RESOURCE_TYPE_VALUES = {
   RT_MANIFEST: 24,
 };
 
+/** Windows constant values. */
 export type CONSTANT_VALUES = { CW_USEDEFAULT: number };
+
+/** Windows constant values. */
 export const Constant = {
   CW_USEDEFAULT: -2147483648, // CW_USEDEFAULT = 0x80000000
 };
 
+/** Windows API maximum values. */
 export const Max = {
   MAX_PATH: 260,
 };

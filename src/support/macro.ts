@@ -2,6 +2,7 @@ import { Converter } from '../win_types.ts';
 import { Create } from './create.ts';
 import type { LANGID, WORD } from '../types.ts';
 
+/** Windows API macros. */
 export type WINDOWS_MACRO = {
   IS_INTRESOURCE: (value: Deno.PointerValue | bigint) => boolean;
   MAKEINTRESOURCE: (
@@ -10,6 +11,7 @@ export type WINDOWS_MACRO = {
   MAKELANGID: (p: WORD, s: WORD) => LANGID;
 };
 
+/** Windows API macros. */
 export const macro: WINDOWS_MACRO = {
   IS_INTRESOURCE: (value) => {
     if (typeof value !== 'bigint') {

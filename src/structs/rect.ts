@@ -2,6 +2,7 @@ import type { LPRECT } from '../types.ts';
 import { Converter } from '../win_types.ts';
 
 /**
+ * Rect class represents a Windows RECT structure.
  * https://learn.microsoft.com/ja-jp/windows/win32/api/windef/ns-windef-rect
  */
 export class Rect {

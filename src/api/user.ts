@@ -20,6 +20,9 @@ import type {
 } from '../types.ts';
 import { Create } from '../support/create.ts';
 
+/**
+ * User class provides methods to interact with the Windows user32.dll.
+ */
 export class User {
   public libs = user;
 

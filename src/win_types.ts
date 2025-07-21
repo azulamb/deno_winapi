@@ -7,7 +7,6 @@ import type {
   HWND,
   LONG_PTR,
   LPARAM,
-  LPCWSTR,
   LPMSG,
   LPRECT,
   LPVOID,
@@ -41,15 +40,19 @@ const ffiTypeSizes: { [key in SafeNativeType]: number } = {
   pointer: POINTER,
 };
 
+/** Windows types information */
 export type WIN_TYPES_INFO = {
   [key in WIN_TYPES]: { ffi: SafeNativeTypeMap[key]; size: number };
 };
 
-// https://deno.land/manual/runtime/ffi_api#supported-types
+/**
+ * WinTypes contains information about Windows types.
+ * https://deno.land/manual/runtime/ffi_api#supported-types
+ */
 export const WinTypes: WIN_TYPES_INFO = {
   ATOM: { ffi: 'u16', size: 0 },
   BOOL: { ffi: 'i32', size: 0 },
-  DWORD: { ffi: 'i32', size: 0 },
+  DWORD: { ffi: 'u32', size: 0 },
   ENUMRESNAMEPROCW: { ffi: 'pointer', size: 0 },
   ENUMRESTYPEPROCW: { ffi: 'pointer', size: 0 },
   HBRUSH: { ffi: 'pointer', size: 0 },
@@ -93,6 +96,7 @@ function Pointer<T>(pointer: Deno.PointerValue): T {
   return <T> Converter.pointer(pointer);
 }
 
+/** Converter for Windows types to Deno types. */
 export const Converter = {
   // FFI to JS
   pointer: <T extends LPVOID>(pointer: Deno.PointerValue): T => {
@@ -110,7 +114,7 @@ export const Converter = {
   },
 
   DWORD: (value: number): number => {
-    // TODO: convert i32
+    // TODO: convert u32
     return value;
   },
 

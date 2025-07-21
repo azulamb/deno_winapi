@@ -1,6 +1,10 @@
 import type { SafeNativeTypeMap } from '../types.ts';
 
 // TODO: Generate
+
+/**
+ * Callback functions for kernel32.dll
+ */
 export type CALLBACK_FUNCTIONS = {
   EnumResNameProcW: Deno.UnsafeCallbackDefinition<
     [
@@ -21,6 +25,9 @@ export type CALLBACK_FUNCTIONS = {
   >;
 };
 
+/**
+ * Kernel function signatures.
+ */
 export type KERNEL_FUNKS = {
   EnumResourceNamesExW: {
     parameters: [

@@ -36,6 +36,7 @@ type WindowClassExProps = {
 };
 
 /**
+ * WindowClassEx class represents a Windows WNDCLASSEXW structure.
  * https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/ns-winuser-wndclassexw
  */
 export class WindowClassEx
