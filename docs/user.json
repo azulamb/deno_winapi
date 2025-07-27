@@ -3096,7 +3096,8 @@
     {
       "name": "SetWindowText",
       "baseA": false,
-      "baseW": false
+      "baseW": true,
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowtextw"
     },
     {
       "name": "SetWindowWord",
@@ -3481,11 +3482,11 @@
   "aggregate": {
     "all": {
       "total": 1014,
-      "implemented": 14
+      "implemented": 15
     },
     "noDuplication": {
       "total": 817,
-      "implemented": 14
+      "implemented": 15
     }
   }
 }

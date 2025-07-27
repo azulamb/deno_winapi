@@ -119,6 +119,13 @@ export type USER_FUNKS = {
     ];
     readonly result: SafeNativeTypeMap['LRESULT'];
   };
+  readonly SetWindowTextW: {
+    readonly parameters: [
+      SafeNativeTypeMap['HWND'],
+      SafeNativeTypeMap['LPCWSTR'],
+    ];
+    readonly result: SafeNativeTypeMap['BOOL'];
+  };
   readonly ShowWindow: {
     readonly parameters: [
       SafeNativeTypeMap['HWND'],

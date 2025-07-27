@@ -233,6 +233,16 @@ export class User {
     ));
   }
 
+  public SetWindowText(
+    hWnd: HWND,
+    lpString: string,
+  ): boolean {
+    return Converter.BOOL(this.libs.symbols.SetWindowTextW(
+      hWnd,
+      Create.stringPointer(lpString),
+    ));
+  }
+
   public ShowWindow(
     hWnd: HWND,
     nCmdShow: int,

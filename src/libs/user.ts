@@ -105,6 +105,13 @@ export const user: Deno.DynamicLibrary<USER_FUNKS> = Deno.dlopen(
       ],
       result: WinTypes.LRESULT.ffi,
     },
+    SetWindowTextW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-setwindowtextw
+      parameters: [
+        WinTypes.HWND.ffi, // [in] HWND hWnd
+        WinTypes.LPCWSTR.ffi, // [in] LPCWSTR lpString
+      ],
+      result: WinTypes.BOOL.ffi,
+    },
     ShowWindow: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-showwindow
       parameters: [
         WinTypes.HWND.ffi, // [in] HWND hWnd
