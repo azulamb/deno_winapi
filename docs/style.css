@@ -106,6 +106,16 @@ footer {
   right: 0;
 }
 
+footer small {
+  display: inline-block;
+}
+
+footer small + small {
+  margin-left: 0.5rem;
+}
+
 footer a {
+  display: inline-block;
+  margin-left: 0.2rem;
   text-decoration: none;
 }
