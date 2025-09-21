@@ -6,7 +6,7 @@ import { Converter } from '../win_types.ts';
  * https://learn.microsoft.com/ja-jp/windows/win32/api/windef/ns-windef-rect
  */
 export class Rect {
-  public data: Int32Array;
+  public data: Int32Array<ArrayBuffer>;
   protected dataView: DataView;
   protected dataPointer: LPRECT;
   public endian: boolean;

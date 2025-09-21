@@ -43,7 +43,7 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
     pt: WinTypes.LONG.size * 2, // POINT TagPointProps
     lPrivate: WinTypes.DWORD.size,
   };
-  public data: Uint8Array;
+  public data: Uint8Array<ArrayBuffer>;
   protected dataView: DataView;
   protected dataPointer: LPMSG;
   public endian?: boolean;

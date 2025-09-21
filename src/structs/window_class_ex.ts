@@ -69,7 +69,7 @@ export class WindowClassEx
     lpszClassName: WinTypes.LPCWSTR.size,
     hIconSm: WinTypes.HICON.size,
   };
-  public data: Uint8Array;
+  public data: Uint8Array<ArrayBuffer>;
   protected dataView: DataView;
   protected dataPointer: LPWNDCLASSEXW;
   public endian: boolean;

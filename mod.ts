@@ -50,3 +50,6 @@ export { Message } from './src/structs/message.ts';
 export { WindowClassEx } from './src/structs/window_class_ex.ts';
 /** Windows API RECT structure */
 export { Rect } from './src/structs/rect.ts';
+
+// Support
+export { hresultToString } from './src/libs/hresult.ts';
