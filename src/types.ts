@@ -114,10 +114,8 @@ export type RECT = {
 /** UINT in Deno */
 export type UINT = number;
 /** DENO_CALLBACK_WNDPROC in Deno */
-export type DENO_CALLBACK_WNDPROC = Deno.UnsafeCallbackDefinition<
-  readonly ['pointer', 'u32', 'u64', 'i64'],
-  'i64'
->;
+export type DENO_CALLBACK_WNDPROC =
+  typeof import('./libs/user_callback.ts').callbackFunctions.DefWindowProcW;
 /** WNDPROC in Deno */
 export type WNDPROC = Deno.PointerValue<DENO_CALLBACK_WNDPROC>;
 /** WPARAM in Deno */

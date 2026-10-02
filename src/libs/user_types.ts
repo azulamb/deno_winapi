@@ -1,4 +1,6 @@
-/** Native and callback signatures are derived from their FFI definitions. */
-export type CALLBACK_FUNCTIONS =
-  typeof import('./user_callback.ts').callbackFunctions;
-export type USER_FUNKS = typeof import('./user.ts').userDefinitions;
+/** Native signatures are derived from the runtime FFI definitions. */
+import type { userDefinitions } from './user.ts';
+import type { callbackFunctions } from './user_callback.ts';
+
+export type USER_FUNKS = typeof userDefinitions;
+export type CALLBACK_FUNCTIONS = typeof callbackFunctions;

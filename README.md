@@ -117,3 +117,23 @@ Tests cover native message parameter round trips, class/callback lifetime,
 structure byte offsets, signed and unsigned boundaries, long-path buffer growth,
 error handling and HRESULT diagnostics. Native integration tests create a hidden
 window and destroy it automatically.
+
+## Maintaining FFI signatures
+
+Native signatures are written once using `WinTypes` in `src/libs/user.ts`,
+`kernel.ts`, and `kernel_callback.ts`. This keeps the Windows type name visible
+next to the native API parameter. To allow JSR's simple inference for property
+references, each value also references its existing type:
+
+```ts
+WinTypes.HMODULE.ffi as typeof WinTypes.HMODULE.ffi;
+```
+
+This assertion reuses the exact declared type; it does not introduce a second
+signature declaration. `USER_FUNKS`, `KERNEL_FUNKS` and `CALLBACK_FUNCTIONS` are
+derived with `typeof` through `import type`. WNDPROC shares the `DefWindowProcW`
+definition, and `DENO_CALLBACK_WNDPROC` derives from it.
+
+After changing signatures, run `deno publish --dry-run --allow-dirty` as well as
+the native tests. A type-only import removes runtime dependencies but does not
+make a self-referential type annotation valid.
