@@ -597,7 +597,7 @@
     },
     {
       "name": "DestroyWindow",
-      "base": false
+      "base": true
     },
     {
       "name": "DialogBoxIndirectParam",
@@ -2308,7 +2308,7 @@
     {
       "name": "PeekMessage",
       "baseA": false,
-      "baseW": false
+      "baseW": true
     },
     {
       "name": "PhysicalToLogicalPoint",
@@ -2321,7 +2321,7 @@
     {
       "name": "PostMessage",
       "baseA": false,
-      "baseW": false
+      "baseW": true
     },
     {
       "name": "PostQuitMessage",
@@ -3292,7 +3292,7 @@
     {
       "name": "UnregisterClass",
       "baseA": false,
-      "baseW": false
+      "baseW": true
     },
     {
       "name": "UnregisterDeviceNotification",
@@ -3482,11 +3482,11 @@
   "aggregate": {
     "all": {
       "total": 1014,
-      "implemented": 15
+      "implemented": 19
     },
     "noDuplication": {
       "total": 817,
-      "implemented": 15
+      "implemented": 19
     }
   }
 }

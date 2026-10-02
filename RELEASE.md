@@ -1,5 +1,5 @@
 # Release
 
-- `deno check`
-- `deno report`
+- `deno task check`
+- `deno task report`
 - `deno fmt`
