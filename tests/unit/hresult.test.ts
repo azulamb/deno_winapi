@@ -23,3 +23,9 @@ Deno.test('ERROR_PATH_NOT_FOUND', () => {
     'Expected ERROR_PATH_NOT_FOUND',
   );
 });
+
+Deno.test('HRESULT hexadecimal case and unknown diagnostic', () => {
+  test.assertEquals(hresultToString(0x8000ffff), 'E_UNEXPECTED');
+  test.assertEquals(hresultToString(-2147024882), 'E_OUTOFMEMORY');
+  test.assertEquals(hresultToString(0x8123abcd), 'UNKNOWN_ERROR (0x8123ABCD)');
+});

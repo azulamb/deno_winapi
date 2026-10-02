@@ -137,9 +137,9 @@ Deno.test(
 
     const hWnd: HWND = test.values.pointer.create();
     const Msg: UINT = test.values.u32.random();
-    const wParam: WPARAM = test.values.pointer.create();
-    const lParam: LPARAM = test.values.pointer.create();
-    const result: LRESULT = test.values.pointer.create();
+    const wParam: WPARAM = 0xffffffffffffffffn;
+    const lParam: LPARAM = -123456789n;
+    const result: LRESULT = -1n;
 
     windowClassEx.setWindowProcedure(
       (arg0: HWND, arg1: UINT, arg2: WPARAM, arg3: LPARAM) => {
@@ -153,6 +153,7 @@ Deno.test(
     );
 
     const pointer = windowClassEx.lpfnWndProc;
+    windowClassEx.lpfnWndProc = pointer;
     if (pointer) {
       const actual = new Deno.UnsafeFnPointer(
         pointer,
@@ -160,8 +161,8 @@ Deno.test(
       ).call(hWnd, Msg, wParam, lParam);
 
       test.assertEquals(
-        Deno.UnsafePointer.value(actual),
-        Deno.UnsafePointer.value(result),
+        actual,
+        result,
       );
 
       windowClassEx.closeWindowProcedure();

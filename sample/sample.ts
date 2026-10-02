@@ -1,4 +1,5 @@
-import { HWND, LPARAM, UINT, winApi, WPARAM } from '../mod.ts';
+import type { HWND, LPARAM, UINT, WPARAM } from '../mod.ts';
+import { winApi } from '../mod.ts';
 
 // Create WindowClassEx
 const windowClassEx = winApi.create.windowClassEx();
@@ -7,6 +8,7 @@ windowClassEx.style = winApi.create.classStyle({
   CS_HREDRAW: true,
 });
 windowClassEx.setClassName('AppWindow');
+windowClassEx.hInstance = winApi.kernel.GetModuleHandle();
 windowClassEx.setWindowProcedure(
   (hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM) => {
     switch (Msg) {
@@ -66,8 +68,17 @@ if (!winApi.kernel.FreeConsole()) {
 
 // Message loop.
 const message = winApi.create.message();
-while (winApi.user.GetMessage(message.pointer, windowHandle, 0, 0)) {
+while (winApi.user.GetMessage(message.pointer, null, 0, 0)) {
+  winApi.user.TranslateMessage(message.pointer);
   winApi.user.DispatchMessage(message.pointer);
 }
 
+if (
+  winApi.user.UnregisterClass(
+    windowClassEx.lpszClassName,
+    windowClassEx.hInstance,
+  )
+) {
+  windowClassEx.closeWindowProcedure();
+}
 Deno.exit(Number(message.wParam));

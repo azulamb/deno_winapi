@@ -3,14 +3,14 @@
  * @module winApi
  */
 
-import { WIN_TYPES_INFO, WinTypes } from './src/win_types.ts';
+import { type WIN_TYPES_INFO, WinTypes } from './src/win_types.ts';
 import * as constant from './src/support/constant.ts';
-import { Create, CreateWindowsTypes } from './src/support/create.ts';
+import { Create, type CreateWindowsTypes } from './src/support/create.ts';
 import { Kernel } from './src/api/kernel.ts';
 import { User } from './src/api/user.ts';
-import { macro, WINDOWS_MACRO } from './src/support/macro.ts';
+import { macro, type WINDOWS_MACRO } from './src/support/macro.ts';
 import data from './deno.json' with { type: 'json' };
-import {
+import type {
   CONSTANT_VALUES,
   RESOURCE_TYPE_VALUES,
   WINDOW_MESSAGE_VALUES,
@@ -52,4 +52,7 @@ export { WindowClassEx } from './src/structs/window_class_ex.ts';
 export { Rect } from './src/structs/rect.ts';
 
 // Support
+export { OwnedUtf16 } from './src/support/utf16.ts';
+export { User } from './src/api/user.ts';
+export { Kernel } from './src/api/kernel.ts';
 export { hresultToString } from './src/libs/hresult.ts';

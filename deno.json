@@ -1,9 +1,19 @@
 {
   "name": "@azulamb/winapi",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "license": "MIT",
-  "exports": "./mod.ts",
+  "exports": {
+    ".": "./mod.ts",
+    "./types": "./types.mod.ts",
+    "./constants": "./constants.mod.ts",
+    "./structs": "./structs.mod.ts",
+    "./native": "./native.mod.ts"
+  },
   "lock": false,
+  "imports": {
+    "@std/assert": "jsr:@std/assert",
+    "@azulamb/checker": "jsr:@azulamb/checker"
+  },
   "tasks": {
     "check": "deno run --allow-run tools/check.ts",
     "report": "deno run --allow-run --allow-read --allow-write --allow-ffi tools/report.ts",
@@ -12,11 +22,18 @@
     "tests": "deno test --allow-ffi --allow-read --unstable-raw-imports tests/"
   },
   "lint": {
-    "include": ["./"]
+    "include": [
+      "./"
+    ]
   },
   "fmt": {
-    "include": ["./"],
-    "exclude": ["./docs/favicon.svg", "./docs/*.html"],
+    "include": [
+      "./"
+    ],
+    "exclude": [
+      "./docs/favicon.svg",
+      "./docs/*.html"
+    ],
     "singleQuote": true
   }
 }

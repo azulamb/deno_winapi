@@ -1,3 +1,5 @@
+import { WindowClassEx } from '../structs/window_class_ex.ts';
+import { kernel } from '../libs/kernel.ts';
 import { user } from '../libs/user.ts';
 import { Converter } from '../win_types.ts';
 import type {
@@ -20,11 +22,35 @@ import type {
 } from '../types.ts';
 import { Create } from '../support/create.ts';
 
+type RegisteredClass = {
+  owner: WindowClassEx;
+  name: string;
+  atom: number;
+  instance: HINSTANCE;
+};
+
 /**
  * User class provides methods to interact with the Windows user32.dll.
  */
 export class User {
-  public libs = user;
+  private static readonly registrations = new WeakMap<
+    object,
+    Set<RegisteredClass>
+  >();
+  private readonly registeredClasses: Set<RegisteredClass>;
+  constructor(
+    public libs: typeof user = user,
+    private errorSource: Pick<typeof kernel.symbols, 'GetLastError'> = {
+      GetLastError: () => kernel.symbols.GetLastError(),
+    },
+  ) {
+    let registrations = User.registrations.get(libs);
+    if (!registrations) {
+      registrations = new Set<RegisteredClass>();
+      User.registrations.set(libs, registrations);
+    }
+    this.registeredClasses = registrations;
+  }
 
   public CreateIconFromResourceEx(
     presbits: PBYTE,
@@ -107,8 +133,8 @@ export class User {
   public DefWindowProc(
     hWnd: HWND,
     Msg: UINT,
-    wParam: WPARAM | null,
-    lParam: LPARAM | null,
+    wParam: WPARAM = 0n,
+    lParam: LPARAM = 0n,
   ): LRESULT {
     return Converter.LRESULT(this.libs.symbols.DefWindowProcW(
       hWnd,
@@ -138,7 +164,74 @@ export class User {
       Converter.UINT(wMsgFilterMin),
       Converter.UINT(wMsgFilterMax),
     );
-    return 0 < result;
+    if (result === -1) {
+      throw new Error(`GetMessageW failed: ${this.errorSource.GetLastError()}`);
+    }
+    return result > 0;
+  }
+
+  public PeekMessage(
+    lpMsg: LPMSG,
+    hWnd: HWND = null,
+    min: UINT = 0,
+    max: UINT = 0,
+    remove: UINT = 1,
+  ): boolean {
+    return this.libs.symbols.PeekMessageW(lpMsg, hWnd, min, max, remove) !== 0;
+  }
+
+  public DestroyWindow(hWnd: HWND): boolean {
+    return this.libs.symbols.DestroyWindow(hWnd) !== 0;
+  }
+
+  public UnregisterClass(
+    name: string | LPCWSTR,
+    instance: HINSTANCE = null,
+  ): boolean {
+    const pointer = typeof name === 'string'
+      ? Create.stringPointer(name)
+      : name;
+    const result = this.libs.symbols.UnregisterClassW(pointer, instance) !== 0;
+    if (result) {
+      for (const item of this.registeredClasses) {
+        const address = Create.rawPointer(pointer);
+        const sameName =
+          typeof name !== 'string' && address > 0n && address <= 0xffffn
+            ? BigInt(item.atom) === address
+            : item.name.toLowerCase() ===
+              (typeof name === 'string' ? name : this.readClassName(pointer))
+                .toLowerCase();
+        if (
+          sameName &&
+          Create.rawPointer(item.instance) === Create.rawPointer(instance)
+        ) {
+          item.owner.setRegistered(false);
+          this.registeredClasses.delete(item);
+        }
+      }
+    }
+    return result;
+  }
+
+  private readClassName(pointer: LPCWSTR): string {
+    if (!pointer) return '';
+    const view = new Deno.UnsafePointerView(pointer);
+    let result = '';
+    for (let i = 0; i < 256; i++) {
+      const code = view.getUint16(i * 2);
+      if (!code) return result;
+      result += String.fromCharCode(code);
+    }
+    return result;
+  }
+
+  public PostMessage(
+    hWnd: HWND,
+    message: UINT,
+    wParam: WPARAM = 0n,
+    lParam: LPARAM = 0n,
+  ): boolean {
+    return this.libs.symbols.PostMessageW(hWnd, message, wParam, lParam) !== 0;
   }
 
   public LoadIcon(hInstance: HINSTANCE, lpIconName: string | LPCWSTR): HICON {
@@ -213,17 +306,31 @@ export class User {
     );
   }
 
-  public RegisterClassEx(windowClassExPointer: LPWNDCLASSEXW): number {
-    return Converter.ATOM(
-      this.libs.symbols.RegisterClassExW(windowClassExPointer),
-    );
+  public RegisterClassEx(windowClass: LPWNDCLASSEXW | WindowClassEx): number {
+    const pointer = windowClass instanceof WindowClassEx
+      ? windowClass.pointer
+      : windowClass;
+    const owner = windowClass instanceof WindowClassEx
+      ? windowClass
+      : WindowClassEx.fromPointer(pointer);
+    const atom = this.libs.symbols.RegisterClassExW(pointer);
+    if (atom && owner) {
+      owner.setRegistered(true);
+      this.registeredClasses.add({
+        owner,
+        name: this.readClassName(owner.lpszClassName),
+        atom,
+        instance: owner.hInstance,
+      });
+    }
+    return atom;
   }
 
   public SendMessage(
     hWnd: HWND,
     Msg: UINT,
-    wParam: WPARAM | null,
-    lParam: LPARAM | null,
+    wParam: WPARAM = 0n,
+    lParam: LPARAM = 0n,
   ): LRESULT {
     return Converter.LRESULT(this.libs.symbols.SendMessageW(
       hWnd,

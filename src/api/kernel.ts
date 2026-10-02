@@ -14,7 +14,6 @@ import type {
   LPCWSTR,
   LPVOID,
   LPWSTR,
-  SafeNativeTypeMap,
   WithCallback,
   WORD,
 } from '../types.ts';
@@ -25,180 +24,88 @@ import { Max } from '../support/constant.ts';
  * Kernel class provides methods to interact with the Windows kernel32.dll.
  */
 export class Kernel {
-  public libs = kernel;
+  constructor(public libs: typeof kernel = kernel) {}
 
+  /** Enumeration callbacks are synchronous and are released before returning. */
   public EnumResourceNamesEx(
-    hModule: HMODULE | null,
+    hModule: HMODULE,
     lpType: string | LPCWSTR,
     lpEnumFunc:
       | ENUMRESNAMEPROCW
       | ((
-        hModule: HMODULE, // [in, optional]
-        lpType: LPWSTR,
-        lpName: LPWSTR,
-        lParam: LONG_PTR, // [in]
+        module: HMODULE,
+        type: LPWSTR,
+        name: LPWSTR,
+        param: LONG_PTR,
       ) => BOOL),
-    lParam: LONG_PTR = null,
+    lParam: LONG_PTR = 0n,
     dwFlags: {
       RESOURCE_ENUM_MUI?: boolean;
       RESOURCE_ENUM_LN?: boolean;
       RESOURCE_ENUM_VALIDATE?: boolean;
     } = {},
     LangId: LANGID = 0,
-  ): WithCallback<
-    boolean,
-    Deno.UnsafeCallbackDefinition<
-      [
-        SafeNativeTypeMap['HMODULE'],
-        SafeNativeTypeMap['LPWSTR'],
-        SafeNativeTypeMap['LPWSTR'],
-        SafeNativeTypeMap['LONG_PTR'],
-      ],
-      SafeNativeTypeMap['BOOL']
-    >
-  > {
-    const result: WithCallback<
-      boolean,
-      Deno.UnsafeCallbackDefinition<
-        [
-          SafeNativeTypeMap['HMODULE'],
-          SafeNativeTypeMap['LPWSTR'],
-          SafeNativeTypeMap['LPWSTR'],
-          SafeNativeTypeMap['LONG_PTR'],
-        ],
-        SafeNativeTypeMap['BOOL']
-      >
-    > = {
-      result: false,
-      callback: undefined,
-    };
-    if (typeof lpEnumFunc === 'function') {
-      const func = lpEnumFunc;
-      result.callback = new Deno.UnsafeCallback(
-        callbackFunctions.EnumResNameProcW,
-        (
-          hModule: HMODULE,
-          lpType: LPWSTR,
-          lpName: LPWSTR,
-          lParam: LONG_PTR,
-        ) => {
-          return func(
-            Converter.HMODULE(hModule),
-            Converter.LPWSTR(lpType),
-            Converter.LPWSTR(lpName),
-            Converter.LONG_PTR(lParam),
-          );
-        },
-      );
-      lpEnumFunc = result.callback.pointer;
+  ): WithCallback<boolean, typeof callbackFunctions.EnumResNameProcW> {
+    const callback = typeof lpEnumFunc === 'function'
+      ? new Deno.UnsafeCallback(callbackFunctions.EnumResNameProcW, lpEnumFunc)
+      : undefined;
+    try {
+      return {
+        result: this.libs.symbols.EnumResourceNamesExW(
+          hModule,
+          typeof lpType === 'string' ? Create.stringPointer(lpType) : lpType,
+          callback?.pointer ?? lpEnumFunc as ENUMRESNAMEPROCW,
+          lParam,
+          this.resourceFlags(dwFlags),
+          LangId,
+        ) !== 0,
+      };
+    } finally {
+      callback?.close();
     }
-
-    let dwFlagsNum = 0;
-    if (dwFlags.RESOURCE_ENUM_LN) {
-      dwFlagsNum |= 1;
-    }
-    if (dwFlags.RESOURCE_ENUM_MUI) {
-      dwFlagsNum |= 2;
-    }
-    if (dwFlags.RESOURCE_ENUM_VALIDATE) {
-      dwFlagsNum |= 8;
-    }
-
-    if (typeof lpType === 'string') {
-      lpType = Create.stringPointer(lpType);
-    }
-
-    result.result = !!kernel.symbols.EnumResourceNamesExW(
-      hModule,
-      lpType,
-      lpEnumFunc,
-      lParam,
-      dwFlagsNum,
-      LangId,
-    );
-    return result;
   }
 
   public EnumResourceTypesEx(
-    hModule: HMODULE | null,
+    hModule: HMODULE,
     lpEnumFunc:
       | ENUMRESTYPEPROCW
-      | ((
-        hModule: HMODULE, // [in, optional]
-        lpType: LPWSTR,
-        lParam: LONG_PTR, // [in]
-      ) => BOOL),
-    lParam: LONG_PTR = null,
+      | ((module: HMODULE, type: LPWSTR, param: LONG_PTR) => BOOL),
+    lParam: LONG_PTR = 0n,
     dwFlags: {
       RESOURCE_ENUM_MUI?: boolean;
       RESOURCE_ENUM_LN?: boolean;
       RESOURCE_ENUM_VALIDATE?: boolean;
     } = {},
     LangId: LANGID = 0,
-  ): WithCallback<
-    boolean,
-    Deno.UnsafeCallbackDefinition<
-      [
-        SafeNativeTypeMap['HMODULE'],
-        SafeNativeTypeMap['LPWSTR'],
-        SafeNativeTypeMap['LONG_PTR'],
-      ],
-      SafeNativeTypeMap['BOOL']
-    >
-  > {
-    const result: WithCallback<
-      boolean,
-      Deno.UnsafeCallbackDefinition<
-        [
-          SafeNativeTypeMap['HMODULE'],
-          SafeNativeTypeMap['LPWSTR'],
-          SafeNativeTypeMap['LONG_PTR'],
-        ],
-        SafeNativeTypeMap['BOOL']
-      >
-    > = {
-      result: false,
-      callback: undefined,
-    };
-    if (typeof lpEnumFunc === 'function') {
-      const func = lpEnumFunc;
-      result.callback = new Deno.UnsafeCallback(
-        callbackFunctions.EnumResTypeProcW,
-        (
-          hModule: HMODULE,
-          lpType: LPWSTR,
-          lParam: LONG_PTR,
-        ) => {
-          return func(
-            Converter.HMODULE(hModule),
-            Converter.LPWSTR(lpType),
-            Converter.LONG_PTR(lParam),
-          );
-        },
-      );
-      lpEnumFunc = result.callback.pointer;
+  ): WithCallback<boolean, typeof callbackFunctions.EnumResTypeProcW> {
+    const callback = typeof lpEnumFunc === 'function'
+      ? new Deno.UnsafeCallback(callbackFunctions.EnumResTypeProcW, lpEnumFunc)
+      : undefined;
+    try {
+      return {
+        result: this.libs.symbols.EnumResourceTypesExW(
+          hModule,
+          callback?.pointer ?? lpEnumFunc as ENUMRESTYPEPROCW,
+          lParam,
+          this.resourceFlags(dwFlags),
+          LangId,
+        ) !== 0,
+      };
+    } finally {
+      callback?.close();
     }
+  }
 
-    let dwFlagsNum = 0;
-    if (dwFlags.RESOURCE_ENUM_LN) {
-      dwFlagsNum |= 1;
-    }
-    if (dwFlags.RESOURCE_ENUM_MUI) {
-      dwFlagsNum |= 2;
-    }
-    if (dwFlags.RESOURCE_ENUM_VALIDATE) {
-      dwFlagsNum |= 8;
-    }
-
-    result.result = !!kernel.symbols.EnumResourceTypesExW(
-      hModule,
-      lpEnumFunc,
-      lParam,
-      dwFlagsNum,
-      LangId,
-    );
-
-    return result;
+  private resourceFlags(
+    flags: {
+      RESOURCE_ENUM_MUI?: boolean;
+      RESOURCE_ENUM_LN?: boolean;
+      RESOURCE_ENUM_VALIDATE?: boolean;
+    },
+  ): number {
+    return (flags.RESOURCE_ENUM_LN ? 1 : 0) |
+      (flags.RESOURCE_ENUM_MUI ? 2 : 0) |
+      (flags.RESOURCE_ENUM_VALIDATE ? 8 : 0);
   }
 
   public FindResourceEx(
@@ -231,30 +138,30 @@ export class Kernel {
     hModule: HMODULE = null,
     nSize: number = 0,
   ): string {
-    if (nSize <= 0) {
-      nSize = Max.MAX_PATH;
+    let capacity = nSize <= 0 ? Max.MAX_PATH : nSize;
+    if (!Number.isInteger(capacity) || capacity > 32768) {
+      throw new RangeError('Invalid module path buffer size.');
     }
-    const buffer = new Uint16Array(nSize);
-    const lpFilename = Deno.UnsafePointer.of(buffer);
-
-    nSize = Converter.DWORD(
-      this.libs.symbols.GetModuleFileNameW(hModule, lpFilename, nSize),
-    );
-
-    if (nSize <= 0) {
-      throw new Error(
-        `GetModuleFileNameW failed: ${this.libs.symbols.GetLastError()}`,
+    while (true) {
+      const buffer = new Uint16Array(capacity);
+      const length = this.libs.symbols.GetModuleFileNameW(
+        hModule,
+        Deno.UnsafePointer.of(buffer),
+        capacity,
       );
+      if (length === 0) {
+        throw new Error(
+          `GetModuleFileNameW failed: ${this.libs.symbols.GetLastError()}`,
+        );
+      }
+      if (length < capacity) {
+        return String.fromCharCode(...buffer.subarray(0, length));
+      }
+      if (capacity === 32768) {
+        throw new Error('Module path exceeds the supported limit.');
+      }
+      capacity = Math.min(capacity * 2, 32768);
     }
-
-    if (nSize < Max.MAX_PATH) {
-      return String.fromCharCode.apply(
-        null,
-        Array.from(buffer.subarray(0, nSize)),
-      );
-    }
-
-    return this.GetModuleFileName(hModule, nSize + 1);
   }
 
   public GetModuleHandle(

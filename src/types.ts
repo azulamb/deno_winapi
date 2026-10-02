@@ -76,11 +76,11 @@ export type HWND = LPVOID;
 /** LANGID in Deno */
 export type LANGID = number;
 /** LONG in Deno */
-export type LONG = bigint;
+export type LONG = number;
 /** LONG_PTR in Deno */
-export type LONG_PTR = LPVOID;
+export type LONG_PTR = bigint;
 /** LPARAM in Deno */
-export type LPARAM = LPVOID;
+export type LPARAM = bigint;
 /** LPCWSTR in Deno */
 export type LPCWSTR = LPVOID;
 /** LPMSG in Deno */
@@ -94,7 +94,7 @@ export type LPWNDCLASSEXW = LPVOID;
 /** LPWSTR in Deno */
 export type LPWSTR = LPVOID;
 /** LRESULT in Deno */
-export type LRESULT = LPVOID;
+export type LRESULT = bigint;
 /** MSG in Deno */
 export type MSG = LPVOID;
 /** PBYTE in Deno */
@@ -115,13 +115,13 @@ export type RECT = {
 export type UINT = number;
 /** DENO_CALLBACK_WNDPROC in Deno */
 export type DENO_CALLBACK_WNDPROC = Deno.UnsafeCallbackDefinition<
-  ['pointer', 'u32', 'pointer', 'pointer'],
-  'pointer'
+  readonly ['pointer', 'u32', 'u64', 'i64'],
+  'i64'
 >;
 /** WNDPROC in Deno */
 export type WNDPROC = Deno.PointerValue<DENO_CALLBACK_WNDPROC>;
 /** WPARAM in Deno */
-export type WPARAM = LPVOID;
+export type WPARAM = bigint;
 /** WORD in Deno */
 export type WORD = number;
 
@@ -151,16 +151,16 @@ export type SafeNativeTypeMap = {
   HWND: 'pointer';
   int: 'i32';
   LANGID: 'u16';
-  LONG: 'i64';
-  LONG_PTR: 'pointer';
-  LPARAM: 'pointer';
+  LONG: 'i32';
+  LONG_PTR: 'i64';
+  LPARAM: 'i64';
   LPCWSTR: 'pointer';
   LPMSG: 'pointer';
   LPRECT: 'pointer';
   LPVOID: 'pointer';
   LPWNDCLASSEXW: 'pointer';
   LPWSTR: 'pointer';
-  LRESULT: 'pointer';
+  LRESULT: 'i64';
   PBYTE: 'pointer';
   RECT: 'buffer';
   UINT: 'u32';
@@ -168,7 +168,7 @@ export type SafeNativeTypeMap = {
   WNDCLASSEXW: 'buffer';
   WNDPROC: 'pointer';
   WORD: 'u16';
-  WPARAM: 'pointer';
+  WPARAM: 'u64';
 };
 
 /** WindowsStruct in Deno */

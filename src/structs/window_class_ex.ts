@@ -1,3 +1,4 @@
+import { OwnedUtf16 } from '../support/utf16.ts';
 import { Create } from '../support/create.ts';
 import { callbackFunctions } from '../libs/user_callback.ts';
 import type { CALLBACK_FUNCTIONS } from '../libs/user_types.ts';
@@ -41,6 +42,22 @@ type WindowClassExProps = {
  */
 export class WindowClassEx
   implements WindowsStruct<LPWNDCLASSEXW>, WindowClassExProps {
+  private static readonly instances = new WeakMap<object, WindowClassEx>();
+  public static fromPointer(pointer: LPWNDCLASSEXW): WindowClassEx | undefined {
+    return pointer ? this.instances.get(pointer) : undefined;
+  }
+  private registered = false;
+  /** Used by User after successful RegisterClassEx / UnregisterClass. */
+  public setRegistered(value: boolean): void {
+    this.registered = value;
+  }
+  private assertUnregistered(): void {
+    if (this.registered) {
+      throw new Error(
+        'Unregister the window class before changing its procedure or name.',
+      );
+    }
+  }
   protected offset: { [key in keyof WindowClassExProps]: number } = {
     cbSize: 0,
     style: 0,
@@ -73,6 +90,8 @@ export class WindowClassEx
   protected dataView: DataView;
   protected dataPointer: LPWNDCLASSEXW;
   public endian: boolean;
+  private className?: OwnedUtf16;
+  private menuName?: OwnedUtf16;
   protected callback?: Deno.UnsafeCallback<
     CALLBACK_FUNCTIONS['DefWindowProcW']
   >;
@@ -103,6 +122,8 @@ export class WindowClassEx
     this.dataPointer = Converter.LPWNDCLASSEXW(
       Deno.UnsafePointer.of(this.data),
     );
+
+    WindowClassEx.instances.set(this.dataPointer!, this);
 
     // Set default endian.
     this.endian = new Uint8Array(Uint16Array.of(1).buffer)[0] === 1;
@@ -135,10 +156,13 @@ export class WindowClassEx
     );
   }
   set lpfnWndProc(value: WNDPROC) {
-    if (!value) {
-      if (this.callback) {
-        this.callback.close();
-      }
+    this.assertUnregistered();
+    if (
+      this.callback &&
+      Create.rawPointer(value) !== Create.rawPointer(this.callback.pointer)
+    ) {
+      this.callback.close();
+      this.callback = undefined;
     }
     this.dataView.setBigUint64(
       this.offset.lpfnWndProc,
@@ -174,6 +198,7 @@ export class WindowClassEx
     this.lpfnWndProc = this.callback.pointer;
     return this;
   }
+  /** Call only after all windows are destroyed and the class is unregistered. */
   public closeWindowProcedure(): this {
     this.lpfnWndProc = null;
     return this;
@@ -264,6 +289,7 @@ export class WindowClassEx
     );
   }
   set lpszMenuName(value: LPCWSTR) {
+    this.assertUnregistered();
     this.dataView.setBigUint64(
       this.offset.lpszMenuName,
       Create.rawPointer(value),
@@ -271,7 +297,9 @@ export class WindowClassEx
     );
   }
   public setMenuName(name: string) {
-    this.lpszMenuName = Create.stringPointer(name);
+    this.assertUnregistered();
+    this.menuName = new OwnedUtf16(name);
+    this.lpszMenuName = this.menuName.pointer;
   }
 
   get lpszClassName(): LPCWSTR {
@@ -280,6 +308,7 @@ export class WindowClassEx
     );
   }
   set lpszClassName(value: LPCWSTR) {
+    this.assertUnregistered();
     this.dataView.setBigUint64(
       this.offset.lpszClassName,
       Create.rawPointer(value),
@@ -287,6 +316,8 @@ export class WindowClassEx
     );
   }
   public setClassName(name: string) {
-    this.lpszClassName = Create.stringPointer(name);
+    this.assertUnregistered();
+    this.className = new OwnedUtf16(name);
+    this.lpszClassName = this.className.pointer;
   }
 }

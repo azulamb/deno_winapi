@@ -1,10 +1,9 @@
 import { WinTypes } from '../win_types.ts';
-import type { CALLBACK_FUNCTIONS } from './user_types.ts';
 
 /**
  * Callback functions for user32.dll
  */
-export const callbackFunctions: CALLBACK_FUNCTIONS = {
+export const callbackFunctions = {
   DefWindowProcW: {
     parameters: [
       WinTypes.HWND.ffi, // [in] HWND hWnd
@@ -14,4 +13,4 @@ export const callbackFunctions: CALLBACK_FUNCTIONS = {
     ],
     result: WinTypes.LRESULT.ffi,
   },
-};
+} as const satisfies Record<string, Deno.UnsafeCallbackDefinition>;

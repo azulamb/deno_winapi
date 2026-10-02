@@ -1,5 +1,5 @@
 import * as test from '../_setup.ts';
-import { HICON, PBYTE, winApi } from '../../mod.ts';
+import { type HICON, type PBYTE, winApi } from '../../mod.ts';
 import sampleIcon from '../resources/sample.ico' with { type: 'bytes' };
 
 Deno.test('CreateIconFromResourceEx', () => {

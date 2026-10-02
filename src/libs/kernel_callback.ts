@@ -1,10 +1,9 @@
 import { WinTypes } from '../win_types.ts';
-import type { CALLBACK_FUNCTIONS } from './kernel_types.ts';
 
 /**
  * Callback functions for kernel32.dll
  */
-export const callbackFunctions: CALLBACK_FUNCTIONS = {
+export const callbackFunctions = {
   EnumResNameProcW: {
     parameters: [
       WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
@@ -22,4 +21,4 @@ export const callbackFunctions: CALLBACK_FUNCTIONS = {
     ],
     result: WinTypes.BOOL.ffi,
   },
-};
+} as const satisfies Record<string, Deno.UnsafeCallbackDefinition>;

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const lang = {
     ja: 'ja-jp',
-  }[window.navigator.language] || 'en-us';
+  }[globalThis.navigator.language] || 'en-us';
   function createUrl(url, func) {
     return url.replace(/\/en-us\//, `/${lang}/`) + func.suffix;
   }

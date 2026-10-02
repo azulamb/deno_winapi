@@ -16,6 +16,10 @@ const HRESULT: Record<string, string> = {
 };
 
 export function hresultToString(hresult: number): string {
-  return HRESULT[new Uint32Array([hresult])[0].toString(16).padStart(8, '0')] ||
-    'UNKNOWN_ERROR';
+  return HRESULT[
+    new Uint32Array([hresult])[0].toString(16).padStart(8, '0').toUpperCase()
+  ] ||
+    `UNKNOWN_ERROR (0x${
+      (hresult >>> 0).toString(16).padStart(8, '0').toUpperCase()
+    })`;
 }

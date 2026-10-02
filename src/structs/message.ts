@@ -1,5 +1,5 @@
 import { Create } from '../support/create.ts';
-import { Converter, WinTypes } from '../win_types.ts';
+import { Converter } from '../win_types.ts';
 import type {
   DWORD,
   HWND,
@@ -25,46 +25,25 @@ interface MessageProps {
  * Message class represents a Windows message structure.
  */
 export class Message implements WindowsStruct<LPMSG>, MessageProps {
-  protected offset: { [key in keyof MessageProps]: number } = {
+  /** Windows x64 MSG layout, including the padding after message. */
+  public static readonly SIZE = 48;
+  public static readonly OFFSETS = {
     hwnd: 0,
-    message: 0,
-    wParam: 0,
-    lParam: 0,
-    time: 0,
-    pt: 0,
-    lPrivate: 0,
-  };
-  protected size: { [key in keyof MessageProps]: number } = {
-    hwnd: WinTypes.HWND.size,
-    message: WinTypes.UINT.size,
-    wParam: WinTypes.WPARAM.size,
-    lParam: WinTypes.LPARAM.size,
-    time: WinTypes.DWORD.size,
-    pt: WinTypes.LONG.size * 2, // POINT TagPointProps
-    lPrivate: WinTypes.DWORD.size,
-  };
+    message: 8,
+    wParam: 16,
+    lParam: 24,
+    time: 32,
+    pt: 36,
+    lPrivate: 44,
+  } as const;
+  protected readonly offset = Message.OFFSETS;
   public data: Uint8Array<ArrayBuffer>;
   protected dataView: DataView;
   protected dataPointer: LPMSG;
   public endian?: boolean;
 
   constructor() {
-    const types: (keyof MessageProps)[] = [
-      'hwnd',
-      'message',
-      'wParam',
-      'lParam',
-      'time',
-      'pt',
-      'lPrivate',
-    ];
-
-    const size = types.reduce((offset, key) => {
-      this.offset[key] = offset;
-      return offset + this.size[key];
-    }, 0);
-
-    this.data = new Uint8Array(size);
+    this.data = new Uint8Array(Message.SIZE);
     this.dataView = new DataView(this.data.buffer);
     this.dataPointer = Converter.LPMSG(Deno.UnsafePointer.of(this.data));
 
@@ -90,66 +69,54 @@ export class Message implements WindowsStruct<LPMSG>, MessageProps {
   }
 
   get message(): number {
-    return this.dataView.getInt32(this.offset.message, this.endian);
+    return this.dataView.getUint32(this.offset.message, this.endian);
   }
   set message(value: number) {
-    this.dataView.setInt32(this.offset.message, value, this.endian);
+    this.dataView.setUint32(this.offset.message, value, this.endian);
   }
 
   get wParam(): WPARAM {
-    return Create.pointer(
-      this.dataView.getBigUint64(this.offset.wParam, this.endian),
-    );
+    return this.dataView.getBigUint64(this.offset.wParam, this.endian);
   }
   set wParam(value: WPARAM) {
-    this.dataView.setBigUint64(
-      this.offset.wParam,
-      Create.rawPointer(value),
-      this.endian,
-    );
+    this.dataView.setBigUint64(this.offset.wParam, value, this.endian);
   }
 
   get lParam(): LPARAM {
-    return Create.pointer(
-      this.dataView.getBigUint64(this.offset.lParam, this.endian),
-    );
+    return this.dataView.getBigInt64(this.offset.lParam, this.endian);
   }
   set lParam(value: LPARAM) {
-    this.dataView.setBigUint64(
-      this.offset.lParam,
-      Create.rawPointer(value),
-      this.endian,
-    );
+    this.dataView.setBigInt64(this.offset.lParam, value, this.endian);
   }
 
   get time(): number {
-    return this.dataView.getInt32(this.offset.time, this.endian);
+    return this.dataView.getUint32(this.offset.time, this.endian);
   }
   set time(value: number) {
-    this.dataView.setInt32(this.offset.time, value, this.endian);
+    this.dataView.setUint32(this.offset.time, value, this.endian);
   }
 
-  get pt(): { x: bigint; y: bigint } {
-    const x = this.dataView.getBigInt64(this.offset.pt, this.endian);
-    const y = this.dataView.getBigInt64(
-      this.offset.pt + WinTypes.LONG.size,
+  get pt(): { x: number; y: number } {
+    const x = this.dataView.getInt32(this.offset.pt, this.endian);
+    const y = this.dataView.getInt32(
+      this.offset.pt + 4,
       this.endian,
     );
     return { x: x, y: y };
   }
-  set pt(value: { x: bigint; y: bigint }) {
-    this.dataView.setBigInt64(this.offset.pt, value.x, this.endian);
-    this.dataView.setBigInt64(
-      this.offset.pt + WinTypes.LONG.size,
+  set pt(value: { x: number; y: number }) {
+    this.dataView.setInt32(this.offset.pt, value.x, this.endian);
+    this.dataView.setInt32(
+      this.offset.pt + 4,
       value.y,
       this.endian,
     );
   }
 
   get lPrivate(): number {
-    return this.dataView.getInt32(this.offset.lPrivate, this.endian);
+    return this.dataView.getUint32(this.offset.lPrivate, this.endian);
   }
   set lPrivate(value: number) {
-    this.dataView.setInt32(this.offset.lPrivate, value, this.endian);
+    this.dataView.setUint32(this.offset.lPrivate, value, this.endian);
   }
 }

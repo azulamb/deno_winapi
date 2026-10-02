@@ -1,3 +1,4 @@
+import { stringPointer } from './utf16.ts';
 import { Message } from '../structs/message.ts';
 import { WindowClassEx } from '../structs/window_class_ex.ts';
 import { macro } from './macro.ts';
@@ -113,14 +114,7 @@ export type CreateWindowsTypes = {
 
 /** Create Windows types. */
 export const Create: CreateWindowsTypes = {
-  stringPointer: (value) => {
-    const buffer = new Uint16Array(
-      <number[]> [].map.call(value + '\0', (c: string) => {
-        return c.charCodeAt(0);
-      }),
-    );
-    return Deno.UnsafePointer.of(buffer);
-  },
+  stringPointer,
 
   typePointerValue: (type) => {
     if (typeof type === 'string') {
