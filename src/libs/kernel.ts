@@ -1,78 +1,102 @@
+import type { WindowsSignature } from './signature.ts';
 import { WinTypes } from '../win_types.ts';
 import { lazyLibrary } from './load.ts';
 
-export const kernelDefinitions = {
+export const kernelDefinitions: {
+  readonly EnumResourceNamesExW: WindowsSignature<
+    ['HMODULE', 'LPCWSTR', 'ENUMRESNAMEPROCW', 'LONG_PTR', 'DWORD', 'LANGID'],
+    'BOOL'
+  >;
+  readonly EnumResourceTypesExW: WindowsSignature<
+    ['HMODULE', 'ENUMRESTYPEPROCW', 'LONG_PTR', 'DWORD', 'LANGID'],
+    'BOOL'
+  >;
+  readonly FindResourceExW: WindowsSignature<
+    ['HMODULE', 'LPCWSTR', 'LPCWSTR', 'WORD'],
+    'HRSRC'
+  >;
+  readonly FreeConsole: WindowsSignature<[], 'BOOL'>;
+  readonly GetLastError: WindowsSignature<[], 'DWORD'>;
+  readonly GetModuleFileNameW: WindowsSignature<
+    ['HMODULE', 'LPWSTR', 'DWORD'],
+    'DWORD'
+  >;
+  readonly GetModuleHandleW: WindowsSignature<['LPCWSTR'], 'HMODULE'>;
+  readonly LoadResource: WindowsSignature<['HMODULE', 'HRSRC'], 'HGLOBAL'>;
+  readonly LockResource: WindowsSignature<['HGLOBAL'], 'LPVOID'>;
+  readonly SizeofResource: WindowsSignature<['HMODULE', 'HRSRC'], 'DWORD'>;
+} = {
   EnumResourceNamesExW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/libloaderapi/nf-libloaderapi-enumresourcenamesexw
     parameters: [
-      WinTypes.HMODULE.ffi as typeof WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
-      WinTypes.LPCWSTR.ffi as typeof WinTypes.LPCWSTR.ffi, // LPCWSTR lpType
-      WinTypes.ENUMRESNAMEPROCW.ffi as typeof WinTypes.ENUMRESNAMEPROCW.ffi, // [in]  ENUMRESNAMEPROCW lpEnumFunc
-      WinTypes.LONG_PTR.ffi as typeof WinTypes.LONG_PTR.ffi, //[in] LONG_PTR lParam
-      WinTypes.DWORD.ffi as typeof WinTypes.DWORD.ffi, // [in] DWORD dwFlags
-      WinTypes.LANGID.ffi as typeof WinTypes.LANGID.ffi, // [in] LANGID LangId
+      WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
+      WinTypes.LPCWSTR.ffi, // LPCWSTR lpType
+      WinTypes.ENUMRESNAMEPROCW.ffi, // [in]  ENUMRESNAMEPROCW lpEnumFunc
+      WinTypes.LONG_PTR.ffi, //[in] LONG_PTR lParam
+      WinTypes.DWORD.ffi, // [in] DWORD dwFlags
+      WinTypes.LANGID.ffi, // [in] LANGID LangId
     ],
-    result: WinTypes.BOOL.ffi as typeof WinTypes.BOOL.ffi,
+    result: WinTypes.BOOL.ffi,
   },
   EnumResourceTypesExW: { // https://learn.microsoft.com/ja-jp/windows-hardware/drivers/kernel/the-new-data-types
     parameters: [
-      WinTypes.HMODULE.ffi as typeof WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
-      WinTypes.ENUMRESTYPEPROCW.ffi as typeof WinTypes.ENUMRESTYPEPROCW.ffi, // [in] ENUMRESTYPEPROCW lpEnumFunc
-      WinTypes.LONG_PTR.ffi as typeof WinTypes.LONG_PTR.ffi, //[in] LONG_PTR lParam
-      WinTypes.DWORD.ffi as typeof WinTypes.DWORD.ffi, // [in] DWORD dwFlags
-      WinTypes.LANGID.ffi as typeof WinTypes.LANGID.ffi, // [in] LANGID LangId
+      WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
+      WinTypes.ENUMRESTYPEPROCW.ffi, // [in] ENUMRESTYPEPROCW lpEnumFunc
+      WinTypes.LONG_PTR.ffi, //[in] LONG_PTR lParam
+      WinTypes.DWORD.ffi, // [in] DWORD dwFlags
+      WinTypes.LANGID.ffi, // [in] LANGID LangId
     ],
-    result: WinTypes.BOOL.ffi as typeof WinTypes.BOOL.ffi,
+    result: WinTypes.BOOL.ffi,
   },
   FindResourceExW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/libloaderapi/nf-libloaderapi-findresourceexw
     parameters: [
-      WinTypes.HMODULE.ffi as typeof WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
-      WinTypes.LPCWSTR.ffi as typeof WinTypes.LPCWSTR.ffi, // LPCWSTR lpType
-      WinTypes.LPCWSTR.ffi as typeof WinTypes.LPCWSTR.ffi, // LPCWSTR lpName
-      WinTypes.WORD.ffi as typeof WinTypes.WORD.ffi, // [in] WORD wLanguage
+      WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
+      WinTypes.LPCWSTR.ffi, // LPCWSTR lpType
+      WinTypes.LPCWSTR.ffi, // LPCWSTR lpName
+      WinTypes.WORD.ffi, // [in] WORD wLanguage
     ],
-    result: WinTypes.HRSRC.ffi as typeof WinTypes.HRSRC.ffi, // [out] HRSRC
+    result: WinTypes.HRSRC.ffi, // [out] HRSRC
   },
   FreeConsole: { // https://learn.microsoft.com/ja-jp/windows/console/freeconsole
     parameters: [],
-    result: WinTypes.BOOL.ffi as typeof WinTypes.BOOL.ffi,
+    result: WinTypes.BOOL.ffi,
   },
   GetLastError: { // https://learn.microsoft.com/ja-jp/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror
     parameters: [],
-    result: WinTypes.DWORD.ffi as typeof WinTypes.DWORD.ffi,
+    result: WinTypes.DWORD.ffi,
   },
   GetModuleFileNameW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulefilenamew
     parameters: [
-      WinTypes.HMODULE.ffi as typeof WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
-      WinTypes.LPWSTR.ffi as typeof WinTypes.LPWSTR.ffi, // [out] LPWSTR lpFilename
-      WinTypes.DWORD.ffi as typeof WinTypes.DWORD.ffi, // [in] DWORD nSize
+      WinTypes.HMODULE.ffi, // [in, optional] HMODULE hModule
+      WinTypes.LPWSTR.ffi, // [out] LPWSTR lpFilename
+      WinTypes.DWORD.ffi, // [in] DWORD nSize
     ],
-    result: WinTypes.DWORD.ffi as typeof WinTypes.DWORD.ffi, // [out] DWORD
+    result: WinTypes.DWORD.ffi, // [out] DWORD
   },
   GetModuleHandleW: { // https://learn.microsoft.com/ja-jp/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulehandlew
     parameters: [
-      WinTypes.LPCWSTR.ffi as typeof WinTypes.LPCWSTR.ffi, // [in, optional] LPCWSTR lpModuleName
+      WinTypes.LPCWSTR.ffi, // [in, optional] LPCWSTR lpModuleName
     ],
-    result: WinTypes.HMODULE.ffi as typeof WinTypes.HMODULE.ffi,
+    result: WinTypes.HMODULE.ffi,
   },
   LoadResource: { // https://learn.microsoft.com/ja-jp/windows/win32/api/libloaderapi/nf-libloaderapi-loadresource
     parameters: [
-      WinTypes.HMODULE.ffi as typeof WinTypes.HMODULE.ffi, // [in] HMODULE hModule
-      WinTypes.HRSRC.ffi as typeof WinTypes.HRSRC.ffi, // [in] HRSRC hResInfo
+      WinTypes.HMODULE.ffi, // [in] HMODULE hModule
+      WinTypes.HRSRC.ffi, // [in] HRSRC hResInfo
     ],
-    result: WinTypes.HGLOBAL.ffi as typeof WinTypes.HGLOBAL.ffi, // [out] HGLOBAL
+    result: WinTypes.HGLOBAL.ffi, // [out] HGLOBAL
   },
   LockResource: { // https://learn.microsoft.com/ja-jp/windows/win32/api/libloaderapi/nf-libloaderapi-lockresource
     parameters: [
-      WinTypes.HGLOBAL.ffi as typeof WinTypes.HGLOBAL.ffi, // [in] HGLOBAL hResData
+      WinTypes.HGLOBAL.ffi, // [in] HGLOBAL hResData
     ],
-    result: WinTypes.LPVOID.ffi as typeof WinTypes.LPVOID.ffi, // [out] LPVOID
+    result: WinTypes.LPVOID.ffi, // [out] LPVOID
   },
   SizeofResource: { // https://learn.microsoft.com/ja-jp/windows/win32/api/libloaderapi/nf-libloaderapi-sizeofresource
     parameters: [
-      WinTypes.HMODULE.ffi as typeof WinTypes.HMODULE.ffi, // [in] HMODULE hModule
-      WinTypes.HRSRC.ffi as typeof WinTypes.HRSRC.ffi, // [in] HRSRC hResInfo
+      WinTypes.HMODULE.ffi, // [in] HMODULE hModule
+      WinTypes.HRSRC.ffi, // [in] HRSRC hResInfo
     ],
-    result: WinTypes.DWORD.ffi as typeof WinTypes.DWORD.ffi, // [out] DWORD
+    result: WinTypes.DWORD.ffi, // [out] DWORD
   },
 } as const satisfies Deno.ForeignLibraryInterface;
 

@@ -120,20 +120,29 @@ window and destroy it automatically.
 
 ## Maintaining FFI signatures
 
-Native signatures are written once using `WinTypes` in `src/libs/user.ts`,
-`kernel.ts`, and `kernel_callback.ts`. This keeps the Windows type name visible
-next to the native API parameter. To allow JSR's simple inference for property
-references, each value also references its existing type:
+Native signatures retain `WinTypes` references in `src/libs/user.ts`,
+`kernel.ts` and `kernel_callback.ts`, keeping the Windows type names visible.
+Public values also have explicit annotations using the shared `WindowsSignature`
+helper:
 
 ```ts
-WinTypes.HMODULE.ffi as typeof WinTypes.HMODULE.ffi;
+readonly GetModuleFileNameW: WindowsSignature<
+  ['HMODULE', 'LPWSTR', 'DWORD'], 'DWORD'
+>;
 ```
 
-This assertion reuses the exact declared type; it does not introduce a second
-signature declaration. `USER_FUNKS`, `KERNEL_FUNKS` and `CALLBACK_FUNCTIONS` are
-derived with `typeof` through `import type`. WNDPROC shares the `DefWindowProcW`
-definition, and `DENO_CALLBACK_WNDPROC` derives from it.
+`WindowsSignature` derives FFI types from `SafeNativeTypeMap`; it does not
+duplicate native type mappings or the definition structure for each function.
+`USER_FUNKS`, `KERNEL_FUNKS` and `CALLBACK_FUNCTIONS` remain `typeof` aliases
+through type-only imports. WNDPROC shares the `DefWindowProcW` definition.
 
-After changing signatures, run `deno publish --dry-run --allow-dirty` as well as
-the native tests. A type-only import removes runtime dependencies but does not
-make a self-referential type annotation valid.
+`deno task check` first runs lint and the public API checks used by
+`deno publish --dry-run --allow-dirty`, then performs the existing Deno and
+release version checks. `deno task check:publish` runs only lint and publication
+validation, so it is usable before committing or updating a release tag.
+
+The publish workflow pins Deno 2.9.7 and uses that same binary for
+`deno task check:publish` and `deno publish`, avoiding differences from the Deno
+bundled with `npx jsr`. No slow-types bypass is enabled. A type-only import
+removes runtime dependencies but does not make a self-referential type
+annotation valid.

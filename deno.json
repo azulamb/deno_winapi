@@ -1,6 +1,6 @@
 {
   "name": "@azulamb/winapi",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "license": "MIT",
   "exports": {
     ".": "./mod.ts",
@@ -19,7 +19,8 @@
     "report": "deno run --allow-run --allow-read --allow-write --allow-ffi tools/report.ts",
     "build": "deno compile --allow-ffi --icon sample/icon.ico --output sample/sample.exe sample/sample.ts",
     "sample": "deno run --allow-ffi sample/sample.ts",
-    "tests": "deno test --allow-ffi --allow-read --unstable-raw-imports tests/"
+    "tests": "deno test --allow-ffi --allow-read --unstable-raw-imports tests/",
+    "check:publish": "deno lint && deno publish --dry-run --allow-dirty"
   },
   "lint": {
     "include": [
