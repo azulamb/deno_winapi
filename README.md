@@ -82,7 +82,7 @@ of `winApi.user.DefWindowProc(...)`.
 
 `WindowClassEx.setClassName()` and `setMenuName()` retain their UTF-16 buffers.
 Use `OwnedUtf16` when another native API retains a string pointer beyond a call;
-keep that owner alive until the native consumer has finished. The legacy
+keep that owner alive until the native consumer has finished. The
 `create.stringPointer()` helper retains its buffer while the returned pointer
 object is reachable. Copying its numeric address alone does not retain storage.
 
