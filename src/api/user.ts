@@ -3,7 +3,11 @@ import { kernel } from '../libs/kernel.ts';
 import { user } from '../libs/user.ts';
 import { Converter } from '../win_types.ts';
 import type {
+  BOOL,
+  DPI_AWARENESS_CONTEXT,
   DWORD,
+  HBRUSH,
+  HDC,
   HICON,
   HINSTANCE,
   HMENU,
@@ -33,6 +37,83 @@ type RegisteredClass = {
  * User class provides methods to interact with the Windows user32.dll.
  */
 export class User {
+  public SetThreadDpiAwarenessContext(
+    context: DPI_AWARENESS_CONTEXT,
+  ): DPI_AWARENESS_CONTEXT {
+    return this.libs.symbols.SetThreadDpiAwarenessContext(context);
+  }
+
+  public GetThreadDpiAwarenessContext(): DPI_AWARENESS_CONTEXT {
+    return this.libs.symbols.GetThreadDpiAwarenessContext();
+  }
+
+  public AreDpiAwarenessContextsEqual(
+    first: DPI_AWARENESS_CONTEXT,
+    second: DPI_AWARENESS_CONTEXT,
+  ): boolean {
+    return this.libs.symbols.AreDpiAwarenessContextsEqual(first, second) !== 0;
+  }
+
+  public GetDpiForWindow(window: HWND): UINT {
+    return this.libs.symbols.GetDpiForWindow(window);
+  }
+
+  public AdjustWindowRectExForDpi(
+    rect: LPRECT,
+    style: DWORD,
+    menu: BOOL,
+    styleEx: DWORD,
+    dpi: UINT,
+  ): boolean {
+    return this.libs.symbols.AdjustWindowRectExForDpi(
+      rect,
+      style,
+      menu,
+      styleEx,
+      dpi,
+    ) !== 0;
+  }
+
+  public SetWindowPos(
+    window: HWND,
+    insertAfter: HWND,
+    x: int,
+    y: int,
+    width: int,
+    height: int,
+    flags: UINT,
+  ): boolean {
+    return this.libs.symbols.SetWindowPos(
+      window,
+      insertAfter,
+      x,
+      y,
+      width,
+      height,
+      flags,
+    ) !== 0;
+  }
+
+  public GetWindowRect(window: HWND, rect: LPRECT): boolean {
+    return this.libs.symbols.GetWindowRect(window, rect) !== 0;
+  }
+
+  public FindWindow(className: LPCWSTR, title: LPCWSTR): HWND {
+    return this.libs.symbols.FindWindowW(className, title);
+  }
+
+  public GetDC(window: HWND): HDC {
+    return this.libs.symbols.GetDC(window);
+  }
+
+  public ReleaseDC(window: HWND, dc: HDC): int {
+    return this.libs.symbols.ReleaseDC(window, dc);
+  }
+
+  public FillRect(dc: HDC, rect: LPRECT, brush: HBRUSH): int {
+    return this.libs.symbols.FillRect(dc, rect, brush);
+  }
+
   private static readonly registrations = new WeakMap<
     object,
     Set<RegisteredClass>

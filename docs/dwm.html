@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja" style="font-size: 20px">
+  <head>
+    <meta charset="utf-8">
+    <title>dwm - deno winapi</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link href="./style.css" rel="stylesheet">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="./apple-touch-icon-precomposed.png"
+    >
+    <script id="data" data-target="dwm">const data = {"list":[{"name":"DllCanUnloadNow","base":false},{"name":"DllGetClassObject","base":false},{"name":"DwmAttachMilContent","base":false},{"name":"DwmDefWindowProc","base":false},{"name":"DwmDetachMilContent","base":false},{"name":"DwmEnableBlurBehindWindow","base":true},{"name":"DwmEnableComposition","base":false},{"name":"DwmEnableMMCSS","base":false},{"name":"DwmExtendFrameIntoClientArea","base":false},{"name":"DwmFlush","base":true},{"name":"DwmGetColorizationColor","base":false},{"name":"DwmGetCompositionTimingInfo","base":false},{"name":"DwmGetGraphicsStreamClient","base":false},{"name":"DwmGetGraphicsStreamTransformHint","base":false},{"name":"DwmGetTransportAttributes","base":false},{"name":"DwmGetUnmetTabRequirements","base":false},{"name":"DwmGetWindowAttribute","base":false},{"name":"DwmInvalidateIconicBitmaps","base":false},{"name":"DwmIsCompositionEnabled","base":false},{"name":"DwmModifyPreviousDxFrameDuration","base":false},{"name":"DwmQueryThumbnailSourceSize","base":false},{"name":"DwmRegisterThumbnail","base":false},{"name":"DwmRenderGesture","base":false},{"name":"DwmSetDxFrameDuration","base":false},{"name":"DwmSetIconicLivePreviewBitmap","base":false},{"name":"DwmSetIconicThumbnail","base":false},{"name":"DwmSetPresentParameters","base":false},{"name":"DwmSetWindowAttribute","base":false},{"name":"DwmShowContact","base":false},{"name":"DwmTetherContact","base":false},{"name":"DwmTetherTextContact","base":false},{"name":"DwmTransitionOwnedWindow","base":false},{"name":"DwmUnregisterThumbnail","base":false},{"name":"DwmUpdateThumbnailProperties","base":false},{"name":"DwmpAllocateSecurityDescriptor","base":false},{"name":"DwmpDxGetWindowSharedSurface","base":false},{"name":"DwmpDxUpdateWindowSharedSurface","base":false},{"name":"DwmpDxgiIsThreadDesktopComposited","base":false},{"name":"DwmpEnableDDASupport","base":false},{"name":"DwmpFreeSecurityDescriptor","base":false},{"name":"DwmpGetColorizationParameters","base":false},{"name":"DwmpRenderFlick","base":false},{"name":"DwmpSetColorizationParameters","base":false},{"name":"DwmpUpdateProxyWindowForCapture","base":false}],"aggregate":{"all":{"total":44,"implemented":2},"noDuplication":{"total":44,"implemented":2}}};</script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body class="implemented">
+    <header>
+      <h1>dwm</h1>
+      <div>
+        <a href="./">home</a>
+        <a href="./kernel.html">kernel</a>
+        <a href="./user.html">user</a>
+        <a href="./gdi.html">gdi</a>
+        <a href="./ole.html">ole</a>
+        <a href="./shlwapi.html">shlwapi</a>
+        <a href="./dwm.html">dwm</a>
+      </div>
+    </header>
+
+    <dl>
+      <dt>All</dt>
+      <dd id="all_total"></dd>
+      <dt>Implemented</dt>
+      <dd id="all_implemented"></dd>
+      <dt>Implementation rate</dt>
+      <dd id="all_implemented_rate" class="rate"></dd>
+      <dt>No duplication</dt>
+      <dd id="noDuplication_total"></dd>
+      <dt>Implemented</dt>
+      <dd id="noDuplication_implemented"></dd>
+      <dt>Implementation rate</dt>
+      <dd id="noDuplication_implemented_rate" class="rate"></dd>
+    </dl>
+    <div id="option">
+      <label>
+        <input id="implemented" type="checkbox" checked>
+        Implemented
+      </label>
+    </div>
+    <table id="list">
+      <thead>
+        <tr>
+          <td>API</td>
+          <td>Function name</td>
+          <td style="width: 2rem">URL</td>
+        </tr>
+      </thead>
+    </table>
+
+    <footer>
+      <small>
+        GitHub:
+        <a href="https://github.com/azulamb/deno_winapi">azulamb/deno_winapi</a>
+      </small>
+      <small>
+        JSR:
+        <a href="https://jsr.io/@azulamb/winapi">@azulamb/winapi</a>
+      </small>
+    </footer>
+  </body>
+</html>

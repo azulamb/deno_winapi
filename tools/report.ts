@@ -3,12 +3,17 @@
  * Exec command
  *   dumpbin /exports C:\Windows\System32\user32.dll
  *   dumpbin /exports kernel32.dll
+ *   dumpbin /exports C:\Windows\System32\gdi32.dll > report/gdi.txt
  * Example
  *   "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\bin\Hostx64\x64\dumpbin.exe" /exports C:\Windows\System32\user32.dll > user.txt
  */
 
 import { user } from '../src/libs/user.ts';
 import { kernel } from '../src/libs/kernel.ts';
+import { gdi } from '../src/libs/gdi.ts';
+import { ole } from '../src/libs/ole.ts';
+import { shlwapi } from '../src/libs/shlwapi.ts';
+import { dwm } from '../src/libs/dwm.ts';
 
 interface FuncInfo {
   name: string;
@@ -134,7 +139,10 @@ async function Report(
     }
     // deno-lint-ignore no-empty
   } catch (_error) {}
-  Deno.writeTextFile(`docs/${target}.json`, JSON.stringify(result, null, '  '));
+  await Deno.writeTextFile(
+    `docs/${target}.json`,
+    JSON.stringify(result, null, '  '),
+  );
 
   console.log(target);
   console.log(
@@ -155,7 +163,7 @@ async function Report(
     }%`,
   );
 
-  Deno.writeTextFile(
+  await Deno.writeTextFile(
     `docs/${target}.html`,
     template.replace(/<title>(.+)<\/title>/, `<title>${target} - $1</title>`)
       .replace(/<h1><\/h1>/, `<h1>${target}</h1>`)
@@ -172,3 +180,7 @@ const template = await Deno.readTextFile('report/template.html');
 
 await Report('user', user, template);
 await Report('kernel', kernel, template);
+await Report('gdi', gdi, template);
+await Report('ole', ole, template);
+await Report('shlwapi', shlwapi, template);
+await Report('dwm', dwm, template);

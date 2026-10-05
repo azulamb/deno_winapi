@@ -8,6 +8,10 @@ import * as constant from './src/support/constant.ts';
 import { Create, type CreateWindowsTypes } from './src/support/create.ts';
 import { Kernel } from './src/api/kernel.ts';
 import { User } from './src/api/user.ts';
+import { Gdi } from './src/api/gdi.ts';
+import { Ole } from './src/api/ole.ts';
+import { Shlwapi } from './src/api/shlwapi.ts';
+import { Dwm } from './src/api/dwm.ts';
 import { macro, type WINDOWS_MACRO } from './src/support/macro.ts';
 import data from './deno.json' with { type: 'json' };
 import type {
@@ -26,6 +30,10 @@ export const winApi: {
   create: CreateWindowsTypes;
   kernel: Kernel;
   user: User;
+  gdi: Gdi;
+  ole: Ole;
+  shlwapi: Shlwapi;
+  dwm: Dwm;
   winTypes: WIN_TYPES_INFO;
   constant: CONSTANT_VALUES;
   windowMessage: WINDOW_MESSAGE_VALUES;
@@ -35,6 +43,10 @@ export const winApi: {
   create: Create,
   kernel: new Kernel(),
   user: new User(),
+  gdi: new Gdi(),
+  ole: new Ole(),
+  shlwapi: new Shlwapi(),
+  dwm: new Dwm(),
   winTypes: WinTypes,
   constant: constant.Constant,
   windowMessage: constant.WindowMessage,
@@ -55,4 +67,8 @@ export { Rect } from './src/structs/rect.ts';
 export { OwnedUtf16 } from './src/support/utf16.ts';
 export { User } from './src/api/user.ts';
 export { Kernel } from './src/api/kernel.ts';
+export { Gdi } from './src/api/gdi.ts';
+export { Ole } from './src/api/ole.ts';
+export { Shlwapi } from './src/api/shlwapi.ts';
+export { Dwm } from './src/api/dwm.ts';
 export { hresultToString } from './src/libs/hresult.ts';

@@ -8,17 +8,23 @@ export interface WithCallback<T, S extends Deno.UnsafeCallbackDefinition> {
 export type WIN_TYPES =
   | 'ATOM'
   | 'BOOL'
+  | 'COLORREF'
   | 'DWORD'
+  | 'DPI_AWARENESS_CONTEXT'
+  | 'LPSTREAM'
   | 'ENUMRESNAMEPROCW'
   | 'ENUMRESTYPEPROCW'
   | 'HBRUSH'
   | 'HCURSOR'
+  | 'HDC'
+  | 'HGDIOBJ'
   | 'HGLOBAL'
   | 'HICON'
   | 'HINSTANCE'
   | 'HMENU'
   | 'HMODULE'
   | 'HRESULT'
+  | 'HRGN'
   | 'HRSRC'
   | 'HWND'
   | 'int'
@@ -45,8 +51,20 @@ export type WIN_TYPES =
 export type ATOM = number;
 /** BOOL in Deno */
 export type BOOL = number;
+/** COLORREF in Deno (0x00BBGGRR) */
+export type COLORREF = number;
+/** HDC in Deno */
+export type HDC = LPVOID;
+/** HGDIOBJ in Deno */
+export type HGDIOBJ = LPVOID;
+/** HRGN in Deno */
+export type HRGN = LPVOID;
 /** DWORD in Deno */
 export type DWORD = number;
+/** DPI_AWARENESS_CONTEXT in Deno */
+export type DPI_AWARENESS_CONTEXT = LPVOID;
+/** LPSTREAM in Deno (owned IStream pointer) */
+export type LPSTREAM = LPVOID;
 /** ENUMRESNAMEPROCW in Deno */
 export type ENUMRESNAMEPROCW = LPVOID;
 /** ENUMRESTYPEPROCW in Deno */
@@ -134,7 +152,13 @@ export type SafeNativeTypeMap = {
   _POINTER: 'pointer';
   ATOM: 'u16';
   BOOL: 'i32';
+  COLORREF: 'u32';
+  HDC: 'pointer';
+  HGDIOBJ: 'pointer';
+  HRGN: 'pointer';
   DWORD: 'u32';
+  DPI_AWARENESS_CONTEXT: 'pointer';
+  LPSTREAM: 'pointer';
   ENUMRESNAMEPROCW: 'pointer';
   ENUMRESTYPEPROCW: 'pointer';
   HBRUSH: 'pointer';

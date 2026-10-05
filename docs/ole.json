@@ -1,0 +1,2168 @@
+{
+  "list": [
+    {
+      "name": "BindMoniker",
+      "base": false
+    },
+    {
+      "name": "CLIPFORMAT_UserFree",
+      "base": false
+    },
+    {
+      "name": "CLIPFORMAT_UserFree64",
+      "base": false
+    },
+    {
+      "name": "CLIPFORMAT_UserFreeExt",
+      "base": false
+    },
+    {
+      "name": "CLIPFORMAT_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "CLIPFORMAT_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "CLIPFORMAT_UserMarshalExt",
+      "base": false
+    },
+    {
+      "name": "CLIPFORMAT_UserSize",
+      "base": false
+    },
+    {
+      "name": "CLIPFORMAT_UserSize64",
+      "base": false
+    },
+    {
+      "name": "CLIPFORMAT_UserSizeExt",
+      "base": false
+    },
+    {
+      "name": "CLIPFORMAT_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "CLIPFORMAT_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "CLIPFORMAT_UserUnmarshalExt",
+      "base": false
+    },
+    {
+      "name": "CLSIDFromOle1Class",
+      "base": false
+    },
+    {
+      "name": "CLSIDFromProgID",
+      "base": false,
+      "ex": false
+    },
+    {
+      "name": "CLSIDFromString",
+      "base": false
+    },
+    {
+      "name": "CStdAsyncStubBuffer2_Connect",
+      "base": false
+    },
+    {
+      "name": "CStdAsyncStubBuffer2_Disconnect",
+      "base": false
+    },
+    {
+      "name": "CStdAsyncStubBuffer2_Release",
+      "base": false
+    },
+    {
+      "name": "CStdAsyncStubBuffer_AddRef",
+      "base": false
+    },
+    {
+      "name": "CStdAsyncStubBuffer_Connect",
+      "base": false
+    },
+    {
+      "name": "CStdAsyncStubBuffer_Disconnect",
+      "base": false
+    },
+    {
+      "name": "CStdAsyncStubBuffer_Invoke",
+      "base": false
+    },
+    {
+      "name": "CStdAsyncStubBuffer_QueryInterface",
+      "base": false
+    },
+    {
+      "name": "CStdAsyncStubBuffer_Release",
+      "base": false
+    },
+    {
+      "name": "CStdStubBuffer2_Connect",
+      "base": false
+    },
+    {
+      "name": "CStdStubBuffer2_CountRefs",
+      "base": false
+    },
+    {
+      "name": "CStdStubBuffer2_Disconnect",
+      "base": false
+    },
+    {
+      "name": "CStdStubBuffer2_QueryInterface",
+      "base": false
+    },
+    {
+      "name": "CheckInitDde",
+      "base": false
+    },
+    {
+      "name": "CleanROTForApartment",
+      "base": false
+    },
+    {
+      "name": "ClipboardProcessUninitialize",
+      "base": false
+    },
+    {
+      "name": "CoAddRefServerProcess",
+      "base": false
+    },
+    {
+      "name": "CoAicGetTokenForCOM",
+      "base": false
+    },
+    {
+      "name": "CoAllowSetForegroundWindow",
+      "base": false
+    },
+    {
+      "name": "CoAllowUnmarshalerCLSID",
+      "base": false
+    },
+    {
+      "name": "CoBuildVersion",
+      "base": false
+    },
+    {
+      "name": "CoCancelCall",
+      "base": false
+    },
+    {
+      "name": "CoCheckElevationEnabled",
+      "base": false
+    },
+    {
+      "name": "CoCopyProxy",
+      "base": false
+    },
+    {
+      "name": "CoCreateFreeThreadedMarshaler",
+      "base": false
+    },
+    {
+      "name": "CoCreateGuid",
+      "base": false
+    },
+    {
+      "name": "CoCreateInstance",
+      "base": false,
+      "ex": false
+    },
+    {
+      "name": "CoCreateInstanceFromApp",
+      "base": false
+    },
+    {
+      "name": "CoCreateObjectInContext",
+      "base": false
+    },
+    {
+      "name": "CoDeactivateObject",
+      "base": false
+    },
+    {
+      "name": "CoDecodeProxy",
+      "base": false
+    },
+    {
+      "name": "CoDecrementMTAUsage",
+      "base": false
+    },
+    {
+      "name": "CoDisableCallCancellation",
+      "base": false
+    },
+    {
+      "name": "CoDisconnectContext",
+      "base": false
+    },
+    {
+      "name": "CoDisconnectObject",
+      "base": false
+    },
+    {
+      "name": "CoDosDateTimeToFileTime",
+      "base": false
+    },
+    {
+      "name": "CoEnableCallCancellation",
+      "base": false
+    },
+    {
+      "name": "CoFileTimeNow",
+      "base": false
+    },
+    {
+      "name": "CoFileTimeToDosDateTime",
+      "base": false
+    },
+    {
+      "name": "CoFreeAllLibraries",
+      "base": false
+    },
+    {
+      "name": "CoFreeLibrary",
+      "base": false
+    },
+    {
+      "name": "CoFreeUnusedLibraries",
+      "base": false,
+      "ex": false
+    },
+    {
+      "name": "CoGetActivationState",
+      "base": false
+    },
+    {
+      "name": "CoGetApartmentID",
+      "base": false
+    },
+    {
+      "name": "CoGetApartmentType",
+      "base": false
+    },
+    {
+      "name": "CoGetCallContext",
+      "base": false
+    },
+    {
+      "name": "CoGetCallState",
+      "base": false
+    },
+    {
+      "name": "CoGetCallerTID",
+      "base": false
+    },
+    {
+      "name": "CoGetCancelObject",
+      "base": false
+    },
+    {
+      "name": "CoGetClassObject",
+      "base": false
+    },
+    {
+      "name": "CoGetClassVersion",
+      "base": false
+    },
+    {
+      "name": "CoGetComCatalog",
+      "base": false
+    },
+    {
+      "name": "CoGetContextToken",
+      "base": false
+    },
+    {
+      "name": "CoGetCurrentLogicalThreadId",
+      "base": false
+    },
+    {
+      "name": "CoGetCurrentProcess",
+      "base": false
+    },
+    {
+      "name": "CoGetDefaultContext",
+      "base": false
+    },
+    {
+      "name": "CoGetInstanceFromFile",
+      "base": false
+    },
+    {
+      "name": "CoGetInstanceFromIStorage",
+      "base": false
+    },
+    {
+      "name": "CoGetInterceptor",
+      "base": false
+    },
+    {
+      "name": "CoGetInterceptorForOle32",
+      "base": false
+    },
+    {
+      "name": "CoGetInterceptorFromTypeInfo",
+      "base": false
+    },
+    {
+      "name": "CoGetInterfaceAndReleaseStream",
+      "base": false
+    },
+    {
+      "name": "CoGetMalloc",
+      "base": false
+    },
+    {
+      "name": "CoGetMarshalSizeMax",
+      "base": false
+    },
+    {
+      "name": "CoGetModuleType",
+      "base": false
+    },
+    {
+      "name": "CoGetObject",
+      "base": false
+    },
+    {
+      "name": "CoGetObjectContext",
+      "base": false
+    },
+    {
+      "name": "CoGetPSClsid",
+      "base": false
+    },
+    {
+      "name": "CoGetProcessIdentifier",
+      "base": false
+    },
+    {
+      "name": "CoGetStandardMarshal",
+      "base": false
+    },
+    {
+      "name": "CoGetStdMarshal",
+      "ex": false
+    },
+    {
+      "name": "CoGetSystemSecurityPermissions",
+      "base": false
+    },
+    {
+      "name": "CoGetSystemWow64Directory",
+      "baseW": false
+    },
+    {
+      "name": "CoGetTreatAsClass",
+      "base": false
+    },
+    {
+      "name": "CoHandlePriorityEventsFromMessagePump",
+      "base": false
+    },
+    {
+      "name": "CoImpersonateClient",
+      "base": false
+    },
+    {
+      "name": "CoIncrementMTAUsage",
+      "base": false
+    },
+    {
+      "name": "CoInitialize",
+      "base": false,
+      "ex": true
+    },
+    {
+      "name": "CoInitializeSecurity",
+      "base": false
+    },
+    {
+      "name": "CoInitializeWO",
+      "baseW": false
+    },
+    {
+      "name": "CoInstall",
+      "base": false
+    },
+    {
+      "name": "CoInvalidateRemoteMachineBindings",
+      "base": false
+    },
+    {
+      "name": "CoIsHandlerConnected",
+      "base": false
+    },
+    {
+      "name": "CoIsOle1Class",
+      "base": false
+    },
+    {
+      "name": "CoLoadLibrary",
+      "base": false
+    },
+    {
+      "name": "CoLockObjectExternal",
+      "base": false
+    },
+    {
+      "name": "CoMarshalHresult",
+      "base": false
+    },
+    {
+      "name": "CoMarshalInterThreadInterfaceInStream",
+      "base": false
+    },
+    {
+      "name": "CoMarshalInterface",
+      "base": false
+    },
+    {
+      "name": "CoPopServiceDomain",
+      "base": false
+    },
+    {
+      "name": "CoPushServiceDomain",
+      "base": false
+    },
+    {
+      "name": "CoQueryAuthenticationServices",
+      "base": false
+    },
+    {
+      "name": "CoQueryClientBlanket",
+      "base": false
+    },
+    {
+      "name": "CoQueryProxyBlanket",
+      "base": false
+    },
+    {
+      "name": "CoQueryReleaseObject",
+      "base": false
+    },
+    {
+      "name": "CoReactivateObject",
+      "base": false
+    },
+    {
+      "name": "CoRegisterActivationFilter",
+      "base": false
+    },
+    {
+      "name": "CoRegisterChannelHook",
+      "base": false
+    },
+    {
+      "name": "CoRegisterClassObject",
+      "base": false
+    },
+    {
+      "name": "CoRegisterInitializeSpy",
+      "base": false
+    },
+    {
+      "name": "CoRegisterMallocSpy",
+      "base": false
+    },
+    {
+      "name": "CoRegisterMessageFilter",
+      "base": false
+    },
+    {
+      "name": "CoRegisterPSClsid",
+      "base": false
+    },
+    {
+      "name": "CoRegisterSurrogate",
+      "base": false,
+      "ex": false
+    },
+    {
+      "name": "CoReleaseMarshalData",
+      "base": false
+    },
+    {
+      "name": "CoReleaseServerProcess",
+      "base": false
+    },
+    {
+      "name": "CoResumeClassObjects",
+      "base": false
+    },
+    {
+      "name": "CoRetireServer",
+      "base": false
+    },
+    {
+      "name": "CoRevertToSelf",
+      "base": false
+    },
+    {
+      "name": "CoRevokeClassObject",
+      "base": false
+    },
+    {
+      "name": "CoRevokeInitializeSpy",
+      "base": false
+    },
+    {
+      "name": "CoRevokeMallocSpy",
+      "base": false
+    },
+    {
+      "name": "CoSetCancelObject",
+      "base": false
+    },
+    {
+      "name": "CoSetMessageDispatcher",
+      "base": false
+    },
+    {
+      "name": "CoSetProxyBlanket",
+      "base": false
+    },
+    {
+      "name": "CoSetState",
+      "base": false
+    },
+    {
+      "name": "CoSuspendClassObjects",
+      "base": false
+    },
+    {
+      "name": "CoSwitchCallContext",
+      "base": false
+    },
+    {
+      "name": "CoTaskMemAlloc",
+      "base": false
+    },
+    {
+      "name": "CoTaskMemFree",
+      "base": false
+    },
+    {
+      "name": "CoTaskMemRealloc",
+      "base": false
+    },
+    {
+      "name": "CoTestCancel",
+      "base": false
+    },
+    {
+      "name": "CoTreatAsClass",
+      "base": false
+    },
+    {
+      "name": "CoTryGetInterceptorForAppModelVirtualization",
+      "base": false
+    },
+    {
+      "name": "CoUninitialize",
+      "base": true
+    },
+    {
+      "name": "CoUnloadingWO",
+      "baseW": false
+    },
+    {
+      "name": "CoUnmarshalHresult",
+      "base": false
+    },
+    {
+      "name": "CoUnmarshalInterface",
+      "base": false
+    },
+    {
+      "name": "CoVrfCheckThreadState",
+      "base": false
+    },
+    {
+      "name": "CoVrfGetThreadState",
+      "base": false
+    },
+    {
+      "name": "CoVrfReleaseThreadState",
+      "base": false
+    },
+    {
+      "name": "CoWaitForMultipleHandles",
+      "base": false
+    },
+    {
+      "name": "CoWaitForMultipleObjects",
+      "base": false
+    },
+    {
+      "name": "ComPs_NdrDllCanUnloadNow",
+      "base": false
+    },
+    {
+      "name": "ComPs_NdrDllGetClassObject",
+      "base": false
+    },
+    {
+      "name": "ComPs_NdrDllRegisterProxy",
+      "base": false
+    },
+    {
+      "name": "ComPs_NdrDllUnregisterProxy",
+      "base": false
+    },
+    {
+      "name": "CreateAntiMoniker",
+      "base": false
+    },
+    {
+      "name": "CreateBindCtx",
+      "base": false
+    },
+    {
+      "name": "CreateClassMoniker",
+      "base": false
+    },
+    {
+      "name": "CreateDataAdviseHolder",
+      "base": false
+    },
+    {
+      "name": "CreateDataCache",
+      "base": false
+    },
+    {
+      "name": "CreateErrorInfo",
+      "base": false
+    },
+    {
+      "name": "CreateFileMoniker",
+      "base": false
+    },
+    {
+      "name": "CreateGenericComposite",
+      "base": false
+    },
+    {
+      "name": "CreateILockBytesOnHGlobal",
+      "base": false
+    },
+    {
+      "name": "CreateItemMoniker",
+      "base": false
+    },
+    {
+      "name": "CreateObjrefMoniker",
+      "base": false
+    },
+    {
+      "name": "CreateOleAdviseHolder",
+      "base": false
+    },
+    {
+      "name": "CreatePointerMoniker",
+      "base": false
+    },
+    {
+      "name": "CreateStdProgressIndicator",
+      "base": false
+    },
+    {
+      "name": "CreateStreamOnHGlobal",
+      "base": false
+    },
+    {
+      "name": "DcomChannelSetHResult",
+      "base": false
+    },
+    {
+      "name": "DdeBindToObject",
+      "base": false
+    },
+    {
+      "name": "DeletePatternAndExtensionTables",
+      "base": false
+    },
+    {
+      "name": "DestroyRunningObjectTable",
+      "base": false
+    },
+    {
+      "name": "DllDebugObjectRPCHook",
+      "base": false
+    },
+    {
+      "name": "DllGetClassObject",
+      "base": false
+    },
+    {
+      "name": "DllGetClassObjectWO",
+      "baseW": false
+    },
+    {
+      "name": "DllRegisterServer",
+      "base": false
+    },
+    {
+      "name": "DoDragDrop",
+      "base": false
+    },
+    {
+      "name": "DragDropSetFDT",
+      "base": false
+    },
+    {
+      "name": "EnableHookObject",
+      "base": false
+    },
+    {
+      "name": "FindExt",
+      "base": false
+    },
+    {
+      "name": "FmtIdToPropStgName",
+      "base": false
+    },
+    {
+      "name": "FreePropVariantArray",
+      "base": false
+    },
+    {
+      "name": "GetActiveObjectExt",
+      "base": false
+    },
+    {
+      "name": "GetClassFile",
+      "base": false
+    },
+    {
+      "name": "GetConvertStg",
+      "base": false
+    },
+    {
+      "name": "GetDocumentBitStg",
+      "base": false
+    },
+    {
+      "name": "GetErrorInfo",
+      "base": false
+    },
+    {
+      "name": "GetHGlobalFromILockBytes",
+      "base": false
+    },
+    {
+      "name": "GetHGlobalFromStream",
+      "base": false
+    },
+    {
+      "name": "GetHookInterface",
+      "base": false
+    },
+    {
+      "name": "GetObjectFromRotByPath",
+      "base": false
+    },
+    {
+      "name": "GetRunningObjectTable",
+      "base": false
+    },
+    {
+      "name": "HACCEL_UserFree",
+      "base": false
+    },
+    {
+      "name": "HACCEL_UserFree64",
+      "base": false
+    },
+    {
+      "name": "HACCEL_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "HACCEL_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "HACCEL_UserSize",
+      "base": false
+    },
+    {
+      "name": "HACCEL_UserSize64",
+      "base": false
+    },
+    {
+      "name": "HACCEL_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "HACCEL_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "HBITMAP_UserFree",
+      "base": false
+    },
+    {
+      "name": "HBITMAP_UserFree64",
+      "base": false
+    },
+    {
+      "name": "HBITMAP_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "HBITMAP_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "HBITMAP_UserSize",
+      "base": false
+    },
+    {
+      "name": "HBITMAP_UserSize64",
+      "base": false
+    },
+    {
+      "name": "HBITMAP_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "HBITMAP_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "HBRUSH_UserFree",
+      "base": false
+    },
+    {
+      "name": "HBRUSH_UserFree64",
+      "base": false
+    },
+    {
+      "name": "HBRUSH_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "HBRUSH_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "HBRUSH_UserSize",
+      "base": false
+    },
+    {
+      "name": "HBRUSH_UserSize64",
+      "base": false
+    },
+    {
+      "name": "HBRUSH_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "HBRUSH_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "HDC_UserFree",
+      "base": false
+    },
+    {
+      "name": "HDC_UserFree64",
+      "base": false
+    },
+    {
+      "name": "HDC_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "HDC_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "HDC_UserSize",
+      "base": false
+    },
+    {
+      "name": "HDC_UserSize64",
+      "base": false
+    },
+    {
+      "name": "HDC_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "HDC_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "HENHMETAFILE_UserFree",
+      "base": false
+    },
+    {
+      "name": "HENHMETAFILE_UserFree64",
+      "base": false
+    },
+    {
+      "name": "HENHMETAFILE_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "HENHMETAFILE_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "HENHMETAFILE_UserSize",
+      "base": false
+    },
+    {
+      "name": "HENHMETAFILE_UserSize64",
+      "base": false
+    },
+    {
+      "name": "HENHMETAFILE_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "HENHMETAFILE_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "HGLOBAL_UserFree",
+      "base": false
+    },
+    {
+      "name": "HGLOBAL_UserFree64",
+      "base": false
+    },
+    {
+      "name": "HGLOBAL_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "HGLOBAL_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "HGLOBAL_UserSize",
+      "base": false
+    },
+    {
+      "name": "HGLOBAL_UserSize64",
+      "base": false
+    },
+    {
+      "name": "HGLOBAL_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "HGLOBAL_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "HICON_UserFree",
+      "base": false
+    },
+    {
+      "name": "HICON_UserFree64",
+      "base": false
+    },
+    {
+      "name": "HICON_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "HICON_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "HICON_UserSize",
+      "base": false
+    },
+    {
+      "name": "HICON_UserSize64",
+      "base": false
+    },
+    {
+      "name": "HICON_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "HICON_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "HMENU_UserFree",
+      "base": false
+    },
+    {
+      "name": "HMENU_UserFree64",
+      "base": false
+    },
+    {
+      "name": "HMENU_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "HMENU_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "HMENU_UserSize",
+      "base": false
+    },
+    {
+      "name": "HMENU_UserSize64",
+      "base": false
+    },
+    {
+      "name": "HMENU_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "HMENU_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "HMETAFILEPICT_UserFree",
+      "base": false
+    },
+    {
+      "name": "HMETAFILEPICT_UserFree64",
+      "base": false
+    },
+    {
+      "name": "HMETAFILEPICT_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "HMETAFILEPICT_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "HMETAFILEPICT_UserSize",
+      "base": false
+    },
+    {
+      "name": "HMETAFILEPICT_UserSize64",
+      "base": false
+    },
+    {
+      "name": "HMETAFILEPICT_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "HMETAFILEPICT_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "HMETAFILE_UserFree",
+      "base": false
+    },
+    {
+      "name": "HMETAFILE_UserFree64",
+      "base": false
+    },
+    {
+      "name": "HMETAFILE_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "HMETAFILE_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "HMETAFILE_UserSize",
+      "base": false
+    },
+    {
+      "name": "HMETAFILE_UserSize64",
+      "base": false
+    },
+    {
+      "name": "HMETAFILE_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "HMETAFILE_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "HMONITOR_UserFree",
+      "base": false
+    },
+    {
+      "name": "HMONITOR_UserFree64",
+      "base": false
+    },
+    {
+      "name": "HMONITOR_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "HMONITOR_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "HMONITOR_UserSize",
+      "base": false
+    },
+    {
+      "name": "HMONITOR_UserSize64",
+      "base": false
+    },
+    {
+      "name": "HMONITOR_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "HMONITOR_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "HPALETTE_UserFree",
+      "base": false
+    },
+    {
+      "name": "HPALETTE_UserFree64",
+      "base": false
+    },
+    {
+      "name": "HPALETTE_UserFreeExt",
+      "base": false
+    },
+    {
+      "name": "HPALETTE_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "HPALETTE_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "HPALETTE_UserMarshalExt",
+      "base": false
+    },
+    {
+      "name": "HPALETTE_UserSize",
+      "base": false
+    },
+    {
+      "name": "HPALETTE_UserSize64",
+      "base": false
+    },
+    {
+      "name": "HPALETTE_UserSizeExt",
+      "base": false
+    },
+    {
+      "name": "HPALETTE_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "HPALETTE_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "HPALETTE_UserUnmarshalExt",
+      "base": false
+    },
+    {
+      "name": "HRGN_UserFree",
+      "base": false
+    },
+    {
+      "name": "HRGN_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "HRGN_UserSize",
+      "base": false
+    },
+    {
+      "name": "HRGN_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "HWND_UserFree",
+      "base": false
+    },
+    {
+      "name": "HWND_UserFree64",
+      "base": false
+    },
+    {
+      "name": "HWND_UserFree64Ext",
+      "base": false
+    },
+    {
+      "name": "HWND_UserFreeExt",
+      "base": false
+    },
+    {
+      "name": "HWND_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "HWND_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "HWND_UserMarshal64Ext",
+      "base": false
+    },
+    {
+      "name": "HWND_UserMarshalExt",
+      "base": false
+    },
+    {
+      "name": "HWND_UserSize",
+      "base": false
+    },
+    {
+      "name": "HWND_UserSize64",
+      "base": false
+    },
+    {
+      "name": "HWND_UserSize64Ext",
+      "base": false
+    },
+    {
+      "name": "HWND_UserSizeExt",
+      "base": false
+    },
+    {
+      "name": "HWND_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "HWND_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "HWND_UserUnmarshal64Ext",
+      "base": false
+    },
+    {
+      "name": "HWND_UserUnmarshalExt",
+      "base": false
+    },
+    {
+      "name": "HkOleRegisterObject",
+      "base": false
+    },
+    {
+      "name": "IIDFromString",
+      "base": false
+    },
+    {
+      "name": "IsAccelerator",
+      "base": false
+    },
+    {
+      "name": "IsEqualGUID",
+      "base": false
+    },
+    {
+      "name": "IsRoInitializeASTAAllowedInDesktop",
+      "base": false
+    },
+    {
+      "name": "IsValidIid",
+      "base": false
+    },
+    {
+      "name": "IsValidInterface",
+      "base": false
+    },
+    {
+      "name": "IsValidPtrIn",
+      "base": false
+    },
+    {
+      "name": "IsValidPtrOut",
+      "base": false
+    },
+    {
+      "name": "MkParseDisplayName",
+      "base": false
+    },
+    {
+      "name": "MonikerCommonPrefixWith",
+      "base": false
+    },
+    {
+      "name": "MonikerLoadTypeLib",
+      "base": false
+    },
+    {
+      "name": "MonikerRelativePathTo",
+      "base": false
+    },
+    {
+      "name": "NdrOleInitializeExtension",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction10",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction11",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction12",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction13",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction14",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction15",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction16",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction17",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction18",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction19",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction20",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction21",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction22",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction23",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction24",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction25",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction26",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction27",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction28",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction29",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction3",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction30",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction31",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction32",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction4",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction5",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction6",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction7",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction8",
+      "base": false
+    },
+    {
+      "name": "NdrProxyForwardingFunction9",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient10",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient11",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient12",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient13",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient14",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient15",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient16",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient17",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient18",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient19",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient20",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient21",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient22",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient23",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient24",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient25",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient26",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient27",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient28",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient29",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient3",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient30",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient31",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient32",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient4",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient5",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient6",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient7",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient8",
+      "base": false
+    },
+    {
+      "name": "ObjectStublessClient9",
+      "base": false
+    },
+    {
+      "name": "Ole32DllGetClassObject",
+      "base": false
+    },
+    {
+      "name": "OleBuildVersion",
+      "base": false
+    },
+    {
+      "name": "OleConvertIStorageToOLESTREAM",
+      "base": false,
+      "ex": false
+    },
+    {
+      "name": "OleConvertOLESTREAMToIStorage",
+      "base": false,
+      "ex": false
+    },
+    {
+      "name": "OleConvertOLESTREAMToIStorage2",
+      "base": false
+    },
+    {
+      "name": "OleConvertOLESTREAMToIStorageEx2",
+      "base": false
+    },
+    {
+      "name": "OleCreate",
+      "base": false,
+      "ex": false
+    },
+    {
+      "name": "OleCreateDefaultHandler",
+      "base": false
+    },
+    {
+      "name": "OleCreateEmbeddingHelper",
+      "base": false
+    },
+    {
+      "name": "OleCreateFontIndirectExt",
+      "base": false
+    },
+    {
+      "name": "OleCreateFromData",
+      "base": false,
+      "ex": false
+    },
+    {
+      "name": "OleCreateFromFile",
+      "base": false,
+      "ex": false
+    },
+    {
+      "name": "OleCreateLink",
+      "base": false,
+      "ex": false
+    },
+    {
+      "name": "OleCreateLinkFromData",
+      "base": false,
+      "ex": false
+    },
+    {
+      "name": "OleCreateLinkToFile",
+      "base": false,
+      "ex": false
+    },
+    {
+      "name": "OleCreateMenuDescriptor",
+      "base": false
+    },
+    {
+      "name": "OleCreatePictureIndirectExt",
+      "base": false
+    },
+    {
+      "name": "OleCreatePropertyFrameIndirectExt",
+      "base": false
+    },
+    {
+      "name": "OleCreateStaticFromData",
+      "base": false
+    },
+    {
+      "name": "OleDestroyMenuDescriptor",
+      "base": false
+    },
+    {
+      "name": "OleDoAutoConvert",
+      "base": false
+    },
+    {
+      "name": "OleDraw",
+      "base": false
+    },
+    {
+      "name": "OleDuplicateData",
+      "base": false
+    },
+    {
+      "name": "OleFlushClipboard",
+      "base": false
+    },
+    {
+      "name": "OleGetAutoConvert",
+      "base": false
+    },
+    {
+      "name": "OleGetClipboard",
+      "base": false
+    },
+    {
+      "name": "OleGetClipboardWithEnterpriseInfo",
+      "base": false
+    },
+    {
+      "name": "OleGetIconOfClass",
+      "base": false
+    },
+    {
+      "name": "OleGetIconOfFile",
+      "base": false
+    },
+    {
+      "name": "OleGetPackageClipboardOwner",
+      "base": false
+    },
+    {
+      "name": "OleIconToCursorExt",
+      "base": false
+    },
+    {
+      "name": "OleInitialize",
+      "base": false
+    },
+    {
+      "name": "OleInitializeWO",
+      "baseW": false
+    },
+    {
+      "name": "OleIsCurrentClipboard",
+      "base": false
+    },
+    {
+      "name": "OleIsRunning",
+      "base": false
+    },
+    {
+      "name": "OleLoad",
+      "base": false
+    },
+    {
+      "name": "OleLoadFromStream",
+      "base": false
+    },
+    {
+      "name": "OleLoadPictureExt",
+      "base": false
+    },
+    {
+      "name": "OleLoadPictureFileExt",
+      "base": false
+    },
+    {
+      "name": "OleLoadPicturePathExt",
+      "base": false
+    },
+    {
+      "name": "OleLockRunning",
+      "base": false
+    },
+    {
+      "name": "OleMetafilePictFromIconAndLabel",
+      "base": false
+    },
+    {
+      "name": "OleNoteObjectVisible",
+      "base": false
+    },
+    {
+      "name": "OleQueryCreateFromData",
+      "base": false
+    },
+    {
+      "name": "OleQueryLinkFromData",
+      "base": false
+    },
+    {
+      "name": "OleRegEnumFormatEtc",
+      "base": false
+    },
+    {
+      "name": "OleRegEnumVerbs",
+      "base": false
+    },
+    {
+      "name": "OleRegGetMiscStatus",
+      "base": false
+    },
+    {
+      "name": "OleRegGetUserType",
+      "base": false
+    },
+    {
+      "name": "OleReleaseEnumVerbCache",
+      "base": false
+    },
+    {
+      "name": "OleRun",
+      "base": false
+    },
+    {
+      "name": "OleSave",
+      "base": false
+    },
+    {
+      "name": "OleSavePictureFileExt",
+      "base": false
+    },
+    {
+      "name": "OleSaveToStream",
+      "base": false
+    },
+    {
+      "name": "OleSetAutoConvert",
+      "base": false
+    },
+    {
+      "name": "OleSetClipboard",
+      "base": false
+    },
+    {
+      "name": "OleSetContainedObject",
+      "base": false
+    },
+    {
+      "name": "OleSetMenuDescriptor",
+      "base": false
+    },
+    {
+      "name": "OleTranslateAccelerator",
+      "base": false
+    },
+    {
+      "name": "OleTranslateColorExt",
+      "base": false
+    },
+    {
+      "name": "OleUninitialize",
+      "base": false
+    },
+    {
+      "name": "OpenOrCreateStream",
+      "base": false
+    },
+    {
+      "name": "ProgIDFromCLSID",
+      "base": false
+    },
+    {
+      "name": "PropStgNameToFmtId",
+      "base": false
+    },
+    {
+      "name": "PropSysAllocString",
+      "base": false
+    },
+    {
+      "name": "PropSysFreeString",
+      "base": false
+    },
+    {
+      "name": "PropVariantChangeType",
+      "base": false
+    },
+    {
+      "name": "PropVariantClear",
+      "base": false
+    },
+    {
+      "name": "PropVariantCopy",
+      "base": false
+    },
+    {
+      "name": "ReadClassStg",
+      "base": false
+    },
+    {
+      "name": "ReadClassStm",
+      "base": false
+    },
+    {
+      "name": "ReadFmtUserTypeStg",
+      "base": false
+    },
+    {
+      "name": "ReadOleStg",
+      "base": false
+    },
+    {
+      "name": "ReadStorageProperties",
+      "base": false
+    },
+    {
+      "name": "ReadStringStream",
+      "base": false
+    },
+    {
+      "name": "RegisterActiveObjectExt",
+      "base": false
+    },
+    {
+      "name": "RegisterDragDrop",
+      "base": false
+    },
+    {
+      "name": "ReleaseStgMedium",
+      "base": false
+    },
+    {
+      "name": "RevokeActiveObjectExt",
+      "base": false
+    },
+    {
+      "name": "RevokeDragDrop",
+      "base": false
+    },
+    {
+      "name": "RoGetAgileReference",
+      "base": false
+    },
+    {
+      "name": "SNB_UserFree",
+      "base": false
+    },
+    {
+      "name": "SNB_UserFree64",
+      "base": false
+    },
+    {
+      "name": "SNB_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "SNB_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "SNB_UserSize",
+      "base": false
+    },
+    {
+      "name": "SNB_UserSize64",
+      "base": false
+    },
+    {
+      "name": "SNB_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "SNB_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "STGMEDIUM_UserFree",
+      "base": false
+    },
+    {
+      "name": "STGMEDIUM_UserFree64",
+      "base": false
+    },
+    {
+      "name": "STGMEDIUM_UserFreeExt",
+      "base": false
+    },
+    {
+      "name": "STGMEDIUM_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "STGMEDIUM_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "STGMEDIUM_UserMarshalExt",
+      "base": false
+    },
+    {
+      "name": "STGMEDIUM_UserSize",
+      "base": false
+    },
+    {
+      "name": "STGMEDIUM_UserSize64",
+      "base": false
+    },
+    {
+      "name": "STGMEDIUM_UserSizeExt",
+      "base": false
+    },
+    {
+      "name": "STGMEDIUM_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "STGMEDIUM_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "STGMEDIUM_UserUnmarshalExt",
+      "base": false
+    },
+    {
+      "name": "SetConvertStg",
+      "base": false
+    },
+    {
+      "name": "SetDocumentBitStg",
+      "base": false
+    },
+    {
+      "name": "SetErrorInfo",
+      "base": false
+    },
+    {
+      "name": "SetOleautModule",
+      "base": false
+    },
+    {
+      "name": "SetWOWThunkGlobalPtr",
+      "base": false
+    },
+    {
+      "name": "StdTypesGetClassObject",
+      "base": false
+    },
+    {
+      "name": "StdTypesRegisterServer",
+      "base": false
+    },
+    {
+      "name": "StgConvertPropertyToVariant",
+      "base": false
+    },
+    {
+      "name": "StgConvertVariantToProperty",
+      "base": false
+    },
+    {
+      "name": "StgCreateDocfile",
+      "base": false
+    },
+    {
+      "name": "StgCreateDocfileOnILockBytes",
+      "base": false
+    },
+    {
+      "name": "StgCreatePropSetStg",
+      "base": false
+    },
+    {
+      "name": "StgCreatePropStg",
+      "base": false
+    },
+    {
+      "name": "StgCreateStorage",
+      "ex": false
+    },
+    {
+      "name": "StgGetIFillLockBytesOnFile",
+      "base": false
+    },
+    {
+      "name": "StgGetIFillLockBytesOnILockBytes",
+      "base": false
+    },
+    {
+      "name": "StgIsStorageFile",
+      "base": false
+    },
+    {
+      "name": "StgIsStorageILockBytes",
+      "base": false
+    },
+    {
+      "name": "StgOpenAsyncDocfileOnIFillLockBytes",
+      "base": false
+    },
+    {
+      "name": "StgOpenPropStg",
+      "base": false
+    },
+    {
+      "name": "StgOpenStorage",
+      "base": false,
+      "ex": false
+    },
+    {
+      "name": "StgOpenStorageOnHandle",
+      "base": false
+    },
+    {
+      "name": "StgOpenStorageOnILockBytes",
+      "base": false
+    },
+    {
+      "name": "StgPropertyLengthAsVariant",
+      "base": false
+    },
+    {
+      "name": "StgSetTimes",
+      "base": false
+    },
+    {
+      "name": "StringFromCLSID",
+      "base": false
+    },
+    {
+      "name": "StringFromGUID2",
+      "base": false
+    },
+    {
+      "name": "StringFromIID",
+      "base": false
+    },
+    {
+      "name": "UpdateDCOMSettings",
+      "base": false
+    },
+    {
+      "name": "UpdateProcessTracing",
+      "base": false
+    },
+    {
+      "name": "UtConvertDvtd16toDvtd32",
+      "base": false
+    },
+    {
+      "name": "UtConvertDvtd32toDvtd16",
+      "base": false
+    },
+    {
+      "name": "UtGetDvtd16Info",
+      "base": false
+    },
+    {
+      "name": "UtGetDvtd32Info",
+      "base": false
+    },
+    {
+      "name": "WdtpInterfacePointer_UserFree",
+      "base": false
+    },
+    {
+      "name": "WdtpInterfacePointer_UserFree64",
+      "base": false
+    },
+    {
+      "name": "WdtpInterfacePointer_UserMarshal",
+      "base": false
+    },
+    {
+      "name": "WdtpInterfacePointer_UserMarshal64",
+      "base": false
+    },
+    {
+      "name": "WdtpInterfacePointer_UserSize",
+      "base": false
+    },
+    {
+      "name": "WdtpInterfacePointer_UserSize64",
+      "base": false
+    },
+    {
+      "name": "WdtpInterfacePointer_UserUnmarshal",
+      "base": false
+    },
+    {
+      "name": "WdtpInterfacePointer_UserUnmarshal64",
+      "base": false
+    },
+    {
+      "name": "WriteClassStg",
+      "base": false
+    },
+    {
+      "name": "WriteClassStm",
+      "base": false
+    },
+    {
+      "name": "WriteFmtUserTypeStg",
+      "base": false
+    },
+    {
+      "name": "WriteOleStg",
+      "base": false
+    },
+    {
+      "name": "WriteStorageProperties",
+      "base": false
+    },
+    {
+      "name": "WriteStringStream",
+      "base": false
+    }
+  ],
+  "aggregate": {
+    "all": {
+      "total": 549,
+      "implemented": 2
+    },
+    "noDuplication": {
+      "total": 535,
+      "implemented": 2
+    }
+  }
+}

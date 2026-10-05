@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja" style="font-size: 20px">
+  <head>
+    <meta charset="utf-8">
+    <title>shlwapi - deno winapi</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link href="./style.css" rel="stylesheet">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="./apple-touch-icon-precomposed.png"
+    >
+    <script id="data" data-target="shlwapi">const data = {"list":[{"name":"AssocCreate","base":false},{"name":"AssocGetPerceivedType","base":false},{"name":"AssocIsDangerous","base":false},{"name":"AssocQueryKey","baseA":false,"baseW":false},{"name":"AssocQueryString","baseA":false,"baseW":false},{"name":"AssocQueryStringByKey","baseA":false,"baseW":false},{"name":"ChrCmpI","baseA":false,"baseW":false},{"name":"ColorAdjustLuma","base":false},{"name":"ColorHLSToRGB","base":false},{"name":"ColorRGBToHLS","base":false},{"name":"ConnectToConnectionPoint","base":false},{"name":"DelayLoadFailureHook","base":false},{"name":"DllGetClassObject","base":false},{"name":"DllGetVersion","base":false},{"name":"GUIDFromString","baseW":false},{"name":"GetAcceptLanguages","baseA":false,"baseW":false},{"name":"GetMenuPosFromID","base":false},{"name":"HashData","base":false},{"name":"IStream_Copy","base":false},{"name":"IStream_Read","base":false},{"name":"IStream_ReadPidl","base":false},{"name":"IStream_ReadStr","base":false},{"name":"IStream_Reset","base":false},{"name":"IStream_Size","base":false},{"name":"IStream_Write","base":false},{"name":"IStream_WritePidl","base":false},{"name":"IStream_WriteStr","base":false},{"name":"IUnknown_AtomicRelease","base":false},{"name":"IUnknown_Exec","base":false},{"name":"IUnknown_GetSite","base":false},{"name":"IUnknown_GetWindow","base":false},{"name":"IUnknown_QueryService","base":false},{"name":"IUnknown_QueryStatus","base":false},{"name":"IUnknown_Set","base":false},{"name":"IUnknown_SetSite","base":false},{"name":"IntlStrEqWorker","baseA":false,"baseW":false},{"name":"IsCharSpace","baseA":false,"baseW":false},{"name":"IsInternetESCEnabled","base":false},{"name":"IsOS","base":false},{"name":"MLLoadLibrary","baseA":false,"baseW":false},{"name":"ParseURL","baseA":false,"baseW":false},{"name":"PathAddBackslash","baseA":false,"baseW":false},{"name":"PathAddExtension","baseA":false,"baseW":false},{"name":"PathAppend","baseA":false,"baseW":false},{"name":"PathBuildRoot","baseA":false,"baseW":false},{"name":"PathCanonicalize","baseA":false,"baseW":false},{"name":"PathCombine","baseA":false,"baseW":false},{"name":"PathCommonPrefix","baseA":false,"baseW":false},{"name":"PathCompactPath","baseA":false,"exA":false,"exW":false,"baseW":false},{"name":"PathCreateFromUrl","baseA":false,"baseW":false},{"name":"PathCreateFromUrlAlloc","base":false},{"name":"PathFileExists","baseA":false,"baseW":false},{"name":"PathFileExistsAndAttributes","baseW":false},{"name":"PathFindExtension","baseA":false,"baseW":false},{"name":"PathFindFileName","baseA":false,"baseW":false},{"name":"PathFindNextComponent","baseA":false,"baseW":false},{"name":"PathFindOnPath","baseA":false,"baseW":false},{"name":"PathFindSuffixArray","baseA":false,"baseW":false},{"name":"PathGetArgs","baseA":false,"baseW":false},{"name":"PathGetCharType","baseA":false,"baseW":false},{"name":"PathGetDriveNumber","baseA":false,"baseW":false},{"name":"PathIsContentType","baseA":false,"baseW":false},{"name":"PathIsDirectory","baseA":false,"baseW":false},{"name":"PathIsDirectoryEmpty","baseA":false,"baseW":false},{"name":"PathIsFileSpec","baseA":false,"baseW":false},{"name":"PathIsLFNFileSpec","baseA":false,"baseW":false},{"name":"PathIsNetworkPath","baseA":false,"baseW":false},{"name":"PathIsPrefix","baseA":false,"baseW":false},{"name":"PathIsRelative","baseA":false,"baseW":false},{"name":"PathIsRoot","baseA":false,"baseW":false},{"name":"PathIsSameRoot","baseA":false,"baseW":false},{"name":"PathIsSystemFolder","baseA":false,"baseW":false},{"name":"PathIsUNC","baseA":false,"baseW":false},{"name":"PathIsUNCServer","baseA":false,"baseW":false},{"name":"PathIsUNCServerShare","baseA":false,"baseW":false},{"name":"PathIsURL","baseA":false,"baseW":false},{"name":"PathMakePretty","baseA":false,"baseW":false},{"name":"PathMakeSystemFolder","baseA":false,"baseW":false},{"name":"PathMatchSpec","baseA":false,"exA":false,"exW":false,"baseW":false},{"name":"PathParseIconLocation","baseA":false,"baseW":false},{"name":"PathQuoteSpaces","baseA":false,"baseW":false},{"name":"PathRelativePathTo","baseA":false,"baseW":false},{"name":"PathRemoveArgs","baseA":false,"baseW":false},{"name":"PathRemoveBackslash","baseA":false,"baseW":false},{"name":"PathRemoveBlanks","baseA":false,"baseW":false},{"name":"PathRemoveExtension","baseA":false,"baseW":false},{"name":"PathRemoveFileSpec","baseA":false,"baseW":false},{"name":"PathRenameExtension","baseA":false,"baseW":false},{"name":"PathSearchAndQualify","baseA":false,"baseW":false},{"name":"PathSetDlgItemPath","baseA":false,"baseW":false},{"name":"PathSkipRoot","baseA":false,"baseW":false},{"name":"PathStripPath","baseA":false,"baseW":false},{"name":"PathStripToRoot","baseA":false,"baseW":false},{"name":"PathUnExpandEnvStrings","baseA":false,"baseW":false},{"name":"PathUndecorate","baseA":false,"baseW":false},{"name":"PathUnmakeSystemFolder","baseA":false,"baseW":false},{"name":"PathUnquoteSpaces","baseA":false,"baseW":false},{"name":"QISearch","base":false},{"name":"SHAllocShared","base":false},{"name":"SHAnsiToAnsi","base":false},{"name":"SHAnsiToUnicode","base":false},{"name":"SHAutoComplete","base":false},{"name":"SHCopyKey","baseA":false,"baseW":false},{"name":"SHCreateMemStream","base":true},{"name":"SHCreateShellPalette","base":false},{"name":"SHCreateStreamOnFile","baseA":false,"ex":false,"baseW":false},{"name":"SHCreateStreamWrapper","base":false},{"name":"SHCreateThread","base":false},{"name":"SHCreateThreadRef","base":false},{"name":"SHCreateThreadWithHandle","base":false},{"name":"SHCreateWorkerWindow","baseW":false},{"name":"SHDeleteEmptyKey","baseA":false,"baseW":false},{"name":"SHDeleteKey","baseA":false,"baseW":false},{"name":"SHDeleteOrphanKey","baseA":false,"baseW":false},{"name":"SHDeleteValue","baseA":false,"baseW":false},{"name":"SHEnumKey","exA":false,"exW":false},{"name":"SHEnumValue","baseA":false,"baseW":false},{"name":"SHFormatDateTime","baseA":false,"baseW":false},{"name":"SHFreeShared","base":false},{"name":"SHGetInverseCMAP","base":false},{"name":"SHGetThreadRef","base":false},{"name":"SHGetValue","baseA":false,"baseW":false},{"name":"SHGetViewStatePropertyBag","base":false},{"name":"SHIsChildOrSelf","base":false},{"name":"SHIsLowMemoryMachine","base":false},{"name":"SHLoadIndirectString","base":false},{"name":"SHLockShared","base":false},{"name":"SHMessageBoxCheck","baseA":false,"baseW":false},{"name":"SHOpenRegStream","baseA":false,"baseW":false},{"name":"SHOpenRegStream2","baseA":false,"baseW":false},{"name":"SHPackDispParamsV","base":false},{"name":"SHPinDllOfCLSID","base":false},{"name":"SHPropertyBag_ReadStrAlloc","base":false},{"name":"SHPropertyBag_WriteBSTR","base":false},{"name":"SHQueryInfoKey","baseA":false,"baseW":false},{"name":"SHQueryValue","exA":false,"exW":false},{"name":"SHRegCloseUSKey","base":false},{"name":"SHRegCreateUSKey","baseA":false,"baseW":false},{"name":"SHRegDeleteEmptyUSKey","baseA":false,"baseW":false},{"name":"SHRegDeleteUSValue","baseA":false,"baseW":false},{"name":"SHRegDuplicateHKey","base":false},{"name":"SHRegEnumUSKey","baseA":false,"baseW":false},{"name":"SHRegEnumUSValue","baseA":false,"baseW":false},{"name":"SHRegGetBoolUSValue","baseA":false,"baseW":false},{"name":"SHRegGetBoolValueFromHKCUHKLM","base":false},{"name":"SHRegGetInt","baseW":false},{"name":"SHRegGetPath","baseA":false,"baseW":false},{"name":"SHRegGetUSValue","baseA":false,"baseW":false},{"name":"SHRegGetValue","baseA":false,"baseW":false},{"name":"SHRegGetValueFromHKCUHKLM","base":false},{"name":"SHRegOpenUSKey","baseA":false,"baseW":false},{"name":"SHRegQueryInfoUSKey","baseA":false,"baseW":false},{"name":"SHRegQueryUSValue","baseA":false,"baseW":false},{"name":"SHRegSetPath","baseA":false,"baseW":false},{"name":"SHRegSetUSValue","baseA":false,"baseW":false},{"name":"SHRegWriteUSValue","baseA":false,"baseW":false},{"name":"SHRegisterValidateTemplate","base":false},{"name":"SHReleaseThreadRef","base":false},{"name":"SHRunIndirectRegClientCommand","base":false},{"name":"SHSendMessageBroadcast","baseA":false,"baseW":false},{"name":"SHSetThreadRef","base":false},{"name":"SHSetValue","baseA":false,"baseW":false},{"name":"SHSkipJunction","base":false},{"name":"SHStrDup","baseA":false,"baseW":false},{"name":"SHStripMneumonic","baseA":false,"baseW":false},{"name":"SHUnicodeToAnsi","base":false},{"name":"SHUnicodeToAnsiCP","base":false},{"name":"SHUnicodeToUnicode","base":false},{"name":"SHUnlockShared","base":false},{"name":"ShellMessageBox","baseA":false,"baseW":false},{"name":"ShellMessageBoxInternal","base":false},{"name":"StrCSpn","baseA":false,"baseW":false},{"name":"StrCSpnI","baseA":false,"baseW":false},{"name":"StrCat","baseW":false},{"name":"StrCatBuff","baseA":false,"baseW":false},{"name":"StrCatChain","baseW":false},{"name":"StrChr","baseA":false,"baseW":false},{"name":"StrChrI","baseA":false,"baseW":false},{"name":"StrChrN","baseW":false},{"name":"StrChrNI","baseW":false},{"name":"StrCmp","baseW":false},{"name":"StrCmpC","baseA":false,"baseW":false},{"name":"StrCmpI","baseW":false},{"name":"StrCmpIC","baseA":false,"baseW":false},{"name":"StrCmpLogical","baseW":false},{"name":"StrCmpN","baseA":false,"baseW":false},{"name":"StrCmpNC","baseA":false,"baseW":false},{"name":"StrCmpNI","baseA":false,"baseW":false},{"name":"StrCmpNIC","baseA":false,"baseW":false},{"name":"StrCpy","baseW":false},{"name":"StrCpyN","baseW":false},{"name":"StrDup","baseA":false,"baseW":false},{"name":"StrFormatByteSize","baseA":false,"ex":false,"baseW":false},{"name":"StrFormatByteSize64","baseA":false},{"name":"StrFormatKBSize","baseA":false,"baseW":false},{"name":"StrFromTimeInterval","baseA":false,"baseW":false},{"name":"StrIsIntlEqual","baseA":false,"baseW":false},{"name":"StrNCat","baseA":false,"baseW":false},{"name":"StrPBrk","baseA":false,"baseW":false},{"name":"StrRChr","baseA":false,"baseW":false},{"name":"StrRChrI","baseA":false,"baseW":false},{"name":"StrRStrI","baseA":false,"baseW":false},{"name":"StrRetToBSTR","base":false},{"name":"StrRetToBuf","baseA":false,"baseW":false},{"name":"StrRetToStr","baseA":false,"baseW":false},{"name":"StrSpn","baseA":false,"baseW":false},{"name":"StrStr","baseA":false,"baseW":false},{"name":"StrStrI","baseA":false,"baseW":false},{"name":"StrStrN","baseW":false},{"name":"StrStrNI","baseW":false},{"name":"StrToInt","baseA":false,"exA":false,"exW":false,"baseW":false},{"name":"StrToInt64","exA":false,"exW":false},{"name":"StrTrim","baseA":false,"baseW":false},{"name":"UrlApplyScheme","baseA":false,"baseW":false},{"name":"UrlCanonicalize","baseA":false,"baseW":false},{"name":"UrlCombine","baseA":false,"baseW":false},{"name":"UrlCompare","baseA":false,"baseW":false},{"name":"UrlCreateFromPath","baseA":false,"baseW":false},{"name":"UrlEscape","baseA":false,"baseW":false},{"name":"UrlFixup","baseW":false},{"name":"UrlGetLocation","baseA":false,"baseW":false},{"name":"UrlGetPart","baseA":false,"baseW":false},{"name":"UrlHash","baseA":false,"baseW":false},{"name":"UrlIs","baseA":false,"baseW":false},{"name":"UrlIsNoHistory","baseA":false,"baseW":false},{"name":"UrlIsOpaque","baseA":false,"baseW":false},{"name":"UrlUnescape","baseA":false,"baseW":false},{"name":"WhichPlatform","base":false},{"name":"wnsprintf","baseA":false,"baseW":false},{"name":"wvnsprintf","baseA":false,"baseW":false}],"aggregate":{"all":{"total":380,"implemented":1},"noDuplication":{"total":230,"implemented":1}}};</script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body class="implemented">
+    <header>
+      <h1>shlwapi</h1>
+      <div>
+        <a href="./">home</a>
+        <a href="./kernel.html">kernel</a>
+        <a href="./user.html">user</a>
+        <a href="./gdi.html">gdi</a>
+        <a href="./ole.html">ole</a>
+        <a href="./shlwapi.html">shlwapi</a>
+        <a href="./dwm.html">dwm</a>
+      </div>
+    </header>
+
+    <dl>
+      <dt>All</dt>
+      <dd id="all_total"></dd>
+      <dt>Implemented</dt>
+      <dd id="all_implemented"></dd>
+      <dt>Implementation rate</dt>
+      <dd id="all_implemented_rate" class="rate"></dd>
+      <dt>No duplication</dt>
+      <dd id="noDuplication_total"></dd>
+      <dt>Implemented</dt>
+      <dd id="noDuplication_implemented"></dd>
+      <dt>Implementation rate</dt>
+      <dd id="noDuplication_implemented_rate" class="rate"></dd>
+    </dl>
+    <div id="option">
+      <label>
+        <input id="implemented" type="checkbox" checked>
+        Implemented
+      </label>
+    </div>
+    <table id="list">
+      <thead>
+        <tr>
+          <td>API</td>
+          <td>Function name</td>
+          <td style="width: 2rem">URL</td>
+        </tr>
+      </thead>
+    </table>
+
+    <footer>
+      <small>
+        GitHub:
+        <a href="https://github.com/azulamb/deno_winapi">azulamb/deno_winapi</a>
+      </small>
+      <small>
+        JSR:
+        <a href="https://jsr.io/@azulamb/winapi">@azulamb/winapi</a>
+      </small>
+    </footer>
+  </body>
+</html>

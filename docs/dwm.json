@@ -1,0 +1,190 @@
+{
+  "list": [
+    {
+      "name": "DllCanUnloadNow",
+      "base": false
+    },
+    {
+      "name": "DllGetClassObject",
+      "base": false
+    },
+    {
+      "name": "DwmAttachMilContent",
+      "base": false
+    },
+    {
+      "name": "DwmDefWindowProc",
+      "base": false
+    },
+    {
+      "name": "DwmDetachMilContent",
+      "base": false
+    },
+    {
+      "name": "DwmEnableBlurBehindWindow",
+      "base": true
+    },
+    {
+      "name": "DwmEnableComposition",
+      "base": false
+    },
+    {
+      "name": "DwmEnableMMCSS",
+      "base": false
+    },
+    {
+      "name": "DwmExtendFrameIntoClientArea",
+      "base": false
+    },
+    {
+      "name": "DwmFlush",
+      "base": true
+    },
+    {
+      "name": "DwmGetColorizationColor",
+      "base": false
+    },
+    {
+      "name": "DwmGetCompositionTimingInfo",
+      "base": false
+    },
+    {
+      "name": "DwmGetGraphicsStreamClient",
+      "base": false
+    },
+    {
+      "name": "DwmGetGraphicsStreamTransformHint",
+      "base": false
+    },
+    {
+      "name": "DwmGetTransportAttributes",
+      "base": false
+    },
+    {
+      "name": "DwmGetUnmetTabRequirements",
+      "base": false
+    },
+    {
+      "name": "DwmGetWindowAttribute",
+      "base": false
+    },
+    {
+      "name": "DwmInvalidateIconicBitmaps",
+      "base": false
+    },
+    {
+      "name": "DwmIsCompositionEnabled",
+      "base": false
+    },
+    {
+      "name": "DwmModifyPreviousDxFrameDuration",
+      "base": false
+    },
+    {
+      "name": "DwmQueryThumbnailSourceSize",
+      "base": false
+    },
+    {
+      "name": "DwmRegisterThumbnail",
+      "base": false
+    },
+    {
+      "name": "DwmRenderGesture",
+      "base": false
+    },
+    {
+      "name": "DwmSetDxFrameDuration",
+      "base": false
+    },
+    {
+      "name": "DwmSetIconicLivePreviewBitmap",
+      "base": false
+    },
+    {
+      "name": "DwmSetIconicThumbnail",
+      "base": false
+    },
+    {
+      "name": "DwmSetPresentParameters",
+      "base": false
+    },
+    {
+      "name": "DwmSetWindowAttribute",
+      "base": false
+    },
+    {
+      "name": "DwmShowContact",
+      "base": false
+    },
+    {
+      "name": "DwmTetherContact",
+      "base": false
+    },
+    {
+      "name": "DwmTetherTextContact",
+      "base": false
+    },
+    {
+      "name": "DwmTransitionOwnedWindow",
+      "base": false
+    },
+    {
+      "name": "DwmUnregisterThumbnail",
+      "base": false
+    },
+    {
+      "name": "DwmUpdateThumbnailProperties",
+      "base": false
+    },
+    {
+      "name": "DwmpAllocateSecurityDescriptor",
+      "base": false
+    },
+    {
+      "name": "DwmpDxGetWindowSharedSurface",
+      "base": false
+    },
+    {
+      "name": "DwmpDxUpdateWindowSharedSurface",
+      "base": false
+    },
+    {
+      "name": "DwmpDxgiIsThreadDesktopComposited",
+      "base": false
+    },
+    {
+      "name": "DwmpEnableDDASupport",
+      "base": false
+    },
+    {
+      "name": "DwmpFreeSecurityDescriptor",
+      "base": false
+    },
+    {
+      "name": "DwmpGetColorizationParameters",
+      "base": false
+    },
+    {
+      "name": "DwmpRenderFlick",
+      "base": false
+    },
+    {
+      "name": "DwmpSetColorizationParameters",
+      "base": false
+    },
+    {
+      "name": "DwmpUpdateProxyWindowForCapture",
+      "base": false
+    }
+  ],
+  "aggregate": {
+    "all": {
+      "total": 44,
+      "implemented": 2
+    },
+    "noDuplication": {
+      "total": 44,
+      "implemented": 2
+    }
+  }
+}

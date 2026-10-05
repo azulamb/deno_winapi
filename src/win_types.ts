@@ -52,7 +52,13 @@ export type WIN_TYPES_INFO = {
 export const WinTypes: WIN_TYPES_INFO = {
   ATOM: { ffi: 'u16', size: 0 },
   BOOL: { ffi: 'i32', size: 0 },
+  COLORREF: { ffi: 'u32', size: 0 },
+  HDC: { ffi: 'pointer', size: 0 },
+  HGDIOBJ: { ffi: 'pointer', size: 0 },
+  HRGN: { ffi: 'pointer', size: 0 },
   DWORD: { ffi: 'u32', size: 0 },
+  DPI_AWARENESS_CONTEXT: { ffi: 'pointer', size: 0 },
+  LPSTREAM: { ffi: 'pointer', size: 0 },
   ENUMRESNAMEPROCW: { ffi: 'pointer', size: 0 },
   ENUMRESTYPEPROCW: { ffi: 'pointer', size: 0 },
   HBRUSH: { ffi: 'pointer', size: 0 },

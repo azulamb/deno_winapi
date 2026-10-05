@@ -3,6 +3,32 @@ import { WinTypes } from '../win_types.ts';
 import { lazyLibrary } from './load.ts';
 
 export const userDefinitions: {
+  readonly SetThreadDpiAwarenessContext: WindowsSignature<
+    ['DPI_AWARENESS_CONTEXT'],
+    'DPI_AWARENESS_CONTEXT'
+  >;
+  readonly GetThreadDpiAwarenessContext: WindowsSignature<
+    [],
+    'DPI_AWARENESS_CONTEXT'
+  >;
+  readonly AreDpiAwarenessContextsEqual: WindowsSignature<
+    ['DPI_AWARENESS_CONTEXT', 'DPI_AWARENESS_CONTEXT'],
+    'BOOL'
+  >;
+  readonly GetDpiForWindow: WindowsSignature<['HWND'], 'UINT'>;
+  readonly AdjustWindowRectExForDpi: WindowsSignature<
+    ['LPRECT', 'DWORD', 'BOOL', 'DWORD', 'UINT'],
+    'BOOL'
+  >;
+  readonly SetWindowPos: WindowsSignature<
+    ['HWND', 'HWND', 'int', 'int', 'int', 'int', 'UINT'],
+    'BOOL'
+  >;
+  readonly GetWindowRect: WindowsSignature<['HWND', 'LPRECT'], 'BOOL'>;
+  readonly FindWindowW: WindowsSignature<['LPCWSTR', 'LPCWSTR'], 'HWND'>;
+  readonly GetDC: WindowsSignature<['HWND'], 'HDC'>;
+  readonly ReleaseDC: WindowsSignature<['HWND', 'HDC'], 'int'>;
+  readonly FillRect: WindowsSignature<['HDC', 'LPRECT', 'HBRUSH'], 'int'>;
   readonly CreateIconFromResourceEx: WindowsSignature<
     ['PBYTE', 'DWORD', 'BOOL', 'DWORD', 'int', 'int', 'UINT'],
     'HICON'
@@ -60,6 +86,67 @@ export const userDefinitions: {
     'BOOL'
   >;
 } = {
+  SetThreadDpiAwarenessContext: {
+    parameters: [WinTypes.DPI_AWARENESS_CONTEXT.ffi],
+    result: WinTypes.DPI_AWARENESS_CONTEXT.ffi,
+  },
+  GetThreadDpiAwarenessContext: {
+    parameters: [],
+    result: WinTypes.DPI_AWARENESS_CONTEXT.ffi,
+  },
+  AreDpiAwarenessContextsEqual: {
+    parameters: [
+      WinTypes.DPI_AWARENESS_CONTEXT.ffi,
+      WinTypes.DPI_AWARENESS_CONTEXT.ffi,
+    ],
+    result: WinTypes.BOOL.ffi,
+  },
+  GetDpiForWindow: {
+    parameters: [WinTypes.HWND.ffi],
+    result: WinTypes.UINT.ffi,
+  },
+  AdjustWindowRectExForDpi: {
+    parameters: [
+      WinTypes.LPRECT.ffi,
+      WinTypes.DWORD.ffi,
+      WinTypes.BOOL.ffi,
+      WinTypes.DWORD.ffi,
+      WinTypes.UINT.ffi,
+    ],
+    result: WinTypes.BOOL.ffi,
+  },
+  SetWindowPos: {
+    parameters: [
+      WinTypes.HWND.ffi,
+      WinTypes.HWND.ffi,
+      WinTypes.int.ffi,
+      WinTypes.int.ffi,
+      WinTypes.int.ffi,
+      WinTypes.int.ffi,
+      WinTypes.UINT.ffi,
+    ],
+    result: WinTypes.BOOL.ffi,
+  },
+  GetWindowRect: {
+    parameters: [WinTypes.HWND.ffi, WinTypes.LPRECT.ffi],
+    result: WinTypes.BOOL.ffi,
+  },
+  FindWindowW: {
+    parameters: [WinTypes.LPCWSTR.ffi, WinTypes.LPCWSTR.ffi],
+    result: WinTypes.HWND.ffi,
+  },
+  GetDC: {
+    parameters: [WinTypes.HWND.ffi],
+    result: WinTypes.HDC.ffi,
+  },
+  ReleaseDC: {
+    parameters: [WinTypes.HWND.ffi, WinTypes.HDC.ffi],
+    result: WinTypes.int.ffi,
+  },
+  FillRect: {
+    parameters: [WinTypes.HDC.ffi, WinTypes.LPRECT.ffi, WinTypes.HBRUSH.ffi],
+    result: WinTypes.int.ffi,
+  },
   CreateIconFromResourceEx: { // https://learn.microsoft.com/ja-jp/windows/win32/api/winuser/nf-winuser-createiconfromresourceex
     parameters: [
       WinTypes.PBYTE.ffi, // [in] PBYTE presbits

@@ -19,7 +19,7 @@
     },
     {
       "name": "AdjustWindowRectExForDpi",
-      "base": false
+      "base": true
     },
     {
       "name": "AlignRects",
@@ -48,7 +48,7 @@
     },
     {
       "name": "AreDpiAwarenessContextsEqual",
-      "base": false
+      "base": true
     },
     {
       "name": "ArrangeIconicWindows",
@@ -893,14 +893,14 @@
     },
     {
       "name": "FillRect",
-      "base": false
+      "base": true
     },
     {
       "name": "FindWindow",
       "baseA": false,
       "exA": false,
       "exW": false,
-      "baseW": false
+      "baseW": true
     },
     {
       "name": "FlashWindow",
@@ -1058,7 +1058,7 @@
     },
     {
       "name": "GetDC",
-      "base": false,
+      "base": true,
       "ex": false
     },
     {
@@ -1128,7 +1128,7 @@
     },
     {
       "name": "GetDpiForWindow",
-      "base": false
+      "base": true
     },
     {
       "name": "GetDpiFromDpiAwarenessContext",
@@ -1580,7 +1580,7 @@
     },
     {
       "name": "GetThreadDpiAwarenessContext",
-      "base": false
+      "base": true
     },
     {
       "name": "GetThreadDpiHostingBehavior",
@@ -1705,7 +1705,7 @@
     },
     {
       "name": "GetWindowRect",
-      "base": false
+      "base": true
     },
     {
       "name": "GetWindowRgn",
@@ -2608,7 +2608,7 @@
     },
     {
       "name": "ReleaseDC",
-      "base": false
+      "base": true
     },
     {
       "name": "ReleaseDwmHitTestWaiters",
@@ -3015,7 +3015,7 @@
     },
     {
       "name": "SetThreadDpiAwarenessContext",
-      "base": false
+      "base": true
     },
     {
       "name": "SetThreadDpiHostingBehavior",
@@ -3082,7 +3082,7 @@
     },
     {
       "name": "SetWindowPos",
-      "base": false
+      "base": true
     },
     {
       "name": "SetWindowRgn",
@@ -3482,11 +3482,11 @@
   "aggregate": {
     "all": {
       "total": 1014,
-      "implemented": 19
+      "implemented": 30
     },
     "noDuplication": {
       "total": 817,
-      "implemented": 19
+      "implemented": 30
     }
   }
 }

@@ -46,12 +46,12 @@ import { winApi } from '@azulamb/winapi';
 import type { HWND, LPARAM, WPARAM } from '@azulamb/winapi/types';
 import { Constant, WindowMessage } from '@azulamb/winapi/constants';
 import { Message, OwnedUtf16, WindowClassEx } from '@azulamb/winapi/structs';
-import { Kernel, User } from '@azulamb/winapi/native';
+import { Dwm, Gdi, Kernel, Ole, Shlwapi, User } from '@azulamb/winapi/native';
 ```
 
 Importing any of these entry points requires no FFI permission. Constructing
 objects that obtain native pointers or invoking native APIs requires
-`--allow-ffi`. `User` and `Kernel` accept an injected library in their
+`--allow-ffi`. Native API classes accept an injected library in their
 constructors for testing. Native library handles are cached per JavaScript
 isolate (including each Worker).
 

@@ -1,0 +1,1039 @@
+﻿Microsoft (R) COFF/PE Dumper Version 14.44.35228.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\Windows\System32\gdi32.dll
+
+File Type: DLL
+
+  Section contains the following exports for GDI32.dll
+
+    00000000 characteristics
+    5CD2417B time date stamp
+        0.00 version
+        1000 ordinal base
+        1009 number of functions
+         995 number of names
+
+    ordinal hint RVA      name
+
+       1011    0 0000DCF0 AbortDoc
+       1012    1 0000A840 AbortPath
+       1017    2 00009700 AddFontMemResourceEx
+       1018    3 0000DD10 AddFontResourceA
+       1019    4 0000A8E0 AddFontResourceExA
+       1020    5 0000A900 AddFontResourceExW
+       1021    6 0000A920 AddFontResourceTracking
+       1022    7 0000DD50 AddFontResourceW
+       1023    8 0000A940 AngleArc
+       1024    9 0000DD90 AnimatePalette
+       1025    A 0000A960 AnyLinkedFonts
+       1026    B 00007BE0 Arc
+       1027    C 0000A980 ArcTo
+       1028    D 00008510 BRUSHOBJ_hGetColorTransform
+       1029    E 00008520 BRUSHOBJ_pvAllocRbrush
+       1030    F 00008530 BRUSHOBJ_pvGetRbrush
+       1031   10 00008540 BRUSHOBJ_ulGetBrushColor
+       1032   11 00008550 BeginGdiRendering
+       1033   12 00006630 BeginPath
+       1034   13 00004A50 BitBlt
+       1035   14 00008560 CLIPOBJ_bEnum
+       1036   15 00008570 CLIPOBJ_cEnumStart
+       1037   16 00008580 CLIPOBJ_ppoGetPath
+       1038   17 0000A9A0 CancelDC
+       1039   18 0000A9C0 CheckColorsInGamut
+       1040   19 00008F40 ChoosePixelFormat
+       1041   1A 0000A9E0 Chord
+       1042   1B 0000AA00 ClearBitmapAttributes
+       1043   1C 0000AA20 ClearBrushAttributes
+       1044   1D 00001780 CloseEnhMetaFile
+       1045   1E 000065A0 CloseFigure
+       1046   1F 00007E60 CloseMetaFile
+       1047   20 0000AA40 ColorCorrectPalette
+       1048   21 0000AA60 ColorMatchToTarget
+       1049   22 00002EB0 CombineRgn
+       1050   23 0000AA80 CombineTransform
+       1051   24 00008590 ConfigureOPMProtectedOutput
+       1052   25 0000AAA0 CopyEnhMetaFileA
+       1053   26 0000AAC0 CopyEnhMetaFileW
+       1054   27 0000AAE0 CopyMetaFileA
+       1055   28 0000AB00 CopyMetaFileW
+       1056   29 00005360 CreateBitmap
+       1057   2A 000085A0 CreateBitmapFromDxSurface
+       1058   2B 000085B0 CreateBitmapFromDxSurface2
+       1059   2C 00007CF0 CreateBitmapIndirect
+       1060   2D 00006100 CreateBrushIndirect
+       1061   2E 0000AB20 CreateColorSpaceA
+       1062   2F 0000AB40 CreateColorSpaceW
+       1063   30 00005560 CreateCompatibleBitmap
+       1064   31 00004D60 CreateCompatibleDC
+       1065   32 00005E60 CreateDCA
+       2000   33 0000AB60 CreateDCExW
+       1066   34 00002400 CreateDCW
+       1067   35 0000AB80 CreateDIBPatternBrush
+       1068   36 00008FE0 CreateDIBPatternBrushPt
+       1069   37 00004C80 CreateDIBSection
+       1070   38 00005470 CreateDIBitmap
+       1071   39 0000ABA0 CreateDPIScaledDIBSection
+       1072   3A 0000AC40 CreateDiscardableBitmap
+       1073   3B 0000AC60 CreateEllipticRgn
+       1074   3C 0000DE00 CreateEllipticRgnIndirect
+       1075   3D 00007950 CreateEnhMetaFileA
+       1076   3E 00009DC0 CreateEnhMetaFileW
+       1077   3F 000072C0 CreateFontA
+       1078   40 00006560 CreateFontIndirectA
+       1079   41 0000AC80 CreateFontIndirectExA
+       1080   42 0000ACA0 CreateFontIndirectExW
+       1081   43 000051A0 CreateFontIndirectW
+       1082   44 00001FE0 CreateFontW
+       1083   45 00006A80 CreateHalftonePalette
+       1084   46 0000ACC0 CreateHatchBrush
+       1085   47 0000ACE0 CreateICA
+       1086   48 00001F30 CreateICW
+       1087   49 00007B20 CreateMetaFileA
+       1088   4A 00009E60 CreateMetaFileW
+       1089   4B 000085C0 CreateOPMProtectedOutput
+       1090   4C 000085D0 CreateOPMProtectedOutputs
+       1091   4D 000073A0 CreatePalette
+       1092   4E 00006E90 CreatePatternBrush
+       1093   4F 00005D00 CreatePen
+       1094   50 00006AF0 CreatePenIndirect
+       1095   51 00007D90 CreatePolyPolygonRgn
+       1096   52 00001E90 CreatePolygonRgn
+       1097   53 00002950 CreateRectRgn
+       1098   54 00002680 CreateRectRgnIndirect
+       1099   55 00007450 CreateRoundRectRgn
+       1100   56 0000AD00 CreateScalableFontResourceA
+       1101   57 0000DE40 CreateScalableFontResourceW
+       1102   58 0000AD20 CreateScaledCompatibleBitmap
+       1103   59 0000ADC0 CreateSessionMappedDIBSection
+       1104   5A 00005970 CreateSolidBrush
+       1105   5B          D3DKMTAbandonSwapChain (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#154)
+       1106   5C          D3DKMTAcquireKeyedMutex (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#73)
+       1107   5D          D3DKMTAcquireKeyedMutex2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#74)
+       1108   5E          D3DKMTAcquireSwapChain (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#151)
+       1109   5F          D3DKMTAddSurfaceToSwapChain (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#194)
+       1110   60          D3DKMTAdjustFullscreenGamma (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#123)
+       1111   61          D3DKMTCacheHybridQueryValue (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#92)
+       1112   62          D3DKMTCancelPresents (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#227)
+       1113   63          D3DKMTChangeVideoMemoryReservation (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#132)
+       1114   64          D3DKMTCheckExclusiveOwnership (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#63)
+       1115   65          D3DKMTCheckMonitorPowerState (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#62)
+       1116   66          D3DKMTCheckMultiPlaneOverlaySupport (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#137)
+       1117   67          D3DKMTCheckMultiPlaneOverlaySupport2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#139)
+       1118   68          D3DKMTCheckMultiPlaneOverlaySupport3 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#147)
+       1119   69          D3DKMTCheckOcclusion (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#60)
+       1120   6A          D3DKMTCheckSharedResourceAccess (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#79)
+       1121   6B          D3DKMTCheckSinglePlaneForMultiPlaneOverlaySupport (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#226)
+       1122   6C          D3DKMTCheckVidPnExclusiveOwnership (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#64)
+       1123   6D          D3DKMTCloseAdapter (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#36)
+       1124   6E          D3DKMTConfigureSharedResource (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#77)
+       1125   6F          D3DKMTConnectDoorbell (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#232)
+       1126   70          D3DKMTCreateAllocation (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#1)
+       1127   71          D3DKMTCreateAllocation2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#2)
+       1128   72          D3DKMTCreateBundleObject (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#189)
+       1129   73          D3DKMTCreateContext (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#16)
+       1130   74          D3DKMTCreateContextVirtual (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#119)
+       1131   75          D3DKMTCreateDCFromMemory (forwarded to WIN32U.NtGdiDdDDICreateDCFromMemory)
+       1132   76          D3DKMTCreateDevice (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#14)
+       1133   77          D3DKMTCreateDoorbell (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#231)
+       1134   78          D3DKMTCreateHwContext (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#158)
+       1135   79          D3DKMTCreateHwQueue (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#160)
+       1136   7A          D3DKMTCreateKeyedMutex (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#68)
+       1137   7B          D3DKMTCreateKeyedMutex2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#69)
+       1138   7C          D3DKMTCreateNativeFence (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#229)
+       1139   7D          D3DKMTCreateOutputDupl (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#82)
+       1140   7E          D3DKMTCreateOverlay (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#43)
+       1141   7F          D3DKMTCreatePagingQueue (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#109)
+       1142   80          D3DKMTCreateProtectedSession (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#184)
+       1143   81          D3DKMTCreateSwapChain (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#149)
+       1144   82          D3DKMTCreateSynchronizationObject (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#18)
+       1145   83          D3DKMTCreateSynchronizationObject2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#19)
+       1146   84          D3DKMTCreateTrackedWorkload (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#207)
+       1147   85          D3DKMTDDisplayEnum (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#178)
+       1148   86          D3DKMTDDisplayEnum2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#242)
+       1149   87          D3DKMTDestroyAllocation (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#11)
+       1150   88          D3DKMTDestroyAllocation2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#100)
+       1151   89          D3DKMTDestroyContext (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#17)
+       1152   8A          D3DKMTDestroyDCFromMemory (forwarded to WIN32U.NtGdiDdDDIDestroyDCFromMemory)
+       1153   8B          D3DKMTDestroyDevice (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#15)
+       1154   8C          D3DKMTDestroyDoorbell (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#233)
+       1155   8D          D3DKMTDestroyHwContext (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#159)
+       1156   8E          D3DKMTDestroyHwQueue (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#161)
+       1157   8F          D3DKMTDestroyKeyedMutex (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#72)
+       1158   90          D3DKMTDestroyOutputDupl (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#83)
+       1159   91          D3DKMTDestroyOverlay (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#46)
+       1160   92          D3DKMTDestroyPagingQueue (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#110)
+       1161   93          D3DKMTDestroyProtectedSession (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#185)
+       1162   94          D3DKMTDestroySynchronizationObject (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#21)
+       1163   95          D3DKMTDestroyTrackedWorkload (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#208)
+       1164   96          D3DKMTDispMgrCreate (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#179)
+       1165   97          D3DKMTDispMgrOperation (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#215)
+       1166   98          D3DKMTDispMgrSourceOperation (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#181)
+       1167   99          D3DKMTDispMgrTargetOperation (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#180)
+       1168   9A          D3DKMTDisplayMuxSwitchExecute (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#237)
+       1169   9B          D3DKMTDisplayMuxSwitchFinish (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#238)
+       1170   9C          D3DKMTDisplayMuxSwitchPrepare (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#236)
+       1171   9D          D3DKMTDisplayPortOperation (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#222)
+       1172   9E          D3DKMTDuplicateHandle (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#216)
+       1173   9F          D3DKMTEnumAdapters (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#143)
+       1174   A0          D3DKMTEnumAdapters2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#144)
+       1175   A1          D3DKMTEnumAdapters3 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#217)
+       1176   A2          D3DKMTEnumProcesses (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#228)
+       1177   A3          D3DKMTEscape (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#38)
+       1178   A4          D3DKMTEvict (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#102)
+       1179   A5          D3DKMTExtractBundleObject (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#190)
+       1180   A6          D3DKMTFlipOverlay (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#45)
+       1181   A7          D3DKMTFlushHeapTransitions (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#127)
+       1182   A8          D3DKMTFreeGpuVirtualAddress (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#116)
+       1183   A9          D3DKMTGetAllocationPriority (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#169)
+       1184   AA          D3DKMTGetAvailableTrackedWorkloadIndex (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#209)
+       1185   AB          D3DKMTGetCachedHybridQueryValue (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#91)
+       1186   AC          D3DKMTGetContextInProcessSchedulingPriority (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#50)
+       1187   AD          D3DKMTGetContextSchedulingPriority (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#52)
+       1188   AE          D3DKMTGetDWMVerticalBlankEvent (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#168)
+       1189   AF          D3DKMTGetDeviceState (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#49)
+       1190   B0          D3DKMTGetDisplayModeList (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#28)
+       1191   B1          D3DKMTGetMemoryBudgetTarget (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#177)
+       1192   B2          D3DKMTGetMultiPlaneOverlayCaps (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#170)
+       1193   B3          D3DKMTGetMultisampleMethodList (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#30)
+       1194   B4          D3DKMTGetNativeFenceLogDetail (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#239)
+       1195   B5          D3DKMTGetOverlayState (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#78)
+       1196   B6          D3DKMTGetPostCompositionCaps (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#171)
+       1197   B7          D3DKMTGetPresentHistory (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#41)
+       1198   B8          D3DKMTGetPresentQueueEvent (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#42)
+       1199   B9          D3DKMTGetProcessDeviceRemovalSupport (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#192)
+       1200   BA          D3DKMTGetProcessList (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#203)
+       1201   BB          D3DKMTGetProcessSchedulingPriorityBand (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#176)
+       1202   BC          D3DKMTGetProcessSchedulingPriorityClass (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#54)
+       1203   BD          D3DKMTGetProperties (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#224)
+       1204   BE          D3DKMTGetResourcePresentPrivateDriverData (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#118)
+       1205   BF          D3DKMTGetRuntimeData (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#33)
+       1206   C0          D3DKMTGetScanLine (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#56)
+       1207   C1          D3DKMTGetSetSwapChainMetadata (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#153)
+       1208   C2          D3DKMTGetSharedPrimaryHandle (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#37)
+       1209   C3          D3DKMTGetSharedResourceAdapterLuid (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#89)
+       1210   C4          D3DKMTGetSwapChainSurfacePhysicalAddress (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#225)
+       1211   C5          D3DKMTGetTrackedWorkloadStatistics (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#212)
+       1212   C6          D3DKMTGetYieldPercentage (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#175)
+       1213   C7          D3DKMTInvalidateActiveVidPn (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#59)
+       1214   C8          D3DKMTInvalidateCache (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#113)
+       1215   C9          D3DKMTIsFeatureEnabled (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#235)
+       1216   CA          D3DKMTLock (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#26)
+       1217   CB          D3DKMTLock2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#111)
+       1218   CC          D3DKMTMakeResident (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#101)
+       1219   CD          D3DKMTMapGpuVirtualAddress (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#114)
+       1220   CE          D3DKMTMarkDeviceAsError (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#126)
+       1221   CF          D3DKMTNetDispGetNextChunkInfo (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#93)
+       1222   D0          D3DKMTNetDispQueryMiracastDisplayDeviceStatus (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#99)
+       1223   D1          D3DKMTNetDispQueryMiracastDisplayDeviceSupport (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#94)
+       1224   D2          D3DKMTNetDispStartMiracastDisplayDevice (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#95)
+       1225   D3          D3DKMTNetDispStartMiracastDisplayDevice2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#96)
+       1226   D4          D3DKMTNetDispStartMiracastDisplayDeviceEx (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#97)
+       1227   D5          D3DKMTNetDispStopMiracastDisplayDevice (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#98)
+       1228   D6          D3DKMTNotifyWorkSubmission (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#234)
+       1229   D7          D3DKMTOfferAllocations (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#80)
+       1230   D8          D3DKMTOpenAdapterFromDeviceName (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#35)
+       1231   D9 00002140 D3DKMTOpenAdapterFromGdiDisplayName
+       1232   DA 00002530 D3DKMTOpenAdapterFromHdc
+       1233   DB          D3DKMTOpenAdapterFromLuid (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#124)
+       1234   DC          D3DKMTOpenBundleObjectNtHandleFromName (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#204)
+       1235   DD          D3DKMTOpenKeyedMutex (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#70)
+       1236   DE          D3DKMTOpenKeyedMutex2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#71)
+       1237   DF          D3DKMTOpenKeyedMutexFromNtHandle (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#197)
+       1238   E0          D3DKMTOpenNativeFenceFromNtHandle (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#230)
+       1239   E1          D3DKMTOpenNtHandleFromName (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#6)
+       1240   E2          D3DKMTOpenProtectedSessionFromNtHandle (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#188)
+       1241   E3          D3DKMTOpenResource (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#9)
+       1242   E4          D3DKMTOpenResource2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#10)
+       1243   E5          D3DKMTOpenResourceFromNtHandle (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#7)
+       1244   E6          D3DKMTOpenSwapChain (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#150)
+       1245   E7          D3DKMTOpenSyncObjectFromNtHandle (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#8)
+       1246   E8          D3DKMTOpenSyncObjectFromNtHandle2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#129)
+       1247   E9          D3DKMTOpenSyncObjectNtHandleFromName (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#130)
+       1248   EA          D3DKMTOpenSynchronizationObject (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#20)
+       1249   EB          D3DKMTOutputDuplGetFrameInfo (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#84)
+       1250   EC          D3DKMTOutputDuplGetMetaData (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#85)
+       1251   ED          D3DKMTOutputDuplGetPointerShapeData (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#86)
+       1252   EE          D3DKMTOutputDuplPresent (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#88)
+       1253   EF          D3DKMTOutputDuplPresentToHwQueue (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#214)
+       1254   F0          D3DKMTOutputDuplReleaseFrame (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#87)
+       1255   F1          D3DKMTPinDirectFlipResources (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#135)
+       1256   F2          D3DKMTPinResources (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#220)
+       1257   F3          D3DKMTPollDisplayChildren (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#58)
+       1258   F4          D3DKMTPresent (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#31)
+       1259   F5          D3DKMTPresentMultiPlaneOverlay (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#138)
+       1260   F6          D3DKMTPresentMultiPlaneOverlay2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#140)
+       1261   F7          D3DKMTPresentMultiPlaneOverlay3 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#148)
+       1262   F8          D3DKMTPresentRedirected (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#193)
+       1263   F9          D3DKMTQueryAdapterInfo (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#34)
+       1264   FA          D3DKMTQueryAllocationResidency (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#13)
+       1265   FB          D3DKMTQueryClockCalibration (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#142)
+       1266   FC          D3DKMTQueryFSEBlock (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#157)
+       1267   FD          D3DKMTQueryFeatureInterface (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#243)
+       1268   FE          D3DKMTQueryProcessOfferInfo (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#145)
+       1269   FF          D3DKMTQueryProtectedSessionInfoFromNtHandle (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#187)
+       1270  100          D3DKMTQueryProtectedSessionStatus (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#186)
+       1271  101          D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName (forwarded to WIN32U.NtGdiDdDDIQueryRemoteVidPnSourceFromGdiDisplayName)
+       1272  102          D3DKMTQueryResourceInfo (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#3)
+       1273  103          D3DKMTQueryResourceInfoFromNtHandle (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#4)
+       1274  104          D3DKMTQueryStatistics (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#39)
+       1275  105          D3DKMTQueryVidPnExclusiveOwnership (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#122)
+       1276  106          D3DKMTQueryVideoMemoryInfo (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#131)
+       1277  107          D3DKMTReclaimAllocations (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#81)
+       1278  108          D3DKMTReclaimAllocations2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#121)
+       1279  109          D3DKMTRegisterTrimNotification (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#133)
+       1280  10A          D3DKMTRegisterVailProcess (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#198)
+       1281  10B          D3DKMTReleaseKeyedMutex (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#75)
+       1282  10C          D3DKMTReleaseKeyedMutex2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#76)
+       1283  10D          D3DKMTReleaseProcessVidPnSourceOwners (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#55)
+       1284  10E          D3DKMTReleaseSwapChain (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#152)
+       1285  10F          D3DKMTRemoveSurfaceFromSwapChain (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#195)
+       1286  110          D3DKMTRender (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#32)
+       1287  111          D3DKMTReserveGpuVirtualAddress (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#115)
+       1288  112          D3DKMTResetTrackedWorkloadStatistics (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#213)
+       1289  113          D3DKMTSetAllocationPriority (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#12)
+       1290  114          D3DKMTSetContextInProcessSchedulingPriority (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#205)
+       1291  115          D3DKMTSetContextSchedulingPriority (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#51)
+       1292  116          D3DKMTSetDisplayMode (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#29)
+       1293  117          D3DKMTSetDisplayPrivateDriverFormat (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#65)
+       1294  118          D3DKMTSetDodIndirectSwapchain (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#155)
+       1295  119          D3DKMTSetFSEBlock (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#156)
+       1296  11A          D3DKMTSetGammaRamp (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#48)
+       1297  11B          D3DKMTSetHwProtectionTeardownRecovery (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#128)
+       1298  11C          D3DKMTSetMemoryBudgetTarget (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#174)
+       1299  11D          D3DKMTSetMonitorColorSpaceTransform (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#183)
+       1300  11E          D3DKMTSetProcessDeviceRemovalSupport (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#191)
+       1301  11F          D3DKMTSetProcessSchedulingPriorityBand (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#173)
+       1302  120          D3DKMTSetProcessSchedulingPriorityClass (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#53)
+       1303  121          D3DKMTSetProperties (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#223)
+       1304  122          D3DKMTSetQueuedLimit (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#57)
+       1305  123          D3DKMTSetStablePowerState (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#141)
+       1306  124          D3DKMTSetStereoEnabled (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#90)
+       1307  125          D3DKMTSetSyncRefreshCountWaitTarget (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#167)
+       1308  126          D3DKMTSetVidPnSourceHwProtection (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#125)
+       1309  127          D3DKMTSetVidPnSourceOwner (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#40)
+       1310  128          D3DKMTSetVidPnSourceOwner1 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#165)
+       1311  129          D3DKMTSetVidPnSourceOwner2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#182)
+       1312  12A          D3DKMTSetYieldPercentage (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#172)
+       1313  12B          D3DKMTShareObjects (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#5)
+       1314  12C          D3DKMTSharedPrimaryLockNotification (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#66)
+       1315  12D          D3DKMTSharedPrimaryUnLockNotification (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#67)
+       1316  12E          D3DKMTSignalSynchronizationObject (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#24)
+       1317  12F          D3DKMTSignalSynchronizationObject2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#25)
+       1318  130          D3DKMTSignalSynchronizationObjectFromCpu (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#105)
+       1319  131          D3DKMTSignalSynchronizationObjectFromGpu (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#107)
+       1320  132          D3DKMTSignalSynchronizationObjectFromGpu2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#108)
+       1321  133          D3DKMTSubmitCommand (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#120)
+       1322  134          D3DKMTSubmitCommandToHwQueue (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#162)
+       1323  135          D3DKMTSubmitPresentBltToHwQueue (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#202)
+       1324  136          D3DKMTSubmitPresentToHwQueue (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#206)
+       1325  137          D3DKMTSubmitSignalSyncObjectsToHwQueue (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#164)
+       1326  138          D3DKMTSubmitWaitForSyncObjectsToHwQueue (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#163)
+       1327  139          D3DKMTTrimProcessCommitment (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#146)
+       1328  13A          D3DKMTUnOrderedPresentSwapChain (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#196)
+       1329  13B          D3DKMTUnlock (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#27)
+       1330  13C          D3DKMTUnlock2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#112)
+       1331  13D          D3DKMTUnpinDirectFlipResources (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#136)
+       1332  13E          D3DKMTUnpinResources (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#221)
+       1333  13F          D3DKMTUnregisterTrimNotification (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#134)
+       1334  140          D3DKMTUpdateAllocationProperty (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#103)
+       1335  141          D3DKMTUpdateGpuVirtualAddress (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#117)
+       1336  142          D3DKMTUpdateOverlay (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#44)
+       1337  143          D3DKMTUpdateTrackedWorkload (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#210)
+       1338  144          D3DKMTVailConnect (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#199)
+       1339  145          D3DKMTVailDisconnect (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#200)
+       1340  146          D3DKMTVailPromoteCompositionSurface (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#201)
+       1341  147          D3DKMTWaitForIdle (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#61)
+       1342  148          D3DKMTWaitForSynchronizationObject (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#22)
+       1343  149          D3DKMTWaitForSynchronizationObject2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#23)
+       1344  14A          D3DKMTWaitForSynchronizationObjectFromCpu (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#104)
+       1345  14B          D3DKMTWaitForSynchronizationObjectFromGpu (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#106)
+       1346  14C          D3DKMTWaitForVerticalBlankEvent (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#47)
+       1347  14D          D3DKMTWaitForVerticalBlankEvent2 (forwarded to ext-ms-win-dx-d3dkmt-dxcore-l1-1-5.#166)
+       1348  14E 000085E0 DDCCIGetCapabilitiesString
+       1349  14F 000085F0 DDCCIGetCapabilitiesStringLength
+       1350  150 00008600 DDCCIGetTimingReport
+       1351  151 00008610 DDCCIGetVCPFeature
+       1352  152 00008620 DDCCISaveCurrentSettings
+       1353  153 00008630 DDCCISetVCPFeature
+       1354  154 00006260 DPtoLP
+       1355  155 00008640 DdCreateFullscreenSprite
+       1356  156 00008650 DdDestroyFullscreenSprite
+       1357  157 0000ADE0 DdEntry0
+       1358  158 0000AE00 DdEntry1
+       1359  159 0000AE20 DdEntry10
+       1360  15A 0000AE40 DdEntry11
+       1361  15B 0000AE60 DdEntry12
+       1362  15C 0000AE80 DdEntry13
+       1363  15D 0000AEA0 DdEntry14
+       1364  15E 0000AEC0 DdEntry15
+       1365  15F 0000AEE0 DdEntry16
+       1366  160 0000AF00 DdEntry17
+       1367  161 0000AF20 DdEntry18
+       1368  162 0000AF40 DdEntry19
+       1369  163 0000AF60 DdEntry2
+       1370  164 0000AF80 DdEntry20
+       1371  165 0000AFA0 DdEntry21
+       1372  166 0000AFC0 DdEntry22
+       1373  167 0000AFE0 DdEntry23
+       1374  168 0000B000 DdEntry24
+       1375  169 0000B020 DdEntry25
+       1376  16A 0000B040 DdEntry26
+       1377  16B 0000B060 DdEntry27
+       1378  16C 0000B080 DdEntry28
+       1379  16D 0000B0A0 DdEntry29
+       1380  16E 0000B0C0 DdEntry3
+       1381  16F 0000B0E0 DdEntry30
+       1382  170 0000B100 DdEntry31
+       1383  171 0000B120 DdEntry32
+       1384  172 0000B140 DdEntry33
+       1385  173 0000B160 DdEntry34
+       1386  174 0000B180 DdEntry35
+       1387  175 0000B1A0 DdEntry36
+       1388  176 0000B1C0 DdEntry37
+       1389  177 0000B1E0 DdEntry38
+       1390  178 0000B200 DdEntry39
+       1391  179 0000B220 DdEntry4
+       1392  17A 0000B240 DdEntry40
+       1393  17B 0000B260 DdEntry41
+       1394  17C 0000B280 DdEntry42
+       1395  17D 0000B2A0 DdEntry43
+       1396  17E 0000B2C0 DdEntry44
+       1397  17F 0000B2E0 DdEntry45
+       1398  180 0000B300 DdEntry46
+       1399  181 0000B320 DdEntry47
+       1400  182 0000B340 DdEntry48
+       1401  183 0000B360 DdEntry49
+       1402  184 0000B380 DdEntry5
+       1403  185 0000B3A0 DdEntry50
+       1404  186 0000B3C0 DdEntry51
+       1405  187 0000B3E0 DdEntry52
+       1406  188 0000B400 DdEntry53
+       1407  189 0000B420 DdEntry54
+       1408  18A 0000B440 DdEntry55
+       1409  18B 0000B460 DdEntry56
+       1410  18C 0000B480 DdEntry6
+       1411  18D 0000B4A0 DdEntry7
+       1412  18E 0000B4C0 DdEntry8
+       1413  18F 0000B4E0 DdEntry9
+       1414  190 00008660 DdNotifyFullscreenSpriteUpdate
+       1415  191 00008670 DdQueryVisRgnUniqueness
+       1416  192 0000A7E0 DeleteColorSpace
+       1417  193 00003A50 DeleteDC
+       1418  194 00007150 DeleteEnhMetaFile
+       1419  195 00007660 DeleteMetaFile
+       1420  196 00001070 DeleteObject
+       1421  197 0000B500 DescribePixelFormat
+       1422  198 00008680 DestroyOPMProtectedOutput
+       1423  199 00008690 DestroyPhysicalMonitorInternal
+       1424  19A 0000B520 DeviceCapabilitiesExA
+       1425  19B          DeviceCapabilitiesExW (forwarded to ext-ms-win-gdi-desktop-l1-1-0.DeviceCapabilitiesExA)
+       1426  19C 0000B540 DrawEscape
+       1014  19D 0000B560 DwmCreatedBitmapRemotingOutput
+       1427  19E 00006CC0 Ellipse
+       1428  19F 000086A0 EnableEUDC
+       1429  1A0 00008190 EndDoc
+       1430  1A1 0000B580 EndFormPage
+       1431  1A2 000086B0 EndGdiRendering
+       1432  1A3 00007FF0 EndPage
+       1433  1A4 00006670 EndPath
+       1434  1A5 0000B5A0 EngAcquireSemaphore
+       1435  1A6 000086C0 EngAlphaBlend
+       1436  1A7 000086D0 EngAssociateSurface
+       1437  1A8 000086E0 EngBitBlt
+       1438  1A9 000086F0 EngCheckAbort
+       1439  1AA 0000B5C0 EngComputeGlyphSet
+       1440  1AB 00008700 EngCopyBits
+       1441  1AC 0000B5E0 EngCreateBitmap
+       1442  1AD 00008710 EngCreateClip
+       1443  1AE 0000B600 EngCreateDeviceBitmap
+       1444  1AF 0000B620 EngCreateDeviceSurface
+       1445  1B0 0000B640 EngCreatePalette
+       1446  1B1 0000B660 EngCreateSemaphore
+       1447  1B2 00008720 EngDeleteClip
+       1448  1B3 0000B680 EngDeletePalette
+       1449  1B4 00008730 EngDeletePath
+       1450  1B5 0000B6A0 EngDeleteSemaphore
+       1451  1B6 0000B6C0 EngDeleteSurface
+       1452  1B7 00008740 EngEraseSurface
+       1453  1B8 00008750 EngFillPath
+       1454  1B9 0000B6E0 EngFindResource
+       1455  1BA 0000B700 EngFreeModule
+       1456  1BB 0000B720 EngGetCurrentCodePage
+       1457  1BC 0000B740 EngGetDriverName
+       1458  1BD 0000B760 EngGetPrinterDataFileName
+       1459  1BE 00008760 EngGradientFill
+       1460  1BF 00008770 EngLineTo
+       1461  1C0 0000B780 EngLoadModule
+       1462  1C1 00008780 EngLockSurface
+       1463  1C2 00008790 EngMarkBandingSurface
+       1464  1C3 0000B7A0 EngMultiByteToUnicodeN
+       1465  1C4 0000B7C0 EngMultiByteToWideChar
+       1466  1C5 000087A0 EngPaint
+       1467  1C6 000087B0 EngPlgBlt
+       1468  1C7 0000B7E0 EngQueryEMFInfo
+       1469  1C8 0000B800 EngQueryLocalTime
+       1470  1C9 0000B820 EngReleaseSemaphore
+       1471  1CA 000087C0 EngStretchBlt
+       1472  1CB 000087D0 EngStretchBltROP
+       1473  1CC 000087E0 EngStrokeAndFillPath
+       1474  1CD 000087F0 EngStrokePath
+       1475  1CE 00008800 EngTextOut
+       1476  1CF 00008810 EngTransparentBlt
+       1477  1D0 0000B840 EngUnicodeToMultiByteN
+       1478  1D1 00008820 EngUnlockSurface
+       1479  1D2 0000B860 EngWideCharToMultiByte
+       1480  1D3 000070D0 EnumEnhMetaFile
+       1481  1D4 000079C0 EnumFontFamiliesA
+       1482  1D5 00007A30 EnumFontFamiliesExA
+       1483  1D6 000097A0 EnumFontFamiliesExW
+       1484  1D7 0000B880 EnumFontFamiliesW
+       1485  1D8 0000B8A0 EnumFontsA
+       1486  1D9 00009840 EnumFontsW
+       1487  1DA 0000B8C0 EnumICMProfilesA
+       1488  1DB 0000B8E0 EnumICMProfilesW
+       1489  1DC 00007580 EnumMetaFile
+       1490  1DD 00008B50 EnumObjects
+       1491  1DE 000053D0 EqualRgn
+       1492  1DF 000071D0 Escape
+       1493  1E0 0000B900 EudcLoadLinkW
+       1494  1E1 0000B920 EudcUnloadLinkW
+       1495  1E2 0000A5D0 ExcludeClipRect
+       1496  1E3 0000B940 ExtCreatePen
+       1497  1E4 000021D0 ExtCreateRegion
+       1498  1E5 00006BD0 ExtEscape
+       1499  1E6 0000B960 ExtFloodFill
+       1500  1E7 00004830 ExtSelectClipRgn
+       1501  1E8 00005AB0 ExtTextOutA
+       1502  1E9 00004490 ExtTextOutW
+       1503  1EA 00008830 FONTOBJ_cGetAllGlyphHandles
+       1504  1EB 00008840 FONTOBJ_cGetGlyphs
+       1505  1EC 00008850 FONTOBJ_pQueryGlyphAttrs
+       1506  1ED 00008860 FONTOBJ_pfdg
+       1507  1EE 00008870 FONTOBJ_pifi
+       1508  1EF 00008880 FONTOBJ_pvTrueTypeFontFile
+       1509  1F0 00008890 FONTOBJ_pxoGetXform
+       1510  1F1 000088A0 FONTOBJ_vGetInfo
+       1511  1F2 000067D0 FillPath
+       1512  1F3 00007B00 FillRgn
+       1513  1F4 0000B980 FixBrushOrgEx
+       1514  1F5 0000B9A0 FlattenPath
+       1515  1F6 0000B9C0 FloodFill
+       1516  1F7 0000B9E0 FontIsLinked
+       1517  1F8 00007B60 FrameRgn
+       1518  1F9 00005ED0 Gdi32DllInitialize
+       1519  1FA 0000BA00 GdiAddFontResourceW
+       1520  1FB 0000BA20 GdiAddGlsBounds
+       1521  1FC 0000BA40 GdiAddGlsRecord
+       1522  1FD 0000BA60 GdiAddInitialFonts
+       1523  1FE 00009080 GdiAlphaBlend
+       1524  1FF 0000BA80 GdiArtificialDecrementDriver
+       1525  200 00025770 GdiBatchLimit
+       1526  201 0000BAA0 GdiCleanCacheDC
+       1527  202 00006A20 GdiComment
+       1528  203 0000BAC0 GdiConsoleTextOut
+       1529  204 0000BAE0 GdiConvertAndCheckDC
+       1530  205 0000BB00 GdiConvertBitmap
+       1531  206 0000BB20 GdiConvertBitmapV5
+       1532  207 0000BB40 GdiConvertBrush
+       1533  208 0000BB60 GdiConvertDC
+       1534  209 0000BB80 GdiConvertEnhMetaFile
+       1535  20A 0000BBA0 GdiConvertFont
+       1536  20B 0000BBC0 GdiConvertMetaFilePict
+       1537  20C 0000BBE0 GdiConvertPalette
+       1538  20D 0000BC00 GdiConvertRegion
+       1539  20E 0000BC20 GdiConvertToDevmodeW
+       1540  20F 0000BC40 GdiCreateLocalEnhMetaFile
+       1541  210 0000BC60 GdiCreateLocalMetaFilePict
+       1542  211 0000BC80 GdiCurrentProcessSplWow64
+       1543  212 0000BD20 GdiDeleteLocalDC
+       1544  213 0000BD40 GdiDeleteSpoolFileHandle
+       1545  214 0000BD60 GdiDescribePixelFormat
+       1546  215 0000BD80 GdiDisableUMPDSandboxing
+       1547  216 0000A6E0 GdiDllInitialize
+       1548  217 0000BE20 GdiDrawStream
+       1549  218 0000BE40 GdiEndDocEMF
+       1550  219 0000BE60 GdiEndPageEMF
+       1551  21A 0000BE80 GdiEntry1
+       1552  21B 0000BEA0 GdiEntry10
+       1553  21C 0000BEC0 GdiEntry11
+       1554  21D 0000BEE0 GdiEntry12
+       1555  21E 000045F0 GdiEntry13
+       1556  21F 0000BF00 GdiEntry14
+       1557  220 0000BF20 GdiEntry15
+       1558  221 0000BF40 GdiEntry16
+       1559  222 0000BF60 GdiEntry2
+       1560  223 0000BF80 GdiEntry3
+       1561  224 0000BFA0 GdiEntry4
+       1562  225 0000BFC0 GdiEntry5
+       1563  226 0000BFE0 GdiEntry6
+       1564  227 0000C000 GdiEntry7
+       1565  228 0000C020 GdiEntry8
+       1566  229 0000C040 GdiEntry9
+       1567  22A 0000C060 GdiFixUpHandle
+       1568  22B 00009120 GdiFlush
+       1569  22C 000088B0 GdiFullscreenControl
+       1570  22D 0000C080 GdiGetBatchLimit
+       1571  22E 0000C0A0 GdiGetBitmapBitsSize
+       1572  22F 0000C0C0 GdiGetCharDimensions
+       1573  230 0000C0E0 GdiGetCodePage
+       1574  231 0000C100 GdiGetDC
+       1575  232 0000C120 GdiGetDevmodeForPage
+       1576  233 00001010 GdiGetEntry
+       1577  234 0000C140 GdiGetLocalBrush
+       1578  235 0000C160 GdiGetLocalDC
+       1579  236 0000C180 GdiGetLocalFont
+       1580  237 0000C1A0 GdiGetPageCount
+       1581  238 0000C1C0 GdiGetPageHandle
+       1582  239 0000C1E0 GdiGetSpoolFileHandle
+       1583  23A 000088C0 GdiGetSpoolMessage
+       1584  23B 0000C200 GdiGetVariationStoreDelta
+       1585  23C 000091C0 GdiGradientFill
+       1586  23D 0000C220 GdiHandleBeingTracked
+       1587  23E 000088D0 GdiInitSpool
+       1588  23F 0000C240 GdiInitializeLanguagePack
+       1589  240 0000C260 GdiIsMetaFileDC
+       1590  241 0000C280 GdiIsMetaPrintDC
+       1591  242 0000C2A0 GdiIsPlayMetafileDC
+       1592  243 0000C2C0 GdiIsScreenDC
+       1593  244 0000C2E0 GdiIsUMPDSandboxingEnabled
+       1594  245 0000C300 GdiLoadType1Fonts
+       1595  246 0000C320 GdiPlayDCScript
+       1596  247 0000C340 GdiPlayEMF
+       1597  248 0000C360 GdiPlayJournal
+       1598  249 0000C380 GdiPlayPageEMF
+       1599  24A 0000C3A0 GdiPlayPrivatePageEMF
+       1600  24B 0000C3C0 GdiPlayScript
+       1601  24C 0000C3E0 GdiPrinterThunk
+       1602  24D 0000C400 GdiProcessSetup
+       1603  24E 000088E0 GdiQueryFonts
+       1604  24F 0000C420 GdiQueryTable
+       1605  250 0000C440 GdiRealizationInfo
+       1606  251 00001650 GdiReleaseDC
+       1607  252 0000C460 GdiReleaseLocalDC
+       1608  253 0000C480 GdiResetDCEMF
+       1609  254 0000C4A0 GdiSetAttrs
+       1610  255 0000C4C0 GdiSetBatchLimit
+       1611  256 000064B0 GdiSetLastError
+       1612  257 0000C4E0 GdiSetPixelFormat
+       1613  258 0000C500 GdiSetServerAttr
+       1614  259 0000C520 GdiStartDocEMF
+       1615  25A 0000C540 GdiStartPageEMF
+       1616  25B 0000A7F0 GdiSupportsFontChangeEvent
+       1617  25C 0000C560 GdiSwapBuffers
+       1618  25D 0000C580 GdiTrackHCreate
+       1619  25E 0000C5A0 GdiTrackHDelete
+       1620  25F 000091E0 GdiTransparentBlt
+       1621  260 0000C5C0 GdiValidateHandle
+       1622  261 0000C5E0 GdiWaitForTextReady
+       1623  262 0000DC60 GdipIsAssertEnabled
+       1624  263 0000C600 GditGetCallerTLStorage
+       1625  264 0000C620 GditPopCallerInfo
+       1626  265 0000C640 GditPushCallerInfo
+       1627  266 0000C660 GetArcDirection
+       1628  267 0000C680 GetAspectRatioFilterEx
+       1629  268 0000C6A0 GetBitmapAttributes
+       1630  269 00006810 GetBitmapBits
+       1631  26A 0000C6C0 GetBitmapDimensionEx
+       1632  26B 000088F0 GetBitmapDpiScaleValue
+       1633  26C 00005DC0 GetBkColor
+       1634  26D 00009200 GetBkMode
+       1635  26E 0000C6E0 GetBoundsRect
+       1636  26F 0000C700 GetBrushAttributes
+       1637  270 00009220 GetBrushOrgEx
+       1638  271 00008900 GetCOPPCompatibleOPMInformation
+       1639  272 00008910 GetCertificate
+       1640  273 00008920 GetCertificateByHandle
+       1641  274 00008930 GetCertificateSize
+       1642  275 00008940 GetCertificateSizeByHandle
+       1643  276 0000C720 GetCharABCWidthsA
+       1644  277 0000C740 GetCharABCWidthsFloatA
+       1645  278 0000C760 GetCharABCWidthsFloatI
+       1646  279 0000C780 GetCharABCWidthsFloatW
+       1647  27A 0000C7A0 GetCharABCWidthsI
+       1648  27B 00009860 GetCharABCWidthsW
+       1649  27C 00009900 GetCharWidth32A
+       1650  27D 0000C7C0 GetCharWidth32W
+       1651  27E 000074A0 GetCharWidthA
+       1652  27F 0000C7E0 GetCharWidthFloatA
+       1653  280 0000C800 GetCharWidthFloatW
+       1654  281 0000C820 GetCharWidthI
+       1655  282 00008950 GetCharWidthInfo
+       1656  283 00009920 GetCharWidthW
+       1657  284 0000C840 GetCharacterPlacementA
+       1658  285 0000C860 GetCharacterPlacementW
+       1659  286 000059B0 GetClipBox
+       1660  287 00004FE0 GetClipRgn
+       1661  288 0000C880 GetColorAdjustment
+       1662  289 0000C8A0 GetColorSpace
+       1663  28A 000060A0 GetCurrentDpiInfo
+       1664  28B 00005220 GetCurrentObject
+       1665  28C 000065E0 GetCurrentPositionEx
+       1666  28D 00008BF0 GetDCBrushColor
+       1667  28E 0000C8C0 GetDCDpiScaleValue
+       1668  28F 00008C10 GetDCOrgEx
+       1669  290 0000C8E0 GetDCPenColor
+       1670  291 00009240 GetDIBColorTable
+       1671  292 00004E30 GetDIBits
+       1672  293 000017F0 GetDeviceCaps
+       1673  294 0000C900 GetDeviceGammaRamp
+       1674  295 0000C920 GetETM
+       1675  296 0000C940 GetEUDCTimeStamp
+       1676  297 0000C960 GetEUDCTimeStampExW
+       1677  298 0000DF20 GetEnhMetaFileA
+       1678  299 00007C90 GetEnhMetaFileBits
+       1679  29A 0000DF60 GetEnhMetaFileDescriptionA
+       1680  29B 0000C980 GetEnhMetaFileDescriptionW
+       1681  29C 00009E80 GetEnhMetaFileHeader
+       1682  29D 00009F20 GetEnhMetaFilePaletteEntries
+       1683  29E 0000C9A0 GetEnhMetaFilePixelFormat
+       1684  29F 00009F40 GetEnhMetaFileW
+       1685  2A0 0000C9C0 GetFontAssocStatus
+       1686  2A1 000057C0 GetFontData
+       1687  2A2 00009940 GetFontFileData
+       1688  2A3 00009960 GetFontFileInfo
+       1689  2A4 0000C9E0 GetFontLanguageInfo
+       1690  2A5 00009980 GetFontRealizationInfo
+       1691  2A6 0000CA00 GetFontResourceInfoW
+       1692  2A7 00008960 GetFontUnicodeRanges
+       1693  2A8 0000CA20 GetGlyphIndicesA
+       1694  2A9 000099A0 GetGlyphIndicesW
+       1695  2AA 0000DFC0 GetGlyphOutline
+       1696  2AB 00007740 GetGlyphOutlineA
+       1697  2AC 00005B90 GetGlyphOutlineW
+       1698  2AD 0000CA40 GetGlyphOutlineWow
+       1699  2AE 0000CA60 GetGraphicsMode
+       1700  2AF 0000CA80 GetHFONT
+       1701  2B0 0000CAA0 GetICMProfileA
+       1702  2B1 0000CAC0 GetICMProfileW
+       1703  2B2 00007D30 GetKerningPairs
+       1704  2B3 00007D30 GetKerningPairsA
+       1705  2B4 000099C0 GetKerningPairsW
+       1706  2B5 00008CB0 GetLayout
+       1707  2B6 0000CAE0 GetLogColorSpaceA
+       1708  2B7 0000CB00 GetLogColorSpaceW
+       1709  2B8 00009260 GetMapMode
+       1710  2B9 0000CB20 GetMetaFileA
+       1711  2BA 00007250 GetMetaFileBitsEx
+       1712  2BB 0000CB40 GetMetaFileW
+       1713  2BC 0000CB60 GetMetaRgn
+       1714  2BD 0000CB80 GetMiterLimit
+       1715  2BE 0000CBA0 GetNearestColor
+       1716  2BF 00007AB0 GetNearestPaletteIndex
+       1717  2C0 00008970 GetNumberOfPhysicalMonitors
+       1718  2C1 00008980 GetOPMInformation
+       1719  2C2 00008990 GetOPMRandomNumber
+       1720  2C3 00005840 GetObjectA
+       1721  2C4 00004740 GetObjectType
+       1722  2C5 00004B80 GetObjectW
+       1723  2C6 00007880 GetOutlineTextMetricsA
+       1724  2C7 000099E0 GetOutlineTextMetricsW
+       1725  2C8 00006ED0 GetPaletteEntries
+       1726  2C9 0000CBC0 GetPath
+       1727  2CA 000089A0 GetPhysicalMonitorDescription
+       1728  2CB 000089B0 GetPhysicalMonitorFromTargetInternal
+       1729  2CC 000089C0 GetPhysicalMonitors
+       1730  2CD 00005E00 GetPixel
+       1731  2CE 0000CBE0 GetPixelFormat
+       1732  2CF 0000CC00 GetPolyFillMode
+       1733  2D0 00009A00 GetProcessSessionFonts
+       1734  2D1 00006870 GetROP2
+       1735  2D2 0000A800 GetRandomRgn
+       1736  2D3 0000DFE0 GetRasterizerCaps
+       1737  2D4 00004560 GetRegionData
+       1738  2D5 0000CC20 GetRelAbs
+       1739  2D6 00003D10 GetRgnBox
+       1740  2D7 00004980 GetStockObject
+       1741  2D8 0000CC40 GetStretchBltMode
+       1742  2D9 0000CC60 GetStringBitmapA
+       1743  2DA 000089D0 GetStringBitmapW
+       1744  2DB 000089E0 GetSuggestedOPMProtectedOutputArraySize
+       1745  2DC 000078E0 GetSystemPaletteEntries
+       1746  2DD 0000CC80 GetSystemPaletteUse
+       1747  2DE 00005160 GetTextAlign
+       1748  2DF 00006F40 GetTextCharacterExtra
+       1749  2E0 00009A20 GetTextCharset
+       1750  2E1 000089F0 GetTextCharsetInfo
+       1751  2E2 000061B0 GetTextColor
+       1752  2E3 00006920 GetTextExtentExPointA
+       1753  2E4 00007040 GetTextExtentExPointI
+       1754  2E5 000064D0 GetTextExtentExPointW
+       1755  2E6 0000CCA0 GetTextExtentExPointWPri
+       1756  2E7 000069B0 GetTextExtentPoint32A
+       1757  2E8 00004EC0 GetTextExtentPoint32W
+       1758  2E9 00007510 GetTextExtentPointA
+       1759  2EA 00008120 GetTextExtentPointI
+       1760  2EB 000054F0 GetTextExtentPointW
+       1761  2EC 00007820 GetTextFaceA
+       1762  2ED 0000CCC0 GetTextFaceAliasW
+       1763  2EE 00009A40 GetTextFaceW
+       1764  2EF 000063E0 GetTextMetricsA
+       1765  2F0 00004F70 GetTextMetricsW
+       1766  2F1 0000CCE0 GetTransform
+       1767  2F2 0000CD00 GetViewportExtEx
+       1768  2F3 00005710 GetViewportOrgEx
+       1769  2F4 00009F60 GetWinMetaFileBits
+       1770  2F5 00009280 GetWindowExtEx
+       1771  2F6 000092A0 GetWindowOrgEx
+       1772  2F7 000092C0 GetWorldTransform
+       1773  2F8 00008A00 HT_Get8BPPFormatPalette
+       1774  2F9 00008A10 HT_Get8BPPMaskPalette
+       1775  2FA 0000A810 InternalDeleteDC
+       1776  2FB 000010F0 InternalDeleteObject
+       1777  2FC 00005940 IntersectClipRect
+       1778  2FD 00007F90 InvertRgn
+       1779  2FE 0000CD20 IsValidEnhMetaRecord
+       1780  2FF 0000CD40 IsValidEnhMetaRecordOffExt
+       1781  300 00005760 LPtoDP
+       1782  301 0000CD60 LineDDA
+       1783  302 000056B0 LineTo
+       1784  303          LpkDrawTextEx (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.LpkDrawTextEx)
+       1785  304 00025700 LpkEditControl
+       1786  305          LpkExtTextOut (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.LpkExtTextOut)
+       1787  306          LpkGetCharacterPlacement (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.LpkGetCharacterPlacement)
+       1788  307 00006BC0 LpkGetEditControl
+       1789  308          LpkGetTextExtentExPoint (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.LpkGetTextExtentExPoint)
+       1790  309          LpkInitialize (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.LpkInitialize)
+       1791  30A          LpkPSMTextOut (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.LpkPSMTextOut)
+       1792  30B          LpkPresent (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.LpkPresent)
+       1793  30C          LpkTabbedTextOut (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.LpkTabbedTextOut)
+       1794  30D          LpkUseGDIWidthCache (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.LpkUseGDIWidthCache)
+       1795  30E 00012180 LpkpEditControlSize
+       1796  30F 00006140 LpkpInitializeEditControl
+       1797  310 0000CD80 MaskBlt
+       1798  311 0000CDA0 MirrorRgn
+       1799  312 0000A780 ModerncoreCreateICW
+       1800  313 0000A7A0 ModerncoreDeleteDC
+       1801  314 0000A7C0 ModerncoreGdiInit
+       1802  315 0000CDC0 ModifyWorldTransform
+       1803  316 000047C0 MoveToEx
+       1804  317 0000CDE0 NamedEscape
+       1805  318 0000CE00 OffsetClipRgn
+       1806  319 000041D0 OffsetRgn
+       1807  31A 000092E0 OffsetViewportOrgEx
+       1808  31B 00009300 OffsetWindowOrgEx
+       1809  31C 00008A20 PATHOBJ_bEnum
+       1810  31D 00008A30 PATHOBJ_bEnumClipLines
+       1811  31E 00008A40 PATHOBJ_vEnumStart
+       1812  31F 00008A50 PATHOBJ_vEnumStartClipLines
+       1813  320 00008A60 PATHOBJ_vGetBounds
+       1814  321 0000CE20 PaintRgn
+       1815  322 000052E0 PatBlt
+       1816  323 0000A1F0 PathToRegion
+       1817  324 00008210 Pie
+       1818  325 00008070 PlayEnhMetaFile
+       1819  326 0000CE40 PlayEnhMetaFileRecord
+       1820  327 000077D0 PlayMetaFile
+       1821  328 0000CE60 PlayMetaFileRecord
+       1822  329 00009320 PlgBlt
+       1823  32A 00007E00 PolyBezier
+       1824  32B 00005A50 PolyBezierTo
+       1825  32C 00006E20 PolyDraw
+       1826  32D 0000CE80 PolyPatBlt
+       1827  32E 000075F0 PolyPolygon
+       1828  32F 0000CEA0 PolyPolyline
+       1829  330 0000CEC0 PolyTextOutA
+       1830  331 0000CEE0 PolyTextOutW
+       1831  332 000066B0 Polygon
+       1832  333 000068B0 Polyline
+       1833  334 000073E0 PolylineTo
+       1834  335 0000A820 PtInRegion
+       1835  336 0000CF00 PtVisible
+       1836  337 0000CF20 QueryFontAssocStatus
+       1837  338 00006DE0 RealizePalette
+       1838  339 00003ED0 RectInRegion
+       1839  33A 00005FA0 RectVisible
+       1840  33B 000061F0 Rectangle
+       1841  33C 00009A60 RemoveFontMemResourceEx
+       1842  33D 0000E030 RemoveFontResourceA
+       1843  33E 0000CF40 RemoveFontResourceExA
+       1844  33F 0000CF60 RemoveFontResourceExW
+       1845  340 0000CF80 RemoveFontResourceTracking
+       1846  341 000080E0 RemoveFontResourceW
+       1847  342 0000CFA0 ResetDCA
+       1848  343 00007EA0 ResetDCW
+       1849  344 00007F40 ResizePalette
+       1850  345 000058F0 RestoreDC
+       1851  346 00006B30 RoundRect
+       1852  347 00008A70 STROBJ_bEnum
+       1853  348 00008A80 STROBJ_bEnumPositionsOnly
+       1854  349 00008A90 STROBJ_bGetAdvanceWidths
+       1855  34A 00008AA0 STROBJ_dwGetCodePage
+       1856  34B 00008AB0 STROBJ_vEnumStart
+       1857  34C 000058A0 SaveDC
+       1858  34D 00008AC0 ScaleRgn
+       1859  34E 00008AD0 ScaleValues
+       1860  34F 0000CFC0 ScaleViewportExtEx
+       1861  350 0000CFE0 ScaleWindowExtEx
+       1862  351          ScriptApplyDigitSubstitution (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptApplyDigitSubstitution)
+       1863  352          ScriptApplyLogicalWidth (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptApplyLogicalWidth)
+       1864  353          ScriptBreak (forwarded to ext-ms-win-usp10-l1-1-0.ScriptBreak)
+       1865  354          ScriptCPtoX (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptCPtoX)
+       1866  355          ScriptCacheGetHeight (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptCacheGetHeight)
+       1867  356          ScriptFreeCache (forwarded to ext-ms-win-usp10-l1-1-0.ScriptFreeCache)
+       1868  357          ScriptGetCMap (forwarded to ext-ms-win-usp10-l1-1-0.ScriptGetCMap)
+       1869  358          ScriptGetFontAlternateGlyphs (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptGetFontAlternateGlyphs)
+       1870  359          ScriptGetFontFeatureTags (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptGetFontFeatureTags)
+       1871  35A          ScriptGetFontLanguageTags (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptGetFontLanguageTags)
+       1872  35B          ScriptGetFontProperties (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptGetFontProperties)
+       1873  35C          ScriptGetFontScriptTags (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptGetFontScriptTags)
+       1874  35D          ScriptGetGlyphABCWidth (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptGetGlyphABCWidth)
+       1875  35E          ScriptGetLogicalWidths (forwarded to ext-ms-win-usp10-l1-1-0.ScriptGetLogicalWidths)
+       1876  35F          ScriptGetProperties (forwarded to ext-ms-win-usp10-l1-1-0.ScriptGetProperties)
+       1877  360          ScriptIsComplex (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptIsComplex)
+       1878  361          ScriptItemize (forwarded to ext-ms-win-usp10-l1-1-0.ScriptItemize)
+       1879  362          ScriptItemizeOpenType (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptItemizeOpenType)
+       1880  363          ScriptJustify (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptJustify)
+       1881  364          ScriptLayout (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptLayout)
+       1882  365          ScriptPlace (forwarded to ext-ms-win-usp10-l1-1-0.ScriptPlace)
+       1883  366          ScriptPlaceOpenType (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptPlaceOpenType)
+       1884  367          ScriptPositionSingleGlyph (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptPositionSingleGlyph)
+       1885  368          ScriptRecordDigitSubstitution (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptRecordDigitSubstitution)
+       1886  369          ScriptShape (forwarded to ext-ms-win-usp10-l1-1-0.ScriptShape)
+       1887  36A          ScriptShapeOpenType (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptShapeOpenType)
+       1888  36B          ScriptStringAnalyse (forwarded to ext-ms-win-usp10-l1-1-0.ScriptStringAnalyse)
+       1889  36C          ScriptStringCPtoX (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptStringCPtoX)
+       1890  36D          ScriptStringFree (forwarded to ext-ms-win-usp10-l1-1-0.ScriptStringFree)
+       1891  36E          ScriptStringGetLogicalWidths (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptStringGetLogicalWidths)
+       1892  36F          ScriptStringGetOrder (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptStringGetOrder)
+       1893  370          ScriptStringOut (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptStringOut)
+       1894  371          ScriptStringValidate (forwarded to ext-ms-win-usp10-l1-1-0.ScriptStringValidate)
+       1895  372          ScriptStringXtoCP (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptStringXtoCP)
+       1896  373          ScriptString_pLogAttr (forwarded to ext-ms-win-usp10-l1-1-0.ScriptString_pLogAttr)
+       1897  374          ScriptString_pSize (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptString_pSize)
+       1898  375          ScriptString_pcOutChars (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptString_pcOutChars)
+       1899  376          ScriptSubstituteSingleGlyph (forwarded to ext-ms-win-usp10-l1-1-0.ScriptSubstituteSingleGlyph)
+       1900  377          ScriptTextOut (forwarded to ext-ms-win-usp10-l1-1-0.ScriptTextOut)
+       1901  378          ScriptXtoCP (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ScriptXtoCP)
+       1902  379 0000D000 SelectBrushLocal
+       1903  37A 000076A0 SelectClipPath
+       1904  37B 00004C00 SelectClipRgn
+       1905  37C 0000D020 SelectFontLocal
+       1906  37D 00004150 SelectObject
+       1907  37E 00006330 SelectPalette
+       1908  37F 0000D040 SetAbortProc
+       1909  380 0000D060 SetArcDirection
+       1910  381 0000D080 SetBitmapAttributes
+       1911  382 00005D60 SetBitmapBits
+       1912  383 0000D0A0 SetBitmapDimensionEx
+       1913  384 000048E0 SetBkColor
+       1914  385 00004930 SetBkMode
+       1915  386 0000D0C0 SetBoundsRect
+       1916  387 0000D0E0 SetBrushAttributes
+       1917  388 00009340 SetBrushOrgEx
+       1918  389 0000D100 SetColorAdjustment
+       1919  38A 0000D120 SetColorSpace
+       1920  38B 00008CD0 SetDCBrushColor
+       1921  38C 0000D140 SetDCPenColor
+       1922  38D 00009360 SetDIBColorTable
+       1923  38E 00002590 SetDIBits
+       1924  38F 000022C0 SetDIBitsToDevice
+       1925  390 0000A530 SetDeviceGammaRamp
+       1926  391 00009F80 SetEnhMetaFileBits
+       1927  392 0000D160 SetFontEnumeration
+       1928  393 00009380 SetGraphicsMode
+       1929  394 00006390 SetICMMode
+       1930  395 0000D180 SetICMProfileA
+       1931  396 0000D1A0 SetICMProfileW
+       1932  397 000093A0 SetLayout
+       1933  398 0000D1C0 SetLayoutWidth
+       1934  399 00008AE0 SetMagicColors
+       1935  39A 000024B0 SetMapMode
+       1936  39B 0000D1E0 SetMapperFlags
+       1937  39C 000076F0 SetMetaFileBitsEx
+       1938  39D 0000A830 SetMetaRgn
+       1939  39E 00006C50 SetMiterLimit
+       1940  39F 00008AF0 SetOPMSigningKeyAndSequenceNumbers
+       1941  3A0 0000E070 SetPaletteEntries
+       1942  3A1 00005C90 SetPixel
+       1943  3A2 000093C0 SetPixelFormat
+       1944  3A3 0000D200 SetPixelV
+       1945  3A4 00007480 SetPolyFillMode
+       1946  3A5 00005C40 SetROP2
+       1947  3A6 00003AE0 SetRectRgn
+       1948  3A7 0000D220 SetRelAbs
+       1949  3A8 00004DE0 SetStretchBltMode
+       1950  3A9 0000D240 SetSystemPaletteUse
+       1951  3AA 00004A00 SetTextAlign
+       1952  3AB 00009A80 SetTextCharacterExtra
+       1953  3AC 00004890 SetTextColor
+       1954  3AD 0000D260 SetTextJustification
+       1955  3AE 000062C0 SetViewportExtEx
+       1956  3AF 00005030 SetViewportOrgEx
+       1957  3B0 0000D280 SetVirtualResolution
+       1958  3B1 0000D2A0 SetWinMetaFileBits
+       1959  3B2 00006440 SetWindowExtEx
+       1960  3B3 00005270 SetWindowOrgEx
+       1961  3B4 00005A00 SetWorldTransform
+       1962  3B5 0000E0E0 StartDocA
+       1963  3B6 00007EF0 StartDocW
+       1964  3B7 0000D2C0 StartFormPage
+       1965  3B8 000081D0 StartPage
+       1966  3B9 000050A0 StretchBlt
+       1967  3BA 000055D0 StretchDIBits
+       1968  3BB 0000D2E0 StrokeAndFillPath
+       1969  3BC 00007190 StrokePath
+       1970  3BD 000093E0 SwapBuffers
+       1971  3BE 00006720 TextOutA
+       1972  3BF 00009AA0 TextOutW
+       1973  3C0 00006040 TranslateCharsetInfo
+       1974  3C1 0000D300 UnloadNetworkFonts
+       1975  3C2 00006790 UnrealizeObject
+       1976  3C3 0000E130 UpdateColors
+       1977  3C4 0000D320 UpdateICMRegKeyA
+       1978  3C5 0000D340 UpdateICMRegKeyW
+       1979  3C6          UspAllocCache (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.UspAllocCache)
+       1980  3C7          UspAllocTemp (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.UspAllocTemp)
+       1981  3C8          UspFreeMem (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.UspFreeMem)
+       1982  3C9 0000D360 WidenPath
+       1983  3CA 00008B00 XFORMOBJ_bApplyXform
+       1984  3CB 00008B10 XFORMOBJ_iGetXform
+       1985  3CC 00008B20 XLATEOBJ_cGetPalette
+       1986  3CD 00008B30 XLATEOBJ_hGetColorTransform
+       1987  3CE 00008B40 XLATEOBJ_iXlate
+       1988  3CF 0000D380 XLATEOBJ_piVector
+       1989  3D0 000038E0 bCreateDCW
+       1990  3D1 00006F80 bDeleteLDC
+       1991  3D2 0000D3A0 bInitSystemAndFontsDirectoriesW
+       1992  3D3 0000D3C0 bMakePathNameW
+       1993  3D4 0000D3E0 cGetTTFFromFOT
+       1994  3D5 00025790 fpClosePrinter
+       1995  3D6          ftsWordBreak (forwarded to ext-ms-win-gdi-internal-desktop-l1-1-0.ftsWordBreak)
+       1996  3D7 000257A0 gCookie
+       1997  3D8 00025798 gMaxGdiHandleCount
+       1998  3D9 000257B8 gW32PID
+       1999  3DA 00025780 g_systemCallFilterId
+       2001  3DB 0000D400 gdiPlaySpoolStream
+       2002  3DC 000257B0 ghICM
+       2003  3DD 00002C40 hGetPEBHandle
+       2004  3DE 00025788 pGdiDevCaps
+       2005  3DF 000257A8 pGdiSharedHandleTable
+       2006  3E0 00025778 pGdiSharedMemory
+       2007  3E1 00001D70 pldcGet
+       2008  3E2 00004610 vSetPldc
+       1000      0000A4B0 [NONAME]
+       1001      0000A4D0 [NONAME]
+       1002      0000A4F0 [NONAME]
+       1003      0000A430 [NONAME]
+       1004      00005C20 [NONAME]
+       1005      0000A510 [NONAME]
+       1006      0000A410 [NONAME]
+       1007      0000A470 [NONAME]
+       1008      0000DEB0 [NONAME]
+       1009      0000A490 [NONAME]
+       1010      0000A450 [NONAME]
+       1013      0000A370 [NONAME]
+       1015      0000DC40 [NONAME]
+       1016      00006AD0 [NONAME]
+
+  Summary
+
+        1000 .data
+        2000 .didat
+        1000 .pdata
+       15000 .rdata
+        1000 .reloc
+        1000 .rsrc
+        E000 .text
+        1000 fothk
