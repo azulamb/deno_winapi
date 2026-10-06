@@ -1,3 +1,8 @@
+/**
+ * Kernel, User, Gdi, Ole, Shlwapi and Dwm API classes and their FFI definitions.
+ * Libraries load lazily on first use; classes accept injected libraries for testing.
+ * @module
+ */
 export { User } from './src/api/user.ts';
 export { Kernel } from './src/api/kernel.ts';
 export { Gdi } from './src/api/gdi.ts';

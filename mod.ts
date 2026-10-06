@@ -1,5 +1,6 @@
 /**
- * Windows API module
+ * Windows API facade, native library classes and helpers for Windows structures.
+ * Imports do not load native DLLs; native calls require 64-bit Windows and FFI permission.
  * @module winApi
  */
 
